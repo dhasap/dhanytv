@@ -43,16 +43,16 @@ Pilih salah satu app di bawah sesuai device kamu:
 5. Beri nama (contoh: "dhanytv") lalu simpan
 6. Tunggu proses loading channel selesai
 
-### Langkah 3: Tambah EPG (Opsional tapi recommended)
+### Langkah 3: EPG (Otomatis)
 
-EPG bikin kamu bisa lihat jadwal acara TV langsung dari player:
+EPG (jadwal acara TV) sudah otomatis tersedia karena URL EPG sudah tertanam di header playlist (`url-tvg`). Kebanyakan IPTV player akan otomatis load EPG.
 
+Jika EPG tidak muncul otomatis, tambah URL EPG manual:
 1. Di app IPTV player, cari menu **EPG** / **Electronic Program Guide**
 2. Tambah URL EPG:
    ```
-   https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml
+   https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml
    ```
-3. EPG akan otomatis ter-match karena `tvg-id` sudah disesuaikan
 
 ### Tips untuk Channel DASH/DRM
 
@@ -90,17 +90,27 @@ Beberapa channel (yang bertanda V+) menggunakan format DASH dengan DRM ClearKey.
 
 ## 📡 EPG (Electronic Program Guide)
 
-Semua channel Indonesia sudah dilengkapi EPG dari [AqFad2811/epg](https://github.com/AqFad2811/epg):
+Playlist ini menggunakan **Custom EPG** yang di-generate otomatis dari [AqFad2811/epg](https://github.com/AqFad2811/epg), difilter hanya untuk channel yang ada di playlist:
 
-| EPG Source | Cakupan |
-|------------|---------|
-| `indonesia.xml` | 100+ channel Indonesia (RCTI, SCTV, Trans TV, dll.) |
-| `astro.xml` | Channel Malaysia / Astro |
-| `singapore.xml` | Mediacorp Singapore |
-| `unifitv.xml` | UniFi TV Malaysia |
-| `rtmklik.xml` | RTM Malaysia |
+| Info | Detail |
+|------|--------|
+| **EPG URL** | `https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml` |
+| **Channel dengan EPG** | 114 channel |
+| **File size** | ~4 MB (ringan, cepat loading) |
 
-`tvg-id` sudah di-matching otomatis ke EPG source saat update berjalan.
+**Kenapa Custom EPG?** File EPG gabungan dari source asli berukuran 24+ MB — terlalu besar dan bikin timeout di banyak OTT TV player. Custom EPG kita hanya berisi channel yang ada di playlist, jadi ukurannya jauh lebih kecil dan loadingnya cepat.
+
+**Sudah termasuk EPG dari:**
+
+| Source | Cakupan |
+|--------|---------|
+| `indonesia.xml` | 80+ channel Indonesia (RCTI, SCTV, Trans TV, dll.) |
+| `astro.xml` | 14 channel Malaysia/Astro |
+| `singapore.xml` | 5 channel Mediacorp Singapore |
+| `rtmklik.xml` | 3 channel RTM Malaysia |
+| `unifitv.xml` | 11 channel UniFi TV (HBO, Cinemax, dll.) |
+
+`tvg-id` sudah di-matching otomatis ke EPG source saat update berjalan. EPG URL sudah tercantum di header playlist (`url-tvg`), jadi kebanyakan player akan otomatis load EPG.
 
 ---
 
@@ -121,6 +131,7 @@ Saat auto-update berjalan, sistem otomatis melakukan:
 - **Dead channel removal**: Channel tanpa URL stream dihapus otomatis
 - **dens.tv fix**: URL `http://` di-convert ke `https://` supaya tidak redirect ke browser
 - **EPG auto-mapping**: `tvg-id` disesuaikan otomatis dengan EPG source
+- **Custom EPG generation**: EPG difilter hanya untuk channel di playlist (~4MB vs 24MB+)
 - **Sanitasi**: Jejak sumber playlist dibersihkan
 
 ### Setup Secrets (Untuk Fork/Clone)
@@ -138,6 +149,7 @@ Biar auto-update jalan, tambahin secrets di **Settings → Secrets and variables
 
 ```
 ├── dhanytv.m3u                    # Playlist utama
+├── epg.xml                        # Custom EPG (auto-generated)
 ├── .github/
 │   └── workflows/
 │       └── auto-update.yml        # GitHub Actions workflow
