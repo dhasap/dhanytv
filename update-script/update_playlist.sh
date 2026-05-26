@@ -145,11 +145,11 @@ if cur_extinf is not None:
 
 total_before = len(channels)
 
-# Remove channels without URLs
+# STEP 1: Remove channels without URLs
 channels = [ch for ch in channels if ch['urls']]
 print(f"  Channel tanpa URL dihapus: {total_before - len(channels)}")
 
-# Dedup
+# STEP 2: Dedup
 def get_name(extinf):
     m = re.search(r',(.+?)$', extinf.strip())
     return re.sub(r'\s+', ' ', m.group(1).strip().lower()) if m else ''
@@ -169,7 +169,13 @@ for ch in channels:
         deduped.append(ch)
 channels = deduped
 
-# Fix dens.tv
+# STEP 3: Remove dead dens.tv channels (403 blocked)
+dead_domains = ['op-group1-swiftservehd-1.dens.tv', 'op-group1-swiftservesd-1.dens.tv']
+dead_before = len(channels)
+channels = [ch for ch in channels if not any(domain in url for url in ch['urls'] for domain in dead_domains)]
+print(f"  Channel dens.tv dead (403) dihapus: {dead_before - len(channels)}")
+
+# STEP 4: Fix dens.tv URLs
 dens_fixed = 0
 for ch in channels:
     new_urls = []
@@ -193,7 +199,60 @@ for ch in channels:
         dens_fixed += 1
 print(f"  dens.tv URLs diperbaiki: {dens_fixed}")
 
-# EPG mapping
+# STEP 5: Fix multi-URL channels
+multi_fixed = 0
+for ch in channels:
+    if len(ch['urls']) > 1:
+        ch['urls'] = [ch['urls'][0]]
+        multi_fixed += 1
+print(f"  Channel multi-URL difix: {multi_fixed}")
+
+# STEP 6: HTTP → HTTPS
+http_fixed = 0
+http_keep_domains = ['122.248.43.242', 'cdn6.163189.xyz', '45.64.97.211',
+                     'live.serverstreaming.net', 'stream.radiojar.com',
+                     '103.58.160.157', 'live-pv-ta.amazon']
+for ch in channels:
+    new_urls = []
+    for url in ch['urls']:
+        if url.startswith('http://'):
+            if any(d in url for d in http_keep_domains):
+                new_urls.append(url)
+            else:
+                url = url.replace('http://', 'https://', 1)
+                http_fixed += 1
+                new_urls.append(url)
+        else:
+            new_urls.append(url)
+    ch['urls'] = new_urls
+print(f"  HTTP→HTTPS diperbaiki: {http_fixed}")
+
+# STEP 7: Add KODIPROP for DASH
+kodi_fixed = 0
+for ch in channels:
+    has_dash_url = any('.mpd' in u for u in ch['urls'])
+    has_kodi_dash = any('manifest_type=dash' in p for p in ch['props'])
+    has_kodi_hls = any('manifest_type=hls' in p for p in ch['props'])
+    has_kodi_inputstream = any('inputstreamaddon=inputstream.adaptive' in p or 'inputstream=inputstream.adaptive' in p for p in ch['props'])
+
+    if has_dash_url and not has_kodi_dash and not has_kodi_hls:
+        if not has_kodi_inputstream:
+            ch['props'].insert(0, '#KODIPROP:inputstreamaddon=inputstream.adaptive')
+        ch['props'].append('#KODIPROP:inputstream.adaptive.manifest_type=dash')
+        kodi_fixed += 1
+print(f"  KODIPROP DASH ditambahkan: {kodi_fixed}")
+
+# STEP 8: Remove duplicate & separator props
+for ch in channels:
+    seen_props = set()
+    unique_props = []
+    for p in ch['props']:
+        if p not in seen_props and not p.startswith('<===') and p.strip():
+            seen_props.add(p)
+            unique_props.append(p)
+    ch['props'] = unique_props
+
+# STEP 9: EPG mapping
 channel_to_epg = {
     'RCTI': 'RCTI.id', 'MNC TV': 'MNCTV.id', 'MNCTV': 'MNCTV.id',
     'GTV': 'GTV.id', 'Indosiar': 'Indosiar.id', 'SCTV': 'SCTV.id',
@@ -204,7 +263,14 @@ channel_to_epg = {
     'Metro TV': 'MetroTV.id', 'MetroTV': 'MetroTV.id',
     'TVOne': 'tvOne.id', 'TV One': 'tvOne.id', 'tvOne': 'tvOne.id',
     'SindoNews': 'SindoNewsTV.id', 'ANTV': 'ANTV.id',
-    'IDX': 'IDX.id', 'TVRI': 'TVRI.id', 'BTV': 'BTV.id',
+    'IDX': 'IDX.id', 'IDX Channel': 'IDX.id',
+    'TVRI': 'TVRI.id', 'BTV': 'BTV.id',
+    'CNN Indonesia': 'CNNIndonesia.id',
+    'CNBC Indonesia': 'CNBCIndonesia.id',
+    'DAAI TV': 'DAAITV.id',
+    'RTV': 'RTV.id', 'Nusantara TV': 'NusantaraTV.id',
+    'Garuda TV': 'GarudaTV.id', 'BN Channel': 'BNChannel.id',
+    'MAGNA Channel': 'MagnaChannel.id',
     'HITS': 'HITS.id', 'Hits': 'HITS.id',
     'HITS Movies': 'HitsMovies.id', 'HitsMovies': 'HitsMovies.id',
     'Studio Universal': 'StudioUniversal.id', 'AXN': 'AXN.id',
@@ -244,6 +310,13 @@ channel_to_epg = {
     'ONE': 'ONE.id', 'Arirang': 'Arirang.id',
     'Sportstars': 'Sportstars.id', 'Sportstars 2': 'Sportstars2.id',
     'Sportstars 3': 'Sportstars3.id', 'Sportstars 4': 'Sportstars4.id',
+    'HGTV': 'HGTV.id',
+    'CNN': 'CNN', 'BBC News': 'BBCNews',
+    'Discovery Channel': 'DiscoveryChannel', 'Discovery': 'DiscoveryChannel',
+    'Cartoon Network': 'CartoonNetwork', 'Animal Planet': 'Animal Planet',
+    'Berita RTM': 'Berita RTM', 'TV1': 'TV1', 'TV2': 'TV2',
+    'TV6': 'TV6', 'Okey': 'Okey',
+    'Suria': 'Suria', 'Vasantham': 'Vasantham',
     'HBO': '401', 'HBO Hits': '402', 'HBO Family': '403',
     'HBO Signature': '401', 'Cinemax': '405',
 }
@@ -254,6 +327,7 @@ def clean_name(name):
     clean = re.sub(r'\s*\(DensTV\)\s*', '', clean).strip()
     clean = re.sub(r'\s*\(Channel Feed\)\s*', '', clean).strip()
     clean = re.sub(r'\s*HD\s*$', '', clean).strip()
+    clean = re.sub(r'^\s*,', '', clean).strip()
     return clean
 
 def get_epg_id(name):
@@ -306,13 +380,20 @@ with open(target, 'w', encoding='utf-8') as f:
         f.write(header + '\n\n')
     for ch in channels:
         for prop in ch['props']:
-            f.write(prop + '\n')
+            if prop.strip():
+                f.write(prop + '\n')
         f.write(ch['extinf'] + '\n')
         for url in ch['urls']:
             f.write(url + '\n')
         f.write('\n')
 
 print(f"  Total: {total_before} -> {len(channels)}")
+
+hls = sum(1 for ch in channels if any('.m3u8' in u for u in ch['urls']))
+dash = sum(1 for ch in channels if any('.mpd' in u for u in ch['urls']))
+drm = sum(1 for ch in channels if any('license' in p for p in ch['props']))
+hls_nodrm = sum(1 for ch in channels if any('.m3u8' in u for u in ch['urls']) and not any('license' in p for p in ch['props']))
+print(f"  Format: HLS={hls} | DASH={dash} | DRM={drm} | HLS-noDRM(playable)={hls_nodrm}")
 PYEOF
 
 AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")

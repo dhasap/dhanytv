@@ -164,7 +164,14 @@ jobs:
           channels = deduped
           print(f"Duplikat (nama+sumber sama) dihapus: {removed_dupes}")
 
-          # STEP 3: Fix dens.tv URLs
+          # STEP 3: Remove dead channels (dens.tv swiftserve returning 403)
+          dead_domains = ['op-group1-swiftservehd-1.dens.tv', 'op-group1-swiftservesd-1.dens.tv']
+          dead_before = len(channels)
+          channels = [ch for ch in channels if not any(domain in url for url in ch['urls'] for domain in dead_domains)]
+          removed_dead = dead_before - len(channels)
+          print(f"Channel dens.tv dead (403) dihapus: {removed_dead}")
+
+          # STEP 4: Fix dens.tv URLs (http→https, clean query params, add referrer)
           dens_fixed = 0
           for ch in channels:
               new_urls = []
@@ -188,8 +195,65 @@ jobs:
                   dens_fixed += 1
           print(f"dens.tv URLs diperbaiki: {dens_fixed}")
 
-          # STEP 4: Fix EPG tvg-id mapping
-          # Only include IDs that exist in AqFad2811/epg sources
+          # STEP 5: Fix multi-URL channels - keep only first URL
+          # Most IPTV players treat extra URLs as separate channels without metadata
+          multi_fixed = 0
+          for ch in channels:
+              if len(ch['urls']) > 1:
+                  ch['urls'] = [ch['urls'][0]]
+                  multi_fixed += 1
+          print(f"Channel multi-URL difix (keep 1st): {multi_fixed}")
+
+          # STEP 6: Fix HTTP → HTTPS for stream URLs
+          http_fixed = 0
+          http_keep_domains = ['122.248.43.242', 'cdn6.163189.xyz', '45.64.97.211',
+                               'live.serverstreaming.net', 'stream.radiojar.com',
+                               '103.58.160.157', 'live-pv-ta.amazon']
+          for ch in channels:
+              new_urls = []
+              for url in ch['urls']:
+                  if url.startswith('http://'):
+                      if any(d in url for d in http_keep_domains):
+                          new_urls.append(url)
+                      else:
+                          url = url.replace('http://', 'https://', 1)
+                          http_fixed += 1
+                          new_urls.append(url)
+                  else:
+                      new_urls.append(url)
+              ch['urls'] = new_urls
+          print(f"HTTP→HTTPS diperbaiki: {http_fixed}")
+
+          # STEP 7: Add KODIPROP manifest_type=dash for DASH channels
+          kodi_fixed = 0
+          for ch in channels:
+              has_dash_url = any('.mpd' in u for u in ch['urls'])
+              has_kodi_dash = any('manifest_type=dash' in p for p in ch['props'])
+              has_kodi_hls = any('manifest_type=hls' in p for p in ch['props'])
+              has_kodi_inputstream = any('inputstreamaddon=inputstream.adaptive' in p or 'inputstream=inputstream.adaptive' in p for p in ch['props'])
+
+              if has_dash_url and not has_kodi_dash and not has_kodi_hls:
+                  if not has_kodi_inputstream:
+                      ch['props'].insert(0, '#KODIPROP:inputstreamaddon=inputstream.adaptive')
+                  ch['props'].append('#KODIPROP:inputstream.adaptive.manifest_type=dash')
+                  kodi_fixed += 1
+          print(f"KODIPROP DASH ditambahkan: {kodi_fixed}")
+
+          # STEP 8: Remove duplicate props
+          for ch in channels:
+              seen_props = set()
+              unique_props = []
+              for p in ch['props']:
+                  if p not in seen_props:
+                      seen_props.add(p)
+                      unique_props.append(p)
+              ch['props'] = unique_props
+
+          # STEP 9: Remove comment/separator lines from props
+          for ch in channels:
+              ch['props'] = [p for p in ch['props'] if not p.startswith('<===') and p.strip()]
+
+          # STEP 10: Fix EPG tvg-id mapping
           channel_to_epg = {
               # Indonesia channels (indonesia.xml - with .id suffix)
               'RCTI': 'RCTI.id', 'MNC TV': 'MNCTV.id', 'MNCTV': 'MNCTV.id',
@@ -203,6 +267,12 @@ jobs:
               'SindoNews': 'SindoNewsTV.id', 'ANTV': 'ANTV.id',
               'IDX': 'IDX.id', 'IDX Channel': 'IDX.id',
               'TVRI': 'TVRI.id', 'BTV': 'BTV.id',
+              'CNN Indonesia': 'CNNIndonesia.id',
+              'CNBC Indonesia': 'CNBCIndonesia.id',
+              'DAAI TV': 'DAAITV.id',
+              'RTV': 'RTV.id', 'Nusantara TV': 'NusantaraTV.id',
+              'Garuda TV': 'GarudaTV.id', 'BN Channel': 'BNChannel.id',
+              'MAGNA Channel': 'MagnaChannel.id',
               # Premium channels (indonesia.xml)
               'HITS': 'HITS.id', 'Hits': 'HITS.id',
               'HITS Movies': 'HitsMovies.id', 'HitsMovies': 'HitsMovies.id',
@@ -270,6 +340,7 @@ jobs:
               clean = re.sub(r'\s*\(DensTV\)\s*', '', clean).strip()
               clean = re.sub(r'\s*\(Channel Feed\)\s*', '', clean).strip()
               clean = re.sub(r'\s*HD\s*$', '', clean).strip()
+              clean = re.sub(r'^\s*,', '', clean).strip()
               return clean
 
           def get_epg_id(name):
@@ -300,7 +371,6 @@ jobs:
                       ch['extinf'] = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{epg_id}"', ch['extinf'])
                       epg_fixed += 1
               else:
-                  # No valid EPG mapping - remove tvg-id to avoid confusion
                   if old_id:
                       ch['extinf'] = re.sub(r'tvg-id="[^"]*"', 'tvg-id=""', ch['extinf'])
                       epg_removed += 1
@@ -308,7 +378,7 @@ jobs:
           print(f"EPG tvg-id diperbaiki: {epg_fixed}")
           print(f"EPG tvg-id dihapus (tidak ada di source): {epg_removed}")
 
-          # STEP 5: Remove tvg-url from EXTINF lines (not standard, confuses some players)
+          # STEP 11: Remove tvg-url from EXTINF lines
           tvg_url_removed = 0
           for ch in channels:
               if 'tvg-url=' in ch['extinf']:
@@ -316,16 +386,16 @@ jobs:
                   tvg_url_removed += 1
           print(f"tvg-url attribute dihapus: {tvg_url_removed}")
 
-          # Write
+          # Write output
           with open(target, 'w', encoding='utf-8') as f:
               if header:
-                  # Update url-tvg to point to our custom EPG
                   custom_epg_url = 'https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml'
                   header = re.sub(r'url-tvg="[^"]*"', f'url-tvg="{custom_epg_url}"', header)
                   f.write(header + '\n\n')
               for ch in channels:
                   for prop in ch['props']:
-                      f.write(prop + '\n')
+                      if prop.strip():
+                          f.write(prop + '\n')
                   f.write(ch['extinf'] + '\n')
                   for url in ch['urls']:
                       f.write(url + '\n')
@@ -333,6 +403,13 @@ jobs:
 
           total_after = len(channels)
           print(f"Total: {total_before} -> {total_after} (dihapus: {total_before - total_after})")
+
+          # Print format stats
+          hls_count = sum(1 for ch in channels if any('.m3u8' in u for u in ch['urls']))
+          dash_count = sum(1 for ch in channels if any('.mpd' in u for u in ch['urls']))
+          drm_count = sum(1 for ch in channels if any('license' in p for p in ch['props']))
+          hls_nodrm = sum(1 for ch in channels if any('.m3u8' in u for u in ch['urls']) and not any('license' in p for p in ch['props']))
+          print(f"\nFormat stats: HLS={hls_count} | DASH={dash_count} | DRM={drm_count} | HLS-noDRM(playable)={hls_nodrm}")
           PYEOF
 
           AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
