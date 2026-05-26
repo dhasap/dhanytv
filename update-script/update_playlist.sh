@@ -2,6 +2,7 @@
 # ============================================================
 # dhanytv - Manual Update Script
 # Playlist IPTV + Custom EPG Generator
+# Minimal safe fixes - preserves ALL source props & URLs
 # ============================================================
 
 set -e
@@ -82,177 +83,27 @@ echo -e "${YELLOW}[2/6] Downloading source playlist...${NC}"
 curl -sL "$SOURCE_URL" -o source_latest.m3u
 echo "  Downloaded: $(wc -c < source_latest.m3u) bytes"
 
-# Step 3: Merge
-echo -e "${YELLOW}[3/6] Merging playlist...${NC}"
+# Step 3: Merge with minimal fixes
+echo -e "${YELLOW}[3/6] Merging & fixing playlist...${NC}"
+BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
 HEADER_LINE=$(grep -m1 '^#EXTM3U.*url-tvg' "$TARGET_FILE" || grep -m1 '^#EXTM3U' "$TARGET_FILE")
 
-{
-    echo "$HEADER_LINE"
-    echo ""
-    echo ""
-    SKIP_HEADER=true
-    while IFS= read -r line; do
-        if [ "$SKIP_HEADER" = true ] && echo "$line" | grep -q '^#EXTM3U'; then
-            continue
-        fi
-        SKIP_HEADER=false
-        echo "$line"
-    done < source_latest.m3u
-} > "${TARGET_FILE}.new"
-
-sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "${TARGET_FILE}.new"
-echo "" >> "${TARGET_FILE}.new"
-mv "${TARGET_FILE}.new" "$TARGET_FILE"
-rm -f source_latest.m3u
-
-# Step 4: Smart Cleanup & EPG Mapping
-echo -e "${YELLOW}[4/6] Smart cleanup & EPG mapping...${NC}"
-BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
-
+# Apply minimal fixes preserving ALL source props and URLs
 python3 << 'PYEOF'
 import re
 
-target = "dhanytv.m3u"
-with open(target, 'r', encoding='utf-8') as f:
-    lines = f.readlines()
+source_file = "source_latest.m3u"
+target_file = "dhanytv.m3u"
+import sys
 
-header = None
-channels = []
-cur_extinf = None
-cur_props = []
-cur_urls = []
+# Read header from existing file
+with open(target_file, 'r', encoding='utf-8') as f:
+    for line in f:
+        if line.startswith('#EXTM3U'):
+            header_line = line.rstrip('\n')
+            break
 
-for line in lines:
-    raw = line.rstrip('\n')
-    if raw.startswith('#EXTM3U') and header is None:
-        header = raw
-        continue
-    if raw.startswith('#EXTINF'):
-        if cur_extinf is not None:
-            channels.append({'extinf': cur_extinf, 'props': cur_props, 'urls': cur_urls})
-        cur_extinf = raw
-        cur_props = []
-        cur_urls = []
-    elif cur_extinf is not None and raw.startswith(('#EXTVLCOPT', '#KODIPROP', '#EXTGRP', '###')):
-        cur_props.append(raw)
-    elif cur_extinf is not None and raw.startswith('http'):
-        cur_urls.append(raw)
-    elif cur_extinf is not None and (raw.startswith('<') or (raw.startswith('#') and not raw.startswith('#EXTINF') and not raw.startswith('#EXTVLCOPT') and not raw.startswith('#KODIPROP'))):
-        cur_props.append(raw)
-
-if cur_extinf is not None:
-    channels.append({'extinf': cur_extinf, 'props': cur_props, 'urls': cur_urls})
-
-total_before = len(channels)
-
-# STEP 1: Remove channels without URLs
-channels = [ch for ch in channels if ch['urls']]
-print(f"  Channel tanpa URL dihapus: {total_before - len(channels)}")
-
-# STEP 2: Dedup
-def get_name(extinf):
-    m = re.search(r',(.+?)$', extinf.strip())
-    return re.sub(r'\s+', ' ', m.group(1).strip().lower()) if m else ''
-
-seen = {}
-deduped = []
-for ch in channels:
-    name = get_name(ch['extinf'])
-    url = ch['urls'][0].strip() if ch['urls'] else ''
-    key = (name, url)
-    if key in seen:
-        existing_idx = seen[key]
-        if len(ch['props']) > len(deduped[existing_idx]['props']):
-            deduped[existing_idx] = ch
-    else:
-        seen[key] = len(deduped)
-        deduped.append(ch)
-channels = deduped
-
-# STEP 3: Remove dead dens.tv channels (403 blocked)
-dead_domains = ['op-group1-swiftservehd-1.dens.tv', 'op-group1-swiftservesd-1.dens.tv']
-dead_before = len(channels)
-channels = [ch for ch in channels if not any(domain in url for url in ch['urls'] for domain in dead_domains)]
-print(f"  Channel dens.tv dead (403) dihapus: {dead_before - len(channels)}")
-
-# STEP 4: Fix dens.tv URLs
-dens_fixed = 0
-for ch in channels:
-    new_urls = []
-    for url in ch['urls']:
-        if 'dens.tv' in url:
-            if url.startswith('http://'):
-                url = url.replace('http://', 'https://', 1)
-                dens_fixed += 1
-            url = re.sub(r'\?app_type=web&userid=lite&chname=[^\s]+', '', url)
-            url = re.sub(r'\?app_type=web&userid=lite', '', url)
-            new_urls.append(url)
-        else:
-            new_urls.append(url)
-    ch['urls'] = new_urls
-    ch['props'] = [p.replace('http-referrer=http://dens.tv', 'http-referrer=https://www.dens.tv/') for p in ch['props']]
-    has_dens = any('dens.tv' in u for u in ch['urls'])
-    has_referrer = any('dens.tv' in p and 'http-referrer' in p for p in ch['props'])
-    if has_dens and not has_referrer:
-        ch['props'].insert(0, '#EXTVLCOPT:http-referrer=https://www.dens.tv/')
-        ch['props'].insert(1, '#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36')
-        dens_fixed += 1
-print(f"  dens.tv URLs diperbaiki: {dens_fixed}")
-
-# STEP 5: Fix multi-URL channels
-multi_fixed = 0
-for ch in channels:
-    if len(ch['urls']) > 1:
-        ch['urls'] = [ch['urls'][0]]
-        multi_fixed += 1
-print(f"  Channel multi-URL difix: {multi_fixed}")
-
-# STEP 6: HTTP → HTTPS
-http_fixed = 0
-http_keep_domains = ['122.248.43.242', 'cdn6.163189.xyz', '45.64.97.211',
-                     'live.serverstreaming.net', 'stream.radiojar.com',
-                     '103.58.160.157', 'live-pv-ta.amazon']
-for ch in channels:
-    new_urls = []
-    for url in ch['urls']:
-        if url.startswith('http://'):
-            if any(d in url for d in http_keep_domains):
-                new_urls.append(url)
-            else:
-                url = url.replace('http://', 'https://', 1)
-                http_fixed += 1
-                new_urls.append(url)
-        else:
-            new_urls.append(url)
-    ch['urls'] = new_urls
-print(f"  HTTP→HTTPS diperbaiki: {http_fixed}")
-
-# STEP 7: Add KODIPROP for DASH
-kodi_fixed = 0
-for ch in channels:
-    has_dash_url = any('.mpd' in u for u in ch['urls'])
-    has_kodi_dash = any('manifest_type=dash' in p for p in ch['props'])
-    has_kodi_hls = any('manifest_type=hls' in p for p in ch['props'])
-    has_kodi_inputstream = any('inputstreamaddon=inputstream.adaptive' in p or 'inputstream=inputstream.adaptive' in p for p in ch['props'])
-
-    if has_dash_url and not has_kodi_dash and not has_kodi_hls:
-        if not has_kodi_inputstream:
-            ch['props'].insert(0, '#KODIPROP:inputstreamaddon=inputstream.adaptive')
-        ch['props'].append('#KODIPROP:inputstream.adaptive.manifest_type=dash')
-        kodi_fixed += 1
-print(f"  KODIPROP DASH ditambahkan: {kodi_fixed}")
-
-# STEP 8: Remove duplicate & separator props
-for ch in channels:
-    seen_props = set()
-    unique_props = []
-    for p in ch['props']:
-        if p not in seen_props and not p.startswith('<===') and p.strip():
-            seen_props.add(p)
-            unique_props.append(p)
-    ch['props'] = unique_props
-
-# STEP 9: EPG mapping
+# EPG mapping
 channel_to_epg = {
     'RCTI': 'RCTI.id', 'MNC TV': 'MNCTV.id', 'MNCTV': 'MNCTV.id',
     'GTV': 'GTV.id', 'Indosiar': 'Indosiar.id', 'SCTV': 'SCTV.id',
@@ -273,12 +124,15 @@ channel_to_epg = {
     'MAGNA Channel': 'MagnaChannel.id',
     'HITS': 'HITS.id', 'Hits': 'HITS.id',
     'HITS Movies': 'HitsMovies.id', 'HitsMovies': 'HitsMovies.id',
-    'Studio Universal': 'StudioUniversal.id', 'AXN': 'AXN.id',
-    'GALAXY': 'GALAXY.id', 'GALAXY Premium': 'GALAXYPremium.id',
-    'Celestial Movies': 'CelestialMovies.id', 'IMC': 'IMC.id',
-    'Vision Prime': 'VisionPrime.id',
+    'Studio Universal': 'StudioUniversal.id',
+    'AXN': 'AXN.id', 'GALAXY': 'GALAXY.id',
+    'GALAXY Premium': 'GALAXYPremium.id',
+    'Celestial Movies': 'CelestialMovies.id',
+    'Indonesia Movie Channel': 'IMC.id', 'IMC': 'IMC.id',
+    'Vision Prime': 'VisionPrime.id', 'VisionPrime': 'VisionPrime.id',
     'Entertainment': 'Ent.id', 'Food Travel': 'FoodTravel.id',
-    'Celebrities TV': 'CelebritiesTV.id', 'Hanacaraka TV': 'HanacarakaTV.id',
+    'CelebritiesTV': 'CelebritiesTV.id', 'Celebrities TV': 'CelebritiesTV.id',
+    'Hanacaraka TV': 'HanacarakaTV.id', 'HanacarakaTV': 'HanacarakaTV.id',
     'beIN Sports 1': 'beInSports1.id', 'beIN Sports 2': 'beInSports2.id',
     'beIN Sports 3': 'beInSports3.id',
     'Nickelodeon': 'Nickelodeon.id', 'Nick Jr': 'NickJr.id',
@@ -321,83 +175,120 @@ channel_to_epg = {
     'HBO Signature': '401', 'Cinemax': '405',
 }
 
-def clean_name(name):
+def get_epg_id(name):
     clean = re.sub(r'\s*\(V\+\)\s*', '', name).strip()
     clean = re.sub(r'\s*\(ChannelFeed\)\s*', '', clean).strip()
     clean = re.sub(r'\s*\(DensTV\)\s*', '', clean).strip()
+    clean = re.sub(r'\s*\(Dens TV\)\s*', '', clean).strip()
+    clean = re.sub(r'\s*\(DENSTV\)\s*', '', clean).strip()
     clean = re.sub(r'\s*\(Channel Feed\)\s*', '', clean).strip()
+    clean = re.sub(r'\s*\(VD\)\s*', '', clean).strip()
     clean = re.sub(r'\s*HD\s*$', '', clean).strip()
     clean = re.sub(r'^\s*,', '', clean).strip()
-    return clean
-
-def get_epg_id(name):
-    cn = clean_name(name)
-    if cn in channel_to_epg:
-        return channel_to_epg[cn]
+    if clean in channel_to_epg:
+        return channel_to_epg[clean]
     for key, epg_id in channel_to_epg.items():
-        if key.lower() == cn.lower():
+        if key.lower() == clean.lower():
             return epg_id
     for key, epg_id in channel_to_epg.items():
-        if key.lower() in cn.lower() or cn.lower() in key.lower():
+        if key.lower() in clean.lower() or clean.lower() in key.lower():
             return epg_id
     return None
 
+source_traces = ['bluestraveller13', 'super-duper-spork', 'kitkatjoss']
+http_keep = ['122.248.43.242', 'cdn6.163189.xyz', '45.64.97.211',
+             'live.serverstreaming.net', 'stream.radiojar.com',
+             '103.58.160.157', 'live-pv-ta.amazon']
+
+with open(source_file, 'r', encoding='utf-8') as f:
+    lines = f.readlines()
+
+output = []
+trace_removed = 0
+dens_fixed = 0
+http_fixed = 0
 epg_fixed = 0
-epg_removed = 0
-for ch in channels:
-    name_match = re.search(r',(.+?)$', ch['extinf'].strip())
-    if not name_match:
+
+for line in lines:
+    raw = line.rstrip('\n')
+
+    if raw.startswith('#EXTM3U'):
         continue
-    name = name_match.group(1).strip()
-    epg_id = get_epg_id(name)
-    old_tvg_id = re.search(r'tvg-id="([^"]*)"', ch['extinf'])
-    old_id = old_tvg_id.group(1) if old_tvg_id else ''
-    if epg_id:
-        if old_id != epg_id:
-            ch['extinf'] = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{epg_id}"', ch['extinf'])
-            epg_fixed += 1
-    else:
-        if old_id:
-            ch['extinf'] = re.sub(r'tvg-id="[^"]*"', 'tvg-id=""', ch['extinf'])
-            epg_removed += 1
 
-print(f"  EPG tvg-id diperbaiki: {epg_fixed}")
-print(f"  EPG tvg-id dihapus: {epg_removed}")
+    if raw.startswith('http') and any(pat in raw.lower() for pat in source_traces):
+        trace_removed += 1
+        continue
 
-# Remove tvg-url
-tvg_url_removed = 0
-for ch in channels:
-    if 'tvg-url=' in ch['extinf']:
-        ch['extinf'] = re.sub(r'\s*tvg-url="[^"]*"', '', ch['extinf'])
-        tvg_url_removed += 1
-print(f"  tvg-url dihapus: {tvg_url_removed}")
+    if raw.startswith('http') and 'dens.tv' in raw:
+        if raw.startswith('http://'):
+            raw = raw.replace('http://', 'https://', 1)
+            dens_fixed += 1
+        raw = re.sub(r'\?app_type=web&userid=lite&chname=[^\s]+', '', raw)
+        raw = re.sub(r'\?app_type=web&userid=lite', '', raw)
 
-# Write
-with open(target, 'w', encoding='utf-8') as f:
-    if header:
-        custom_epg_url = 'https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml'
-        header = re.sub(r'url-tvg="[^"]*"', f'url-tvg="{custom_epg_url}"', header)
-        f.write(header + '\n\n')
-    for ch in channels:
-        for prop in ch['props']:
-            if prop.strip():
-                f.write(prop + '\n')
-        f.write(ch['extinf'] + '\n')
-        for url in ch['urls']:
-            f.write(url + '\n')
-        f.write('\n')
+    if raw.startswith('http://') and not any(d in raw for d in http_keep):
+        raw = raw.replace('http://', 'https://', 1)
+        http_fixed += 1
 
-print(f"  Total: {total_before} -> {len(channels)}")
+    if raw.startswith('#EXTVLCOPT:http-referrer='):
+        raw = raw.replace('http://dens.tv', 'https://www.dens.tv/')
+        raw = raw.replace('https://dens.tv/', 'https://www.dens.tv/')
 
-hls = sum(1 for ch in channels if any('.m3u8' in u for u in ch['urls']))
-dash = sum(1 for ch in channels if any('.mpd' in u for u in ch['urls']))
-drm = sum(1 for ch in channels if any('license' in p for p in ch['props']))
-hls_nodrm = sum(1 for ch in channels if any('.m3u8' in u for u in ch['urls']) and not any('license' in p for p in ch['props']))
-print(f"  Format: HLS={hls} | DASH={dash} | DRM={drm} | HLS-noDRM(playable)={hls_nodrm}")
+    if raw.startswith('#EXTINF'):
+        raw = re.sub(r'\s*tvg-url="[^"]*"', '', raw)
+        name_match = re.search(r',(.+?)$', raw.strip())
+        if name_match:
+            name = name_match.group(1).strip()
+            epg_id = get_epg_id(name)
+            if epg_id:
+                raw = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{epg_id}"', raw)
+                epg_fixed += 1
+
+    output.append(raw)
+
+# Add dens.tv referrer where missing
+final = []
+i = 0
+while i < len(output):
+    line = output[i]
+    if line.startswith('#EXTINF'):
+        j = i + 1
+        has_dens_url = False
+        has_dens_referrer = False
+        while j < len(output):
+            nl = output[j]
+            if nl.startswith(('#EXTVLCOPT', '#KODIPROP', '#EXTGRP', '###')):
+                if 'dens.tv' in nl and 'http-referrer' in nl:
+                    has_dens_referrer = True
+                j += 1
+            elif nl.startswith('http') and 'dens.tv' in nl:
+                has_dens_url = True
+                break
+            elif nl.startswith('http') or nl.strip() == '':
+                break
+            else:
+                break
+        if has_dens_url and not has_dens_referrer:
+            final.append('#EXTVLCOPT:http-referrer=https://www.dens.tv/')
+            final.append('#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36')
+    final.append(line)
+    i += 1
+
+with open(target_file, 'w', encoding='utf-8') as f:
+    f.write(header_line + '\n\n')
+    f.write('\n'.join(final) + '\n')
+
+ch_count = sum(1 for l in final if l.startswith('#EXTINF'))
+print(f"  Channel: {ch_count}")
+print(f"  Source traces removed: {trace_removed}")
+print(f"  dens.tv fixed: {dens_fixed}")
+print(f"  HTTP→HTTPS: {http_fixed}")
+print(f"  EPG tvg-id mapped: {epg_fixed}")
 PYEOF
 
+rm -f source_latest.m3u
 AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
-echo -e "  ${GREEN}Channel: $BEFORE -> $AFTER${NC}"
+echo -e "  ${GREEN}Channel: $BEFORE → $AFTER${NC}"
 
 # Step 5: Generate Custom EPG
 echo -e "${YELLOW}[5/6] Generating custom EPG...${NC}"
