@@ -254,6 +254,103 @@ jobs:
               final.append(line)
               i += 1
 
+          # === Replace broken dens.tv channels with working alternatives ===
+          # dens.tv blocks direct stream access (403), causing redirect to browser on OTT TV
+          # Map: dens.tv URL pattern -> replacement entry (props + url)
+          dens_replacements = {
+              'h217': {  # SCTV
+                  'name': 'SCTV',
+                  'props': [
+                      '#KODIPROP:inputstreamaddon=inputstream.adaptive',
+                      '#KODIPROP:inputstream.adaptive.manifest_type=dash',
+                      '#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36',
+                  ],
+                  'url': 'https://cdnbal1.indihometv.com/atm/DASH/sctv/sctv-avc1_2500000=7-3277707030000000.mpd',
+                  'extinf_template': '#EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV',
+              },
+          }
+
+          replaced = []
+          new_final = []
+          i = 0
+          while i < len(final):
+              line = final[i]
+              # Check if this is a dens.tv stream URL
+              if line.startswith('http') and 'dens.tv' in line:
+                  # Check if this URL matches a known broken channel
+                  matched_key = None
+                  for key, repl in dens_replacements.items():
+                      if f'/{key}/' in line:
+                          matched_key = key
+                          break
+                  if matched_key:
+                      repl = dens_replacements[matched_key]
+                      # Find the #EXTINF line for this entry (look backwards)
+                      extinf_idx = None
+                      props_start = i - 1
+                      for k in range(i - 1, max(i - 20, -1), -1):
+                          if final[k].startswith('#EXTINF'):
+                              extinf_idx = k
+                              break
+                          if final[k].startswith('#EXTINF') or (not final[k].startswith('#') and not final[k].startswith('http')):
+                              break
+                      if extinf_idx is not None:
+                          # Remove old entry (props + extinf + url)
+                          # Skip from extinf_idx to i (inclusive)
+                          # Add replacement entry
+                          new_final.append('')
+                          for p in repl['props']:
+                              new_final.append(p)
+                          new_final.append(repl['extinf_template'])
+                          new_final.append(repl['url'])
+                          replaced.append(f"{repl['name']} (dens.tv -> Indihometv DASH)")
+                          # Skip the old lines
+                          while i < len(final) and not (final[i].startswith('#EXTINF') or (final[i].startswith('#') and not final[i].startswith('#EXTVLCOPT') and not final[i].startswith('#KODIPROP') and not final[i].startswith('#EXTGRP'))):
+                              if i > extinf_idx:
+                                  pass  # skip old props/extinf
+                              i += 1
+                              if i < len(final) and (final[i].startswith('#EXTINF') or final[i].strip() == ''):
+                                  break
+                          continue
+                      else:
+                          new_final.append(line)
+                  else:
+                      new_final.append(line)
+              elif line.startswith('#EXTINF') or line.startswith('#EXTVLCOPT') or line.startswith('#KODIPROP') or line.startswith('#EXTGRP'):
+                  # Check if next URL is a dens.tv replacement target
+                  # Look ahead to find the URL
+                  is_before_replaced = False
+                  for k in range(i + 1, min(i + 15, len(final))):
+                      if final[k].startswith('http') and 'dens.tv' in final[k]:
+                          for key in dens_replacements:
+                              if f'/{key}/' in final[k]:
+                                  is_before_replaced = True
+                                  break
+                          break
+                      if final[k].startswith('#EXTINF') or (not final[k].startswith('#') and not final[k].startswith('http')):
+                          break
+                  if not is_before_replaced:
+                      new_final.append(line)
+                  # else: skip this prop/extinf line (it's part of a replaced entry)
+              else:
+                  new_final.append(line)
+              i += 1
+
+          final = new_final
+
+          # Deduplicate EXTVLCOPT props (remove consecutive duplicates)
+          cleaned = []
+          prev_lines = set()
+          for line in final:
+              if line.startswith('#EXTVLCOPT') or line.startswith('#KODIPROP'):
+                  if line in prev_lines:
+                      continue
+                  prev_lines.add(line)
+              else:
+                  prev_lines = set()
+              cleaned.append(line)
+          final = cleaned
+
           # Write output
           with open(target_file, 'w', encoding='utf-8') as f:
               f.write(header_line + '\n\n')
@@ -265,6 +362,10 @@ jobs:
           print(f"dens.tv fixed: {dens_fixed}")
           print(f"HTTP→HTTPS: {http_fixed}")
           print(f"EPG tvg-id mapped: {epg_fixed}")
+          if replaced:
+              print(f"dens.tv replaced (broken -> working): {len(replaced)}")
+              for r in replaced:
+                  print(f"  - {r}")
           PYEOF
 
           rm -f "$SOURCE_FILE"
