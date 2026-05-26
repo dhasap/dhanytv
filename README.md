@@ -12,8 +12,9 @@ Salin salah satu link di bawah ke IPTV player kamu:
 
 | Link | Keterangan |
 |------|------------|
-| **https://bit.ly/dhanytv** | Short link (ringkas, mudah diingat) |
-| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u` | Direct raw link |
+| **https://bit.ly/dhanytv** | Short link playlist utama (lengkap, termasuk DASH/DRM) |
+| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u` | Direct raw link playlist utama |
+| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv-ott.m3u` | Playlist OTT-friendly: hanya stream non-DASH/non-DRM supaya lebih aman untuk app yang sering membuka `.mpd` ke browser |
 
 ---
 
@@ -39,7 +40,9 @@ Pilih salah satu app di bawah sesuai device kamu:
 1. Buka app IPTV player pilihan kamu
 2. Cari menu **Add Playlist** / **Tambah Playlist** / **New Playlist**
 3. Pilih opsi **M3U Link** atau **URL Playlist**
-4. Paste link: `https://bit.ly/dhanytv`
+4. Paste link playlist:
+   - Playlist lengkap: `https://bit.ly/dhanytv`
+   - Jika app kamu sering membuka channel `.mpd`/DASH ke browser, pakai playlist OTT-friendly: `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv-ott.m3u`
 5. Beri nama (contoh: "dhanytv") lalu simpan
 6. Tunggu proses loading channel selesai
 
@@ -61,7 +64,9 @@ Beberapa channel (yang bertanda V+) menggunakan format DASH dengan DRM ClearKey.
 - **Kodi**: Install addon `InputStream Adaptive` + `PVR IPTV Simple Client`
 - **TiviMate**: Sudah support DASH/DRM secara native
 - **VLC**: Sebagian channel DASH bisa diputar langsung
-- **Smart TV**: Gunakan OttPlayer atau SS IPTV yang support format adaptif
+- **Smart TV/OTT TV**: jika app membuka link `.mpd` ke browser atau tidak mau play, gunakan `dhanytv-ott.m3u` karena file ini hanya berisi stream non-DASH/non-DRM.
+
+Catatan SCTV: entry `SCTV (DASH/MPD)` adalah stream DASH valid, tetapi beberapa app OTT TV tidak menangani `.mpd` dan melemparkannya ke browser. Itu bukan redirect dari server; gunakan playlist OTT-friendly atau player yang support DASH.
 
 ---
 
@@ -129,9 +134,12 @@ Saat auto-update berjalan, sistem otomatis melakukan:
 
 - **Dedup**: Channel dengan nama + URL sama hanya disimpan sekali
 - **Dead channel removal**: Channel tanpa URL stream dihapus otomatis
+- **M3U syntax cleanup**: separator kategori diubah jadi komentar, `#KODIPROP` typo diperbaiki, dan `#EXTINF` malformed dinormalisasi
+- **Fallback URL cleanup**: beberapa URL dalam satu channel dipecah jadi entry `Alt` agar parser M3U ketat tidak bingung
+- **OTT playlist generation**: `dhanytv-ott.m3u` dibuat otomatis tanpa DASH/DRM untuk app yang membuka `.mpd` ke browser
 - **dens.tv fix**: URL `http://` di-convert ke `https://` supaya tidak redirect ke browser
 - **EPG auto-mapping**: `tvg-id` disesuaikan otomatis dengan EPG source
-- **Custom EPG generation**: EPG difilter hanya untuk channel di playlist (~4MB vs 24MB+)
+- **Custom EPG generation**: EPG difilter hanya untuk channel yang ada di playlist
 - **Sanitasi**: Jejak sumber playlist dibersihkan
 
 ### Setup Secrets (Untuk Fork/Clone)
@@ -148,13 +156,15 @@ Biar auto-update jalan, tambahin secrets di **Settings → Secrets and variables
 ## 📁 Struktur Repo
 
 ```
-├── dhanytv.m3u                    # Playlist utama
+├── dhanytv.m3u                    # Playlist utama lengkap
+├── dhanytv-ott.m3u                # Playlist OTT-friendly (non-DASH/non-DRM)
 ├── epg.xml                        # Custom EPG (auto-generated)
 ├── .github/
 │   └── workflows/
 │       └── auto-update.yml        # GitHub Actions workflow
 └── update-script/
-    └── update_playlist.sh         # Script update manual (lokal)
+    ├── update_playlist.sh         # Script update manual (lokal)
+    └── cleanup_playlist.py        # Cleaner/validator M3U + generator dhanytv-ott.m3u
 ```
 
 ---
@@ -164,6 +174,7 @@ Biar auto-update jalan, tambahin secrets di **Settings → Secrets and variables
 - Channel bisa berubah atau kadaluarsa sewaktu-waktu tergantung ketersediaan server
 - Beberapa channel mungkin perlu VPN tergantung region kamu
 - Untuk channel DASH/DRM (bertanda V+), gunakan player yang support — Kodi + InputStream Adaptive atau TiviMate
+- Jika pakai OTT TV/Smart TV app yang tidak support DASH, gunakan `dhanytv-ott.m3u`
 - Update otomatis setiap Senin, tapi bisa juga di-trigger manual kapan saja
 - Jangan share link sumber playlist, cukup share link repo ini
 

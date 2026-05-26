@@ -376,8 +376,24 @@ if replaced:
 PYEOF
 
 rm -f source_latest.m3u
+
+# Step 4: Normalize playlist and generate OTT-friendly variant
+# - fixes malformed #EXTINF / section dividers
+# - removes entries without stream URL
+# - expands multiple URLs into explicit Alt entries
+# - labels SCTV DASH/MPD so OTT users don't confuse it with universal HLS
+# - creates dhanytv-ott.m3u without DASH/DRM entries for stricter OTT apps
+echo -e "${YELLOW}[4/6] Cleaning playlist syntax & generating OTT variant...${NC}"
+if [ -f "update-script/cleanup_playlist.py" ]; then
+    python3 update-script/cleanup_playlist.py "$TARGET_FILE" --write --ott-output dhanytv-ott.m3u --check
+else
+    echo -e "${RED}ERROR: update-script/cleanup_playlist.py tidak ditemukan!${NC}"
+    exit 1
+fi
+
 AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
-echo -e "  ${GREEN}Channel: $BEFORE → $AFTER${NC}"
+OTT_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
+echo -e "  ${GREEN}Channel: $BEFORE → $AFTER | OTT: $OTT_COUNT${NC}"
 
 # Step 5: Generate Custom EPG
 echo -e "${YELLOW}[5/6] Generating custom EPG...${NC}"
@@ -450,11 +466,12 @@ else
     else
         git config user.name "dhanytv-updater"
         git config user.email "dhanytv-updater@users.noreply.github.com"
-        git add "$TARGET_FILE" "$EPG_OUTPUT"
+        git add "$TARGET_FILE" "dhanytv-ott.m3u" "$EPG_OUTPUT" "update-script/cleanup_playlist.py"
         CHANNEL_COUNT=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+        OTT_CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
         EPG_CHANNELS=$(grep -c '<channel ' "$EPG_OUTPUT" 2>/dev/null || echo "0")
         COMMIT_DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
-        git commit -m "manual-update: Playlist + EPG ($CHANNEL_COUNT ch, $EPG_CHANNELS EPG) - $COMMIT_DATE"
+        git commit -m "manual-update: Playlist + OTT + EPG ($CHANNEL_COUNT ch, $OTT_CHANNEL_COUNT OTT, $EPG_CHANNELS EPG) - $COMMIT_DATE"
         git push "https://${TOKEN}@github.com/${REPO}.git" main
         echo -e "${GREEN}Push berhasil!${NC}"
     fi
@@ -465,6 +482,7 @@ echo -e "${GREEN}============================================"
 echo "  Update Selesai!"
 echo "============================================"
 echo -e "  Channel  : $(grep -c '#EXTINF' dhanytv.m3u 2>/dev/null || echo 'N/A')"
+echo -e "  OTT Ch   : $(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo 'N/A')"
 echo -e "  EPG Ch   : $(grep -c '<channel ' epg.xml 2>/dev/null || echo 'N/A')"
 echo -e "  EPG Size : $(du -h epg.xml 2>/dev/null | cut -f1 || echo 'N/A')"
 echo -e "============================================${NC}"

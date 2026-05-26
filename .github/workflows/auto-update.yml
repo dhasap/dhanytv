@@ -372,6 +372,13 @@ jobs:
           AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
           echo "Channel setelah merge: $AFTER"
 
+      - name: Clean Playlist & Generate OTT Variant
+        run: |
+          echo "=== Clean Playlist & Generate OTT Variant ==="
+          python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check
+          echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
+          echo "OTT channels      : $(grep -c '#EXTINF' dhanytv-ott.m3u || echo '0')"
+
       - name: Generate Custom EPG
         run: |
           echo "=== Generate Custom EPG ==="
@@ -451,11 +458,13 @@ jobs:
       - name: Check for Changes
         id: check_changes
         run: |
-          if git diff --quiet dhanytv.m3u epg.xml; then
+          CHANGED_FILES=$(git status --porcelain -- dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py)
+          if [ -z "$CHANGED_FILES" ]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
-            git diff --stat dhanytv.m3u epg.xml
+            echo "$CHANGED_FILES"
+            git diff --stat dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py || true
           fi
 
       - name: Commit and Push Changes
@@ -463,11 +472,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dhanytv.m3u epg.xml
+          git add dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py
           COMMIT_DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
           CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          OTT_CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
           EPG_CHANNELS=$(grep -c '<channel ' epg.xml 2>/dev/null || echo "0")
-          git commit -m "auto-update: Playlist + EPG updated ($CHANNEL_COUNT ch, $EPG_CHANNELS EPG) - $COMMIT_DATE"
+          git commit -m "auto-update: Playlist + OTT + EPG ($CHANNEL_COUNT ch, $OTT_CHANNEL_COUNT OTT, $EPG_CHANNELS EPG) - $COMMIT_DATE"
           git push
 
       - name: Summary
@@ -478,6 +488,7 @@ jobs:
           echo "============================================"
           echo "Tanggal   : $(date -u '+%Y-%m-%d %H:%M UTC')"
           echo "Channel   : $(grep -c '#EXTINF' dhanytv.m3u 2>/dev/null || echo 'N/A')"
+          echo "OTT Ch    : $(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo 'N/A')"
           echo "EPG Ch    : $(grep -c '<channel ' epg.xml 2>/dev/null || echo 'N/A')"
           echo "EPG Size  : $(du -h epg.xml 2>/dev/null | cut -f1 || echo 'N/A')"
           echo "Perubahan : ${{ steps.check_changes.outputs.has_changes }}"
