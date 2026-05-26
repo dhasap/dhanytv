@@ -403,55 +403,7 @@ for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml; do
     curl -sL "${EPG_BASE}/${f}" -o "${f}" 2>/dev/null || true
 done
 
-python3 << 'PYEOF'
-import re, os
-import xml.etree.ElementTree as ET
-
-def get_tvg_ids(m3u_path):
-    ids = set()
-    with open(m3u_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            m = re.search(r'tvg-id="([^"]*)"', line)
-            if m and m.group(1):
-                ids.add(m.group(1))
-    return ids
-
-tvg_ids = get_tvg_ids("dhanytv.m3u")
-all_ch = {}
-all_prog = []
-
-for src in ["indonesia.xml", "astro.xml", "singapore.xml", "rtmklik.xml", "unifitv.xml"]:
-    if not os.path.exists(src):
-        continue
-    try:
-        tree = ET.parse(src)
-    except:
-        continue
-    root = tree.getroot()
-    for ch in root.findall('channel'):
-        cid = ch.get('id', '')
-        if cid in tvg_ids and cid not in all_ch:
-            all_ch[cid] = ch
-    for prog in root.findall('programme'):
-        if prog.get('channel', '') in all_ch:
-            all_prog.append(prog)
-
-new_root = ET.Element('tv')
-new_root.set('generator-info-name', 'dhanytv-custom-epg')
-new_root.set('generator-info-url', 'https://github.com/dhasap/dhanytv')
-for cid in sorted(all_ch.keys()):
-    new_root.append(all_ch[cid])
-for prog in all_prog:
-    new_root.append(prog)
-
-new_tree = ET.ElementTree(new_root)
-ET.indent(new_tree, space='  ')
-new_tree.write('epg.xml', encoding='unicode', xml_declaration=True)
-
-print(f"  EPG channels: {len(all_ch)}")
-print(f"  EPG programmes: {len(all_prog)}")
-print(f"  EPG size: {os.path.getsize('epg.xml') / 1024:.1f} KB")
-PYEOF
+python3 update-script/generate_epg.py --m3u "$TARGET_FILE" --output "$EPG_OUTPUT"
 
 rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml
 
@@ -466,7 +418,7 @@ else
     else
         git config user.name "dhanytv-updater"
         git config user.email "dhanytv-updater@users.noreply.github.com"
-        git add "$TARGET_FILE" "dhanytv-ott.m3u" "$EPG_OUTPUT" "update-script/cleanup_playlist.py"
+        git add "$TARGET_FILE" "dhanytv-ott.m3u" "$EPG_OUTPUT" "update-script/cleanup_playlist.py" "update-script/generate_epg.py"
         CHANNEL_COUNT=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
         OTT_CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
         EPG_CHANNELS=$(grep -c '<channel ' "$EPG_OUTPUT" 2>/dev/null || echo "0")

@@ -100,10 +100,10 @@ Playlist ini menggunakan **Custom EPG** yang di-generate otomatis dari [AqFad281
 | Info | Detail |
 |------|--------|
 | **EPG URL** | `https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml` |
-| **Channel dengan EPG** | 114 channel |
-| **File size** | ~4 MB (ringan, cepat loading) |
+| **Channel dengan EPG** | Semua `tvg-id` di playlist utama |
+| **File size** | ~2–4 MB (tergantung jumlah channel & jadwal upstream) |
 
-**Kenapa Custom EPG?** File EPG gabungan dari source asli berukuran 24+ MB — terlalu besar dan bikin timeout di banyak OTT TV player. Custom EPG kita hanya berisi channel yang ada di playlist, jadi ukurannya jauh lebih kecil dan loadingnya cepat.
+**Kenapa Custom EPG?** File EPG gabungan dari source asli berukuran 24+ MB — terlalu besar dan bikin timeout di banyak OTT TV player. Custom EPG kita hanya berisi channel yang ada di playlist. Channel yang tidak punya jadwal asli dari upstream tetap dibuatkan entry EPG placeholder (`Jadwal belum tersedia`) supaya semua channel bisa terbaca/mapping oleh IPTV player.
 
 **Sudah termasuk EPG dari:**
 
@@ -115,7 +115,7 @@ Playlist ini menggunakan **Custom EPG** yang di-generate otomatis dari [AqFad281
 | `rtmklik.xml` | 3 channel RTM Malaysia |
 | `unifitv.xml` | 11 channel UniFi TV (HBO, Cinemax, dll.) |
 
-`tvg-id` sudah di-matching otomatis ke EPG source saat update berjalan. EPG URL sudah tercantum di header playlist (`url-tvg`), jadi kebanyakan player akan otomatis load EPG.
+`tvg-id` sudah di-matching otomatis ke EPG source saat update berjalan. Untuk channel yang tidak punya `tvg-id`, sistem membuat ID stabil `auto.*`; untuk channel yang tidak ada jadwal asli, sistem membuat programme placeholder harian. EPG URL sudah tercantum di header playlist (`url-tvg`), jadi kebanyakan player akan otomatis load EPG.
 
 ---
 
@@ -138,8 +138,8 @@ Saat auto-update berjalan, sistem otomatis melakukan:
 - **Fallback URL cleanup**: beberapa URL dalam satu channel dipecah jadi entry `Alt` agar parser M3U ketat tidak bingung
 - **OTT playlist generation**: `dhanytv-ott.m3u` dibuat otomatis tanpa DASH/DRM untuk app yang membuka `.mpd` ke browser
 - **dens.tv fix**: URL `http://` di-convert ke `https://` supaya tidak redirect ke browser
-- **EPG auto-mapping**: `tvg-id` disesuaikan otomatis dengan EPG source
-- **Custom EPG generation**: EPG difilter hanya untuk channel yang ada di playlist
+- **EPG auto-mapping**: `tvg-id` disesuaikan otomatis dengan EPG source dan channel tanpa `tvg-id` diberi ID `auto.*`
+- **Custom EPG generation**: EPG difilter hanya untuk channel yang ada di playlist, plus fallback placeholder untuk channel tanpa jadwal upstream
 - **Sanitasi**: Jejak sumber playlist dibersihkan
 
 ### Setup Secrets (Untuk Fork/Clone)
@@ -164,7 +164,8 @@ Biar auto-update jalan, tambahin secrets di **Settings → Secrets and variables
 │       └── auto-update.yml        # GitHub Actions workflow
 └── update-script/
     ├── update_playlist.sh         # Script update manual (lokal)
-    └── cleanup_playlist.py        # Cleaner/validator M3U + generator dhanytv-ott.m3u
+    ├── cleanup_playlist.py        # Cleaner/validator M3U + generator dhanytv-ott.m3u
+    └── generate_epg.py            # Generator XMLTV + fallback EPG placeholder
 ```
 
 ---

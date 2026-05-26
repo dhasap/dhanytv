@@ -15,6 +15,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import urlparse
+import unicodedata
 
 STREAM_RE = re.compile(r"^(?:[a-z][a-z0-9+.-]*://|plugin://|pipe://)", re.I)
 PROP_PREFIXES = (
@@ -62,6 +63,39 @@ def is_stream_line(line: str) -> bool:
 
 def is_prop_line(line: str) -> bool:
     return line.startswith(PROP_PREFIXES)
+
+
+def fallback_tvg_id(name: str, used_ids: set[str] | None = None) -> str:
+    """Create a stable synthetic tvg-id for channels missing one."""
+    clean = re.sub(r"\s*\((?:V\+|DASH/MPD|ChannelFeed|Channel Feed|DensTV|Dens TV|DENSTV|VD|Alt \d+)\)\s*", " ", name, flags=re.I)
+    clean = re.sub(r"\bHD\b", " ", clean, flags=re.I)
+    normalized = unicodedata.normalize("NFKD", clean)
+    ascii_name = normalized.encode("ascii", "ignore").decode("ascii")
+    slug = re.sub(r"[^A-Za-z0-9]+", ".", ascii_name).strip(".").lower()
+    if not slug:
+        slug = "channel"
+    base = f"auto.{slug}"
+    if used_ids is None or base not in used_ids:
+        return base
+    idx = 2
+    while f"{base}.{idx}" in used_ids:
+        idx += 1
+    return f"{base}.{idx}"
+
+
+def ensure_tvg_id(line: str, used_ids: set[str]) -> str:
+    if not line.startswith("#EXTINF"):
+        return line
+    m = re.search(r'tvg-id="([^"]*)"', line)
+    if m and m.group(1).strip():
+        used_ids.add(m.group(1).strip())
+        return line
+    # Remove empty tvg-id attributes before inserting a synthetic id.
+    line = re.sub(r'\s+tvg-id=""', "", line)
+    name = line.rsplit(",", 1)[1].strip() if "," in line else "channel"
+    tvg_id = fallback_tvg_id(name, used_ids)
+    used_ids.add(tvg_id)
+    return line.replace("#EXTINF:-1", f'#EXTINF:-1 tvg-id="{tvg_id}"', 1)
 
 
 def normalize_extinf(line: str) -> str:
@@ -123,6 +157,7 @@ def extract_items(lines: list[str]) -> tuple[str, list[str | Entry], dict[str, i
     header = ""
     items: list[str | Entry] = []
     pending_props: list[str] = []
+    used_tvg_ids: set[str] = set()
     current: Entry | None = None
 
     def finish_current() -> None:
@@ -150,6 +185,7 @@ def extract_items(lines: list[str]) -> tuple[str, list[str | Entry], dict[str, i
 
         if normalized.startswith("#EXTINF"):
             finish_current()
+            normalized = ensure_tvg_id(normalized, used_tvg_ids)
             current = Entry(props=pending_props, extinf=normalized, line_no=line_no)
             pending_props = []
             continue

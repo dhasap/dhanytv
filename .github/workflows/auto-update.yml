@@ -392,60 +392,7 @@ jobs:
             curl -sL "${EPG_BASE}/${f}" -o "${f}" || echo "  WARNING: $f gagal diunduh"
           done
 
-          python3 << 'PYEOF'
-          import re, os
-          import xml.etree.ElementTree as ET
-
-          def get_tvg_ids(m3u_path):
-              ids = set()
-              with open(m3u_path, 'r', encoding='utf-8') as f:
-                  for line in f:
-                      m = re.search(r'tvg-id="([^"]*)"', line)
-                      if m and m.group(1):
-                          ids.add(m.group(1))
-              return ids
-
-          tvg_ids = get_tvg_ids("dhanytv.m3u")
-          print(f"Found {len(tvg_ids)} unique tvg-id values")
-
-          all_ch = {}
-          all_prog = []
-
-          for src in ["indonesia.xml", "astro.xml", "singapore.xml", "rtmklik.xml", "unifitv.xml"]:
-              if not os.path.exists(src):
-                  continue
-              try:
-                  tree = ET.parse(src)
-              except:
-                  continue
-              root = tree.getroot()
-              for ch in root.findall('channel'):
-                  cid = ch.get('id', '')
-                  if cid in tvg_ids and cid not in all_ch:
-                      all_ch[cid] = ch
-              for prog in root.findall('programme'):
-                  if prog.get('channel', '') in all_ch:
-                      all_prog.append(prog)
-
-          new_root = ET.Element('tv')
-          new_root.set('generator-info-name', 'dhanytv-custom-epg')
-          new_root.set('generator-info-url', 'https://github.com/dhasap/dhanytv')
-          for cid in sorted(all_ch.keys()):
-              new_root.append(all_ch[cid])
-          for prog in all_prog:
-              new_root.append(prog)
-
-          new_tree = ET.ElementTree(new_root)
-          ET.indent(new_tree, space='  ')
-          new_tree.write('epg.xml', encoding='unicode', xml_declaration=True)
-
-          size = os.path.getsize('epg.xml')
-          print(f"EPG Channels: {len(all_ch)} | Programmes: {len(all_prog)} | Size: {size/1024:.1f} KB")
-          
-          unmatched = tvg_ids - set(all_ch.keys())
-          if unmatched:
-              print(f"tvg-id NOT in EPG ({len(unmatched)}): {', '.join(sorted(unmatched)[:20])}...")
-          PYEOF
+          python3 update-script/generate_epg.py --m3u "$TARGET_FILE" --output "$EPG_OUTPUT"
 
           rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml
 
@@ -458,13 +405,13 @@ jobs:
       - name: Check for Changes
         id: check_changes
         run: |
-          CHANGED_FILES=$(git status --porcelain -- dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py)
+          CHANGED_FILES=$(git status --porcelain -- dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py update-script/generate_epg.py)
           if [ -z "$CHANGED_FILES" ]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
             echo "$CHANGED_FILES"
-            git diff --stat dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py || true
+            git diff --stat dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py update-script/generate_epg.py || true
           fi
 
       - name: Commit and Push Changes
@@ -472,7 +419,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py
+          git add dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/cleanup_playlist.py update-script/generate_epg.py
           COMMIT_DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
           CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
           OTT_CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
