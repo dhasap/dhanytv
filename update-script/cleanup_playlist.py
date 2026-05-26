@@ -283,7 +283,11 @@ def clean_items(items: list[str | Entry]) -> tuple[list[str | Entry], dict[str, 
             if candidate.name != before_name:
                 stats["sctv_dash_labeled"] += 1
 
-            key = (candidate.name.lower(), candidate.url)
+            tvg_id = ""
+            m = re.search(r'tvg-id="([^"]+)"', candidate.extinf)
+            if m:
+                tvg_id = m.group(1).strip().lower()
+            key = (tvg_id, candidate.url)
             if key in seen:
                 stats["duplicates_removed"] += 1
                 continue
