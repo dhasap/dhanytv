@@ -87,38 +87,303 @@ jobs:
           # SANITASI: Bersihkan jejak sumber asal
           # ========================================================
 
-          # 1. Ganti EPG asing ke EPG milik header
-          EPG_LIST=(
-            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml"
-            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml"
-            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/singapore.xml"
-            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/unifitv.xml"
-            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/rtmklik.xml"
-          )
-          DEFAULT_EPG="${EPG_LIST[0]}"
+          DEFAULT_EPG="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml"
 
           # Baca pola sanitasi dari secrets (format: pat1|pat2|pat3)
           if [ -n "$SANITIZE_PATTERNS" ]; then
             IFS='|' read -ra PATTERNS <<< "$SANITIZE_PATTERNS"
             for pat in "${PATTERNS[@]}"; do
               echo "Membersihkan jejak: $pat"
-              # Hapus baris URL stream yang mengandung pola
               sed -i "/^https.*${pat}/d" "$TARGET_FILE"
-              # Ganti logo URL yang mengandung pola
               sed -i "s| tvg-logo=\"[^\"]*${pat}[^\"]*\"| tvg-logo=\"\"|g" "$TARGET_FILE"
-              # Ganti tvg-url yang mengandung pola
               sed -i "s| tvg-url=\"[^\"]*${pat}[^\"]*\"| tvg-url=\"${DEFAULT_EPG}\"|g" "$TARGET_FILE"
             done
           fi
 
-          # 2. Bersihkan baris kosong berlebih
+          # Bersihkan baris kosong berlebih
           sed -i '/^$/N;/^\n$/d' "$TARGET_FILE"
 
           # Cleanup
           rm -f "$SOURCE_FILE"
 
-          FINAL_COUNT=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
-          echo "Update selesai! Total channel: $FINAL_COUNT"
+          AFTER_SANITIZED=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+          echo "Setelah sanitasi: $AFTER_SANITIZED channels"
+
+      - name: Smart Cleanup & EPG Mapping
+        run: |
+          TARGET_FILE="dhanytv.m3u"
+
+          echo "=== Smart Cleanup & EPG Fix ==="
+
+          BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+          echo "Channel sebelum: $BEFORE"
+
+          python3 << 'PYEOF'
+          import re
+
+          target = "dhanytv.m3u"
+          with open(target, 'r', encoding='utf-8') as f:
+              lines = f.readlines()
+
+          header = None
+          channels = []
+          cur_extinf = None
+          cur_props = []
+          cur_urls = []
+
+          for line in lines:
+              raw = line.rstrip('\n')
+              if raw.startswith('#EXTM3U') and header is None:
+                  header = raw
+                  continue
+              if raw.startswith('#EXTINF'):
+                  if cur_extinf is not None:
+                      channels.append({'extinf': cur_extinf, 'props': cur_props, 'urls': cur_urls})
+                  cur_extinf = raw
+                  cur_props = []
+                  cur_urls = []
+              elif cur_extinf is not None and raw.startswith(('#EXTVLCOPT', '#KODIPROP', '#EXTGRP', '###')):
+                  cur_props.append(raw)
+              elif cur_extinf is not None and raw.startswith('http'):
+                  cur_urls.append(raw)
+              elif cur_extinf is not None and (raw.startswith('<') or (raw.startswith('#') and not raw.startswith('#EXTINF') and not raw.startswith('#EXTVLCOPT') and not raw.startswith('#KODIPROP'))):
+                  cur_props.append(raw)
+
+          if cur_extinf is not None:
+              channels.append({'extinf': cur_extinf, 'props': cur_props, 'urls': cur_urls})
+
+          total_before = len(channels)
+
+          # ============================================================
+          # STEP 1: Hapus channel tanpa URL stream
+          # ============================================================
+          channels = [ch for ch in channels if ch['urls']]
+          removed_nourl = total_before - len(channels)
+          print(f"Channel tanpa URL dihapus: {removed_nourl}")
+
+          # ============================================================
+          # STEP 2: Dedup - nama sama + sumber sama = hapus duplikat
+          # Channel boleh sama asal sumber beda (URL beda)
+          # ============================================================
+          def get_name(extinf):
+              m = re.search(r',(.+?)$', extinf.strip())
+              return re.sub(r'\s+', ' ', m.group(1).strip().lower()) if m else ''
+
+          seen = {}
+          deduped = []
+          removed_dupes = 0
+          for ch in channels:
+              name = get_name(ch['extinf'])
+              url = ch['urls'][0].strip() if ch['urls'] else ''
+              key = (name, url)
+              if key in seen:
+                  removed_dupes += 1
+                  existing_idx = seen[key]
+                  if len(ch['props']) > len(deduped[existing_idx]['props']):
+                      deduped[existing_idx] = ch
+              else:
+                  seen[key] = len(deduped)
+                  deduped.append(ch)
+          channels = deduped
+          print(f"Duplikat (nama+sumber sama) dihapus: {removed_dupes}")
+
+          # ============================================================
+          # STEP 3: Fix dens.tv URLs (bukan hapus!)
+          #   - http:// → https:// (hindari redirect browser)
+          #   - Hapus ?app_type=web&userid=lite (trigger browser auth)
+          #   - Tambah headers kalau belum ada
+          # ============================================================
+          dens_fixed = 0
+          for ch in channels:
+              new_urls = []
+              for url in ch['urls']:
+                  if 'dens.tv' in url:
+                      # Fix http:// → https://
+                      if url.startswith('http://'):
+                          url = url.replace('http://', 'https://', 1)
+                          dens_fixed += 1
+                      # Hapus app_type=web&userid=lite params
+                      url = re.sub(r'\?app_type=web&userid=lite&chname=[^\s]+', '', url)
+                      url = re.sub(r'\?app_type=web&userid=lite', '', url)
+                      new_urls.append(url)
+                  else:
+                      new_urls.append(url)
+              ch['urls'] = new_urls
+
+              # Fix dens.tv referrer http → https
+              ch['props'] = [p.replace('http-referrer=http://dens.tv', 'http-referrer=https://www.dens.tv/') for p in ch['props']]
+
+              # Tambah headers untuk dens.tv kalau belum ada
+              has_dens = any('dens.tv' in u for u in ch['urls'])
+              has_referrer = any('dens.tv' in p and 'http-referrer' in p for p in ch['props'])
+              if has_dens and not has_referrer:
+                  ch['props'].insert(0, '#EXTVLCOPT:http-referrer=https://www.dens.tv/')
+                  ch['props'].insert(1, '#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36')
+                  dens_fixed += 1
+
+          print(f"dens.tv URLs diperbaiki: {dens_fixed}")
+
+          # ============================================================
+          # STEP 4: Fix EPG tvg-id ke format yang cocok dengan EPG source
+          # ============================================================
+
+          # EPG IDs yang tersedia di AqFad2811/epg/indonesia.xml
+          valid_epg_ids = {
+              "RCTI.id", "MNCTV.id", "GTV.id", "Indosiar.id", "SCTV.id",
+              "TransTV.id", "Trans7.id", "MDTV.id", "iNews.id", "KompasTV.id",
+              "MetroTV.id", "tvOne.id", "ANTV.id", "BTV.id", "TVRI.id",
+              "IDX.id", "SindoNewsTV.id", "HITS.id", "HitsMovies.id",
+              "StudioUniversal.id", "AXN.id", "GALAXY.id", "GALAXYPremium.id",
+              "CelestialMovies.id", "IMC.id", "VisionPrime.id", "Ent.id",
+              "FoodTravel.id", "CelebritiesTV.id", "HanacarakaTV.id",
+              "beInSports1.id", "beInSports2.id", "beInSports3.id",
+              "beInSports4.id", "beInSports5.id", "Nickelodeon.id", "NickJr.id",
+              "ZooMoo.id", "CBeebies.id", "DreamWorks.id", "KidsTV.id",
+              "History.id", "Thrill.id", "ZeeBioskop.id", "tvNMovies.id",
+              "tvN.id", "CineEdge.id", "BuddyStar.id", "MuslimTV.id",
+              "AlQuranKareem.id", "TawafTV.id", "SPOTV.id", "SPOTV2.id",
+              "Lifetime.id", "MTV90s.id", "MTVLive.id", "MusicTV.id",
+              "SoccerChannel.id", "FightSports.id", "OutdoorChannel.id",
+              "LoveNature.id", "GlobalTrekker.id", "BBCEarth.id", "BBCNews.id",
+              "CrimeInvestigation.id", "KIX.id", "ROCKAction.id",
+              "ROCKEntertainment.id", "JakTV.id", "CNA.id",
+              "AlJazeeraEnglish.id", "NHKWorldJapan.id", "NHKWorldPremium.id",
+              "CGTN.id", "CGTNDocumentary.id", "DWEnglish.id",
+              "France24English.id", "Euronews.id", "BloombergTV.id",
+              "FOXNews.id", "Uniques.id", "Originals.id", "Superrix.id",
+              "LIFE.id", "CCM.id", "Animax.id", "ONE.id", "Arirang.id",
+              "Sportstars.id", "Sportstars2.id", "Sportstars3.id", "Sportstars4.id",
+              "ABCAustralia.id", "HGTV.id",
+          }
+
+          # Mapping nama channel ke EPG ID
+          channel_to_epg = {
+              'RCTI': 'RCTI.id', 'MNC TV': 'MNCTV.id', 'MNCTV': 'MNCTV.id',
+              'GTV': 'GTV.id', 'Indosiar': 'Indosiar.id', 'SCTV': 'SCTV.id',
+              'TransTV': 'TransTV.id', 'Trans TV': 'TransTV.id',
+              'Trans7': 'Trans7.id', 'Trans 7': 'Trans7.id',
+              'MDTV': 'MDTV.id', 'iNews': 'iNews.id',
+              'Kompas TV': 'KompasTV.id', 'KompasTV': 'KompasTV.id',
+              'Metro TV': 'MetroTV.id', 'MetroTV': 'MetroTV.id',
+              'TVOne': 'tvOne.id', 'TV One': 'tvOne.id', 'tvOne': 'tvOne.id',
+              'SindoNews': 'SindoNewsTV.id', 'ANTV': 'ANTV.id',
+              'IDX': 'IDX.id', 'IDX Channel': 'IDX.id',
+              'TVRI': 'TVRI.id', 'BTV': 'BTV.id',
+              'HITS': 'HITS.id', 'Hits': 'HITS.id',
+              'HITS Movies': 'HitsMovies.id', 'HitsMovies': 'HitsMovies.id',
+              'Studio Universal': 'StudioUniversal.id',
+              'AXN': 'AXN.id', 'Galaxy': 'GALAXY.id', 'GALAXY': 'GALAXY.id',
+              'GALAXY Premium': 'GALAXYPremium.id',
+              'Celestial Movies': 'CelestialMovies.id',
+              'Indonesia Movie Channel': 'IMC.id', 'IMC': 'IMC.id',
+              'Vision Prime': 'VisionPrime.id', 'VisionPrime': 'VisionPrime.id',
+              'Entertainment': 'Ent.id', 'Food Travel': 'FoodTravel.id',
+              'CelebritiesTV': 'CelebritiesTV.id', 'Celebrities TV': 'CelebritiesTV.id',
+              'Hanacaraka TV': 'HanacarakaTV.id', 'HanacarakaTV': 'HanacarakaTV.id',
+              'beIN Sports 1': 'beInSports1.id', 'beIN Sports 2': 'beInSports2.id',
+              'beIN Sports 3': 'beInSports3.id',
+              'Nickelodeon': 'Nickelodeon.id', 'Nick Jr': 'NickJr.id',
+              'ZooMoo': 'ZooMoo.id', 'CBeebies': 'CBeebies.id',
+              'DreamWorks': 'DreamWorks.id', 'Kids TV': 'KidsTV.id',
+              'History': 'History.id', 'Thrill': 'Thrill.id',
+              'Zee Bioskop': 'ZeeBioskop.id',
+              'tvN Movies': 'tvNMovies.id', 'tvN': 'tvN.id',
+              'CineEdge': 'CineEdge.id', 'Buddy Star': 'BuddyStar.id',
+              'Muslim TV': 'MuslimTV.id', 'Al Quran': 'AlQuranKareem.id',
+              'Tawaf TV': 'TawafTV.id', 'SPOTV': 'SPOTV.id', 'SPOTV 2': 'SPOTV2.id',
+              'SpoTV': 'SPOTV.id', 'SpoTV 2': 'SPOTV2.id',
+              'Lifetime': 'Lifetime.id', 'MTV 90s': 'MTV90s.id', 'MTV Live': 'MTVLive.id',
+              'Music TV': 'MusicTV.id', 'Soccer Channel': 'SoccerChannel.id',
+              'Fight Sports': 'FightSports.id', 'Outdoor Channel': 'OutdoorChannel.id',
+              'Love Nature': 'LoveNature.id', 'Global Trekker': 'GlobalTrekker.id',
+              'BBC Earth': 'BBCEarth.id', 'BBC News': 'BBCNews.id',
+              'Crime Investigation': 'CrimeInvestigation.id', 'KIX': 'KIX.id',
+              'ROCK Action': 'ROCKAction.id', 'ROCK Entertainment': 'ROCKEntertainment.id',
+              'Jak TV': 'JakTV.id', 'JakTV': 'JakTV.id',
+              'CNA': 'CNA.id', 'Channel News Asia': 'CNA.id',
+              'Al Jazeera English': 'AlJazeeraEnglish.id', 'Al Jazeera': 'AlJazeeraEnglish.id',
+              'NHK World Japan': 'NHKWorldJapan.id', 'NHK World': 'NHKWorldJapan.id',
+              'NHK World Premium': 'NHKWorldPremium.id',
+              'CGTN': 'CGTN.id', 'CGTN Documentary': 'CGTNDocumentary.id',
+              'DW English': 'DWEnglish.id', 'DW': 'DWEnglish.id',
+              'France 24': 'France24English.id',
+              'Euronews': 'Euronews.id', 'Bloomberg': 'BloombergTV.id',
+              'FOX News': 'FOXNews.id', 'Uniques': 'Uniques.id',
+              'Originals': 'Originals.id', 'Superrix': 'Superrix.id',
+              'LIFE': 'LIFE.id', 'CCM': 'CCM.id', 'Animax': 'Animax.id',
+              'ONE': 'ONE.id', 'Arirang': 'Arirang.id',
+              'Sportstars': 'Sportstars.id', 'Sportstars 2': 'Sportstars2.id',
+              'Sportstars 3': 'Sportstars3.id', 'Sportstars 4': 'Sportstars4.id',
+              'HGTV': 'HGTV.id', 'HBO Hits': 'HBOHits.id',
+              'HITS Now': 'HITSNow.id', 'Musik Indonesia': 'MusicTV.id',
+              # Channels tanpa EPG resmi - gunakan best guess
+              'CNN Indonesia': 'CNNIndonesia.id', 'CNBC Indonesia': 'CNBCIndonesia.id',
+              'MOJI TV': 'Moji.id', 'MOJI': 'Moji.id', 'Moji': 'Moji.id',
+              'DAAI TV': 'DAAITV.id', 'RTV': 'RTV.id',
+              'Nusantara TV': 'NusantaraTV.id', 'Antara TV': 'AntaraTV.id',
+              'MAGNA Channel': 'MagnaChannel.id', 'BN Channel': 'BNChannel.id',
+              'Indonesiana TV': 'IndonesianaTV.id', 'Garuda TV': 'GarudaTV.id',
+              'SIN PO TV': 'SinPoTV.id', 'Channel Jowo': 'ChannelJowo.id',
+              'First Lifestyle': 'FirstLifestyle.id', 'Flik': 'Flik.id',
+              'Max Stream': 'MaxStream.id', 'Max Reels': 'MaxReels.id',
+              'Max Eats': 'MaxEats.id', 'Bioskop Indonesia': 'BioskopIndonesia.id',
+              'Citra Dangdut': 'CitraDangdut.id', 'Citra Entertainment': 'CitraEntertainment.id',
+              'VTV': 'VTV.id', 'Jiangsu TV': 'JiangsuTV.id',
+              'LingkarTV': 'LingkarTV.id', 'BanjarTV': 'BanjarTV.id', 'BRTV': 'BRTV.id',
+          }
+
+          def clean_name(name):
+              clean = re.sub(r'\s*\(V\+\)\s*', '', name).strip()
+              clean = re.sub(r'\s*\(ChannelFeed\)\s*', '', clean).strip()
+              clean = re.sub(r'\s*\(DensTV\)\s*', '', clean).strip()
+              clean = re.sub(r'\s*\(Channel Feed\)\s*', '', clean).strip()
+              clean = re.sub(r'\s*HD\s*$', '', clean).strip()
+              return clean
+
+          def get_epg_id(name):
+              cn = clean_name(name)
+              if cn in channel_to_epg:
+                  return channel_to_epg[cn]
+              for key, epg_id in channel_to_epg.items():
+                  if key.lower() == cn.lower():
+                      return epg_id
+              for key, epg_id in channel_to_epg.items():
+                  if key.lower() in cn.lower() or cn.lower() in key.lower():
+                      return epg_id
+              return None
+
+          epg_fixed = 0
+          for ch in channels:
+              name_match = re.search(r',(.+?)$', ch['extinf'].strip())
+              if not name_match:
+                  continue
+              name = name_match.group(1).strip()
+              epg_id = get_epg_id(name)
+              if epg_id:
+                  old_tvg_id = re.search(r'tvg-id="([^"]*)"', ch['extinf'])
+                  if old_tvg_id and old_tvg_id.group(1) != epg_id:
+                      ch['extinf'] = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{epg_id}"', ch['extinf'])
+                      epg_fixed += 1
+          print(f"EPG tvg-id diperbaiki: {epg_fixed}")
+
+          # Write
+          with open(target, 'w', encoding='utf-8') as f:
+              if header:
+                  f.write(header + '\n\n')
+              for ch in channels:
+                  for prop in ch['props']:
+                      f.write(prop + '\n')
+                  f.write(ch['extinf'] + '\n')
+                  for url in ch['urls']:
+                      f.write(url + '\n')
+                  f.write('\n')
+
+          total_after = len(channels)
+          print(f"Total: {total_before} -> {total_after} (dihapus: {total_before - total_after})")
+          PYEOF
+
+          AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+          echo "Channel setelah cleanup: $AFTER"
 
       - name: Check for Changes
         id: check_changes
