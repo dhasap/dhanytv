@@ -1,0 +1,153 @@
+name: Auto Update IPTV Playlist
+
+on:
+  # Jadwal cron: Setiap hari Senin pukul 00:00 UTC (07:00 WIB)
+  schedule:
+    - cron: '0 0 * * 1'
+
+  # Bisa di-trigger manual dari tab Actions di GitHub
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download Latest Source
+        env:
+          SRC: ${{ secrets.PLAYLIST_SOURCE }}
+        run: |
+          if [ -z "$SRC" ]; then
+            echo "ERROR: Secret PLAYLIST_SOURCE belum diset!"
+            echo "Buka Settings > Secrets and variables > Actions > New repository secret"
+            echo "Name : PLAYLIST_SOURCE"
+            echo "Value: URL sumber playlist"
+            exit 1
+          fi
+          echo "Mengunduh data terbaru..."
+          curl -sL "$SRC" -o source_latest.m3u
+          echo "Download selesai. Ukuran file: $(wc -c < source_latest.m3u) bytes"
+
+      - name: Sanitize & Update Playlist
+        env:
+          SANITIZE_PATTERNS: ${{ secrets.SANITIZE_PATTERNS }}
+        run: |
+          TARGET_FILE="dhanytv.m3u"
+          SOURCE_FILE="source_latest.m3u"
+
+          if [ ! -f "$TARGET_FILE" ]; then
+            echo "ERROR: File $TARGET_FILE tidak ditemukan!"
+            exit 1
+          fi
+          if [ ! -f "$SOURCE_FILE" ]; then
+            echo "ERROR: File sumber gagal diunduh!"
+            exit 1
+          fi
+
+          # Ambil header #EXTM3U (dengan url-tvg) dari file asli
+          HEADER_LINE=$(grep -m1 '^#EXTM3U.*url-tvg' "$TARGET_FILE" || grep -m1 '^#EXTM3U' "$TARGET_FILE")
+          if [ -z "$HEADER_LINE" ]; then
+            echo "ERROR: Header #EXTM3U tidak ditemukan!"
+            exit 1
+          fi
+          echo "Header dipertahankan."
+
+          OLD_COUNT=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+          NEW_COUNT=$(grep -c '#EXTINF' "$SOURCE_FILE" || echo "0")
+          echo "Channel sebelum: $OLD_COUNT | sesudah: $NEW_COUNT"
+
+          # Buat file baru: header lama + data channel baru (tanpa header sumber)
+          {
+            echo "$HEADER_LINE"
+            echo ""
+            echo ""
+            SKIP_HEADER=true
+            while IFS= read -r line; do
+              if [ "$SKIP_HEADER" = true ] && echo "$line" | grep -q '^#EXTM3U'; then
+                continue
+              fi
+              SKIP_HEADER=false
+              echo "$line"
+            done < "$SOURCE_FILE"
+          } > "${TARGET_FILE}.new"
+
+          sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "${TARGET_FILE}.new"
+          echo "" >> "${TARGET_FILE}.new"
+          mv "${TARGET_FILE}.new" "$TARGET_FILE"
+
+          # ========================================================
+          # SANITASI: Bersihkan jejak sumber asal
+          # ========================================================
+
+          # 1. Ganti EPG asing ke EPG milik header
+          EPG_LIST=(
+            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml"
+            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/astro.xml"
+            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/singapore.xml"
+            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/unifitv.xml"
+            "https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/rtmklik.xml"
+          )
+          DEFAULT_EPG="${EPG_LIST[0]}"
+
+          # Baca pola sanitasi dari secrets (format: pat1|pat2|pat3)
+          if [ -n "$SANITIZE_PATTERNS" ]; then
+            IFS='|' read -ra PATTERNS <<< "$SANITIZE_PATTERNS"
+            for pat in "${PATTERNS[@]}"; do
+              echo "Membersihkan jejak: $pat"
+              # Hapus baris URL stream yang mengandung pola
+              sed -i "/^https.*${pat}/d" "$TARGET_FILE"
+              # Ganti logo URL yang mengandung pola
+              sed -i "s| tvg-logo=\"[^\"]*${pat}[^\"]*\"| tvg-logo=\"\"|g" "$TARGET_FILE"
+              # Ganti tvg-url yang mengandung pola
+              sed -i "s| tvg-url=\"[^\"]*${pat}[^\"]*\"| tvg-url=\"${DEFAULT_EPG}\"|g" "$TARGET_FILE"
+            done
+          fi
+
+          # 2. Bersihkan baris kosong berlebih
+          sed -i '/^$/N;/^\n$/d' "$TARGET_FILE"
+
+          # Cleanup
+          rm -f "$SOURCE_FILE"
+
+          FINAL_COUNT=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+          echo "Update selesai! Total channel: $FINAL_COUNT"
+
+      - name: Check for Changes
+        id: check_changes
+        run: |
+          if git diff --quiet dhanytv.m3u; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            git diff --stat dhanytv.m3u
+          fi
+
+      - name: Commit and Push Changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dhanytv.m3u
+          COMMIT_DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
+          CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          git commit -m "auto-update: Playlist IPTV updated ($CHANNEL_COUNT channels) - $COMMIT_DATE"
+          git push
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "============================================"
+          echo "  Auto-Update IPTV Playlist"
+          echo "============================================"
+          echo "Tanggal   : $(date -u '+%Y-%m-%d %H:%M UTC')"
+          echo "Channel   : $(grep -c '#EXTINF' dhanytv.m3u 2>/dev/null || echo 'N/A')"
+          echo "Perubahan : ${{ steps.check_changes.outputs.has_changes }}"
+          echo "============================================"
