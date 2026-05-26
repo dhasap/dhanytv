@@ -1,11 +1,8 @@
 name: Auto Update IPTV Playlist
 
 on:
-  # Jadwal cron: Setiap hari Senin pukul 00:00 UTC (07:00 WIB)
   schedule:
     - cron: '0 0 * * 1'
-
-  # Bisa di-trigger manual dari tab Actions di GitHub
   workflow_dispatch:
 
 permissions:
@@ -27,9 +24,6 @@ jobs:
         run: |
           if [ -z "$SRC" ]; then
             echo "ERROR: Secret PLAYLIST_SOURCE belum diset!"
-            echo "Buka Settings > Secrets and variables > Actions > New repository secret"
-            echo "Name : PLAYLIST_SOURCE"
-            echo "Value: URL sumber playlist"
             exit 1
           fi
           echo "Mengunduh data terbaru..."
@@ -52,7 +46,6 @@ jobs:
             exit 1
           fi
 
-          # Ambil header #EXTM3U (dengan url-tvg) dari file asli
           HEADER_LINE=$(grep -m1 '^#EXTM3U.*url-tvg' "$TARGET_FILE" || grep -m1 '^#EXTM3U' "$TARGET_FILE")
           if [ -z "$HEADER_LINE" ]; then
             echo "ERROR: Header #EXTM3U tidak ditemukan!"
@@ -64,7 +57,6 @@ jobs:
           NEW_COUNT=$(grep -c '#EXTINF' "$SOURCE_FILE" || echo "0")
           echo "Channel sebelum: $OLD_COUNT | sesudah: $NEW_COUNT"
 
-          # Buat file baru: header lama + data channel baru (tanpa header sumber)
           {
             echo "$HEADER_LINE"
             echo ""
@@ -83,13 +75,8 @@ jobs:
           echo "" >> "${TARGET_FILE}.new"
           mv "${TARGET_FILE}.new" "$TARGET_FILE"
 
-          # ========================================================
-          # SANITASI: Bersihkan jejak sumber asal
-          # ========================================================
-
           DEFAULT_EPG="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main/indonesia.xml"
 
-          # Baca pola sanitasi dari secrets (format: pat1|pat2|pat3)
           if [ -n "$SANITIZE_PATTERNS" ]; then
             IFS='|' read -ra PATTERNS <<< "$SANITIZE_PATTERNS"
             for pat in "${PATTERNS[@]}"; do
@@ -100,10 +87,7 @@ jobs:
             done
           fi
 
-          # Bersihkan baris kosong berlebih
           sed -i '/^$/N;/^\n$/d' "$TARGET_FILE"
-
-          # Cleanup
           rm -f "$SOURCE_FILE"
 
           AFTER_SANITIZED=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
@@ -112,9 +96,7 @@ jobs:
       - name: Smart Cleanup & EPG Mapping
         run: |
           TARGET_FILE="dhanytv.m3u"
-
           echo "=== Smart Cleanup & EPG Fix ==="
-
           BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
           echo "Channel sebelum: $BEFORE"
 
@@ -154,17 +136,12 @@ jobs:
 
           total_before = len(channels)
 
-          # ============================================================
-          # STEP 1: Hapus channel tanpa URL stream
-          # ============================================================
+          # STEP 1: Remove channels without stream URLs
           channels = [ch for ch in channels if ch['urls']]
           removed_nourl = total_before - len(channels)
           print(f"Channel tanpa URL dihapus: {removed_nourl}")
 
-          # ============================================================
-          # STEP 2: Dedup - nama sama + sumber sama = hapus duplikat
-          # Channel boleh sama asal sumber beda (URL beda)
-          # ============================================================
+          # STEP 2: Dedup - same name + same URL = remove duplicate
           def get_name(extinf):
               m = re.search(r',(.+?)$', extinf.strip())
               return re.sub(r'\s+', ' ', m.group(1).strip().lower()) if m else ''
@@ -187,77 +164,34 @@ jobs:
           channels = deduped
           print(f"Duplikat (nama+sumber sama) dihapus: {removed_dupes}")
 
-          # ============================================================
-          # STEP 3: Fix dens.tv URLs (bukan hapus!)
-          #   - http:// → https:// (hindari redirect browser)
-          #   - Hapus ?app_type=web&userid=lite (trigger browser auth)
-          #   - Tambah headers kalau belum ada
-          # ============================================================
+          # STEP 3: Fix dens.tv URLs
           dens_fixed = 0
           for ch in channels:
               new_urls = []
               for url in ch['urls']:
                   if 'dens.tv' in url:
-                      # Fix http:// → https://
                       if url.startswith('http://'):
                           url = url.replace('http://', 'https://', 1)
                           dens_fixed += 1
-                      # Hapus app_type=web&userid=lite params
                       url = re.sub(r'\?app_type=web&userid=lite&chname=[^\s]+', '', url)
                       url = re.sub(r'\?app_type=web&userid=lite', '', url)
                       new_urls.append(url)
                   else:
                       new_urls.append(url)
               ch['urls'] = new_urls
-
-              # Fix dens.tv referrer http → https
               ch['props'] = [p.replace('http-referrer=http://dens.tv', 'http-referrer=https://www.dens.tv/') for p in ch['props']]
-
-              # Tambah headers untuk dens.tv kalau belum ada
               has_dens = any('dens.tv' in u for u in ch['urls'])
               has_referrer = any('dens.tv' in p and 'http-referrer' in p for p in ch['props'])
               if has_dens and not has_referrer:
                   ch['props'].insert(0, '#EXTVLCOPT:http-referrer=https://www.dens.tv/')
                   ch['props'].insert(1, '#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36')
                   dens_fixed += 1
-
           print(f"dens.tv URLs diperbaiki: {dens_fixed}")
 
-          # ============================================================
-          # STEP 4: Fix EPG tvg-id ke format yang cocok dengan EPG source
-          # ============================================================
-
-          # EPG IDs yang tersedia di AqFad2811/epg/indonesia.xml
-          valid_epg_ids = {
-              "RCTI.id", "MNCTV.id", "GTV.id", "Indosiar.id", "SCTV.id",
-              "TransTV.id", "Trans7.id", "MDTV.id", "iNews.id", "KompasTV.id",
-              "MetroTV.id", "tvOne.id", "ANTV.id", "BTV.id", "TVRI.id",
-              "IDX.id", "SindoNewsTV.id", "HITS.id", "HitsMovies.id",
-              "StudioUniversal.id", "AXN.id", "GALAXY.id", "GALAXYPremium.id",
-              "CelestialMovies.id", "IMC.id", "VisionPrime.id", "Ent.id",
-              "FoodTravel.id", "CelebritiesTV.id", "HanacarakaTV.id",
-              "beInSports1.id", "beInSports2.id", "beInSports3.id",
-              "beInSports4.id", "beInSports5.id", "Nickelodeon.id", "NickJr.id",
-              "ZooMoo.id", "CBeebies.id", "DreamWorks.id", "KidsTV.id",
-              "History.id", "Thrill.id", "ZeeBioskop.id", "tvNMovies.id",
-              "tvN.id", "CineEdge.id", "BuddyStar.id", "MuslimTV.id",
-              "AlQuranKareem.id", "TawafTV.id", "SPOTV.id", "SPOTV2.id",
-              "Lifetime.id", "MTV90s.id", "MTVLive.id", "MusicTV.id",
-              "SoccerChannel.id", "FightSports.id", "OutdoorChannel.id",
-              "LoveNature.id", "GlobalTrekker.id", "BBCEarth.id", "BBCNews.id",
-              "CrimeInvestigation.id", "KIX.id", "ROCKAction.id",
-              "ROCKEntertainment.id", "JakTV.id", "CNA.id",
-              "AlJazeeraEnglish.id", "NHKWorldJapan.id", "NHKWorldPremium.id",
-              "CGTN.id", "CGTNDocumentary.id", "DWEnglish.id",
-              "France24English.id", "Euronews.id", "BloombergTV.id",
-              "FOXNews.id", "Uniques.id", "Originals.id", "Superrix.id",
-              "LIFE.id", "CCM.id", "Animax.id", "ONE.id", "Arirang.id",
-              "Sportstars.id", "Sportstars2.id", "Sportstars3.id", "Sportstars4.id",
-              "ABCAustralia.id", "HGTV.id",
-          }
-
-          # Mapping nama channel ke EPG ID
+          # STEP 4: Fix EPG tvg-id mapping
+          # Only include IDs that exist in AqFad2811/epg sources
           channel_to_epg = {
+              # Indonesia channels (indonesia.xml - with .id suffix)
               'RCTI': 'RCTI.id', 'MNC TV': 'MNCTV.id', 'MNCTV': 'MNCTV.id',
               'GTV': 'GTV.id', 'Indosiar': 'Indosiar.id', 'SCTV': 'SCTV.id',
               'TransTV': 'TransTV.id', 'Trans TV': 'TransTV.id',
@@ -269,10 +203,11 @@ jobs:
               'SindoNews': 'SindoNewsTV.id', 'ANTV': 'ANTV.id',
               'IDX': 'IDX.id', 'IDX Channel': 'IDX.id',
               'TVRI': 'TVRI.id', 'BTV': 'BTV.id',
+              # Premium channels (indonesia.xml)
               'HITS': 'HITS.id', 'Hits': 'HITS.id',
               'HITS Movies': 'HitsMovies.id', 'HitsMovies': 'HitsMovies.id',
               'Studio Universal': 'StudioUniversal.id',
-              'AXN': 'AXN.id', 'Galaxy': 'GALAXY.id', 'GALAXY': 'GALAXY.id',
+              'AXN': 'AXN.id', 'GALAXY': 'GALAXY.id',
               'GALAXY Premium': 'GALAXYPremium.id',
               'Celestial Movies': 'CelestialMovies.id',
               'Indonesia Movie Channel': 'IMC.id', 'IMC': 'IMC.id',
@@ -314,22 +249,19 @@ jobs:
               'ONE': 'ONE.id', 'Arirang': 'Arirang.id',
               'Sportstars': 'Sportstars.id', 'Sportstars 2': 'Sportstars2.id',
               'Sportstars 3': 'Sportstars3.id', 'Sportstars 4': 'Sportstars4.id',
-              'HGTV': 'HGTV.id', 'HBO Hits': 'HBOHits.id',
-              'HITS Now': 'HITSNow.id', 'Musik Indonesia': 'MusicTV.id',
-              # Channels tanpa EPG resmi - gunakan best guess
-              'CNN Indonesia': 'CNNIndonesia.id', 'CNBC Indonesia': 'CNBCIndonesia.id',
-              'MOJI TV': 'Moji.id', 'MOJI': 'Moji.id', 'Moji': 'Moji.id',
-              'DAAI TV': 'DAAITV.id', 'RTV': 'RTV.id',
-              'Nusantara TV': 'NusantaraTV.id', 'Antara TV': 'AntaraTV.id',
-              'MAGNA Channel': 'MagnaChannel.id', 'BN Channel': 'BNChannel.id',
-              'Indonesiana TV': 'IndonesianaTV.id', 'Garuda TV': 'GarudaTV.id',
-              'SIN PO TV': 'SinPoTV.id', 'Channel Jowo': 'ChannelJowo.id',
-              'First Lifestyle': 'FirstLifestyle.id', 'Flik': 'Flik.id',
-              'Max Stream': 'MaxStream.id', 'Max Reels': 'MaxReels.id',
-              'Max Eats': 'MaxEats.id', 'Bioskop Indonesia': 'BioskopIndonesia.id',
-              'Citra Dangdut': 'CitraDangdut.id', 'Citra Entertainment': 'CitraEntertainment.id',
-              'VTV': 'VTV.id', 'Jiangsu TV': 'JiangsuTV.id',
-              'LingkarTV': 'LingkarTV.id', 'BanjarTV': 'BanjarTV.id', 'BRTV': 'BRTV.id',
+              'HGTV': 'HGTV.id',
+              # Astro channels (astro.xml - without .id suffix)
+              'CNN': 'CNN', 'BBC News': 'BBCNews',
+              'Discovery Channel': 'DiscoveryChannel', 'Discovery': 'DiscoveryChannel',
+              'Cartoon Network': 'CartoonNetwork', 'Animal Planet': 'Animal Planet',
+              # RTM channels (rtmklik.xml)
+              'Berita RTM': 'Berita RTM', 'TV1': 'TV1', 'TV2': 'TV2',
+              'TV6': 'TV6', 'Okey': 'Okey',
+              # Singapore channels (singapore.xml)
+              'Suria': 'Suria', 'Vasantham': 'Vasantham',
+              # Unifitv numeric IDs
+              'HBO': '401', 'HBO Hits': '402', 'HBO Family': '403',
+              'HBO Signature': '401', 'Cinemax': '405',
           }
 
           def clean_name(name):
@@ -353,22 +285,43 @@ jobs:
               return None
 
           epg_fixed = 0
+          epg_removed = 0
           for ch in channels:
               name_match = re.search(r',(.+?)$', ch['extinf'].strip())
               if not name_match:
                   continue
               name = name_match.group(1).strip()
               epg_id = get_epg_id(name)
+              old_tvg_id = re.search(r'tvg-id="([^"]*)"', ch['extinf'])
+              old_id = old_tvg_id.group(1) if old_tvg_id else ''
+
               if epg_id:
-                  old_tvg_id = re.search(r'tvg-id="([^"]*)"', ch['extinf'])
-                  if old_tvg_id and old_tvg_id.group(1) != epg_id:
+                  if old_id != epg_id:
                       ch['extinf'] = re.sub(r'tvg-id="[^"]*"', f'tvg-id="{epg_id}"', ch['extinf'])
                       epg_fixed += 1
+              else:
+                  # No valid EPG mapping - remove tvg-id to avoid confusion
+                  if old_id:
+                      ch['extinf'] = re.sub(r'tvg-id="[^"]*"', 'tvg-id=""', ch['extinf'])
+                      epg_removed += 1
+
           print(f"EPG tvg-id diperbaiki: {epg_fixed}")
+          print(f"EPG tvg-id dihapus (tidak ada di source): {epg_removed}")
+
+          # STEP 5: Remove tvg-url from EXTINF lines (not standard, confuses some players)
+          tvg_url_removed = 0
+          for ch in channels:
+              if 'tvg-url=' in ch['extinf']:
+                  ch['extinf'] = re.sub(r'\s*tvg-url="[^"]*"', '', ch['extinf'])
+                  tvg_url_removed += 1
+          print(f"tvg-url attribute dihapus: {tvg_url_removed}")
 
           # Write
           with open(target, 'w', encoding='utf-8') as f:
               if header:
+                  # Update url-tvg to point to our custom EPG
+                  custom_epg_url = 'https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml'
+                  header = re.sub(r'url-tvg="[^"]*"', f'url-tvg="{custom_epg_url}"', header)
                   f.write(header + '\n\n')
               for ch in channels:
                   for prop in ch['props']:
@@ -385,14 +338,123 @@ jobs:
           AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
           echo "Channel setelah cleanup: $AFTER"
 
+      - name: Generate Custom EPG
+        run: |
+          echo "=== Generate Custom EPG ==="
+          TARGET_FILE="dhanytv.m3u"
+          EPG_OUTPUT="epg.xml"
+          EPG_BASE="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main"
+
+          # Download all EPG sources
+          echo "Downloading EPG sources..."
+          for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml; do
+            echo "  Downloading $f..."
+            curl -sL "${EPG_BASE}/${f}" -o "${f}" || echo "  WARNING: $f gagal diunduh"
+          done
+
+          # Build custom filtered EPG
+          python3 << 'PYEOF'
+          import re
+          import os
+          import xml.etree.ElementTree as ET
+
+          def get_tvg_ids_from_m3u(m3u_path):
+              tvg_ids = set()
+              with open(m3u_path, 'r', encoding='utf-8') as f:
+                  for line in f:
+                      match = re.search(r'tvg-id="([^"]*)"', line)
+                      if match:
+                          tid = match.group(1)
+                          if tid:
+                              tvg_ids.add(tid)
+              return tvg_ids
+
+          m3u_path = "dhanytv.m3u"
+          output_path = "epg.xml"
+          epg_sources = ["indonesia.xml", "astro.xml", "singapore.xml", "rtmklik.xml", "unifitv.xml"]
+
+          tvg_ids = get_tvg_ids_from_m3u(m3u_path)
+          print(f"Found {len(tvg_ids)} unique tvg-id values in playlist")
+
+          all_channels = {}
+          all_programmes = []
+
+          for source in epg_sources:
+              if not os.path.exists(source):
+                  print(f"  SKIP: {source} not found")
+                  continue
+              print(f"\nProcessing: {source}")
+              try:
+                  tree = ET.parse(source)
+              except ET.ParseError as e:
+                  print(f"  Error: {e}")
+                  continue
+
+              root = tree.getroot()
+              matched = 0
+
+              for channel in root.findall('channel'):
+                  ch_id = channel.get('id', '')
+                  if ch_id in tvg_ids and ch_id not in all_channels:
+                      all_channels[ch_id] = channel
+                      matched += 1
+
+              print(f"  Matched channels: {matched}")
+
+              prog_count = 0
+              for programme in root.findall('programme'):
+                  ch_id = programme.get('channel', '')
+                  if ch_id in tvg_ids and ch_id in all_channels:
+                      all_programmes.append(programme)
+                      prog_count += 1
+
+              print(f"  Matched programmes: {prog_count}")
+
+          # Build merged output
+          new_root = ET.Element('tv')
+          new_root.set('generator-info-name', 'dhanytv-custom-epg')
+          new_root.set('generator-info-url', 'https://github.com/dhasap/dhanytv')
+
+          for ch_id in sorted(all_channels.keys()):
+              new_root.append(all_channels[ch_id])
+
+          for prog in all_programmes:
+              new_root.append(prog)
+
+          new_tree = ET.ElementTree(new_root)
+          ET.indent(new_tree, space='  ')
+          new_tree.write(output_path, encoding='unicode', xml_declaration=True)
+
+          size = os.path.getsize(output_path)
+          print(f"\n{'='*60}")
+          print(f"CUSTOM EPG: {output_path}")
+          print(f"Channels: {len(all_channels)}")
+          print(f"Programmes: {len(all_programmes)}")
+          print(f"File size: {size / 1024:.1f} KB")
+
+          matched_ids = set(all_channels.keys())
+          unmatched = tvg_ids - matched_ids
+          if unmatched:
+              print(f"\ntvg-id NOT in EPG ({len(unmatched)}): {', '.join(sorted(unmatched))}")
+          PYEOF
+
+          # Cleanup downloaded EPG files
+          rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml
+
+          if [ -f "$EPG_OUTPUT" ]; then
+            echo "Custom EPG generated: $(du -h $EPG_OUTPUT | cut -f1)"
+          else
+            echo "WARNING: Custom EPG gagal di-generate!"
+          fi
+
       - name: Check for Changes
         id: check_changes
         run: |
-          if git diff --quiet dhanytv.m3u; then
+          if git diff --quiet dhanytv.m3u epg.xml; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
-            git diff --stat dhanytv.m3u
+            git diff --stat dhanytv.m3u epg.xml
           fi
 
       - name: Commit and Push Changes
@@ -400,19 +462,22 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dhanytv.m3u
+          git add dhanytv.m3u epg.xml
           COMMIT_DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
           CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
-          git commit -m "auto-update: Playlist IPTV updated ($CHANNEL_COUNT channels) - $COMMIT_DATE"
+          EPG_CHANNELS=$(grep -c '<channel ' epg.xml 2>/dev/null || echo "0")
+          git commit -m "auto-update: Playlist + EPG updated ($CHANNEL_COUNT ch, $EPG_CHANNELS EPG) - $COMMIT_DATE"
           git push
 
       - name: Summary
         if: always()
         run: |
           echo "============================================"
-          echo "  Auto-Update IPTV Playlist"
+          echo "  Auto-Update IPTV Playlist + EPG"
           echo "============================================"
           echo "Tanggal   : $(date -u '+%Y-%m-%d %H:%M UTC')"
           echo "Channel   : $(grep -c '#EXTINF' dhanytv.m3u 2>/dev/null || echo 'N/A')"
+          echo "EPG Ch    : $(grep -c '<channel ' epg.xml 2>/dev/null || echo 'N/A')"
+          echo "EPG Size  : $(du -h epg.xml 2>/dev/null | cut -f1 || echo 'N/A')"
           echo "Perubahan : ${{ steps.check_changes.outputs.has_changes }}"
           echo "============================================"
