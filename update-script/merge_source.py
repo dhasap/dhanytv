@@ -267,15 +267,28 @@ def _fix_extinf(raw: str) -> tuple[str, int]:
 
 
 def _add_missing_referrers(lines: list[str]) -> list[str]:
-    """Inject dens.tv referrer + user-agent where missing."""
+    """Inject dens.tv referrer + user-agent where missing.
+
+    Scans both props BEFORE the EXTINF line (pending_props pattern)
+    and props AFTER the EXTINF line for existing referrers.
+    """
     result: list[str] = []
     i = 0
     while i < len(lines):
         line = lines[i]
         if line.startswith("#EXTINF"):
+            # Check props BEFORE this EXTINF (in result list = pending_props)
+            has_dens_referrer = False
+            for k in range(len(result) - 1, max(len(result) - 15, -1), -1):
+                prev = result[k]
+                if prev.startswith("#EXTINF") or (not prev.startswith("#") and prev.strip()):
+                    break
+                if "dens.tv" in prev and "http-referrer" in prev:
+                    has_dens_referrer = True
+
+            # Check props AFTER this EXTINF and the URL
             j = i + 1
             has_dens_url = False
-            has_dens_referrer = False
             while j < len(lines):
                 nl = lines[j]
                 if nl.startswith(("#EXTVLCOPT", "#KODIPROP", "#EXTGRP", "###")):

@@ -139,6 +139,13 @@ def ensure_tvg_id(line: str, used_ids: set[str]) -> str:
 
 def normalize_extinf(line: str) -> str:
     """Fix common EXTINF typos without changing channel identity."""
+    # Fix broken tvg-id quote: tvg-id="TV5Monde"Entertainment & LifeStyle"
+    # → tvg-id="TV5Monde" group-title="Entertainment & LifeStyle"
+    line = re.sub(
+        r'(tvg-id="[^"]*")([A-Z][^"]*?")',
+        lambda m: f'{m.group(1)} group-title="{m.group(2).rstrip(chr(34))}"',
+        line,
+    )
     # Remove accidentally pasted EPG URL after group-title="...".
     line = _RE_EPG_URL_AFTER_GROUP.sub(r"\1", line)
     # Fix unquoted tvg-id values such as: tvg-id=Dunia Sinema HD"
