@@ -11,12 +11,13 @@ from __future__ import annotations
 
 import argparse
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import urlparse
-import unicodedata
 
+# ── Pre-compiled regexes ─────────────────────────────────────
 STREAM_RE = re.compile(r"^(?:[a-z][a-z0-9+.-]*://|plugin://|pipe://)", re.I)
 PROP_PREFIXES = (
     "#EXTVLCOPT",
@@ -28,6 +29,34 @@ PROP_PREFIXES = (
 
 DEFAULT_HEADER = '#EXTM3U url-tvg="https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml"'
 
+# normalize_extinf compiled patterns
+_RE_EPG_URL_AFTER_GROUP = re.compile(r'(group-title="[^"]+")\s*https?://[^"\s]+"?')
+_RE_UNQUOTED_TVG_ID = re.compile(r'\btvg-id=([^"\s][^"]*?)"')
+_RE_DUP_WHITESPACE = re.compile(r"\s+,")
+_RE_MULTI_SPACE = re.compile(r"\s{2,}")
+_RE_ATTR_PATTERNS: dict[str, re.Pattern] = {
+    attr: re.compile(rf"\s+{attr}=\"[^\"]*\"")
+    for attr in ("tvg-id", "tvg-name", "tvg-logo", "group-title", "group-logo")
+}
+
+# fallback_tvg_id compiled patterns
+_RE_VPLUS_ETC = re.compile(
+    r"\s*\((?:V\+|DASH/MPD|ChannelFeed|Channel Feed|DensTV|Dens TV|DENSTV|VD|Alt \d+)\)\s*",
+    re.I,
+)
+_RE_HD_WORD = re.compile(r"\bHD\b", re.I)
+_RE_NON_ALNUM = re.compile(r"[^A-Za-z0-9]+")
+
+# ensure_tvg_id compiled patterns
+_RE_TVG_ID_EXTRACT = re.compile(r'tvg-id="([^"]*)"')
+_RE_EMPTY_TVG_ID = re.compile(r'\s+tvg-id=""')
+
+# KODIPROP fix
+_RE_KODIPROP_INPUTSTREAM = re.compile(r"^#KODIPROP:inputstream=(?!\.)")
+
+# Section divider
+_RE_SECTION_DIVIDER = re.compile(r"^<.*>$")
+
 
 @dataclass
 class Entry:
@@ -35,6 +64,8 @@ class Entry:
     extinf: str = ""
     urls: list[str] = field(default_factory=list)
     line_no: int = 0
+    _dash: bool | None = field(default=None, repr=False)
+    _drm: bool | None = field(default=None, repr=False)
 
     @property
     def name(self) -> str:
@@ -48,13 +79,21 @@ class Entry:
 
     @property
     def is_dash(self) -> bool:
-        path = urlparse(self.url).path.lower()
-        return path.endswith(".mpd")
+        if self._dash is None:
+            path = urlparse(self.url).path.lower()
+            self._dash = path.endswith(".mpd")
+        return self._dash
 
     @property
     def is_drm(self) -> bool:
-        joined = "\n".join(self.props).lower()
-        return "license_type=clearkey" in joined or "license_key=" in joined or "/cenc.mpd" in self.url.lower()
+        if self._drm is None:
+            joined = "\n".join(self.props).lower()
+            self._drm = (
+                "license_type=clearkey" in joined
+                or "license_key=" in joined
+                or "/cenc.mpd" in self.url.lower()
+            )
+        return self._drm
 
 
 def is_stream_line(line: str) -> bool:
@@ -67,11 +106,11 @@ def is_prop_line(line: str) -> bool:
 
 def fallback_tvg_id(name: str, used_ids: set[str] | None = None) -> str:
     """Create a stable synthetic tvg-id for channels missing one."""
-    clean = re.sub(r"\s*\((?:V\+|DASH/MPD|ChannelFeed|Channel Feed|DensTV|Dens TV|DENSTV|VD|Alt \d+)\)\s*", " ", name, flags=re.I)
-    clean = re.sub(r"\bHD\b", " ", clean, flags=re.I)
+    clean = _RE_VPLUS_ETC.sub(" ", name)
+    clean = _RE_HD_WORD.sub(" ", clean)
     normalized = unicodedata.normalize("NFKD", clean)
     ascii_name = normalized.encode("ascii", "ignore").decode("ascii")
-    slug = re.sub(r"[^A-Za-z0-9]+", ".", ascii_name).strip(".").lower()
+    slug = _RE_NON_ALNUM.sub(".", ascii_name).strip(".").lower()
     if not slug:
         slug = "channel"
     base = f"auto.{slug}"
@@ -86,12 +125,12 @@ def fallback_tvg_id(name: str, used_ids: set[str] | None = None) -> str:
 def ensure_tvg_id(line: str, used_ids: set[str]) -> str:
     if not line.startswith("#EXTINF"):
         return line
-    m = re.search(r'tvg-id="([^"]*)"', line)
+    m = _RE_TVG_ID_EXTRACT.search(line)
     if m and m.group(1).strip():
         used_ids.add(m.group(1).strip())
         return line
     # Remove empty tvg-id attributes before inserting a synthetic id.
-    line = re.sub(r'\s+tvg-id=""', "", line)
+    line = _RE_EMPTY_TVG_ID.sub("", line)
     name = line.rsplit(",", 1)[1].strip() if "," in line else "channel"
     tvg_id = fallback_tvg_id(name, used_ids)
     used_ids.add(tvg_id)
@@ -101,24 +140,25 @@ def ensure_tvg_id(line: str, used_ids: set[str]) -> str:
 def normalize_extinf(line: str) -> str:
     """Fix common EXTINF typos without changing channel identity."""
     # Remove accidentally pasted EPG URL after group-title="...".
-    line = re.sub(r'(group-title="[^"]+")\s*https?://[^"\s]+"?', r"\1", line)
+    line = _RE_EPG_URL_AFTER_GROUP.sub(r"\1", line)
     # Fix unquoted tvg-id values such as: tvg-id=Dunia Sinema HD"
-    line = re.sub(r'\btvg-id=([^"\s][^"]*?)"', lambda m: f'tvg-id="{m.group(1).strip()}"', line)
+    line = _RE_UNQUOTED_TVG_ID.sub(lambda m: f'tvg-id="{m.group(1).strip()}"', line)
     # Collapse duplicate whitespace before the channel name comma.
-    line = re.sub(r"\s+,", ",", line)
+    line = _RE_DUP_WHITESPACE.sub(",", line)
     # Remove duplicate attributes, keeping the first occurrence.
-    for attr in ("tvg-id", "tvg-name", "tvg-logo", "group-title", "group-logo"):
+    for attr, pattern in _RE_ATTR_PATTERNS.items():
         seen = False
 
-        def repl(match: re.Match[str]) -> str:
-            nonlocal seen
-            if seen:
+        def repl(match: re.Match[str], _seen: list[bool] = [False]) -> str:
+            if _seen[0]:
                 return ""
-            seen = True
+            _seen[0] = True
             return match.group(0)
 
-        line = re.sub(rf"\s+{attr}=\"[^\"]*\"", repl, line)
-    line = re.sub(r"\s{2,}", " ", line)
+        # Reset the closure state
+        repl.__defaults__ = ([False],)  # type: ignore[attr-defined]
+        line = pattern.sub(repl, line)
+    line = _RE_MULTI_SPACE.sub(" ", line)
     return line.strip()
 
 
@@ -129,12 +169,12 @@ def normalize_line(raw: str) -> str:
     if line.startswith("KODIPROP:"):
         line = "#" + line
     # Fix KODIPROP typo: inputstream= should be inputstreamaddon=
-    if line.startswith("#KODIPROP:inputstream=") and not line.startswith("#KODIPROP:inputstream."):
+    if _RE_KODIPROP_INPUTSTREAM.match(line):
         line = line.replace("#KODIPROP:inputstream=", "#KODIPROP:inputstreamaddon=", 1)
     if line.startswith("#EXTINF"):
         line = normalize_extinf(line)
     # Plain section dividers are invalid M3U items. Keep them as comments.
-    if line.startswith("<") and line.endswith(">"):
+    if _RE_SECTION_DIVIDER.match(line):
         return "# " + line
     return line
 
@@ -198,11 +238,16 @@ def extract_items(lines: list[str]) -> tuple[str, list[str | Entry], dict[str, i
                 stats["orphan_urls"] += 1
                 continue
             current.urls.append(normalized)
+            # Invalidate cached dash/drm since urls changed
+            current._dash = None
+            current._drm = None
             continue
 
         if is_prop_line(normalized):
             if current is not None and not current.urls:
                 current.props.append(normalized)
+                # Invalidate cached drm since props changed
+                current._drm = None
             else:
                 pending_props.append(normalized)
             continue
@@ -287,7 +332,7 @@ def clean_items(items: list[str | Entry]) -> tuple[list[str | Entry], dict[str, 
                 stats["sctv_dash_labeled"] += 1
 
             tvg_id = ""
-            m = re.search(r'tvg-id="([^"]+)"', candidate.extinf)
+            m = _RE_TVG_ID_EXTRACT.search(candidate.extinf)
             if m:
                 tvg_id = m.group(1).strip().lower()
             key = (tvg_id, candidate.url)
@@ -354,42 +399,20 @@ def make_ott_items(items: list[str | Entry]) -> tuple[list[str | Entry], dict[st
     return out, stats
 
 
-def validate_text(text: str) -> dict[str, int]:
-    lines = text.splitlines()
+def validate_items(items: list[str | Entry]) -> dict[str, int]:
+    """Validate using structured data — no re-parsing needed."""
     stats = {"entries": 0, "entries_without_url": 0, "plain_invalid_lines": 0, "multi_url_entries": 0}
-    current_has_url = False
-    current_url_count = 0
-    in_entry = False
-
-    def close_entry() -> None:
-        nonlocal in_entry, current_has_url, current_url_count
-        if in_entry:
-            if not current_has_url:
-                stats["entries_without_url"] += 1
-            if current_url_count > 1:
-                stats["multi_url_entries"] += 1
-        in_entry = False
-        current_has_url = False
-        current_url_count = 0
-
-    for line in lines:
-        s = line.strip()
-        if not s:
+    for item in items:
+        if isinstance(item, str):
+            if item.startswith("#") or not item.strip():
+                continue
+            stats["plain_invalid_lines"] += 1
             continue
-        if s.startswith("#EXTINF"):
-            close_entry()
-            stats["entries"] += 1
-            in_entry = True
-            continue
-        if is_stream_line(s):
-            if in_entry:
-                current_has_url = True
-                current_url_count += 1
-            continue
-        if s.startswith("#"):
-            continue
-        stats["plain_invalid_lines"] += 1
-    close_entry()
+        stats["entries"] += 1
+        if not item.urls:
+            stats["entries_without_url"] += 1
+        elif len(item.urls) > 1:
+            stats["multi_url_entries"] += 1
     return stats
 
 
@@ -407,7 +430,7 @@ def main() -> int:
     header, raw_items, parse_stats = extract_items(original.splitlines())
     items, clean_stats = clean_items(raw_items)
     cleaned = render(header, items)
-    validation = validate_text(cleaned)
+    validation = validate_items(items)
 
     target = Path(args.output) if args.output else path
     if args.write or args.output:
