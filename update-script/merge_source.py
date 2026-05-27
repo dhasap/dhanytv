@@ -99,7 +99,14 @@ CHANNEL_TO_EPG: dict[str, str] = {
 
 # Pre-build lowercase lookup for fast fuzzy matching
 _EPG_LOWER: dict[str, str] = {k.lower(): v for k, v in CHANNEL_TO_EPG.items()}
-_EPG_KEYS_LOWER: list[tuple[str, str]] = [(k.lower(), v) for k, v in CHANNEL_TO_EPG.items()]
+_EPG_KEYS_LOWER: list[tuple[str, str]] = sorted(
+    [(k.lower(), v) for k, v in CHANNEL_TO_EPG.items()],
+    key=lambda x: -len(x[0]),  # longest keys first for matching
+)
+# Keys that are too short/generic for substring matching
+_EPG_EXACT_ONLY: frozenset[str] = frozenset({
+    "cnn", "tv", "tv1", "tv2", "tv6", "dw", "one", "hbo", "life",
+})
 
 # ── Compiled regexes ─────────────────────────────────────────
 _RE_VPLUS = re.compile(r"\s*\(V\+\)\s*")
@@ -168,9 +175,46 @@ def get_epg_id(name: str) -> str | None:
     if lower in _EPG_LOWER:
         return _EPG_LOWER[lower]
 
-    # Substring match
+    # Word-boundary prefix match (longest keys checked first)
+    # Strategy: only match if key covers the ENTIRE input (as prefix),
+    # or the input covers the ENTIRE key (as prefix).
+    # Single-word keys must not be a prefix of another key (ambiguity guard).
     for key_lower, epg_id in _EPG_KEYS_LOWER:
-        if key_lower in lower or lower in key_lower:
+        if key_lower in _EPG_EXACT_ONLY:
+            continue  # skip short/generic keys for fuzzy matching
+        key_words = key_lower.split()
+        input_words = lower.split()
+
+        # Key is a prefix of the input
+        # e.g. "bein sports 1" matches "bein sports 1 indonesia"
+        # e.g. "tvri" matches "tvri nasional"
+        # But "tv" does NOT match "tv2" (no space boundary)
+        # But "al jazeera" does NOT match "al jazeera arabic" (ambiguous)
+        if lower.startswith(key_lower) and (
+            len(lower) == len(key_lower) or not lower[len(key_lower)].isalnum()
+        ):
+            # Skip if key is a prefix of another key (ambiguity guard)
+            # e.g. "tv" is prefix of "tv one", "tvn" → skip
+            # e.g. "al jazeera" is prefix of "al jazeera english" → skip
+            # But "tvri" is NOT prefix of any other key → allow
+            is_prefix_of_other = any(
+                kl.startswith(key_lower) and kl != key_lower
+                for kl, _ in _EPG_KEYS_LOWER
+                if kl not in _EPG_EXACT_ONLY
+            )
+            if is_prefix_of_other:
+                continue
+            return epg_id
+
+        # Input is a prefix of the key
+        # e.g. "bbc news" matches "bbcnews" (no space variant)
+        # But "bbc" alone should NOT match "bbc earth"
+        if key_lower.startswith(lower) and (
+            len(key_lower) == len(lower) or not key_lower[len(lower)].isalnum()
+        ):
+            # Single-word input must match single-word key exactly
+            if len(input_words) == 1 and len(key_words) > 1:
+                continue
             return epg_id
     return None
 
