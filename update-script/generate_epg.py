@@ -117,7 +117,7 @@ def ensure_source_channel_metadata(channel: ET.Element, info: PlaylistChannel) -
     return channel
 
 
-def make_placeholder_programmes(tvg_id: str, days_back: int = 1, days_forward: int = 7) -> list[ET.Element]:
+def make_placeholder_programmes(tvg_id: str, days_back: int = 1, days_forward: int = 1) -> list[ET.Element]:
     today = datetime.now(JAKARTA).date()
     programmes: list[ET.Element] = []
     for offset in range(-days_back, days_forward + 1):
