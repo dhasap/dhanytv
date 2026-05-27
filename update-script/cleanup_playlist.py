@@ -128,6 +128,9 @@ def normalize_line(raw: str) -> str:
         return ""
     if line.startswith("KODIPROP:"):
         line = "#" + line
+    # Fix KODIPROP typo: inputstream= should be inputstreamaddon=
+    if line.startswith("#KODIPROP:inputstream=") and not line.startswith("#KODIPROP:inputstream."):
+        line = line.replace("#KODIPROP:inputstream=", "#KODIPROP:inputstreamaddon=", 1)
     if line.startswith("#EXTINF"):
         line = normalize_extinf(line)
     # Plain section dividers are invalid M3U items. Keep them as comments.

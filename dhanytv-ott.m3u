@@ -27,7 +27,7 @@ https://op-group1-swiftservesd-1.dens.tv/h/h06/01.m3u8
 #EXTINF:-1 group-title="Indonesia Channels" tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/BmeGg2IWkB_FAVPDviCk8gP8qcw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/5409/c40666.png",iNews
 https://r-plus.sedotcw3.workers.dev/index.m3u8?id=inews
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTVLCOPT:http-referrer=https://www.cnnindonesia.com/
@@ -57,7 +57,7 @@ https://rtvstream.rtv.co.id:4555/hls/rtv.m3u8
 #EXTINF:-1 tvg-id="NusantaraTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/npPL9VlWMJ5owmeupR7ucPjdGl4=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/7432/bfecbc.png" group-title="Indonesia Channels",Nusantara TV (DensTV)
 https://op-group1-swiftservehd-1.dens.tv/h/h37/01.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTVLCOPT:http-referrer=https://cdn.siar.us/
@@ -65,20 +65,20 @@ https://op-group1-swiftservehd-1.dens.tv/h/h37/01.m3u8
 https://nusantaratv.siar.us/nusantaratv/live/playlist.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/F6W__Y0wn_7mFW0cOuz7mi7qjWU=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/6441/528cc9.png" group-title="Indonesia Channels",TVRI Nasional (Channel Feed)
 https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional-avc1_1500000=10003-mp4a_96000_eng=20000.m3u8
 
 #EXTVLCOPT:http-referrer=https://www.cnbcindonesia.com
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="CNBCIndonesia.id" tvg-logo="https://upload.wikimedia.org/wikipedia/id/3/35/CNBC_Indonesia.png" group-title="Indonesia Channels",CNBC Indonesia (ChannelFeed)
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/chunklist_w800170674_b384000_sleng.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:147.0) Gecko/20100101 Firefox/147.0
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
@@ -86,21 +86,21 @@ https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/chunklist_w800170674_b3
 #EXTINF:-1 tvg-id="MagnaChannel.id" tvg-logo="https://thumbor.prod.vidiocdn.com/43T_Bt_R_JSQugV3MxoAeYze7OQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/7230/7d6bf5.jpg" group-title="Indonesia Channels",MAGNA Channel
 https://op-group1-swiftservehd-1.dens.tv/h/h24/index.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="BNChannel.id" group-title="Indonesia Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/54/BN_Channel.png",BN Channel (ChannelFeed)
 https://cdn.nng.cloudns.us/live/m3u8/id/6183ec225226ccf.m3u8
 
 #EXTVLCOPT:http-referrer=https://indonesiana.tv
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:143.0) Gecko/20100101 Firefox/143.0
 #EXTINF:-1 tvg-id="ONE.id" tvg-logo="https://layarceritaperempuan.indonesiana.tv/_nuxt/img/logo-indonesianatv-fit.0d9697f.png" group-title="Indonesia Channels",Indonesiana TV (ChannelFeed)
 https://tvstreamcast.com/indonesiana.m3u8
 
 #EXTVLCOPT:http-referrer=https://garuda.tv/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="GarudaTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/qtIYvE-mjwMPwd-VUxilo2gFiAI=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/18162/b4bea2.png" group-title="Indonesia Channels",Garuda TV (ChannelFeed)
@@ -117,7 +117,7 @@ https://hgmtv.com:19360/garudatvlivestreaming/480p.m3u8
 #EXTINF:-1 tvg-id="auto.big.stories" tvg-logo="http://picture.dens.tv/wp/img/tvchannels_v1/340x160/wedo-tv-big-stories340x160@3x@3x.jpg" group-title="Knowledge and Documentary",BIG STORIES
 https://op-group1-swiftservehd-1.dens.tv/h/h69/wedotv_big_stories.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
@@ -133,7 +133,7 @@ https://op-group1-swiftservehd-1.dens.tv/h/h244/02.m3u8
 
 # <==================================================================== Indonesian Entertainment & Movies ==============================================================================>
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
@@ -178,14 +178,14 @@ https://op-group1-swiftservehd-1.dens.tv/h/h143/index2.m3u8
 
 # <========================================================================== Malaysia ============================================================================>
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="TV1" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Logo_of_TV1_%28Malaysia%29.svg/1200px-Logo_of_TV1_%28Malaysia%29.svg.png" group-title="Malaysia",TV 1
 https://d25tgymtnqzu8s.cloudfront.net/main/A0jyR3/dl_1080p.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
@@ -198,63 +198,63 @@ https://d25tgymtnqzu8s.cloudfront.net/smil:okey/chunklist_b2596000_slENG.m3u8?id
 #EXTINF:-1 tvg-id="108" group-title="Malaysia" tvg-logo="https://e7.pngegg.com/pngimages/130/418/png-clipart-8tv-malaysia-media-prima-television-tv3-bulan-sabit-purple-television.png",8TV Malaysia
 http://cdn6.163189.xyz/163189/8tv
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="Berita RTM" tvg-logo="https://rtm-images.glueapi.io/320x0/live_channel/berita_bckg.png" group-title="Malaysia",Berita RTM
 https://d25tgymtnqzu8s.cloudfront.net/main/VPxRb6/dl_1080p.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="TV6" tvg-logo="https://rtm-images.glueapi.io/320x0/live_channel/SALURAN_1920x1080px_TV6.jpg" group-title="Malaysia",TV 6
 https://d25tgymtnqzu8s.cloudfront.net/smil:tv6/chunklist_b2596000_slENG.m3u8?id=6
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.roll" tvg-logo="https://rtm-images.glueapi.io/320x0/fast_channel/ROLL_CHANNEL.jpg" group-title="Malaysia",ROLL
 https://d1sq2slp9afh7o.cloudfront.net/smil:roll/chunklist_b2596000_slENG.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.snap" tvg-logo="https://rtm-images.glueapi.io/320x0/fast_channel/SNAP_CHANNEL.jpg" group-title="Malaysia",SNAP
 https://d1sq2slp9afh7o.cloudfront.net/smil:snap/chunklist_b2596000_slENG.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.apetito" tvg-logo="https://rtm-images.glueapi.io/320x0/fast_channel/APETITO_CHANNEL.jpg" group-title="Malaysia",APETITO
 https://d1sq2slp9afh7o.cloudfront.net/smil:apetito/chunklist_b2596000_slENG.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.lead" tvg-logo="https://rtm-images.glueapi.io/320x0/fast_channel/LEAD_CHANNEL.jpg" group-title="Malaysia",LEAD
 https://d1sq2slp9afh7o.cloudfront.net/smil:lead/chunklist_b2596000_slENG.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.aura" tvg-logo="https://rtm-images.glueapi.io/320x0/fast_channel/AURA_CHANNEL.jpg" group-title="Malaysia",AURA
 https://d1sq2slp9afh7o.cloudfront.net/smil:aura/chunklist_b2596000_slENG.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.fitrah" tvg-logo="https://rtm-images.glueapi.io/320x0/fast_channel/FITRAH_CHANNEL.jpg" group-title="Malaysia",FITRAH
 https://d1sq2slp9afh7o.cloudfront.net/smil:fitrah/chunklist_b2596000_slENG.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
@@ -264,7 +264,7 @@ https://d1sq2slp9afh7o.cloudfront.net/smil:jr/chunklist_b2596000_slENG.m3u8
 #EXTINF:-1 tvg-id="AstroAwani.my" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/ff/Astro_Awani.png" group-title="Malaysia",Astro Awani
 https://d2idp3hzkhjpih.cloudfront.net/out/v1/4b85d9c2bf97413eb0c9fd875599b837/index.m3u8?c
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
@@ -321,206 +321,206 @@ http://cdn6.163189.xyz/163189/amzy
 
 # <======================================================= DAERAH =================================>
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.kawanua.tv" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/5f/Logo_kawanua_tv.png",Kawanua TV
 http://122.248.43.242:1935/KAWANUATV/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.jtv.kediri" group-title="Local Channels" tvg-logo="https://thumbor.prod.vidiocdn.com/RFPy_yTRC9PPPbHGeJlLQgt-RaE=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/9713/a11faf.png",JTV Kediri
 http://122.248.43.242:1935/JTVKEDIRI/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="Jawapos TV" tvg-logo="https://thumbor.prod.vidiocdn.com/yo9zkfT4I-17_keD5cai7XRKEE0=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/9714/5a2fad.jpg",Jawapos TV Semarang
 http://122.248.43.242:1935/JAWAPOSTVSEMARANG/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="Jawapos TV" tvg-logo="https://thumbor.prod.vidiocdn.com/yo9zkfT4I-17_keD5cai7XRKEE0=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/9714/5a2fad.jpg",Jawapos TV Magelang
 http://122.248.43.242:1935/JAWAPOSTVMAGELANG/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="Jawapos TV" tvg-logo="https://thumbor.prod.vidiocdn.com/yo9zkfT4I-17_keD5cai7XRKEE0=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/9714/5a2fad.jpg",Jawapos TV Madiun
 http://122.248.43.242:1935/JAWAPOSTVMADIUN/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="Jawapos TV" tvg-logo="https://thumbor.prod.vidiocdn.com/yo9zkfT4I-17_keD5cai7XRKEE0=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/9714/5a2fad.jpg",Jawapos TV Jakarta
 http://122.248.43.242:1935/JAWAPOSTVJKT/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="Jawapos TV" tvg-logo="https://thumbor.prod.vidiocdn.com/yo9zkfT4I-17_keD5cai7XRKEE0=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/9714/5a2fad.jpg",Jawapos TV Bali
 http://122.248.43.242:1935/JAWAPOSTVBALI/_definst_/myStream/playlist.m3u8
 
 #EXTVLCOPT:http-referrer=https://jitv.jogjaprov.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.jitv.jogja" group-title="Local Channels" tvg-logo="https://i.imgur.com/VEqQfTu.png",JITV Jogja
 https://mam.jogjaprov.go.id:1937/tv/jitv_720p/chunklist_w1213012954.m3u8
 
 #EXTVLCOPT:http-referrer=https://jogjatv.tv/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="Jogja TV" tvg-logo="https://jogjatv.tv/wp-content/uploads/2015/08/LOGO-JOGJA-TV-NEW-pii-new.png",Jogja TV
 https://stream.jogjatv.co.id/jtvlive/stream/index.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.lingkar.tv" group-title="Local Channels" "" tvg-logo="https://lingkartv.com/assets/img/logo-square.png",Lingkar TV
 https://lingkartv.my.id/hls/lingkartv.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.davikatv.lampung" group-title="Local Channels" "" tvg-logo="https://upload.wikimedia.org/wikipedia/id/6/60/Logo_Davika_TV.png",DavikaTV Lampung
 https://5bf7b725107e5.streamlock.net/davika/davika/chunklist_w997967539.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.carubantv" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/CarubanTV%28Low-res%29.png",CarubanTV
 https://stream.carubantv.id/hls/0/stream.m3u8
 
 #EXTVLCOPT:http-referrer=https://kstv.co.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.kilisuci.tv.kediri" group-title="Local Channels" tvg-logo="https://wiki.edunitas.com/_sepakbola/_baca_image.php?td=21&kodegb=200px-Kilisuci_TV.png",Kilisuci TV Kediri
 https://5bf7b725107e5.streamlock.net/kstv/kstv/chunklist_w1799577873.m3u8
 
 #EXTVLCOPT:http-referrer=https://cdn.siar.us
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.surabaya.tv" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/aa/Surabaya_TV_%282017%29.png",Surabaya TV
 https://e.siar.us/live/surabayatv.m3u8
 
 #EXTVLCOPT:http-referrer=https://cdn.siar.us/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.dhoho.tv.kediri" group-title="Local Channels" "" tvg-logo="https://upload.wikimedia.org/wikipedia/id/8/86/DhohoTV.png",Dhoho TV- Kediri
 https://dhohotv.siar.us/dhohotv/live/playlist.m3u8
 
 #EXTVLCOPT:http-referrer=https://wms.klikhost.com:2000/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.tv.tabalong" tvg-logo="https://tvtabalong.com/wp-content/uploads/2022/03/logo-tv-tabalong.png" group-title="Local Channels",TV Tabalong
 https://5bf7b725107e5.streamlock.net/tvtabalong/tvtabalong/chunklist_w1267801285.m3u8
 
 #EXTVLCOPT:http-referrer=https://bungotv.com/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.bungo.tv" tvg-logo="ttps://upload.wikimedia.org/wikipedia/id/f/f1/Bungo_TV.png" group-title="Local Channels",Bungo TV
 https://5bf7b725107e5.streamlock.net/bungotv/bungotv/chunklist_w1429108522.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.timor.tv" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/83/Logo_Timor_TV.png" group-title="Local Channels",Timor TV
 http://122.248.43.242:1935/TIMORTV/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.radar.tasikmalaya.tv" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/1/1a/Logo_Radar_Tasikmalaya_TV.png" group-title="Local Channels",Radar Tasikmalaya TV
 https://v2.siar.us/radartasikmalaya/live/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.pon.tv" tvg-logo="https://i.imgur.com/P5erWzm.png" group-title="Local Channels",PON TV
 http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.smtv.sumedang" tvg-logo="https://upload.wikimedia.org/wikipedia/id/6/6e/Logo_SMTV_Sumedang.png" group-title="Local Channels",SMTV Sumedang
 http://122.248.43.242:1935/SMTV/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.salira.tv" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_Salira_TV.png" group-title="Local Channels",Salira TV
 https://live.salira.tv/p/3870/hybrid/play.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.sampit.tv" tvg-logo="https://i.imgur.com/8cFJa8G.png" group-title="Local Channels",Sampit TV
 https://sampit-tv.siar.us/live/sampit-tv.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.sultra.tv" tvg-logo="https://i.imgur.com/cmpbNJz.png" group-title="Local Channels",Sultra TV
 http://122.248.43.242:1935/SULTRATV/_definst_/myStream/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.staratv.sumedang" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png",StaraTV Sumedang
 https://stream.staratv.id/hls/0/stream.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.staratv.malang" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png",StaraTV Malang
 https://malang.staratv.id/hls/0/stream.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.staratv.cianjur" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png",StaraTV Cianjur
 https://cianjur.staratv.id/hls/0/stream.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="RTV.id" tvg-logo="https://lingkar.tv//assets/img/logo-lingkartv.png",LingkarTV
 https://lingkartv.my.id/hls/lingkartv.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="RTV.id" tvg-logo="https://i.imgur.com/TA76a10.png",BanjarTV
 https://banjartv.siar.us/banjartv/live/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.bantentv" group-title="Local Channels" tvg-logo="https://i.imgur.com/tbtF40p.png",BantenTV
 https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.banyumastv" group-title="Local Channels" tvg-logo="https://i.imgur.com/snMxng5.png",BanyumasTV
 https://5bf7b725107e5.streamlock.net/bmstv/bmstv/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 group-title="Local Channels" tvg-id="RTV.id" tvg-logo="https://upload.wikimedia.org/wikipedia/id/1/1f/Logo_BRTV.png",BRTV
 https://5bf7b725107e5.streamlock.net/brtv/brtv/playlist.m3u8
 
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.dmtv.malang" group-title="Local Channels" tvg-logo="https://i.imgur.com/3iC41QX.png",DMTV Malang
@@ -595,152 +595,150 @@ https://7pal.short.gy/tsn1ca
 # <========================================================= TVRI GRoup =============================================>
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI ACEH
 https://ott-balancer.tvri.go.id/live/eds/Aceh/hls/Aceh-avc1_900000=10005-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI BANGKA BELITUNG
 https://ott-balancer.tvri.go.id/live/eds/Babel/hls/Babel-avc1_900000=10002-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI BENGKULU
 https://ott-balancer.tvri.go.id/live/eds/Bengkulu/hls/Bengkulu-avc1_900000=10005-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI JAMBI
 https://ott-balancer.tvri.go.id/live/eds/Jambi/hls/Jambi-avc1_1500000=10005-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI LAMPUNG
 https://ott-balancer.tvri.go.id/live/eds/Lampung/hls/Lampung-avc1_900000=10007-mp4a_96000=20002.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI JAWA BARAT
 https://ott-balancer.tvri.go.id/live/eds/Jabar/hls/Jabar-avc1_900000=10006-mp4a_96000_eng=20000.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI JAWA TENGAH
 https://ott-balancer.tvri.go.id/live/eds/Jateng/hls/Jateng-avc1_900000=10007-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI JAWA TIMUR
 https://ott-balancer.tvri.go.id/live/eds/Jatim/hls/Jatim-avc1_900000=10005-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI KALIMANTAN BARAT
 https://ott-balancer.tvri.go.id/live/eds/Kalbar/hls/Kalbar-avc1_900000=10005-mp4a_96000=20003.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI KALIMANTAN SELATAN
 https://ott-balancer.tvri.go.id/live/eds/Kalsel/hls/Kalsel-avc1_500000=10007-mp4a_64000=20002.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI KALIMANTAN TENGAH
 https://ott-balancer.tvri.go.id/live/eds/Kalteng/hls/Kalteng-avc1_900000=10008-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI KALIMANTAN TIMUR
 https://ott-balancer.tvri.go.id/live/eds/Kaltim/hls/Kaltim-avc1_250000=10008-mp4a_64000=20002.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI GORONTALO
 https://ott-balancer.tvri.go.id/live/eds/Gorontalo/hls/Gorontalo-avc1_900000=10005-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI SULAWESI BARAT
 https://ott-balancer.tvri.go.id/live/eds/Sulbar/hls/Sulbar-avc1_900000=10002-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI SULAWESI SELATAN
 https://ott-balancer.tvri.go.id/live/eds/Sulsel/hls/Sulsel-avc1_900000=10002-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI SULAWESI TENGAH
 https://ott-balancer.tvri.go.id/live/eds/Sulteng/hls/Sulteng-avc1_900000=10002-mp4a_96000=20002.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI SULAWESI TENGGARA
 https://ott-balancer.tvri.go.id/live/eds/Sultra/hls/Sultra-avc1_900000=10002-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI SULAWESI UTARA
 https://ott-balancer.tvri.go.id/live/eds/Sulut/hls/Sulut-avc1_900000=10002-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI BALI
 https://ott-balancer.tvri.go.id/live/eds/Bali/hls/Bali-avc1_500000=10001-mp4a_64000=20002.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI NTT
 https://ott-balancer.tvri.go.id/live/eds/NTT/hls/NTT-avc1_900000=10002-mp4a_96000=20001.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/1280px-TVRILogo2019.svg.png" group-title="TVRI GROUP",TVRI PAPUA
 https://ott-balancer.tvri.go.id/live/eds/Papua/hls/Papua-avc1_900000=10002-mp4a_96000=20001.m3u8
 
 # <=======================================Trial Sports ================================================>
-
-#https://bosstv.asia/yabostv/19404.mpd
