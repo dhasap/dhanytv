@@ -2,7 +2,7 @@
 
 IPTV Playlist Indonesia & Internasional — Auto-update, Full EPG, Smart Cleanup.
 
-> **340+ channels** | Update otomatis setiap Senin | EPG Indonesia lengkap
+> **370+ channels** | Update otomatis setiap Senin | EPG Indonesia lengkap
 
 ---
 
@@ -100,7 +100,7 @@ Playlist ini menggunakan **Custom EPG** yang di-generate otomatis dari [AqFad281
 | Info | Detail |
 |------|--------|
 | **EPG URL** | `https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml` |
-| **Channel dengan EPG** | Semua `tvg-id` di playlist utama |
+| **Channel dengan EPG** | 271 channel |
 | **File size** | ~2–4 MB (tergantung jumlah channel & jadwal upstream) |
 
 **Kenapa Custom EPG?** File EPG gabungan dari source asli berukuran 24+ MB — terlalu besar dan bikin timeout di banyak OTT TV player. Custom EPG kita hanya berisi channel yang ada di playlist. Channel yang tidak punya jadwal asli dari upstream tetap dibuatkan entry EPG placeholder (`Jadwal belum tersedia`) supaya semua channel bisa terbaca/mapping oleh IPTV player.
@@ -159,13 +159,46 @@ Biar auto-update jalan, tambahin secrets di **Settings → Secrets and variables
 ├── dhanytv.m3u                    # Playlist utama lengkap
 ├── dhanytv-ott.m3u                # Playlist OTT-friendly (non-DASH/non-DRM)
 ├── epg.xml                        # Custom EPG (auto-generated)
+├── LICENSE                        # MIT License
 ├── .github/
 │   └── workflows/
 │       └── auto-update.yml        # GitHub Actions workflow
 └── update-script/
-    ├── update_playlist.sh         # Script update manual (lokal)
+    ├── merge_source.py            # Merge & sanitize source playlist
     ├── cleanup_playlist.py        # Cleaner/validator M3U + generator dhanytv-ott.m3u
-    └── generate_epg.py            # Generator XMLTV + fallback EPG placeholder
+    ├── generate_epg.py            # Generator XMLTV + fallback EPG placeholder
+    └── update_playlist.sh         # Script update manual (lokal)
+```
+
+---
+
+## 🛠️ Development
+
+### Menjalankan Manual
+
+```bash
+# Clone repo
+git clone https://github.com/dhasap/dhanytv.git
+cd dhanytv
+
+# Merge dari sumber
+python3 update-script/merge_source.py <source.m3u> --target dhanytv.m3u
+
+# Cleanup + generate OTT
+python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check
+
+# Generate EPG
+python3 update-script/generate_epg.py --m3u dhanytv.m3u --output epg.xml
+
+# Atau pakai script shell (semua langkah di atas)
+bash update-script/update_playlist.sh -s "<source_url>" -t "<github_token>"
+```
+
+### Pipeline
+
+```
+Source M3U → merge_source.py → cleanup_playlist.py → generate_epg.py → Push
+               (sanitize)         (validate+OTT)        (EPG XML)
 ```
 
 ---
@@ -178,6 +211,12 @@ Biar auto-update jalan, tambahin secrets di **Settings → Secrets and variables
 - Jika pakai OTT TV/Smart TV app yang tidak support DASH, gunakan `dhanytv-ott.m3u`
 - Update otomatis setiap Senin, tapi bisa juga di-trigger manual kapan saja
 - Jangan share link sumber playlist, cukup share link repo ini
+
+---
+
+## 📄 License
+
+[MIT License](LICENSE) — bebas dipakai, modifikasi, dan distribusi.
 
 ---
 
