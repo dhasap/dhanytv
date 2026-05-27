@@ -111,17 +111,30 @@ AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
 OTT_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
 echo -e "  ${GREEN}Channel: $BEFORE → $AFTER | OTT: $OTT_COUNT${NC}"
 
-# Step 5: Generate Custom EPG
-echo -e "${YELLOW}[5/6] Generating custom EPG...${NC}"
-EPG_BASE="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main"
+# Step 5: Generate Custom EPG (multi-source)
+echo -e "${YELLOW}[5/6] Downloading EPG sources & generating custom EPG...${NC}"
 
-for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml; do
-    curl -sL "${EPG_BASE}/${f}" -o "${f}" 2>/dev/null || true
+# AqFad2811/epg sources
+AQFAD_BASE="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main"
+for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml epg.xml sooka.xml; do
+    curl -sL "${AQFAD_BASE}/${f}" -o "${f}" 2>/dev/null || true
 done
 
+# epgshare01.online sources (gzipped)
+EPGSHARE_BASE="https://epgshare01.online/epgshare01"
+for f in ID1 SG1 MY1 CA2 IT1 FR1 AE1 IN1 ALJAZEERA1; do
+    curl -sL "${EPGSHARE_BASE}/epg_ripper_${f}.xml.gz" | gunzip > "epgshare01_${f}.xml" 2>/dev/null || true
+done
+
+# open-epg.com
+curl -sL "https://www.open-epg.com/files/indonesia.xml" -o "open_epg_indonesia.xml" 2>/dev/null || true
+
+# Generate EPG
 python3 update-script/generate_epg.py --m3u "$TARGET_FILE" --output "$EPG_OUTPUT"
 
-rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml
+# Cleanup source files
+rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml epg.xml sooka.xml
+rm -f epgshare01_*.xml open_epg_indonesia.xml
 
 # Step 6: Push
 echo -e "${YELLOW}[6/6] Pushing to GitHub...${NC}"
