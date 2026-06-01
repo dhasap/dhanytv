@@ -74,6 +74,13 @@ MANUAL_ID_MAP: dict[str, str] = {
     "Horee!": "HipHipHoree!.id",
     "BNChannel.id": "BNChannel.id",
     "MagnaChannel.id": "MagnaChannel.id",
+    # open-epg.com ID mismatches
+    "Moji": "mOji.id",
+    "Antara.id": "AntaraTV.id",
+    "Channel Jowo": "ChannelJowo.id",
+    "Jawapos TV": "JawaPosTV.id",
+    "JawaposTV.Jakarta.id": "JawaPosTV.id",
+    "JawaposTV.Madiun.id": "JawaPosTV.id",
     # TVRI regional channels (all share TVRI.id EPG)
     "TVRI.Aceh.id": "TVRI.id",
     "TVRI.BangkaBelitung.id": "TVRI.id",
@@ -101,9 +108,6 @@ MANUAL_ID_MAP: dict[str, str] = {
     "beInSportsHD.id": "beInSports1.id",
     "beInSports3.au": "beInSports3.id",
     "beInSportsHD3.id": "beInSports3.id",
-    # Jawapos TV regional
-    "JawaposTV.Madiun.id": "Jawapos TV",
-    "JawaposTV.Jakarta.id": "Jawapos TV",
     # Indian channels
     "&Pictures HD": "And.Pictures.HD.in",
     "&TV HD": "Anand.TV.in",
@@ -143,10 +147,8 @@ MANUAL_ID_MAP: dict[str, str] = {
     "Citra Dangdut": "CitraDangdut.id",
     "CitraMuslim.id": "CitraMuslim.id",
     "JTV": "JTV.id",
-    "Jawapos TV": "JawaPosTV.id",
     "Jogja TV": "JogjaTV.id",
     "Mentari TV": "MentariTV.id",
-    "Moji": "Moji.id",
     "Music TV": "MusicTV.id",
     "Mykidz": "MyKidz.id",
     "Thrill": "Thrill.id",
