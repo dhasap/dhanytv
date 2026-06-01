@@ -60,6 +60,15 @@ jobs:
           AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
           echo "Channel setelah merge: $AFTER"
 
+      - name: Merge International Channels (iptv-org)
+        run: |
+          echo "=== Merging international channels from iptv-org ==="
+          BEFORE=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          python3 update-script/merge_international.py --ci
+          AFTER=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          ADDED=$((AFTER - BEFORE))
+          echo "International channels: $ADDED added (total: $AFTER)"
+
       - name: Clean Playlist & Generate OTT Variant
         run: |
           echo "=== Clean Playlist & Generate OTT Variant ==="

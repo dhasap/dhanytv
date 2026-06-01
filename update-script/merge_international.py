@@ -287,17 +287,27 @@ def merge_international(m3u_path: Path, output_path: Path | None = None) -> dict
 
 
 def main() -> int:
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Merge international channels from iptv-org")
+    parser.add_argument("--ci", action="store_true", help="CI mode: never fail, exit 0 even on errors")
+    args = parser.parse_args()
+
     m3u_path = Path("dhanytv.m3u")
 
     if not m3u_path.exists():
         print(f"ERROR: {m3u_path} not found")
-        return 1
+        return 0 if args.ci else 1
 
     print("=== Merging international channels from iptv-org ===")
     print(f"Target: {len(TARGET_COUNTRIES)} countries")
     print()
 
-    result = merge_international(m3u_path)
+    try:
+        result = merge_international(m3u_path)
+    except Exception as e:
+        print(f"ERROR: merge failed: {e}")
+        return 0 if args.ci else 1
 
     print()
     print("=== Merge Summary ===")
