@@ -81,6 +81,10 @@ MANUAL_ID_MAP: dict[str, str] = {
     "KompasTV.id.hls": "KompasTV.id",
     "tvOne.id.hls": "tvOne.id",
     "BandungTV.id.hls": "BandungTV.id",
+    "Indosiar.id.hls": "Indosiar.id",
+    "SCTV.id.hls": "SCTV.id",
+    "JTV.id.hls": "JTV",
+    "Antara.id.hls": "Antara.id",
     # open-epg.com ID mismatches
     "Moji": "mOji.id",
     "Moji.2": "mOji.id",
