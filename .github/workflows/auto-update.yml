@@ -70,40 +70,67 @@ jobs:
       - name: Download EPG Sources (Multi-Source)
         run: |
           echo "=== Downloading EPG sources ==="
+          FAIL_COUNT=0
 
           # AqFad2811/epg (primary)
+          # NOTE: epg.xml renamed to aqfad_epg.xml to avoid collision with output
           AQFAD_BASE="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main"
-          for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml epg.xml sooka.xml; do
+          for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml sooka.xml; do
             echo "  AqFad: $f"
-            curl -sL "${AQFAD_BASE}/${f}" -o "${f}" || echo "  WARNING: $f gagal"
+            curl -sL "${AQFAD_BASE}/${f}" -o "${f}" || { echo "  WARNING: $f gagal"; FAIL_COUNT=$((FAIL_COUNT+1)); }
           done
+          echo "  AqFad: epg.xml -> aqfad_epg.xml"
+          curl -sL "${AQFAD_BASE}/epg.xml" -o "aqfad_epg.xml" || { echo "  WARNING: aqfad_epg.xml gagal"; FAIL_COUNT=$((FAIL_COUNT+1)); }
 
           # epgshare01.online (gzipped, daily updated)
           EPGSHARE_BASE="https://epgshare01.online/epgshare01"
           for f in ID1 SG1 MY1 CA2 IT1 FR1 AE1 IN1 ALJAZEERA1; do
             echo "  epgshare01: $f"
-            curl -sL "${EPGSHARE_BASE}/epg_ripper_${f}.xml.gz" | gunzip > "epgshare01_${f}.xml" 2>/dev/null || echo "  WARNING: $f gagal"
+            curl -sL "${EPGSHARE_BASE}/epg_ripper_${f}.xml.gz" -o "epgshare01_${f}.xml.gz"
+            if gunzip -f "epgshare01_${f}.xml.gz" 2>/dev/null; then
+              echo "    OK: $(wc -c < epgshare01_${f}.xml) bytes"
+            else
+              echo "  WARNING: $f gunzip gagal"
+              rm -f "epgshare01_${f}.xml.gz"
+              FAIL_COUNT=$((FAIL_COUNT+1))
+            fi
           done
 
           # open-epg.com
           echo "  open-epg: indonesia.xml"
-          curl -sL "https://www.open-epg.com/files/indonesia.xml" -o "open_epg_indonesia.xml" || echo "  WARNING: open-epg gagal"
+          curl -sL "https://www.open-epg.com/files/indonesia.xml" -o "open_epg_indonesia.xml" || { echo "  WARNING: open-epg gagal"; FAIL_COUNT=$((FAIL_COUNT+1)); }
 
-          echo "EPG sources downloaded."
+          echo "EPG sources downloaded. Failures: $FAIL_COUNT"
+          if [ "$FAIL_COUNT" -ge 10 ]; then
+            echo "ERROR: Too many EPG source failures ($FAIL_COUNT), aborting."
+            exit 1
+          fi
 
       - name: Generate Custom EPG
         run: |
           echo "=== Generate Custom EPG ==="
-          python3 update-script/generate_epg.py --m3u dhanytv.m3u --output epg.xml
+          python3 update-script/generate_epg.py \
+            --m3u dhanytv.m3u \
+            --output epg.xml \
+            --sources \
+              epgshare01_ID1.xml epgshare01_SG1.xml epgshare01_MY1.xml \
+              epgshare01_CA2.xml epgshare01_IT1.xml epgshare01_FR1.xml \
+              epgshare01_AE1.xml epgshare01_IN1.xml epgshare01_ALJAZEERA1.xml \
+              open_epg_indonesia.xml \
+              indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml \
+              aqfad_epg.xml sooka.xml
 
-          # Cleanup source files
-          rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml epg.xml sooka.xml
-          rm -f epgshare01_*.xml open_epg_indonesia.xml
+          # Cleanup source files ONLY (not output epg.xml!)
+          rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml sooka.xml
+          rm -f aqfad_epg.xml epgshare01_*.xml open_epg_indonesia.xml
 
-          if [ -f "epg.xml" ]; then
+          if [ -f "epg.xml" ] && [ -s "epg.xml" ]; then
             echo "Custom EPG generated: $(du -h epg.xml | cut -f1)"
+            echo "EPG channels: $(grep -c '<channel ' epg.xml)"
+            echo "EPG programmes: $(grep -c '<programme ' epg.xml)"
           else
-            echo "WARNING: Custom EPG gagal di-generate!"
+            echo "ERROR: Custom EPG gagal di-generate!"
+            exit 1
           fi
 
       - name: Check for Changes

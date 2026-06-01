@@ -115,26 +115,36 @@ echo -e "  ${GREEN}Channel: $BEFORE → $AFTER | OTT: $OTT_COUNT${NC}"
 echo -e "${YELLOW}[5/6] Downloading EPG sources & generating custom EPG...${NC}"
 
 # AqFad2811/epg sources
+# NOTE: epg.xml renamed to aqfad_epg.xml to avoid collision with output
 AQFAD_BASE="https://raw.githubusercontent.com/AqFad2811/epg/refs/heads/main"
-for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml epg.xml sooka.xml; do
+for f in indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml sooka.xml; do
     curl -sL "${AQFAD_BASE}/${f}" -o "${f}" 2>/dev/null || true
 done
+curl -sL "${AQFAD_BASE}/epg.xml" -o "aqfad_epg.xml" 2>/dev/null || true
 
 # epgshare01.online sources (gzipped)
 EPGSHARE_BASE="https://epgshare01.online/epgshare01"
 for f in ID1 SG1 MY1 CA2 IT1 FR1 AE1 IN1 ALJAZEERA1; do
-    curl -sL "${EPGSHARE_BASE}/epg_ripper_${f}.xml.gz" | gunzip > "epgshare01_${f}.xml" 2>/dev/null || true
+    curl -sL "${EPGSHARE_BASE}/epg_ripper_${f}.xml.gz" -o "epgshare01_${f}.xml.gz"
+    gunzip -f "epgshare01_${f}.xml.gz" 2>/dev/null || rm -f "epgshare01_${f}.xml.gz"
 done
 
 # open-epg.com
 curl -sL "https://www.open-epg.com/files/indonesia.xml" -o "open_epg_indonesia.xml" 2>/dev/null || true
 
 # Generate EPG
-python3 update-script/generate_epg.py --m3u "$TARGET_FILE" --output "$EPG_OUTPUT"
+python3 update-script/generate_epg.py --m3u "$TARGET_FILE" --output "$EPG_OUTPUT" \
+    --sources \
+        epgshare01_ID1.xml epgshare01_SG1.xml epgshare01_MY1.xml \
+        epgshare01_CA2.xml epgshare01_IT1.xml epgshare01_FR1.xml \
+        epgshare01_AE1.xml epgshare01_IN1.xml epgshare01_ALJAZEERA1.xml \
+        open_epg_indonesia.xml \
+        indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml \
+        aqfad_epg.xml sooka.xml
 
-# Cleanup source files
-rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml epg.xml sooka.xml
-rm -f epgshare01_*.xml open_epg_indonesia.xml
+# Cleanup source files ONLY (not output epg.xml!)
+rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml sooka.xml
+rm -f aqfad_epg.xml epgshare01_*.xml open_epg_indonesia.xml
 
 # Step 6: Push
 echo -e "${YELLOW}[6/6] Pushing to GitHub...${NC}"

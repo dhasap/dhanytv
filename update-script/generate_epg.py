@@ -416,7 +416,7 @@ def main() -> int:
             "open_epg_indonesia.xml",
             # AqFad2811/epg
             "indonesia.xml", "astro.xml", "singapore.xml", "rtmklik.xml",
-            "unifitv.xml", "epg.xml", "sooka.xml",
+            "unifitv.xml", "aqfad_epg.xml", "sooka.xml",
         ],
         help="XMLTV source files (.xml or .xml.gz)",
     )
