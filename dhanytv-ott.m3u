@@ -2,8 +2,23 @@
 
 # <============================================================== Indonesia Channels ==================================================>
 
+#EXTINF:-1 tvg-id="TransTV.id.hls" tvg-logo="https://thumbor.prod.vidiocdn.com/__j35q7LPpcS2EgkR7v8GpE4USQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/733/ecaa60.png" group-title="Indonesia Channels",TransTV HD (HLS)
+https://video.detik.com/transtv/smil:transtv.smil/index.m3u8
+
+#EXTINF:-1 tvg-id="Trans7.id.hls" tvg-logo="https://thumbor.prod.vidiocdn.com/-MEB2a6J4sB6SvBDimCb7JYP6WY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/734/131514.png" group-title="Indonesia Channels",Trans7 HD (HLS)
+https://video.detik.com/trans7/smil:trans7.smil/index.m3u8
+
 #EXTINF:-1 tvg-id="MDTV.id.2" group-title="Indonesia Channels" tvg-logo="https://thumbor.prod.vidiocdn.com/LCZH_yEBnTYEQzrU1pB7w7ev-Bw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/875/325605.png",MDTV
 http://103.58.160.157:8278/720-NET/playlist.m3u8
+
+#EXTINF:-1 tvg-id="KompasTV.id.hls" tvg-logo="https://thumbor.prod.vidiocdn.com/fKY_cGXSO3U3Fp5FSEsGzQEXBMk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/164/460204.png" group-title="Indonesia Channels",Kompas TV HD (HLS)
+https://op-group1-swiftservehd-1.dens.tv/h/h234/index.m3u8
+
+#EXTINF:-1 tvg-id="MetroTV.id.hls" tvg-logo="https://thumbor.prod.vidiocdn.com/Ls3wdViF-olvrf3xVYgfDJ7pX9s=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/168/2e3d72.png" group-title="Indonesia Channels",Metro TV (HLS)
+https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="tvOne.id.hls" tvg-logo="https://thumbor.prod.vidiocdn.com/4JfSsT4tjC8f57v07k7Qq56J3IY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/112/531.png" group-title="Indonesia Channels",TVOne (HLS)
+http://202.80.222.20/cdn/iptv/Tvod/001/channel2000018/1024.m3u8
 
 #EXTINF:-1 tvg-id="Moji.2" tvg-logo="https://thumbor.prod.vidiocdn.com/g7gTjD2Il1GI4DJULOZ1cv6NSj4=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/206/1823dc.png" group-title="Indonesia Channels", MOJI TV
 https://op-group1-swiftservehd-1.dens.tv/h/h207/index.m3u8
@@ -189,6 +204,9 @@ https://lingkartv.my.id/hls/lingkartv.m3u8
 
 #EXTINF:-1 tvg-id="auto.carubantv" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/CarubanTV%28Low-res%29.png",CarubanTV
 https://stream.carubantv.id/hls/0/stream.m3u8
+
+#EXTINF:-1 tvg-id="BandungTV.id.hls" tvg-logo="https://i.postimg.cc/JzqSzcj9/200px-Logo-bdg-tv-2016.png" group-title="Local Channels",Bandung TV (HLS)
+http://202.150.153.254:65500/bandungtvWEBSITE.m3u8
 
 #EXTINF:-1 tvg-id="auto.kilisuci.tv.kediri" group-title="Local Channels" tvg-logo="https://wiki.edunitas.com/_sepakbola/_baca_image.php?td=21&kodegb=200px-Kilisuci_TV.png",Kilisuci TV Kediri
 https://5bf7b725107e5.streamlock.net/kstv/kstv/chunklist_w1799577873.m3u8

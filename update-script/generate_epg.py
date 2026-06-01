@@ -74,6 +74,13 @@ MANUAL_ID_MAP: dict[str, str] = {
     "Horee!": "HipHipHoree!.id",
     "BNChannel.id": "BNChannel.id",
     "MagnaChannel.id": "MagnaChannel.id",
+    # HLS alternatives for DASH-only channels
+    "TransTV.id.hls": "TransTV.id",
+    "Trans7.id.hls": "Trans7.id",
+    "MetroTV.id.hls": "MetroTV.id",
+    "KompasTV.id.hls": "KompasTV.id",
+    "tvOne.id.hls": "tvOne.id",
+    "BandungTV.id.hls": "BandungTV.id",
     # open-epg.com ID mismatches
     "Moji": "mOji.id",
     "Moji.2": "mOji.id",
