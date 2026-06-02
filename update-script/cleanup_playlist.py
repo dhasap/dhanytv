@@ -44,6 +44,29 @@ DENS_SCTV_WEB_QUERY = {
     "userid": "lite",
     "chname": "SCTV",
 }
+VIDIO_REFERRER = "https://www.vidio.com/"
+VIDIO_ORIGIN = "https://www.vidio.com"
+VIDIO_USER_AGENT = "VidioPlayer/6.41.11"
+SCTV_FALLBACK_URL = "https://aspaltvpasti.top/Drmvidbos/Akun121/bosstv.m3u8?id=204"
+SCTV_FALLBACK_PROPS = (
+    f"#EXTVLCOPT:http-referrer={VIDIO_REFERRER}",
+    f"#EXTVLCOPT:http-origin={VIDIO_ORIGIN}",
+    f"#EXTVLCOPT:http-user-agent={VIDIO_USER_AGENT}",
+    "#KODIPROP:inputstreamaddon=inputstream.adaptive",
+    "#KODIPROP:inputstream.adaptive.manifest_type=hls",
+    f"#KODIPROP:inputstream.adaptive.stream_headers=origin={VIDIO_ORIGIN}&referer={VIDIO_REFERRER}&user-agent={VIDIO_USER_AGENT}",
+    "#EXTHTTP:"
+    + json.dumps(
+        {
+            "Referer": VIDIO_REFERRER,
+            "referrer": VIDIO_REFERRER,
+            "Origin": VIDIO_ORIGIN,
+            "User-Agent": VIDIO_USER_AGENT,
+            "user-agent": VIDIO_USER_AGENT,
+        },
+        separators=(",", ":"),
+    ),
+)
 
 # Source trace URLs are not real maintained stream endpoints. merge_source.py
 # already drops them from fresh source imports; cleanup must also drop stale
@@ -377,18 +400,18 @@ def is_sctv_entry(item: str | Entry) -> bool:
     return item.name.upper().startswith("SCTV")
 
 
-def prioritize_sctv_dens(items: list[str | Entry]) -> bool:
-    """Place SCTV DensTV HLS before SCTV DASH/V+ duplicates.
+def prioritize_sctv_preferred(items: list[str | Entry]) -> bool:
+    """Place the playable SCTV fallback before SCTV DASH/V+ duplicates.
 
     Several clients group duplicate tvg-id/name entries and auto-pick the first
     SCTV item. If the DASH/V+ SCTV comes first, those clients may open a browser
-    or external handler. Prefer the HLS DensTV stream in the main playlist.
+    or external handler. Prefer the segment-playable HLS fallback.
     """
-    dens_idx = next((idx for idx, item in enumerate(items) if is_sctv_dens_entry(item)), None)
+    preferred_idx = next((idx for idx, item in enumerate(items) if is_sctv_preferred_entry(item)), None)
     first_sctv_idx = next((idx for idx, item in enumerate(items) if is_sctv_entry(item)), None)
-    if dens_idx is None or first_sctv_idx is None or dens_idx <= first_sctv_idx:
+    if preferred_idx is None or first_sctv_idx is None or preferred_idx <= first_sctv_idx:
         return False
-    item = items.pop(dens_idx)
+    item = items.pop(preferred_idx)
     items.insert(first_sctv_idx, item)
     return True
 
@@ -492,6 +515,34 @@ def label_sctv_dash(entry: Entry) -> None:
         entry.extinf = entry.extinf.rsplit(",", 1)[0] + ",SCTV (DASH/MPD)"
 
 
+def is_broken_sctv_dens_url(url: str) -> bool:
+    """True for the stale DensTV h217 SCTV endpoint.
+
+    h217 still returns master/variant playlists, but the media segments referenced
+    by those playlists are 404. Do not ship it as SCTV because clients either
+    fail playback or open the DensTV web page in a browser.
+    """
+    parsed = urlparse(url)
+    return is_dens_url(url) and "/h217/" in parsed.path
+
+
+def replace_broken_sctv_dens(entry: Entry) -> bool:
+    """Replace stale DensTV SCTV with the segment-playable Vidio HLS fallback."""
+    if not any(is_broken_sctv_dens_url(url) for url in entry.urls):
+        return False
+    entry.props = list(SCTV_FALLBACK_PROPS)
+    entry.urls = [SCTV_FALLBACK_URL]
+    entry._dash = None
+    entry._drm = None
+    return True
+
+
+def is_sctv_preferred_entry(item: str | Entry) -> bool:
+    if not isinstance(item, Entry):
+        return False
+    return SCTV_FALLBACK_URL in item.urls
+
+
 def clean_items(
     items: list[str | Entry],
     trace_patterns: Iterable[str] = SOURCE_TRACES,
@@ -505,7 +556,8 @@ def clean_items(
         "duplicates_removed": 0,
         "dens_headers_fixed": 0,
         "dens_sctv_query_fixed": 0,
-        "sctv_dens_prioritized": 0,
+        "sctv_dens_replaced": 0,
+        "sctv_preferred_prioritized": 0,
         "sctv_dash_labeled": 0,
     }
     cleaned: list[str | Entry] = []
@@ -544,6 +596,9 @@ def clean_items(
                 fallback.extinf = f"{base},{name.strip()} (Alt {idx})"
 
         for candidate in expanded:
+            if replace_broken_sctv_dens(candidate):
+                stats["sctv_dens_replaced"] += 1
+
             headers_changed, query_changed = ensure_dens_headers(candidate)
             if headers_changed:
                 stats["dens_headers_fixed"] += 1
@@ -567,8 +622,8 @@ def clean_items(
             cleaned.append(candidate)
             stats["entries_kept"] += 1
 
-    if prioritize_sctv_dens(cleaned):
-        stats["sctv_dens_prioritized"] = 1
+    if prioritize_sctv_preferred(cleaned):
+        stats["sctv_preferred_prioritized"] = 1
 
     return cleaned, stats
 
@@ -591,10 +646,10 @@ def render(header: str, items: list[str | Entry]) -> str:
 
         if not last_blank:
             out.append("")
-        # DensTV is sensitive to HTTP headers. Put its VLC options directly
-        # between #EXTINF and the URL so strict players bind them to the stream
-        # instead of treating them as orphan/pending props.
-        if any(is_dens_url(url) for url in item.urls):
+        # DensTV and the SCTV Vidio fallback are sensitive to HTTP headers. Put
+        # their options directly between #EXTINF and the URL so strict players
+        # bind them to the stream instead of treating them as orphan/pending props.
+        if any(is_dens_url(url) or url == SCTV_FALLBACK_URL for url in item.urls):
             out.append(item.extinf)
             for prop in item.props:
                 out.append(prop)
