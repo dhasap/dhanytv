@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================
 # dhanytv - Manual Update Script
-# Playlist IPTV + Custom EPG Generator
+# Playlist IPTV + International Merge + Custom EPG Generator
 # ============================================================
 
 set -e
@@ -22,7 +22,7 @@ print_banner() {
     echo -e "${CYAN}"
     echo "╔══════════════════════════════════════╗"
     echo "║   dhanytv Manual Update Script       ║"
-    echo "║   Playlist + Custom EPG Generator    ║"
+    echo "║   Playlist + Intl + EPG Generator    ║"
     echo "╚══════════════════════════════════════╝"
     echo -e "${NC}"
 }
@@ -89,19 +89,31 @@ echo "  Downloaded: $(wc -c < source_latest.m3u) bytes"
 echo -e "${YELLOW}[3/6] Merging & fixing playlist...${NC}"
 BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
 
-SANITIZE_ARG=""
+SANITIZE_ARG=()
 if [ -n "$SANITIZE" ]; then
-    SANITIZE_ARG="--sanitize \"$SANITIZE\""
+    SANITIZE_ARG=(--sanitize "$SANITIZE")
 fi
 
-python3 update-script/merge_source.py source_latest.m3u --target "$TARGET_FILE" $SANITIZE_ARG
+python3 update-script/merge_source.py source_latest.m3u --target "$TARGET_FILE" "${SANITIZE_ARG[@]}"
 
 rm -f source_latest.m3u
 
-# Step 4: Normalize playlist and generate OTT-friendly variant
-echo -e "${YELLOW}[4/6] Cleaning playlist syntax & generating OTT variant...${NC}"
+# Step 4: Merge international channels from iptv-org
+echo -e "${YELLOW}[4/7] Merging international channels...${NC}"
+if [ -f "update-script/merge_international.py" ]; then
+    INTL_BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+    python3 update-script/merge_international.py --ci
+    INTL_AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
+    echo -e "  ${GREEN}International merge: $INTL_BEFORE → $INTL_AFTER${NC}"
+else
+    echo -e "${RED}ERROR: update-script/merge_international.py tidak ditemukan!${NC}"
+    exit 1
+fi
+
+# Step 5: Normalize playlist and generate OTT-friendly variant
+echo -e "${YELLOW}[5/7] Cleaning playlist syntax & generating OTT variant...${NC}"
 if [ -f "update-script/cleanup_playlist.py" ]; then
-    python3 update-script/cleanup_playlist.py "$TARGET_FILE" --write --ott-output dhanytv-ott.m3u --check
+    python3 update-script/cleanup_playlist.py "$TARGET_FILE" --write --ott-output dhanytv-ott.m3u --check "${SANITIZE_ARG[@]}"
 else
     echo -e "${RED}ERROR: update-script/cleanup_playlist.py tidak ditemukan!${NC}"
     exit 1
@@ -111,8 +123,8 @@ AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
 OTT_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
 echo -e "  ${GREEN}Channel: $BEFORE → $AFTER | OTT: $OTT_COUNT${NC}"
 
-# Step 5: Generate Custom EPG (multi-source)
-echo -e "${YELLOW}[5/6] Downloading EPG sources & generating custom EPG...${NC}"
+# Step 6: Generate Custom EPG (multi-source)
+echo -e "${YELLOW}[6/7] Downloading EPG sources & generating custom EPG...${NC}"
 
 # AqFad2811/epg sources
 # NOTE: epg.xml renamed to aqfad_epg.xml to avoid collision with output
@@ -146,8 +158,8 @@ python3 update-script/generate_epg.py --m3u "$TARGET_FILE" --output "$EPG_OUTPUT
 rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml sooka.xml
 rm -f aqfad_epg.xml epgshare01_*.xml open_epg_indonesia.xml
 
-# Step 6: Push
-echo -e "${YELLOW}[6/6] Pushing to GitHub...${NC}"
+# Step 7: Push
+echo -e "${YELLOW}[7/7] Pushing to GitHub...${NC}"
 if [ "$NO_PUSH" = true ]; then
     echo -e "${CYAN}Skipping push (--no-push)${NC}"
 else

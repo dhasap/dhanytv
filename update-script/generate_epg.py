@@ -285,6 +285,102 @@ class PlaylistChannel:
     group: str = ""
 
 
+EPG_ID_SUFFIXES = (
+    ".ca2", ".id", ".my", ".sg", ".ca", ".fr", ".ae", ".in", ".uk",
+    ".au", ".us", ".de", ".it", ".es", ".br", ".mx", ".ar", ".co",
+)
+
+
+def _strip_epg_suffixes(label: str) -> str:
+    """Remove common country/feed suffixes from EPG ids/display names."""
+    value = label.strip().strip(" ._-\t\r\n")
+    changed = True
+    while changed and value:
+        changed = False
+        lower = value.casefold()
+        for suffix in EPG_ID_SUFFIXES:
+            if lower.endswith(suffix):
+                value = value[: -len(suffix)].strip().strip(" ._-")
+                changed = True
+                break
+    return value
+
+
+GENERIC_BAD_PROGRAMME_TITLES = frozenset({
+    "",
+    "no information",
+    "no information available",
+    "no programme information available",
+    "no program information available",
+    "programme information unavailable",
+    "program information unavailable",
+    "information unavailable",
+    "informasi tidak tersedia",
+    "tidak ada informasi",
+    "jadwal tidak tersedia",
+    "to be announced",
+    "tba",
+    "n/a",
+})
+
+
+def _normalize_programme_label(label: str) -> str:
+    """Normalize channel/programme labels for reliable bad-title matching."""
+    value = re.sub(r"\s+", " ", (label or "").strip())
+    # Generated duplicate display names look like "RCTI (RCTI.id.2)".  For the
+    # bad-title audit, the base channel name is what matters.
+    value = re.sub(r"\s+\([^)]*\)\s*$", "", value)
+    value = _strip_epg_suffixes(value)
+    # Treat "Metro TV", "MetroTV" and "Metro.TV.id" as the same label.
+    return re.sub(r"[^0-9a-z]+", "", value.casefold())
+
+
+def _is_generic_bad_programme_title(title: str) -> bool:
+    """True when upstream emits an empty/no-info programme title."""
+    value = re.sub(r"\s+", " ", (title or "").strip()).casefold().strip(" .:-")
+    return value in GENERIC_BAD_PROGRAMME_TITLES
+
+
+def _channel_title_keys(cid: str, display_names: Iterable[str]) -> set[str]:
+    """Return normalized labels that should never appear as programme titles."""
+    raw_values: set[str] = {cid}
+    raw_values.update(name for name in display_names if name)
+
+    variants: set[str] = set()
+    for raw in raw_values:
+        raw = raw.strip()
+        if not raw:
+            continue
+        stripped = _strip_epg_suffixes(raw)
+        variants.update({raw, stripped})
+        # EPG ids often use dots where playlist/display names use spaces.
+        variants.update({raw.replace(".", " "), stripped.replace(".", " ")})
+
+    return {key for key in (_normalize_programme_label(v) for v in variants) if key}
+
+
+def _is_bad_programme_title(title: str, cid: str, channel_title_keys: dict[str, set[str]]) -> bool:
+    """True when the programme title is just the channel name (bad EPG data)."""
+    key = _normalize_programme_label(title)
+    if not key:
+        return False
+    keys = channel_title_keys.get(cid, set())
+    if key in keys:
+        return True
+
+    # Some upstream feeds expose a whole day as repeated channel-name titles.
+    # Depending on the source/player this can appear as a single title such as
+    # "RCTI RCTI RCTI" (normalized to "rctirctircti").  Treat exact repeated
+    # channel-name chunks as the same bad-data class, while leaving real titles
+    # that merely contain the channel name untouched.
+    for channel_key in keys:
+        if len(channel_key) < 2 or len(key) <= len(channel_key):
+            continue
+        if len(key) % len(channel_key) == 0 and key == channel_key * (len(key) // len(channel_key)):
+            return True
+    return False
+
+
 def xmltv_time(dt: datetime) -> str:
     return dt.strftime("%Y%m%d%H%M%S +0700")
 
@@ -320,9 +416,9 @@ def parse_playlist(path: Path) -> OrderedDict[str, PlaylistChannel]:
     return channels
 
 
-def _parse_xmltv_file(path: Path) -> tuple[dict[str, ET.Element], dict[str, list[ET.Element]]]:
+def _parse_xmltv_file(path: Path) -> tuple[dict[str, ET.Element], dict[str, list[ET.Element]], int]:
     if not path.exists() or path.stat().st_size == 0:
-        return {}, {}
+        return {}, {}, 0
 
     try:
         if path.suffix == '.gz':
@@ -332,7 +428,7 @@ def _parse_xmltv_file(path: Path) -> tuple[dict[str, ET.Element], dict[str, list
             root = ET.parse(path).getroot()
     except Exception as exc:
         print(f"WARNING: gagal parse {path}: {exc}")
-        return {}, {}
+        return {}, {}, 0
 
     channels: dict[str, ET.Element] = {}
     programmes: dict[str, list[ET.Element]] = defaultdict(list)
@@ -342,46 +438,44 @@ def _parse_xmltv_file(path: Path) -> tuple[dict[str, ET.Element], dict[str, list
         if cid and cid not in channels:
             channels[cid] = channel
 
-    # Build channel name lookup for filtering bad programmes
-    channel_names: dict[str, set[str]] = {}
+    # Build channel name lookup for filtering bad programmes. Some upstream EPG
+    # files contain schedules where every programme title is just the channel
+    # name (e.g. RCTI/RCTI/RCTI). Those rows are worse than placeholders because
+    # players render them as nonsense instead of real show names.
+    channel_title_keys: dict[str, set[str]] = {}
     for channel in root.findall("channel"):
         cid = channel.get("id", "").strip()
         if cid:
-            names = {dn.text for dn in channel.findall("display-name") if dn.text}
-            names.add(cid)
-            # Also add cleaned versions (without .id, .my, .sg suffixes)
-            cleaned = set()
-            for n in names:
-                cleaned.add(n)
-                # Remove common suffixes
-                for suffix in [".id", ".my", ".sg", ".ca", ".ca2", ".fr", ".ae", ".in", ".uk"]:
-                    if n.endswith(suffix):
-                        cleaned.add(n[:-len(suffix)])
-            channel_names[cid] = cleaned
+            names = [dn.text or "" for dn in channel.findall("display-name")]
+            channel_title_keys[cid] = _channel_title_keys(cid, names)
 
+    filtered_bad_titles = 0
     for programme in root.findall("programme"):
         cid = programme.get("channel", "").strip()
         if not cid:
             continue
-        # Skip programmes where title = channel name (bad EPG data)
+        # Skip programmes where title is empty/generic no-info/channel-name bad data.
         title_el = programme.find("title")
-        if title_el is not None and title_el.text:
-            title = title_el.text.strip()
-            ch_names = channel_names.get(cid, set())
-            if title in ch_names:
-                continue  # Skip this bad programme
+        title = title_el.text if title_el is not None else ""
+        if _is_generic_bad_programme_title(title) or _is_bad_programme_title(title, cid, channel_title_keys):
+            filtered_bad_titles += 1
+            continue
         programmes[cid].append(programme)
 
-    return channels, programmes
+    if filtered_bad_titles:
+        print(f"INFO: filtered {filtered_bad_titles} bad programme titles from {path}")
+    return channels, programmes, filtered_bad_titles
 
 
-def read_sources(paths: Iterable[Path]) -> tuple[dict[str, ET.Element], dict[str, list[ET.Element]], int]:
+def read_sources(paths: Iterable[Path]) -> tuple[dict[str, ET.Element], dict[str, list[ET.Element]], int, int]:
     source_channels: dict[str, ET.Element] = {}
     source_programmes: dict[str, list[ET.Element]] = defaultdict(list)
     parsed = 0
+    filtered_bad_titles = 0
 
     for path in paths:
-        chs, progs = _parse_xmltv_file(path)
+        chs, progs, bad_count = _parse_xmltv_file(path)
+        filtered_bad_titles += bad_count
         if chs:
             parsed += 1
             for cid, ch in chs.items():
@@ -390,7 +484,7 @@ def read_sources(paths: Iterable[Path]) -> tuple[dict[str, ET.Element], dict[str
             for cid, prog_list in progs.items():
                 source_programmes[cid].extend(prog_list)
 
-    return source_channels, source_programmes, parsed
+    return source_channels, source_programmes, parsed, filtered_bad_titles
 
 
 def make_channel_element(info: PlaylistChannel) -> ET.Element:
@@ -487,9 +581,78 @@ def _resolve_programmes(tvg_id: str,
     return merged
 
 
+def _first_display_name(channel: ET.Element) -> str:
+    display = channel.find("display-name")
+    if display is not None and display.text and display.text.strip():
+        return display.text.strip()
+    return channel.get("id", "").strip()
+
+
+def ensure_unique_display_names(root: ET.Element) -> int:
+    """Avoid duplicate XMLTV display-name values while preserving tvg-id coverage."""
+    seen: dict[str, int] = {}
+    renamed = 0
+    for channel in root.findall("channel"):
+        name = _first_display_name(channel)
+        if not name:
+            continue
+        seen[name] = seen.get(name, 0) + 1
+        if seen[name] == 1:
+            continue
+        display = channel.find("display-name")
+        if display is None:
+            display = ET.SubElement(channel, "display-name", {"lang": "id"})
+        tvg_id = channel.get("id", "").strip()
+        suffix = tvg_id or str(seen[name])
+        display.text = f"{name} ({suffix})"
+        renamed += 1
+    return renamed
+
+
+def audit_epg(root: ET.Element, playlist_channels: OrderedDict[str, PlaylistChannel]) -> dict[str, int]:
+    channel_ids = [ch.get("id", "").strip() for ch in root.findall("channel")]
+    programme_ids = [pr.get("channel", "").strip() for pr in root.findall("programme")]
+    channel_id_set = {cid for cid in channel_ids if cid}
+    programme_id_set = {cid for cid in programme_ids if cid}
+    playlist_id_set = set(playlist_channels.keys())
+
+    display_names = [_first_display_name(ch) for ch in root.findall("channel")]
+    channel_title_keys: dict[str, set[str]] = {}
+    for channel in root.findall("channel"):
+        cid = channel.get("id", "").strip()
+        if cid:
+            channel_title_keys[cid] = _channel_title_keys(
+                cid,
+                [dn.text or "" for dn in channel.findall("display-name")],
+            )
+
+    placeholder_programmes = 0
+    bad_programme_titles = 0
+    for programme in root.findall("programme"):
+        cid = programme.get("channel", "").strip()
+        title = (programme.findtext("title") or "").strip()
+        if title == "Jadwal belum tersedia":
+            placeholder_programmes += 1
+            continue
+        if _is_generic_bad_programme_title(title):
+            bad_programme_titles += 1
+            continue
+        if cid and _is_bad_programme_title(title, cid, channel_title_keys):
+            bad_programme_titles += 1
+
+    return {
+        "audit_missing_channels": len(playlist_id_set - channel_id_set),
+        "audit_missing_programmes": len(playlist_id_set - programme_id_set),
+        "audit_duplicate_channel_ids": len(channel_ids) - len(channel_id_set),
+        "audit_duplicate_display_names": len(display_names) - len(set(display_names)),
+        "audit_placeholder_programmes": placeholder_programmes,
+        "audit_bad_programme_titles": bad_programme_titles,
+    }
+
+
 def generate(m3u_path: Path, output_path: Path, source_paths: list[Path]) -> dict[str, int]:
     playlist_channels = parse_playlist(m3u_path)
-    source_channels, source_programmes, parsed_sources = read_sources(source_paths)
+    source_channels, source_programmes, parsed_sources, filtered_bad_titles = read_sources(source_paths)
 
     root = ET.Element(
         "tv",
@@ -504,6 +667,7 @@ def generate(m3u_path: Path, output_path: Path, source_paths: list[Path]) -> dic
     manual_mapped_count = 0
     real_programme_count = 0
     placeholder_programme_count = 0
+    final_bad_programme_titles_filtered = 0
 
     for tvg_id, info in playlist_channels.items():
         ch = _resolve_channel(tvg_id, info, source_channels)
@@ -518,7 +682,18 @@ def generate(m3u_path: Path, output_path: Path, source_paths: list[Path]) -> dic
             fallback_channel_count += 1
 
     for tvg_id in playlist_channels.keys():
+        info = playlist_channels[tvg_id]
         programmes = _resolve_programmes(tvg_id, source_programmes)
+        if programmes:
+            final_title_keys = {tvg_id: _channel_title_keys(tvg_id, [info.name])}
+            filtered_programmes: list[ET.Element] = []
+            for programme in programmes:
+                title = programme.findtext("title") or ""
+                if _is_generic_bad_programme_title(title) or _is_bad_programme_title(title, tvg_id, final_title_keys):
+                    final_bad_programme_titles_filtered += 1
+                    continue
+                filtered_programmes.append(programme)
+            programmes = filtered_programmes
         if programmes:
             for programme in programmes:
                 root.append(programme)
@@ -529,6 +704,17 @@ def generate(m3u_path: Path, output_path: Path, source_paths: list[Path]) -> dic
                 root.append(programme)
             placeholder_programme_count += len(placeholders)
 
+    duplicate_display_names_renamed = ensure_unique_display_names(root)
+    audit_stats = audit_epg(root, playlist_channels)
+    if (
+        audit_stats["audit_missing_channels"]
+        or audit_stats["audit_missing_programmes"]
+        or audit_stats["audit_duplicate_channel_ids"]
+        or audit_stats["audit_duplicate_display_names"]
+        or audit_stats["audit_bad_programme_titles"]
+    ):
+        raise RuntimeError(f"EPG audit failed: {audit_stats}")
+
     tree = ET.ElementTree(root)
     ET.indent(tree, space="  ")
     tree.write(output_path, encoding="unicode", xml_declaration=True)
@@ -536,11 +722,16 @@ def generate(m3u_path: Path, output_path: Path, source_paths: list[Path]) -> dic
     return {
         "playlist_tvg_ids": len(playlist_channels),
         "sources_parsed": parsed_sources,
+        "bad_programme_titles_filtered": filtered_bad_titles + final_bad_programme_titles_filtered,
+        "bad_programme_titles_filtered_source": filtered_bad_titles,
+        "bad_programme_titles_filtered_after_merge": final_bad_programme_titles_filtered,
         "source_channels_matched": real_channel_count,
         "manual_mapped": manual_mapped_count,
         "fallback_channels_created": fallback_channel_count,
         "real_programmes": real_programme_count,
         "placeholder_programmes": placeholder_programme_count,
+        "duplicate_display_names_renamed": duplicate_display_names_renamed,
+        **audit_stats,
         "output_kb": round(output_path.stat().st_size / 1024),
     }
 

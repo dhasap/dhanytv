@@ -33,7 +33,8 @@ TARGET_COUNTRIES = [
     ("ng", "Nigeria", 10),
     ("za", "South Africa", 8),
     ("ke", "Kenya", 5),
-    ("gb", "United Kingdom", 20),
+    # iptv-org uses the exceptional country slug "uk" for United Kingdom.
+    ("uk", "United Kingdom", 20),
     ("us", "United States", 25),
     ("de", "Germany", 15),
     ("fr", "France", 15),
@@ -59,6 +60,9 @@ def download_playlist(country_code: str) -> list[str]:
             capture_output=True, text=True, timeout=20
         )
         if result.returncode == 0 and result.stdout.strip():
+            if not result.stdout.lstrip().startswith("#EXTM3U"):
+                print(f"  WARNING: {country_code} did not return an M3U playlist")
+                return []
             return result.stdout.splitlines()
     except Exception as e:
         print(f"  WARNING: Failed to download {country_code}: {e}")

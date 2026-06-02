@@ -29,8 +29,17 @@ PROP_PREFIXES = (
 
 DEFAULT_HEADER = '#EXTM3U url-tvg="https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml"'
 
+# Source trace URLs are not real maintained stream endpoints. merge_source.py
+# already drops them from fresh source imports; cleanup must also drop stale
+# instances that were committed before that merge-time sanitizer existed.
+SOURCE_TRACES = ("bluestraveller13", "super-duper-spork", "kitkatjoss")
+
 # normalize_extinf compiled patterns
 _RE_EPG_URL_AFTER_GROUP = re.compile(r'(group-title="[^"]+")\s*https?://[^"\s]+"?')
+_RE_TVG_URL_URL = re.compile(r'\s+tvg-url="(?:tvg-url=")?https?://[^"\s]+"*')
+_RE_TVG_URL = re.compile(r'\s+tvg-url="[^"]*"')
+_RE_EMPTY_QUOTED_ATTR = re.compile(r'\s+""(?=\s|,)')
+_RE_FIREFOX_UA_TYPO = re.compile(r'Firefox/(\d+(?:\.\d+)*)F\b')
 _RE_UNQUOTED_TVG_ID = re.compile(r'\btvg-id=([^"\s][^"]*?)"')
 _RE_DUP_WHITESPACE = re.compile(r"\s+,")
 _RE_MULTI_SPACE = re.compile(r"\s{2,}")
@@ -104,6 +113,22 @@ def is_prop_line(line: str) -> bool:
     return line.startswith(PROP_PREFIXES)
 
 
+def build_trace_patterns(extra_patterns: Iterable[str] = ()) -> tuple[str, ...]:
+    """Return normalized trace patterns used to drop stale source URLs."""
+    patterns = [*SOURCE_TRACES]
+    for pattern in extra_patterns:
+        pattern = pattern.strip().lower()
+        if pattern:
+            patterns.append(pattern)
+    return tuple(dict.fromkeys(patterns))
+
+
+def is_trace_url(url: str, trace_patterns: Iterable[str]) -> bool:
+    """True for raw source/trace URLs that should not ship as streams."""
+    low = url.lower()
+    return low.startswith("http") and any(pattern in low for pattern in trace_patterns)
+
+
 def fallback_tvg_id(name: str, used_ids: set[str] | None = None) -> str:
     """Create a stable synthetic tvg-id for channels missing one."""
     clean = _RE_VPLUS_ETC.sub(" ", name)
@@ -139,6 +164,13 @@ def ensure_tvg_id(line: str, used_ids: set[str]) -> str:
 
 def normalize_extinf(line: str) -> str:
     """Fix common EXTINF typos without changing channel identity."""
+    # tvg-url is non-standard and causes parser/UI bugs. Remove both normal
+    # attributes and malformed nested variants like tvg-url="tvg-url="https://...".
+    line = _RE_TVG_URL_URL.sub("", line)
+    line = _RE_TVG_URL.sub("", line)
+    # Drop orphan empty attributes accidentally injected by source scripts, e.g.
+    # group-title="Local Channels" "" tvg-logo="...".
+    line = _RE_EMPTY_QUOTED_ATTR.sub("", line)
     # Fix broken tvg-id quote: tvg-id="TV5Monde"Entertainment & LifeStyle"
     # → tvg-id="TV5Monde" group-title="Entertainment & LifeStyle"
     line = re.sub(
@@ -173,6 +205,8 @@ def normalize_line(raw: str) -> str:
     line = raw.strip().lstrip("\ufeff")
     if not line:
         return ""
+    # Fix malformed Firefox UA strings that break strict clients.
+    line = _RE_FIREFOX_UA_TYPO.sub(r"Firefox/\1", line)
     if line.startswith("KODIPROP:"):
         line = "#" + line
     # Fix KODIPROP typo: inputstream= should be inputstreamaddon=
@@ -296,11 +330,15 @@ def label_sctv_dash(entry: Entry) -> None:
         entry.extinf = entry.extinf.rsplit(",", 1)[0] + ",SCTV (DASH/MPD)"
 
 
-def clean_items(items: list[str | Entry]) -> tuple[list[str | Entry], dict[str, int]]:
+def clean_items(
+    items: list[str | Entry],
+    trace_patterns: Iterable[str] = SOURCE_TRACES,
+) -> tuple[list[str | Entry], dict[str, int]]:
     stats = {
         "entries_total": 0,
         "entries_kept": 0,
         "entries_no_url_removed": 0,
+        "trace_urls_removed": 0,
         "fallback_entries_created": 0,
         "duplicates_removed": 0,
         "sctv_dash_labeled": 0,
@@ -318,6 +356,14 @@ def clean_items(items: list[str | Entry]) -> tuple[list[str | Entry], dict[str, 
         stats["entries_total"] += 1
         entry = item
         entry.props = dedupe_keep_order(entry.props)
+
+        before_url_count = len(entry.urls)
+        entry.urls = [url for url in entry.urls if not is_trace_url(url, trace_patterns)]
+        removed_trace_urls = before_url_count - len(entry.urls)
+        if removed_trace_urls:
+            stats["trace_urls_removed"] += removed_trace_urls
+            entry._dash = None
+            entry._drm = None
 
         if not entry.urls:
             stats["entries_no_url_removed"] += 1
@@ -430,12 +476,19 @@ def main() -> int:
     parser.add_argument("--output", help="Write cleaned output to this path instead of stdout/overwrite")
     parser.add_argument("--ott-output", help="Also write HLS/non-DRM OTT-friendly playlist to this path")
     parser.add_argument("--check", action="store_true", help="Exit non-zero if cleaned playlist still has structural errors")
+    parser.add_argument(
+        "--sanitize",
+        default="",
+        help="Additional trace URL patterns to remove, pipe-separated",
+    )
     args = parser.parse_args()
 
     path = Path(args.playlist)
     original = path.read_text(encoding="utf-8", errors="replace")
     header, raw_items, parse_stats = extract_items(original.splitlines())
-    items, clean_stats = clean_items(raw_items)
+    extra_patterns = args.sanitize.split("|") if args.sanitize else []
+    trace_patterns = build_trace_patterns(extra_patterns)
+    items, clean_stats = clean_items(raw_items, trace_patterns)
     cleaned = render(header, items)
     validation = validate_items(items)
 

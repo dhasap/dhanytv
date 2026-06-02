@@ -49,12 +49,12 @@ jobs:
           OLD_COUNT=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
           echo "Channel sebelum: $OLD_COUNT"
 
-          SANITIZE_ARG=""
+          SANITIZE_ARG=()
           if [ -n "$SANITIZE_PATTERNS" ]; then
-            SANITIZE_ARG="--sanitize \"$SANITIZE_PATTERNS\""
+            SANITIZE_ARG=(--sanitize "$SANITIZE_PATTERNS")
           fi
 
-          python3 update-script/merge_source.py "$SOURCE_FILE" --target "$TARGET_FILE" $SANITIZE_ARG
+          python3 update-script/merge_source.py "$SOURCE_FILE" --target "$TARGET_FILE" "${SANITIZE_ARG[@]}"
 
           rm -f "$SOURCE_FILE"
           AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
@@ -70,9 +70,15 @@ jobs:
           echo "International channels: $ADDED added (total: $AFTER)"
 
       - name: Clean Playlist & Generate OTT Variant
+        env:
+          SANITIZE_PATTERNS: ${{ secrets.SANITIZE_PATTERNS }}
         run: |
           echo "=== Clean Playlist & Generate OTT Variant ==="
-          python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check
+          SANITIZE_ARG=()
+          if [ -n "$SANITIZE_PATTERNS" ]; then
+            SANITIZE_ARG=(--sanitize "$SANITIZE_PATTERNS")
+          fi
+          python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check "${SANITIZE_ARG[@]}"
           echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
           echo "OTT channels      : $(grep -c '#EXTINF' dhanytv-ott.m3u || echo '0')"
 

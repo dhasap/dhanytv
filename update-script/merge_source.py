@@ -3,12 +3,12 @@
 
 Handles:
   - Source trace removal (sanitization patterns)
-  - dens.tv http→https + query param cleanup
+  - dens.tv URL preservation (query params are required by some channels)
   - General http→https (with whitelist)
   - dens.tv referrer injection where missing
   - tvg-url removal from EXTINF
   - EPG tvg-id mapping (channel_to_epg dict)
-  - dens.tv broken channel replacement (SCTV → Indihometv DASH)
+  - guarded dens.tv broken channel replacement for legacy bare URLs only
   - EXTVLCOPT/KODIPROP prop deduplication
 
 This replaces the inline Python that was previously duplicated in
@@ -118,10 +118,11 @@ _RE_CHANNEL_FEED2 = re.compile(r"\s*\(Channel Feed\)\s*")
 _RE_VD = re.compile(r"\s*\(VD\)\s*")
 _RE_HD_SUFFIX = re.compile(r"\s*HD\s*$")
 _RE_LEADING_COMMA = re.compile(r"^\s*,")
-_RE_TVG_URL = re.compile(r'\s*tvg-url="[^"]*"')
+_RE_TVG_URL_URL = re.compile(r'\s+tvg-url="(?:tvg-url=")?https?://[^"\s]+"*')
+_RE_TVG_URL = re.compile(r'\s+tvg-url="[^"]*"')
 _RE_TVG_ID = re.compile(r'tvg-id="([^"]*)"')
-_RE_DENS_QUERY = re.compile(r"\?app_type=web&userid=lite&chname=[^\s]+")
-_RE_DENS_QUERY2 = re.compile(r"\?app_type=web&userid=lite")
+_RE_EMPTY_QUOTED_ATTR = re.compile(r'\s+""(?=\s|,)')
+_RE_FIREFOX_UA_TYPO = re.compile(r'Firefox/(\d+(?:\.\d+)*)F\b')
 
 # ── Config ───────────────────────────────────────────────────
 SOURCE_TRACES = ["bluestraveller13", "super-duper-spork", "kitkatjoss"]
@@ -143,6 +144,10 @@ DEFAULT_REFERRER = "https://www.dens.tv/"
 DENS_REPLACEMENTS: dict[str, dict] = {
     "h217": {  # SCTV
         "name": "SCTV",
+        # Source query params are required by the dens.tv CDN. Only replace old
+        # bare h217 URLs; keep exact source URLs such as
+        # ?app_type=web&userid=lite&chname=SCTV.
+        "replace_if_missing_query": True,
         "props": [
             "#KODIPROP:inputstreamaddon=inputstream.adaptive",
             "#KODIPROP:inputstream.adaptive.manifest_type=dash",
@@ -225,16 +230,14 @@ def _is_trace_url(url: str) -> bool:
 
 
 def _fix_dens_url(raw: str) -> tuple[str, int]:
-    """Fix dens.tv URLs: http→https, strip query params. Returns (fixed, changed)."""
+    """Preserve dens.tv stream URLs exactly.
+
+    dens.tv CDN query params (app_type/userid/chname) affect segment routing for
+    some Indonesian users. Do not strip query params or force http→https here.
+    """
     if "dens.tv" not in raw:
         return raw, 0
-    changed = 0
-    if raw.startswith("http://"):
-        raw = raw.replace("http://", "https://", 1)
-        changed = 1
-    raw = _RE_DENS_QUERY.sub("", raw)
-    raw = _RE_DENS_QUERY2.sub("", raw)
-    return raw, changed
+    return raw, 0
 
 
 def _fix_http_url(raw: str) -> tuple[str, int]:
@@ -255,7 +258,9 @@ def _fix_referrer_prop(raw: str) -> str:
 
 def _fix_extinf(raw: str) -> tuple[str, int]:
     """Remove tvg-url, fix tvg-id via EPG mapping. Returns (fixed, epg_mapped)."""
+    raw = _RE_TVG_URL_URL.sub("", raw)
     raw = _RE_TVG_URL.sub("", raw)
+    raw = _RE_EMPTY_QUOTED_ATTR.sub("", raw)
     name_match = re.search(r",(.+?)$", raw.strip())
     if name_match:
         name = name_match.group(1).strip()
@@ -325,6 +330,10 @@ def _replace_broken_dens(lines: list[str]) -> list[str]:
                     break
             if matched_key:
                 repl = DENS_REPLACEMENTS[matched_key]
+                if repl.get("replace_if_missing_query") and "?" in line:
+                    new_lines.append(line)
+                    i += 1
+                    continue
                 # Find the EXTM3U line for this entry (look backwards)
                 extinf_idx = None
                 for k in range(i - 1, max(i - 20, -1), -1):
@@ -363,9 +372,11 @@ def _replace_broken_dens(lines: list[str]) -> list[str]:
             is_before_replaced = False
             for k in range(i + 1, min(i + 15, len(lines))):
                 if lines[k].startswith("http") and "dens.tv" in lines[k]:
-                    for key in DENS_REPLACEMENTS:
+                    for key, repl in DENS_REPLACEMENTS.items():
                         if f"/{key}/" in lines[k]:
-                            is_before_replaced = True
+                            is_before_replaced = not (
+                                repl.get("replace_if_missing_query") and "?" in lines[k]
+                            )
                             break
                     break
                 if lines[k].startswith("#EXTINF") or (
@@ -437,6 +448,7 @@ def merge(
     output: list[str] = []
     for raw_line in lines:
         raw = raw_line.rstrip("\n")
+        raw = _RE_FIREFOX_UA_TYPO.sub(r"Firefox/\1", raw)
 
         # Skip source header (we use our own)
         if raw.startswith("#EXTM3U"):
@@ -453,7 +465,7 @@ def merge(
             stats["dens_fixed"] += changed
 
         # Fix http→https (safe only)
-        if raw.startswith("http://"):
+        if raw.startswith("http://") and "dens.tv" not in raw:
             raw, changed = _fix_http_url(raw)
             stats["http_fixed"] += changed
 
