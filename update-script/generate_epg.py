@@ -342,10 +342,35 @@ def _parse_xmltv_file(path: Path) -> tuple[dict[str, ET.Element], dict[str, list
         if cid and cid not in channels:
             channels[cid] = channel
 
+    # Build channel name lookup for filtering bad programmes
+    channel_names: dict[str, set[str]] = {}
+    for channel in root.findall("channel"):
+        cid = channel.get("id", "").strip()
+        if cid:
+            names = {dn.text for dn in channel.findall("display-name") if dn.text}
+            names.add(cid)
+            # Also add cleaned versions (without .id, .my, .sg suffixes)
+            cleaned = set()
+            for n in names:
+                cleaned.add(n)
+                # Remove common suffixes
+                for suffix in [".id", ".my", ".sg", ".ca", ".ca2", ".fr", ".ae", ".in", ".uk"]:
+                    if n.endswith(suffix):
+                        cleaned.add(n[:-len(suffix)])
+            channel_names[cid] = cleaned
+
     for programme in root.findall("programme"):
         cid = programme.get("channel", "").strip()
-        if cid:
-            programmes[cid].append(programme)
+        if not cid:
+            continue
+        # Skip programmes where title = channel name (bad EPG data)
+        title_el = programme.find("title")
+        if title_el is not None and title_el.text:
+            title = title_el.text.strip()
+            ch_names = channel_names.get(cid, set())
+            if title in ch_names:
+                continue  # Skip this bad programme
+        programmes[cid].append(programme)
 
     return channels, programmes
 
