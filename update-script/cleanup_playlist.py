@@ -10,12 +10,13 @@ open .mpd links in an external browser.
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 # ── Pre-compiled regexes ─────────────────────────────────────
 STREAM_RE = re.compile(r"^(?:[a-z][a-z0-9+.-]*://|plugin://|pipe://)", re.I)
@@ -29,7 +30,20 @@ PROP_PREFIXES = (
 
 DEFAULT_HEADER = '#EXTM3U url-tvg="https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml"'
 DENS_REFERRER = "https://www.dens.tv/"
+DENS_ORIGIN = "https://www.dens.tv"
 DENS_REFERRER_PROP = f"#EXTVLCOPT:http-referrer={DENS_REFERRER}"
+DENS_ORIGIN_PROP = f"#EXTVLCOPT:http-origin={DENS_ORIGIN}"
+DENS_STREAM_HEADERS_PREFIX = "#KODIPROP:inputstream.adaptive.stream_headers="
+DENS_EXTHTTP_PREFIX = "#EXTHTTP:"
+DENS_DEFAULT_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+)
+DENS_SCTV_WEB_QUERY = {
+    "app_type": "web",
+    "userid": "lite",
+    "chname": "SCTV",
+}
 
 # Source trace URLs are not real maintained stream endpoints. merge_source.py
 # already drops them from fresh source imports; cleanup must also drop stale
@@ -249,33 +263,134 @@ def normalize_dens_referrer_prop(prop: str) -> str:
     return DENS_REFERRER_PROP
 
 
-def ensure_dens_referrer(entry: Entry) -> bool:
-    """Force DensTV streams to carry a usable HTTP Referrer tag.
+def dens_user_agent(props: Iterable[str]) -> str:
+    """Return the DensTV user-agent from props, or a stable browser UA fallback."""
+    for prop in props:
+        if prop.startswith("#EXTVLCOPT:http-user-agent="):
+            ua = prop.split("=", 1)[1].strip()
+            if ua:
+                return ua
+    return DENS_DEFAULT_UA
 
-    Some IPTV players only pass the DensTV HLS URL with the attached VLC options;
-    without a Referer/Referrer header, SCTV and other DensTV streams can redirect
-    to a web page instead of returning the HLS manifest.
+
+def dens_stream_headers_prop(user_agent: str) -> str:
+    """Kodi/inputstream-adaptive compatible stream_headers variant."""
+    headers = [
+        f"Referer={DENS_REFERRER}",
+        f"referrer={DENS_REFERRER}",
+        f"Origin={DENS_ORIGIN}",
+        f"User-Agent={user_agent}",
+        f"user-agent={user_agent}",
+    ]
+    return DENS_STREAM_HEADERS_PREFIX + "|".join(headers)
+
+
+def dens_ext_http_prop(user_agent: str) -> str:
+    """EXTHTTP JSON header variant used by several IPTV/OTT clients."""
+    return DENS_EXTHTTP_PREFIX + json.dumps(
+        {
+            "Referer": DENS_REFERRER,
+            "referrer": DENS_REFERRER,
+            "Origin": DENS_ORIGIN,
+            "User-Agent": user_agent,
+            "user-agent": user_agent,
+        },
+        separators=(",", ":"),
+    )
+
+
+def with_sctv_dens_query(url: str) -> tuple[str, bool]:
+    """Add DensTV web query params for SCTV h217 when missing.
+
+    The HLS manifest works without query params in curl, but some embedded player
+    webviews redirect bare DensTV URLs to the browser page. The old DensTV web
+    URL shape carries app_type/userid/chname, so keep it for SCTV.
+    """
+    if not is_dens_url(url) or "/h217/" not in urlparse(url).path:
+        return url, False
+    parsed = urlparse(url)
+    query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+    before = dict(query)
+    query.update(DENS_SCTV_WEB_QUERY)
+    if query == before:
+        return url, False
+    return urlunparse(parsed._replace(query=urlencode(query))), True
+
+
+def ensure_dens_headers(entry: Entry) -> tuple[bool, bool]:
+    """Force DensTV streams to carry Referrer/Origin headers in multiple formats.
+
+    Some IPTV players only pass DensTV HLS options when they are attached in a
+    client-specific format. Emit EXTVLCOPT, KODIPROP stream_headers, and EXTHTTP
+    so SCTV does not fall back to opening the DensTV browser page.
     """
     if not any(is_dens_url(url) for url in entry.urls):
-        return False
+        return False, False
 
-    had_referrer = False
-    non_referrer_props: list[str] = []
+    query_changed = False
+    new_urls: list[str] = []
+    for url in entry.urls:
+        new_url, changed = with_sctv_dens_query(url)
+        query_changed = query_changed or changed
+        new_urls.append(new_url)
+    if query_changed:
+        entry.urls = new_urls
+        entry._dash = None
+        entry._drm = None
 
+    user_agent = dens_user_agent(entry.props)
+    user_agent_prop = f"#EXTVLCOPT:http-user-agent={user_agent}"
+
+    non_header_props: list[str] = []
     for prop in entry.props:
         prop = normalize_dens_referrer_prop(prop)
-        if prop.startswith("#EXTVLCOPT:http-referrer="):
-            # For DensTV entries, do not leave a competing Referrer from another
-            # provider. Some clients use the first/last duplicate header
-            # unpredictably, so force exactly one canonical DensTV Referrer.
-            had_referrer = True
+        if prop.startswith((
+            "#EXTVLCOPT:http-referrer=",
+            "#EXTVLCOPT:http-origin=",
+            "#EXTVLCOPT:http-user-agent=",
+            DENS_STREAM_HEADERS_PREFIX,
+            DENS_EXTHTTP_PREFIX,
+        )):
             continue
-        non_referrer_props.append(prop)
+        non_header_props.append(prop)
 
-    new_props = dedupe_keep_order([DENS_REFERRER_PROP, *non_referrer_props])
-    changed = not had_referrer or new_props != entry.props
+    new_props = dedupe_keep_order([
+        DENS_REFERRER_PROP,
+        DENS_ORIGIN_PROP,
+        user_agent_prop,
+        dens_stream_headers_prop(user_agent),
+        dens_ext_http_prop(user_agent),
+        *non_header_props,
+    ])
+    headers_changed = new_props != entry.props
     entry.props = new_props
-    return changed
+    return headers_changed, query_changed
+
+
+def is_sctv_dens_entry(item: str | Entry) -> bool:
+    return isinstance(item, Entry) and any(is_dens_url(url) and "/h217/" in urlparse(url).path for url in item.urls)
+
+
+def is_sctv_entry(item: str | Entry) -> bool:
+    if not isinstance(item, Entry):
+        return False
+    return item.name.upper().startswith("SCTV")
+
+
+def prioritize_sctv_dens(items: list[str | Entry]) -> bool:
+    """Place SCTV DensTV HLS before SCTV DASH/V+ duplicates.
+
+    Several clients group duplicate tvg-id/name entries and auto-pick the first
+    SCTV item. If the DASH/V+ SCTV comes first, those clients may open a browser
+    or external handler. Prefer the HLS DensTV stream in the main playlist.
+    """
+    dens_idx = next((idx for idx, item in enumerate(items) if is_sctv_dens_entry(item)), None)
+    first_sctv_idx = next((idx for idx, item in enumerate(items) if is_sctv_entry(item)), None)
+    if dens_idx is None or first_sctv_idx is None or dens_idx <= first_sctv_idx:
+        return False
+    item = items.pop(dens_idx)
+    items.insert(first_sctv_idx, item)
+    return True
 
 
 def extract_items(lines: list[str]) -> tuple[str, list[str | Entry], dict[str, int]]:
@@ -388,7 +503,9 @@ def clean_items(
         "trace_urls_removed": 0,
         "fallback_entries_created": 0,
         "duplicates_removed": 0,
-        "dens_referrers_fixed": 0,
+        "dens_headers_fixed": 0,
+        "dens_sctv_query_fixed": 0,
+        "sctv_dens_prioritized": 0,
         "sctv_dash_labeled": 0,
     }
     cleaned: list[str | Entry] = []
@@ -427,8 +544,11 @@ def clean_items(
                 fallback.extinf = f"{base},{name.strip()} (Alt {idx})"
 
         for candidate in expanded:
-            if ensure_dens_referrer(candidate):
-                stats["dens_referrers_fixed"] += 1
+            headers_changed, query_changed = ensure_dens_headers(candidate)
+            if headers_changed:
+                stats["dens_headers_fixed"] += 1
+            if query_changed:
+                stats["dens_sctv_query_fixed"] += 1
 
             before_name = candidate.name
             label_sctv_dash(candidate)
@@ -446,6 +566,9 @@ def clean_items(
             seen.add(key)
             cleaned.append(candidate)
             stats["entries_kept"] += 1
+
+    if prioritize_sctv_dens(cleaned):
+        stats["sctv_dens_prioritized"] = 1
 
     return cleaned, stats
 
