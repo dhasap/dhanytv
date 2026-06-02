@@ -28,6 +28,8 @@ PROP_PREFIXES = (
 )
 
 DEFAULT_HEADER = '#EXTM3U url-tvg="https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml"'
+DENS_REFERRER = "https://www.dens.tv/"
+DENS_REFERRER_PROP = f"#EXTVLCOPT:http-referrer={DENS_REFERRER}"
 
 # Source trace URLs are not real maintained stream endpoints. merge_source.py
 # already drops them from fresh source imports; cleanup must also drop stale
@@ -231,6 +233,51 @@ def dedupe_keep_order(lines: Iterable[str]) -> list[str]:
     return out
 
 
+def is_dens_url(url: str) -> bool:
+    """Return True when a stream URL belongs to dens.tv."""
+    parsed = urlparse(url)
+    host = parsed.netloc.lower()
+    return host == "dens.tv" or host.endswith(".dens.tv")
+
+
+def normalize_dens_referrer_prop(prop: str) -> str:
+    """Normalize dens.tv referrer variants to the canonical web origin."""
+    if not prop.startswith("#EXTVLCOPT:http-referrer="):
+        return prop
+    if "dens.tv" not in prop.lower():
+        return prop
+    return DENS_REFERRER_PROP
+
+
+def ensure_dens_referrer(entry: Entry) -> bool:
+    """Force DensTV streams to carry a usable HTTP Referrer tag.
+
+    Some IPTV players only pass the DensTV HLS URL with the attached VLC options;
+    without a Referer/Referrer header, SCTV and other DensTV streams can redirect
+    to a web page instead of returning the HLS manifest.
+    """
+    if not any(is_dens_url(url) for url in entry.urls):
+        return False
+
+    had_referrer = False
+    non_referrer_props: list[str] = []
+
+    for prop in entry.props:
+        prop = normalize_dens_referrer_prop(prop)
+        if prop.startswith("#EXTVLCOPT:http-referrer="):
+            # For DensTV entries, do not leave a competing Referrer from another
+            # provider. Some clients use the first/last duplicate header
+            # unpredictably, so force exactly one canonical DensTV Referrer.
+            had_referrer = True
+            continue
+        non_referrer_props.append(prop)
+
+    new_props = dedupe_keep_order([DENS_REFERRER_PROP, *non_referrer_props])
+    changed = not had_referrer or new_props != entry.props
+    entry.props = new_props
+    return changed
+
+
 def extract_items(lines: list[str]) -> tuple[str, list[str | Entry], dict[str, int]]:
     stats = {
         "plain_commented": 0,
@@ -341,6 +388,7 @@ def clean_items(
         "trace_urls_removed": 0,
         "fallback_entries_created": 0,
         "duplicates_removed": 0,
+        "dens_referrers_fixed": 0,
         "sctv_dash_labeled": 0,
     }
     cleaned: list[str | Entry] = []
@@ -379,6 +427,9 @@ def clean_items(
                 fallback.extinf = f"{base},{name.strip()} (Alt {idx})"
 
         for candidate in expanded:
+            if ensure_dens_referrer(candidate):
+                stats["dens_referrers_fixed"] += 1
+
             before_name = candidate.name
             label_sctv_dash(candidate)
             if candidate.name != before_name:
@@ -417,10 +468,19 @@ def render(header: str, items: list[str | Entry]) -> str:
 
         if not last_blank:
             out.append("")
-        for prop in item.props:
-            out.append(prop)
-        out.append(item.extinf)
-        out.append(item.url)
+        # DensTV is sensitive to HTTP headers. Put its VLC options directly
+        # between #EXTINF and the URL so strict players bind them to the stream
+        # instead of treating them as orphan/pending props.
+        if any(is_dens_url(url) for url in item.urls):
+            out.append(item.extinf)
+            for prop in item.props:
+                out.append(prop)
+            out.append(item.url)
+        else:
+            for prop in item.props:
+                out.append(prop)
+            out.append(item.extinf)
+            out.append(item.url)
         last_blank = False
 
     # Normalize to one trailing newline and avoid more than two consecutive blanks.
