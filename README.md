@@ -1,13 +1,35 @@
-# 📺 dhanytv — Free IPTV Playlist Indonesia & Internasional
+# 📺 dhanytv — IPTV Indonesia Gratis + Playlist M3U & EPG XMLTV
 
 [![Auto Update](https://img.shields.io/github/actions/workflow/status/dhasap/dhanytv/auto-update.yml?label=auto-update&logo=github)](https://github.com/dhasap/dhanytv/actions)
-[![Channels](https://img.shields.io/badge/channels-600+-blue)](#-channel-categories)
-[![EPG](https://img.shields.io/badge/EPG-561%20channels-green)](#-epg-electronic-program-guide)
+[![Channels](https://img.shields.io/badge/channels-638+-blue)](#-channel-categories)
+[![OTT](https://img.shields.io/badge/OTT--friendly-466+-purple)](#-playlist-links)
+[![EPG](https://img.shields.io/badge/EPG-595%20channels-green)](#-epg-electronic-program-guide--xmltv)
+[![M3U](https://img.shields.io/badge/format-M3U%2FM3U8-orange)](#-playlist-links)
+[![XMLTV](https://img.shields.io/badge/EPG-XMLTV-brightgreen)](#-epg-electronic-program-guide--xmltv)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Free IPTV playlist Indonesia & internasional** dengan **600+ channel** live TV dari **27 negara**, **EPG jadwal lengkap**, dan **update otomatis** setiap minggu. Tersedia dalam format M3U untuk semua IPTV player — TiviMate, Kodi, VLC, IPTV Pro, OttPlayer, Smart TV, dan lainnya.
+**dhanytv** adalah repo **IPTV Indonesia gratis** dan **playlist M3U Indonesia** untuk nonton **TV online Indonesia & internasional**. Playlist ini berisi **638+ channel live TV** dari **27 negara**, **EPG XMLTV 595 channel**, dan **update otomatis** setiap minggu. Cocok untuk **TiviMate**, **Kodi**, **VLC**, **IPTV Pro**, **OttPlayer**, **Android TV**, **Smart TV**, dan aplikasi IPTV lain yang mendukung M3U/M3U8.
 
-> 🇮🇩🇷🇨🇰🇷🇯🇵🇹🇷🇬🇧🇺🇸🇩🇪🇫🇷🇧🇷🇮🇳🇹🇭🇲🇾🇸🇬🇨🇳🇻🇳🇵🇭🇲🇽🇷🇺🇦🇪 — **600+ channel dari 27 negara**
+> English: free Indonesia IPTV playlist, M3U/M3U8 live TV channels, XMLTV EPG guide, weekly auto-update, Smart TV / Android TV / Kodi / VLC / TiviMate compatible.
+>
+> 🇮🇩🇰🇷🇯🇵🇹🇷🇬🇧🇺🇸🇩🇪🇫🇷🇧🇷🇮🇳🇹🇭🇲🇾🇸🇬🇨🇳🇻🇳🇵🇭🇲🇽🇷🇺🇦🇪 — **638+ channel dari 27 negara**
+
+---
+
+## 🔎 Apa itu dhanytv?
+
+**dhanytv** adalah kumpulan link **IPTV gratis Indonesia**, **playlist M3U TV Indonesia**, dan channel internasional yang siap dipakai di player IPTV populer. Repo ini dibuat supaya pengguna mudah mencari dan memakai satu link playlist yang rapi, ada EPG, dan rutin diperbarui.
+
+| Fitur | Detail |
+|------|--------|
+| Playlist utama | **638+ channel** Indonesia & internasional |
+| Playlist OTT-friendly | **466+ channel** non-DASH/non-DRM untuk Smart TV / OTT player |
+| EPG / XMLTV | **595 channel** dan **20.500+ programme** |
+| Format | M3U / M3U8 playlist + XMLTV EPG |
+| Update | Otomatis setiap minggu via GitHub Actions |
+| Player | TiviMate, Kodi, VLC, IPTV Pro, OttPlayer, Android TV, Smart TV |
+
+Kata kunci yang relevan: **IPTV Indonesia gratis**, **playlist M3U Indonesia**, **M3U8 TV Indonesia**, **TV online Indonesia**, **EPG Indonesia**, **XMLTV Indonesia**, **IPTV Smart TV**, **TiviMate Indonesia**, **Kodi IPTV Indonesia**, dan **VLC IPTV playlist**.
 
 ---
 
@@ -17,12 +39,12 @@ Salin salah satu link di bawah ke IPTV player kamu:
 
 | Link | Keterangan |
 |------|------------|
-| **https://bit.ly/dhanytv** | ⭐ Short link playlist utama (lengkap, termasuk DASH/DRM) |
-| **https://bit.ly/dhanytv-ott** | 📺 Short link playlist OTT-friendly (non-DASH/DRM, untuk Smart TV) |
-| **https://bit.ly/dhanytv-epg** | 🗓️ Short link EPG (jadwal acara TV) |
-| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u` | Direct raw link playlist utama |
-| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv-ott.m3u` | Direct raw link playlist OTT |
-| `https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml` | Direct raw link EPG |
+| **https://bit.ly/dhanytv** | ⭐ Short link playlist utama IPTV Indonesia + internasional (lengkap, termasuk DASH/DRM) |
+| **https://bit.ly/dhanytv-ott** | 📺 Short link playlist OTT-friendly / Smart TV IPTV (non-DASH/DRM) |
+| **https://bit.ly/dhanytv-epg** | 🗓️ Short link EPG Indonesia / XMLTV guide |
+| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u` | Direct raw link playlist M3U utama |
+| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv-ott.m3u` | Direct raw link playlist M3U OTT |
+| `https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml` | Direct raw link EPG XMLTV |
 
 ---
 
@@ -121,15 +143,16 @@ Channel bertanda **(DASH/MPD)** menggunakan format DASH dengan DRM ClearKey:
 
 ---
 
-## 📡 EPG (Electronic Program Guide)
+## 📡 EPG (Electronic Program Guide / XMLTV)
 
-**561 channel** punya EPG entry, dengan **18,600+ programme** jadwal acara asli:
+**EPG Indonesia dan internasional** tersedia dalam format **XMLTV** supaya jadwal acara muncul di TiviMate, Kodi, VLC, IPTV Pro, dan player lain yang mendukung TV guide. Saat ini **595 channel** punya EPG entry, dengan **20.500+ programme**:
 
 | Statistik | Jumlah |
 |-----------|--------|
-| Channel dengan EPG | 561 |
-| Programme entries | 18,600+ |
-| File size | ~6.5 MB |
+| Channel dengan EPG | 595 |
+| Programme entries | 20.500+ |
+| File size | ~6.6 MB |
+| Format | XMLTV (`epg.xml`) |
 
 **Sumber EPG:**
 
@@ -168,9 +191,9 @@ Bisa trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run
 ## 📁 Struktur Repo
 
 ```
-├── dhanytv.m3u                    # Playlist utama (600+ channel)
-├── dhanytv-ott.m3u                # Playlist OTT-friendly (non-DASH/DRM)
-├── epg.xml                        # Custom EPG (auto-generated, 6.5MB)
+├── dhanytv.m3u                    # Playlist utama (638+ channel)
+├── dhanytv-ott.m3u                # Playlist OTT-friendly (466+ channel non-DASH/DRM)
+├── epg.xml                        # Custom EPG XMLTV (auto-generated, ~6.6MB)
 ├── LICENSE                        # MIT License
 ├── .github/workflows/
 │   └── auto-update.yml            # GitHub Actions auto-update
@@ -214,6 +237,29 @@ bash update-script/update_playlist.sh -s "<source_url>" -t "<github_token>"
 - Beberapa channel mungkin perlu VPN tergantung region
 - Untuk DASH/DRM, gunakan player yang support (Kodi, TiviMate)
 - Jangan share link sumber playlist, cukup share link repo ini
+
+---
+
+## 🔍 SEO / Pencarian
+
+Jika kamu mencari salah satu kata kunci ini, repo ini memang dibuat untuk itu:
+
+- IPTV Indonesia gratis
+- playlist M3U Indonesia
+- M3U8 TV Indonesia
+- TV online Indonesia
+- EPG Indonesia XMLTV
+- free IPTV Indonesia playlist
+- Kodi IPTV Indonesia
+- TiviMate Indonesia playlist
+- Smart TV IPTV playlist
+- VLC IPTV M3U playlist
+
+Bagikan link repo ini agar lebih mudah ditemukan di GitHub dan mesin pencari:
+
+```txt
+https://github.com/dhasap/dhanytv
+```
 
 ---
 
