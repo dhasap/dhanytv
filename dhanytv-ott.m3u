@@ -65,6 +65,17 @@ https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2114898498_b744100_
 #EXTINF:-1 tvg-id="Trans7.id" tvg-logo="https://thumbor.prod.vidiocdn.com/-MEB2a6J4sB6SvBDimCb7JYP6WY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/734/131514.png" group-title="⚽ Bola Indonesia",Trans7 HD
 https://video.detik.com/trans7/smil:trans7.smil/chunklist_w1758539238_b744100_sleng.m3u8
 
+#EXTVLCOPT:http-user-agent=android-R+ (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+#EXTINF:-1 tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/BmeGg2IWkB_FAVPDviCk8gP8qcw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/5409/c40666.png" group-title="⚽ Bola Indonesia",iNews
+https://r-plus.sedotcw3.workers.dev/index.m3u8?id=inews
+
+#EXTINF:-1 tvg-id="PremierSports.ph@SD" tvg-logo="https://i.imgur.com/BURPHzI.png" group-title="⚽ Bola Indonesia",Premier Sports 1
+https://amg19223-amg19223c3-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c3-amgplt0351/playlist.m3u8
+
+#EXTINF:-1 tvg-id="PremierSports2.ph@SD" tvg-logo="https://i.imgur.com/UQeXWd2.png" group-title="⚽ Bola Indonesia",Premier Sports 2
+https://amg19223-amg19223c4-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c4-amgplt0351/playlist.m3u8
+
 # <============================================== WorldCup 2026 ===========================================================>
 
 #KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
@@ -97,11 +108,6 @@ http://op-group1-swiftservesd-1.dens.tv/h/h06/01.m3u8
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
 #EXTINF:-1 tvg-id="MDTV.id" group-title="Indonesia Channels" tvg-logo="https://thumbor.prod.vidiocdn.com/LCZH_yEBnTYEQzrU1pB7w7ev-Bw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/875/325605.png",MDTV
 https://aspaltvpasti.top/Drmvidbos/Akun121/bosstv.m3u8?id=875
-
-#EXTVLCOPT:http-user-agent=android-R+ (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1
-#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
-#EXTINF:-1 group-title="Indonesia Channels" tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/BmeGg2IWkB_FAVPDviCk8gP8qcw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/5409/c40666.png",iNews
-https://r-plus.sedotcw3.workers.dev/index.m3u8?id=inews
 
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
@@ -1090,11 +1096,11 @@ https://cdn.vegasplus.us/vegas/lac/playlist.m3u8
 #EXTINF:-1 tvg-id="MindanowNetworkTV.ph@SD" tvg-logo="https://i.imgur.com/xBlYirh.jpeg" group-title="Philippines",Mindanow Network TV (1080p)
 https://cdn.vegasplus.us/vegas/mmn01/playlist.m3u8
 
-#EXTINF:-1 tvg-id="PremierSports.ph@SD" tvg-logo="https://i.imgur.com/BURPHzI.png" group-title="Philippines",Premier Sports (1080p)
-https://amg19223-amg19223c3-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c3-amgplt0351/playlist.m3u8
+#EXTINF:-1 tvg-id="TAPEdge.ph@SD" tvg-logo="https://i.imgur.com/ljey69u.png" group-title="Philippines",TAP Edge (480p) [Geo-blocked]
+https://cignalplaymaxphcorner.vwgsalvador.workers.dev/conv_local_tap_edge/cplaymax/playlist.m3u8
 
-#EXTINF:-1 tvg-id="PremierSports2.ph@SD" tvg-logo="https://i.imgur.com/UQeXWd2.png" group-title="Philippines",Premier Sports 2 (1080p)
-https://amg19223-amg19223c4-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c4-amgplt0351/playlist.m3u8
+#EXTINF:-1 tvg-id="VegasLifeTV.us@HD" tvg-logo="https://i.imgur.com/G7lONcu.png" group-title="Philippines",Vegas Life TV (1080p)
+https://cdn.vegasplus.us/vegas/vltv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AnGiangTV1.vn@SD" tvg-logo="https://i.imgur.com/mgp6RAU.png" group-title="Vietnam",An Giang TV1 (1080p) [Geo-blocked]
 https://tv.angiangtv.vn/live/kgtv/kgtv.m3u8
