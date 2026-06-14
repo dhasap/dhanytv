@@ -528,6 +528,10 @@ def is_broken_sctv_dens_url(url: str) -> bool:
 
 def replace_broken_sctv_dens(entry: Entry) -> bool:
     """Replace stale DensTV SCTV with the segment-playable Vidio HLS fallback."""
+    # DISABLED: the old Vidio aspaltv fallback URL is now dead (404). The dens.tv
+    # h217 SCTV stream is the working source (geo-locked to Indonesia); let it pass
+    # through so ensure_dens_headers() can attach the correct dens.tv headers.
+    return False
     if not any(is_broken_sctv_dens_url(url) for url in entry.urls):
         return False
     entry.props = list(SCTV_FALLBACK_PROPS)

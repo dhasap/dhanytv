@@ -1,77 +1,41 @@
-# Curated channels that are NOT present in the upstream source playlist.
-# merge_extra.py injects every entry below into dhanytv.m3u on each update so
-# the weekly auto-update (which REPLACES dhanytv.m3u with the fresh source) can
-# never silently drop them. Keep this file as the single home for hand-added
-# channels (World Cup, events, etc.). Lines starting with "# <...>" are section
-# dividers and are preserved by cleanup_playlist.py.
+# Curated channels that are NOT reliably present in the upstream source.
+# merge_extra.py injects every entry below into dhanytv.m3u on each update so the
+# weekly auto-update (which REPLACES dhanytv.m3u with the fresh source) can never
+# silently drop them. cleanup_playlist.py dedupes by (tvg-id, url) keeping the
+# first occurrence, so the curated copies here win their group.
+#
+# dens.tv channels (SCTV/Indosiar/MOJI) are geo-locked to Indonesia: they work on
+# an Indonesian connection but return 403 elsewhere. cleanup_playlist.py injects
+# the required dens.tv referrer/user-agent headers automatically.
 
 # <============================================== WorldCup 2026 ===========================================================>
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://tvrinasional.wordpress.com/wp-content/uploads/2019/11/cropped-png-small-white.png" group-title="WorldCup 2026",TVRI (Channel Feed)
+#EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://tvrinasional.wordpress.com/wp-content/uploads/2019/11/cropped-png-small-white.png" group-title="WorldCup 2026",TVRI (Piala Dunia 2026)
 https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
 
 #EXTVLCOPT:http-referrer=https://tvri.go.id/
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://tvrinasional.wordpress.com/wp-content/uploads/2019/11/cropped-png-small-white.png" group-title="WorldCup 2026",TVRI Sports (Channel Feed)
+#EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://tvrinasional.wordpress.com/wp-content/uploads/2019/11/cropped-png-small-white.png" group-title="WorldCup 2026",TVRI Sports (Piala Dunia 2026)
 https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD.m3u8
-
-#EXTINF:-1 tvg-id="auto.yessport.1" tvg-logo="https://1000logos.net/wp-content/uploads/2023/05/World-Cup-2026-Emblem.png" group-title="WorldCup 2026",YesSport-1
-https://77.137.40.221:8000/play/k016
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.yessport.2" tvg-logo="https://1000logos.net/wp-content/uploads/2023/05/World-Cup-2026-Emblem.png" group-title="WorldCup 2026",YesSport-2
-https://77.137.40.221:8000/play/k019
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.yessport.3" tvg-logo="https://1000logos.net/wp-content/uploads/2023/05/World-Cup-2026-Emblem.png" group-title="WorldCup 2026",YesSport-3
-https://77.137.40.221:8000/play/k01a
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.yessport.4" tvg-logo="https://1000logos.net/wp-content/uploads/2023/05/World-Cup-2026-Emblem.png" group-title="WorldCup 2026",YesSport-4
-https://77.137.40.221:8000/play/k01b
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.yessport.5" tvg-logo="https://1000logos.net/wp-content/uploads/2023/05/World-Cup-2026-Emblem.png" group-title="WorldCup 2026",YesSport-5
-https://77.137.40.221:8000/play/k01c
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.yessport.gold" tvg-logo="https://1000logos.net/wp-content/uploads/2023/05/World-Cup-2026-Emblem.png" group-title="WorldCup 2026",YesSport Gold
-https://77.137.40.221:8000/play/k03w
 
 # <============================================== Bola Indonesia (HLS - bisa diputar di semua player) ===========================================================>
 
 #EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="⚽ Bola Indonesia",SCTV (Liga 1 / Timnas)
-https://aspaltvpasti.top/Drmvidbos/Akun121/bosstv.m3u8?id=204
+https://op-group1-swiftservehd-1.dens.tv/h/h217/index.m3u8
+
+#EXTINF:-1 tvg-id="Indosiar.id" tvg-logo="https://thumbor.prod.vidiocdn.com/0plBZ7Gso7gNBJxid9ksA8HMGxc=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/205/54ab19.png" group-title="⚽ Bola Indonesia",Indosiar (Liga 1)
+https://op-group1-swiftservehd-1.dens.tv/h/h235/index.m3u8
 
 #EXTINF:-1 tvg-id="Moji" tvg-logo="https://thumbor.prod.vidiocdn.com/g7gTjD2Il1GI4DJULOZ1cv6NSj4=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/206/1823dc.png" group-title="⚽ Bola Indonesia",MOJI TV (Sport)
 https://op-group1-swiftservehd-1.dens.tv/h/h207/index.m3u8
 
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
-#KODIPROP:inputstreamaddon=inputstream.adaptive
 #EXTINF:-1 tvg-id="TransTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/__j35q7LPpcS2EgkR7v8GpE4USQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/733/ecaa60.png" group-title="⚽ Bola Indonesia",TransTV HD
-https://video.detik.com/transtv/smil:transtv.smil/chunklist_w2114898498_b744100_sleng.m3u8
+https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8
 
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
-#KODIPROP:inputstreamaddon=inputstream.adaptive
 #EXTINF:-1 tvg-id="Trans7.id" tvg-logo="https://thumbor.prod.vidiocdn.com/-MEB2a6J4sB6SvBDimCb7JYP6WY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/734/131514.png" group-title="⚽ Bola Indonesia",Trans7 HD
-https://video.detik.com/trans7/smil:trans7.smil/chunklist_w1758539238_b744100_sleng.m3u8
+https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8
 
-#EXTVLCOPT:http-user-agent=android-R+ (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1
-#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
-#EXTINF:-1 tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/BmeGg2IWkB_FAVPDviCk8gP8qcw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/5409/c40666.png" group-title="⚽ Bola Indonesia",iNews
-https://r-plus.sedotcw3.workers.dev/index.m3u8?id=inews
-
-#EXTINF:-1 tvg-id="PremierSports.ph@SD" tvg-logo="https://i.imgur.com/BURPHzI.png" group-title="⚽ Bola Indonesia",Premier Sports 1
-https://amg19223-amg19223c3-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c3-amgplt0351/playlist.m3u8
-
-#EXTINF:-1 tvg-id="PremierSports2.ph@SD" tvg-logo="https://i.imgur.com/UQeXWd2.png" group-title="⚽ Bola Indonesia",Premier Sports 2
-https://amg19223-amg19223c4-amgplt0351.playout.now3.amagi.tv/playlist/amg19223-amg19223c4-amgplt0351/playlist.m3u8
+#EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b2/Metro_TV_2010.svg" group-title="⚽ Bola Indonesia",Metro TV
+https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8
