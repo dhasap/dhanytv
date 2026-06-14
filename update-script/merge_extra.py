@@ -87,7 +87,11 @@ def inject(target: Path, extras: Path) -> dict:
     extras_lines = extras.read_text(encoding="utf-8", errors="replace").splitlines()
 
     dividers, entries = parse_entries(extras_lines)
-    have = existing_urls(target_text)
+    # Inject at the TOP of the playlist (just under the header). We intentionally
+    # do NOT skip channels that also exist in the source: cleanup_playlist.py
+    # dedupes by (tvg-id, url) keeping the FIRST occurrence, so a curated copy
+    # placed here wins and the channel is relocated into its curated group.
+    seen_urls: set[str] = set()
 
     block: list[str] = []
     for div in dividers:
@@ -96,14 +100,14 @@ def inject(target: Path, extras: Path) -> dict:
     added = 0
     skipped = 0
     for entry in entries:
-        if entry["url"] in have:
+        if entry["url"] in seen_urls:
             skipped += 1
             continue
         block.append("")
         block.extend(entry["props"])
         block.append(entry["extinf"])
         block.append(entry["url"])
-        have.add(entry["url"])
+        seen_urls.add(entry["url"])
         added += 1
 
     if added == 0:
