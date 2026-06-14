@@ -171,8 +171,8 @@ Channel tanpa jadwal asli tetap dibuatkan entry placeholder supaya terbaca oleh 
 Playlist di-update otomatis setiap **Senin 07:00 WIB** via GitHub Actions.
 
 ```
-Source M3U → merge_source.py → merge_international.py → cleanup_playlist.py → generate_epg.py → Git Push
-             (sanitize)         (iptv-org 27 negara)     (validate + OTT)       (multi-source EPG)
+Source M3U → merge_source.py → merge_extra.py → merge_international.py → cleanup_playlist.py → generate_epg.py → safety-gate → Git Push
+             (sanitize)         (World Cup dll)   (iptv-org 27 negara)     (validate + OTT)       (multi-source EPG)
 ```
 
 **Fitur otomatis:**
@@ -180,6 +180,8 @@ Source M3U → merge_source.py → merge_international.py → cleanup_playlist.p
 - ✅ Tambah channel internasional dari iptv-org (27 negara)
 - ✅ Deduplikasi channel
 - ✅ Hapus channel mati
+- ✅ Channel WorldCup 2026 (TVRI) selalu di-inject ulang & tidak pernah terhapus
+- ✅ Safety gate: batal commit kalau channel/EPG anjlok tidak wajar
 - ✅ Fix syntax M3U (KODIPROP typo, separator, dll)
 - ✅ Generate OTT-friendly playlist (non-DASH/DRM)
 - ✅ Multi-source EPG generation (17 source files)
@@ -200,6 +202,8 @@ Bisa trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run
 └── update-script/
     ├── merge_source.py            # Merge & sanitize source playlist
     ├── merge_international.py     # Merge international channels (iptv-org)
+    ├── merge_extra.py             # Re-inject curated extra channels (World Cup, dll)
+    ├── extra_channels.m3u         # Daftar channel manual yang harus selalu ada
     ├── cleanup_playlist.py        # M3U validator + OTT generator
     ├── generate_epg.py            # Multi-source EPG generator
     └── update_playlist.sh         # Manual update script

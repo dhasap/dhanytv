@@ -98,6 +98,14 @@ python3 update-script/merge_source.py source_latest.m3u --target "$TARGET_FILE" 
 
 rm -f source_latest.m3u
 
+# Step 3b: Re-inject curated extra channels (World Cup, events). merge_source
+# above REPLACES the playlist with the fresh source, so anything hand-added must
+# be re-applied here or it disappears every run.
+echo -e "${YELLOW}[3b] Injecting curated extra channels...${NC}"
+if [ -f "update-script/merge_extra.py" ]; then
+    python3 update-script/merge_extra.py --target "$TARGET_FILE" --ci
+fi
+
 # Step 4: Merge international channels from iptv-org
 echo -e "${YELLOW}[4/7] Merging international channels...${NC}"
 if [ -f "update-script/merge_international.py" ]; then

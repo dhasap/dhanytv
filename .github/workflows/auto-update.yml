@@ -60,6 +60,14 @@ jobs:
           AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
           echo "Channel setelah merge: $AFTER"
 
+      - name: Inject Curated Extra Channels (World Cup, events)
+        run: |
+          echo "=== Injecting curated extra channels (update-script/extra_channels.m3u) ==="
+          BEFORE=$(grep -c '#EXTINF' dhanytv.m3u || true); BEFORE=${BEFORE:-0}
+          python3 update-script/merge_extra.py --ci
+          AFTER=$(grep -c '#EXTINF' dhanytv.m3u || true); AFTER=${AFTER:-0}
+          echo "Extra channels: $((AFTER - BEFORE)) injected (total: $AFTER)"
+
       - name: Merge International Channels (iptv-org)
         run: |
           echo "=== Merging international channels from iptv-org ==="
@@ -147,6 +155,29 @@ jobs:
             echo "ERROR: Custom EPG gagal di-generate!"
             exit 1
           fi
+
+      - name: Safety Gate (cegah penghapusan channel/EPG tidak sengaja)
+        run: |
+          echo "=== Safety gate: memverifikasi tidak ada yang terhapus tidak sengaja ==="
+          OLD_CH=$(git show HEAD:dhanytv.m3u 2>/dev/null | grep -c '#EXTINF' || true); OLD_CH=${OLD_CH:-0}
+          NEW_CH=$(grep -c '#EXTINF' dhanytv.m3u || true); NEW_CH=${NEW_CH:-0}
+          OLD_PROG=$(git show HEAD:epg.xml 2>/dev/null | grep -c '<programme ' || true); OLD_PROG=${OLD_PROG:-0}
+          NEW_PROG=$(grep -c '<programme ' epg.xml || true); NEW_PROG=${NEW_PROG:-0}
+          WC=$(grep -c 'group-title="WorldCup 2026"' dhanytv.m3u || true); WC=${WC:-0}
+          echo "Channels: $OLD_CH -> $NEW_CH | EPG programmes: $OLD_PROG -> $NEW_PROG | WorldCup: $WC"
+          if [ "$WC" -lt 1 ]; then
+            echo "ERROR: Channel WorldCup 2026 hilang! Abort tanpa commit."
+            exit 1
+          fi
+          if [ "$OLD_CH" -gt 0 ] && [ "$NEW_CH" -lt $((OLD_CH * 60 / 100)) ]; then
+            echo "ERROR: Jumlah channel turun >40% ($OLD_CH -> $NEW_CH). Abort agar playlist tidak terhapus."
+            exit 1
+          fi
+          if [ "$OLD_PROG" -gt 0 ] && [ "$NEW_PROG" -lt $((OLD_PROG * 50 / 100)) ]; then
+            echo "ERROR: EPG programme turun >50% ($OLD_PROG -> $NEW_PROG). Abort agar EPG tidak rusak."
+            exit 1
+          fi
+          echo "Safety gate passed."
 
       - name: Check for Changes
         id: check_changes
