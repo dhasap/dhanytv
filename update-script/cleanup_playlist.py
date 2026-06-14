@@ -600,8 +600,12 @@ def clean_items(
                 fallback.extinf = f"{base},{name.strip()} (Alt {idx})"
 
         for candidate in expanded:
-            if replace_broken_sctv_dens(candidate):
+            # dens.tv h217 SCTV redirects to the browser instead of playing, and the
+            # old Vidio HLS mirror is dead (404). Drop it so only the reliable DRM
+            # (V+) SCTV remains — one tvg-id per channel keeps EPG binding correct.
+            if any(is_broken_sctv_dens_url(u) for u in candidate.urls):
                 stats["sctv_dens_replaced"] += 1
+                continue
 
             headers_changed, query_changed = ensure_dens_headers(candidate)
             if headers_changed:
