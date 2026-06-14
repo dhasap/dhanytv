@@ -2,7 +2,9 @@ name: Auto Update IPTV Playlist
 
 on:
   schedule:
-    - cron: '0 0 * * 1'
+    # Daily at 00:00 UTC (07:00 WIB) so the EPG guide stays fresh — EPG sources
+    # update daily, a weekly rebuild left the guide stale within a day or two.
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
