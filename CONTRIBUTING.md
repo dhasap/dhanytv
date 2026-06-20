@@ -38,6 +38,22 @@ Buka **Issue** dan sebutkan:
 
 > Catatan: channel **(V+) / (DASH/MPD)** memakai DRM dan butuh player yang support (TiviMate / OTT Navigator / Kodi). Itu **bukan** channel mati — lihat [README → FAQ](README.md#-faq).
 
+## 🚫 Blocklist channel mati permanen
+
+Channel yang **benar-benar mati** (HTTP 404/400/410/500) bisa dimasukkan ke
+**`update-script/blocklist.txt`** supaya **otomatis dibuang setiap auto-update** —
+walau source masih menyertakannya. Cukup tempel URL stream-nya satu per baris:
+
+```text
+https://contoh.com/stream-mati.m3u8
+# komentar diabaikan
+re:^https://server-mati\.com/    # awali "re:" untuk pola regex
+```
+
+`cleanup_playlist.py` membaca file ini di setiap run dan menghapus entry yang cocok
+(lihat statistik `blocklist_removed` di log). Ini cara paling bersih melawan channel
+mati yang terus muncul dari source.
+
 ## 🧪 Tes lokal sebelum PR
 
 ```bash
@@ -55,7 +71,7 @@ python3 update-script/generate_epg.py --m3u dhanytv.m3u --output epg.xml
 
 - Prioritaskan stream **HLS (.m3u8)** tanpa DRM — paling kompatibel.
 - Jangan commit `epg.xml` hasil generate lokal kalau tanpa source lengkap (nanti jadi placeholder semua).
-- Jangan share URL **source rahasia** (`PLAYLIST_SOURCE`) di mana pun.
+- Jangan share URL **source rahasia** (`PLAYLIST_SOURCE`, `PLAYLIST_SOURCE_2`) di mana pun.
 - Satu channel = satu blok rapi (properti → `#EXTINF` → URL).
 
 Makasih sudah bantu! ⭐

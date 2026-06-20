@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import unicodedata
 from dataclasses import dataclass, field
@@ -173,6 +174,47 @@ def is_trace_url(url: str, trace_patterns: Iterable[str]) -> bool:
     """True for raw source/trace URLs that should not ship as streams."""
     low = url.lower()
     return low.startswith("http") and any(pattern in low for pattern in trace_patterns)
+
+
+# Path to the dead-stream blocklist, resolved relative to this script so it works
+# both from the repo root (auto-update) and from inside update-script/.
+BLOCKLIST_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "blocklist.txt")
+
+
+def load_blocklist(path: str = BLOCKLIST_PATH) -> tuple[frozenset[str], tuple[re.Pattern, ...]]:
+    """Load confirmed-dead stream URLs to drop on every run.
+
+    Lines are exact URL matches; blank lines and lines starting with '#' are
+    ignored; lines prefixed with 're:' are compiled as regex patterns.
+    Missing file => empty blocklist (no-op), so the pipeline never errors.
+    """
+    exact: set[str] = set()
+    regexes: list[re.Pattern] = []
+    try:
+        with open(path, encoding="utf-8") as fh:
+            for raw in fh:
+                line = raw.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if line.startswith("re:"):
+                    try:
+                        regexes.append(re.compile(line[3:].strip()))
+                    except re.error:
+                        continue
+                else:
+                    exact.add(line)
+    except FileNotFoundError:
+        pass
+    return frozenset(exact), tuple(regexes)
+
+
+def is_blocked(url: str, blocklist: tuple[frozenset[str], tuple[re.Pattern, ...]]) -> bool:
+    """True when a stream URL is on the dead-stream blocklist."""
+    exact, regexes = blocklist
+    u = url.strip()
+    if u in exact:
+        return True
+    return any(rx.search(u) for rx in regexes)
 
 
 def fallback_tvg_id(name: str, used_ids: set[str] | None = None) -> str:
@@ -560,11 +602,13 @@ def clean_items(
     items: list[str | Entry],
     trace_patterns: Iterable[str] = SOURCE_TRACES,
 ) -> tuple[list[str | Entry], dict[str, int]]:
+    blocklist = load_blocklist()
     stats = {
         "entries_total": 0,
         "entries_kept": 0,
         "entries_no_url_removed": 0,
         "trace_urls_removed": 0,
+        "blocklist_removed": 0,
         "fallback_entries_created": 0,
         "duplicates_removed": 0,
         "dens_headers_fixed": 0,
@@ -592,6 +636,16 @@ def clean_items(
         removed_trace_urls = before_url_count - len(entry.urls)
         if removed_trace_urls:
             stats["trace_urls_removed"] += removed_trace_urls
+            entry._dash = None
+            entry._drm = None
+
+        # Drop confirmed-dead streams listed in blocklist.txt so they never
+        # re-enter the playlist via a source re-merge.
+        before_block = len(entry.urls)
+        entry.urls = [url for url in entry.urls if not is_blocked(url, blocklist)]
+        removed_blocked = before_block - len(entry.urls)
+        if removed_blocked:
+            stats["blocklist_removed"] += removed_blocked
             entry._dash = None
             entry._drm = None
 

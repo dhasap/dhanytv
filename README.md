@@ -2,14 +2,14 @@
 
 # 📺 dhanytv — IPTV Indonesia Gratis · Playlist M3U & EPG XMLTV
 
-**Playlist IPTV Indonesia gratis** dengan **730+ channel live TV** dari **27 negara**, **EPG XMLTV** lengkap, dan **update otomatis tiap minggu**. Siap pakai di **TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV**.
+**Playlist IPTV Indonesia gratis** dengan **990+ channel live TV** dari **27+ negara**, **EPG XMLTV** lengkap, dan **update otomatis tiap hari**. Siap pakai di **TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV**.
 
 [![Auto Update](https://img.shields.io/github/actions/workflow/status/dhasap/dhanytv/auto-update.yml?label=auto-update&logo=githubactions&logoColor=white)](https://github.com/dhasap/dhanytv/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/dhasap/dhanytv?logo=git&logoColor=white)](https://github.com/dhasap/dhanytv/commits/main)
 [![Stars](https://img.shields.io/github/stars/dhasap/dhanytv?style=flat&logo=github)](https://github.com/dhasap/dhanytv/stargazers)
-[![Channels](https://img.shields.io/badge/channels-730+-blue)](#-kategori-channel)
-[![OTT](https://img.shields.io/badge/OTT--friendly-480+-purple)](#-link-playlist)
-[![EPG](https://img.shields.io/badge/EPG-645%20channels-green)](#-epg-electronic-program-guide)
+[![Channels](https://img.shields.io/badge/channels-990+-blue)](#-kategori-channel)
+[![OTT](https://img.shields.io/badge/OTT--friendly-700+-purple)](#-link-playlist)
+[![EPG](https://img.shields.io/badge/EPG-918%20channels-green)](#-epg-electronic-program-guide)
 [![Format](https://img.shields.io/badge/format-M3U%20%7C%20M3U8%20%7C%20XMLTV-orange)](#-link-playlist)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
@@ -17,7 +17,7 @@
 
 </div>
 
-> **English:** Free Indonesia IPTV playlist — 730+ M3U/M3U8 live TV channels from 27 countries, XMLTV EPG guide, weekly auto-update. Works with TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV.
+> **English:** Free Indonesia IPTV playlist — 990+ M3U/M3U8 live TV channels from 27+ countries, XMLTV EPG guide, daily auto-update. Works with TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV.
 
 ---
 
@@ -66,12 +66,12 @@ Salin salah satu link di bawah ke IPTV player kamu:
 
 | Statistik | Jumlah |
 |-----------|--------|
-| Channel playlist utama | **730+** |
-| Channel OTT-friendly | **480+** |
-| Channel dengan EPG | **645** |
-| Programme entries | **25.000+** |
-| Negara | **27** |
-| Update | **Otomatis tiap Senin** |
+| Channel playlist utama | **990+** |
+| Channel OTT-friendly | **700+** |
+| Channel dengan EPG | **918** |
+| Programme entries | **21.000+** |
+| Negara | **27+** |
+| Update | **Otomatis tiap hari** |
 
 ---
 
@@ -138,13 +138,13 @@ Channel **(V+)** / **(DASH/MPD)** memakai format **DASH + DRM ClearKey**. Hanya 
 
 ## 📡 EPG (Electronic Program Guide)
 
-Jadwal acara dalam format **XMLTV** supaya muncul di TiviMate, Kodi, OTT Navigator, dan player lain. **645 channel** punya EPG dengan **25.000+ programme**.
+Jadwal acara dalam format **XMLTV** supaya muncul di TiviMate, Kodi, OTT Navigator, dan player lain. **918 channel** punya EPG dengan **21.000+ programme** asli (sisanya placeholder otomatis).
 
 | Statistik | Nilai |
 |-----------|-------|
-| Channel dengan EPG | 645 |
-| Programme entries | 25.000+ |
-| File size | ~9 MB |
+| Channel dengan EPG | 918 |
+| Programme entries | 21.000+ |
+| File size | ~8.4 MB |
 | Format | XMLTV (`epg.xml`) |
 
 **Sumber EPG:** epgshare01.online · open-epg.com · AqFad2811/epg (Indonesia, Malaysia, Singapore, Brunei, Astro, Sooka, RTM, dll).
@@ -155,17 +155,18 @@ Channel tanpa jadwal asli tetap dibuatkan entry placeholder supaya terbaca semua
 
 ## ⚙️ Auto-Update Pipeline
 
-Playlist di-update otomatis setiap **Senin 07:00 WIB** via GitHub Actions:
+Playlist di-update otomatis setiap **hari 07:00 WIB** via GitHub Actions:
 
 ```
-Source M3U → merge_source → merge_extra → merge_international → cleanup → generate_epg → safety-gate → Git Push
-              (sanitize)    (Bola/World Cup) (iptv-org 27 negara) (validate+OTT) (EPG XMLTV)
+Source M3U (×2) → merge_source → merge_extra → merge_international → cleanup → generate_epg → safety-gate → Git Push
+   (rahasia)       (sanitize)    (Bola/World Cup) (iptv-org 27 negara) (validate+OTT+blocklist) (EPG XMLTV)
 ```
 
 - ✅ Tarik source terbaru + sanitasi link
+- ✅ **URL source disimpan di GitHub Secrets** (`PLAYLIST_SOURCE`, `PLAYLIST_SOURCE_2`) — tidak pernah ditulis di kode
 - ✅ **Channel Piala Dunia 2026 & Bola Indonesia selalu di-inject ulang** (tidak pernah terhapus)
 - ✅ Tambah channel internasional dari [iptv-org](https://github.com/iptv-org/iptv) (27 negara)
-- ✅ Deduplikasi + hapus channel mati + fix syntax M3U
+- ✅ Deduplikasi + **buang channel mati otomatis lewat `blocklist.txt`** + fix syntax M3U
 - ✅ Generate playlist OTT-friendly (HLS, non-DRM)
 - ✅ Generate EPG XMLTV multi-source (17 sumber)
 - ✅ **Safety gate:** commit dibatalkan kalau channel/EPG anjlok tidak wajar
@@ -177,8 +178,8 @@ Trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run work
 ## 📁 Struktur Repo
 
 ```
-├── dhanytv.m3u                 # Playlist utama (730+ channel)
-├── dhanytv-ott.m3u             # Playlist OTT-friendly (480+ channel, non-DASH/DRM)
+├── dhanytv.m3u                 # Playlist utama (990+ channel)
+├── dhanytv-ott.m3u             # Playlist OTT-friendly (700+ channel, non-DASH/DRM)
 ├── epg.xml                     # EPG XMLTV (auto-generated, ~9 MB)
 ├── LICENSE                     # MIT License
 ├── DISCLAIMER.md               # Catatan hukum / DMCA
@@ -191,7 +192,8 @@ Trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run work
     ├── merge_extra.py          # Re-inject channel kurasi (World Cup, Bola)
     ├── extra_channels.m3u      # Daftar channel manual yang selalu ada
     ├── merge_international.py   # Merge channel internasional (iptv-org)
-    ├── cleanup_playlist.py     # Validator M3U + generator OTT
+    ├── cleanup_playlist.py     # Validator M3U + generator OTT + blocklist
+    ├── blocklist.txt           # Daftar URL stream mati (auto-dibuang saat update)
     ├── generate_epg.py         # Generator EPG multi-source
     └── update_playlist.sh      # Script update manual
 ```

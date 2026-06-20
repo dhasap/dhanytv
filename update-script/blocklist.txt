@@ -1,0 +1,148 @@
+# ============================================================
+# dhanytv - Blocklist URL Stream Mati
+# ============================================================
+# Daftar URL stream yang sudah dikonfirmasi MATI (HTTP 404/400/410/500/521)
+# dan akan otomatis dibuang oleh update-script/cleanup_playlist.py pada
+# setiap auto-update, sehingga channel mati tidak muncul lagi di playlist.
+#
+# Format:
+#   - Satu URL per baris  -> cocokkan persis (exact match)
+#   - Awali baris dengan "#" untuk komentar (diabaikan)
+#   - Awali dengan "re:"  -> diperlakukan sebagai pola regex (mis. re:^http://115\.42\.)
+#
+# Cara menambah: tempel URL stream yang mati di bawah, commit. Selesai.
+# Terakhir diperbarui otomatis: 2026-06-20 21:29 UTC
+# Total entri saat ini: 131
+# ============================================================
+
+http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/145
+http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/267769
+http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/299259
+http://115.42.65.142:9981/stream/channelid/113328724
+http://115.42.65.142:9981/stream/channelid/1273966657
+http://115.42.65.142:9981/stream/channelid/582886861
+http://115.42.65.142:9981/stream/channelid/750987367
+http://115.42.65.142:9981/stream/channelid/852828604
+http://115.42.65.142:9981/stream/channelid/966869781
+http://122.248.43.242:1935/JAWAPOSTVMAGELANG/_definst_/myStream/playlist.m3u8
+http://122.248.43.242:1935/PADANGTV/_definst_/myStream/playlist.m3u8
+http://122.248.43.242:1935/RIAUTV/_definst_/myStream/playlist.m3u8
+http://122.248.43.242:1935/SULTRATV/_definst_/myStream/playlist.m3u8
+http://190.211.140.89:8081/SVTranscoder/SOLTVabr.stream/playlist.m3u8
+http://africatv.live.net.sa:1935/live/africatv2/playlist.m3u8
+http://edge2a.v2h-cdn.com:1935/boom-boom/boomerang.stream/playlist.m3u8
+http://iptvtree.net:8080/rapidiptv/shhT6NQ6ZdFw5/1499
+http://iptvtree.net:8080/rapidiptv/shhT6NQ6ZdFw5/1503
+http://iptvtree.net:8080/rapidiptv/shhT6NQ6ZdFw5/1506
+http://iptvtree.net:8080/rapidiptv/shhT6NQ6ZdFw5/1509
+http://iptvtree.net:8080/rapidiptv/shhT6NQ6ZdFw5/1512
+http://iptvtree.net:8080/rapidiptv/shhT6NQ6ZdFw5/1515
+https://5bf7b725107e5.streamlock.net/brtv/brtv/playlist.m3u8
+https://5bf7b725107e5.streamlock.net/bungotv/bungotv/chunklist_w1429108522.m3u8
+https://7pal.short.gy/HPremier1
+https://7pal.short.gy/tsn1ca
+https://7pal.short.gy/tsn2ca
+https://7pal.short.gy/tsn3ca
+https://7pal.short.gy/tsn4ca
+https://7pal.short.gy/tsn5ca
+https://9laloma.tv/live.m3u8
+https://9xjio.wiseplayout.com/9X_Jhakaas/master.m3u8
+https://9xjio.wiseplayout.com/9X_Tashan/master.m3u8
+https://a196aivottlinear-a.akamaihd.net/OTTB/pdx-nitro/live/clients/dash/enc/o7aqpbb6vv/out/v1/f8f6ef738ef24c4f8176d561ffb8a157/cenc.mpd|license_type=org.w3.clearkey&license_key=6f0aeae5779f1dcaef23f0bfbc828220:7bcef3cf93de00e3daeb190d15b1ec05&User-Agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+https://a77aivottepl-a.akamaihd.net/pdx-nitro/live/clients/dash/enc/zuf794yutz/out/v1/ca3534bfe4f148298b36719204d108e0/cenc.mpd|license_type=clearkey&license_key=be9caaa813c5305e761c66ac63645901:3d40f2990ec5362ca5be3a3c9bb8f8b4
+https://a79aivottlinear-a.akamaihd.net/OTTB/pdx-nitro/live/clients/dash/enc/ghf7y1plnj/out/v1/0c87bd17ab474015b77c0f3028190f78/cenc.mpd|license_type=org.w3.clearkey&license_key=de9b995d2aba32bae1c5dbe38a46f2d9:a2d94fdff16e9c332164a73f8b170bd3&User-Agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+https://atemecdnbalancer-voe.sysln.id/live/eds/CNNIntHD/mediampd/CNNIntHD.mpd
+https://atemecdnbalancer-voe.sysln.id/live/eds/CitraDangdutHD/mediampd/CitraDangdutHD.mpd
+https://atemecdnbalancer-voe.sysln.id/live/eds/DreamWorksHD/mediampd/DreamWorksHD.mpd
+https://atemecdnbalancer-voe.sysln.id/live/eds/LifetimeHD/mediampd/LifetimeHD.mpd
+https://atemecdnbalancer-voe.sysln.id/live/eds/TVBSAsia/mediampd/TVBSAsia.mpd
+https://atemecdnbalancer-voe.sysln.id/live/eds/TVBSNews/mediampd/TVBSNews.mpd
+https://atemecdnbalancer-voe.sysln.id/live/eds/TVBXingHe/mediampd/TVBXingHe.mpd
+https://atemeshield1-voe.sysln.id/live/eds/HITSNowHD/mediampd/HITSNowHD.mpd
+https://atemeshield1-voe.sysln.id/live/eds/KOMPASTVHD/mpd/KOMPASTVHD.mpd
+https://b27a6dd8a86c3e4ba93fbae22aaaac64.pmqrop.channel-assembly.mediatailor.ap-southeast-1.amazonaws.com/v1/channel/FAST_1/dash.mpd|User-Agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36
+https://b27a6dd8a86c3e4ba93fbae22aaaac64.pmqrop.channel-assembly.mediatailor.ap-southeast-1.amazonaws.com/v1/channel/FAST_2/dash.mpd|User-Agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36
+https://b27a6dd8a86c3e4ba93fbae22aaaac64.pmqrop.channel-assembly.mediatailor.ap-southeast-1.amazonaws.com/v1/channel/FAST_3/dash.mpd|User-Agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36
+https://b27a6dd8a86c3e4ba93fbae22aaaac64.pmqrop.channel-assembly.mediatailor.ap-southeast-1.amazonaws.com/v1/channel/FAST_4/dash.mpd|User-Agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36
+https://b27a6dd8a86c3e4ba93fbae22aaaac64.pmqrop.channel-assembly.mediatailor.ap-southeast-1.amazonaws.com/v1/channel/FAST_5/dash.mpd|User-Agent=Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36
+https://cdn.gunadarma.ac.id/streams/sangajitv/ingestsangajitv.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/130/duniaanak/manifest_wuseetv.mpd
+https://cdn08jtedge.indihometv.com/dassdvr/133/flik/manifest.mpd|license_type=org.w3.clearkey&license_key=79698301a95740009531b1d53e3ad5fe:7240a4a29a54e6089b108fbcb95cb265
+https://cdn08jtedge.indihometv.com/dassdvr/134/aniplus/manifest.mpd
+https://cdn08jtedge.indihometv.com/dassdvr/134/aniplus/manifest.mpd|license_type=org.w3.clearkey&license_key=f2c313fce55344e5a52389741d1f53f8:bae1e47db562b66895beb8fccdf2ad8a
+https://cdn08jtedge.indihometv.com/dassdvr/134/mentaritv/manifest.mpd
+https://cdn08jtedge.indihometv.com/dassdvr/194/cartoonnetwork/manifest_w209786680_qRFZS.mpd?encp=&uid=&expp=|User-Agent=referrer=https://www.indihometv.com/
+https://cdn08jtedge.indihometv.com/dassdvr/194/maxstream/manifest.mpd|User-Agent=referrer=https://www.indihometv.com/
+https://citizentv.castr.com/5ea49827ff3b5d7b22708777/live_9b761ff063f511eca12909b8ef1524b4/index.m3u8
+https://cutt.ly/Atr84NlV|User-Agent=Lavf53.32.100
+https://cutt.ly/Otr87LCv|User-Agent=Lavf53.32.100
+https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoverykids2/default/manifest.mpd|license_type=clearkey&license_key=601f58d4b7094d2baf78c85d1d9cb6c9:609e0cc03198455fa36fd2cc3e7f940d
+https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Zeebollywood/default/manifest.mpd|license_type=clearkey&license_key=e61523260c614746b25b9a5523fe9a39:72ddbf37f76f49acbb8e140e7279e7a1
+https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Zeecinemahd/default/manifest.mpd|license_type=clearkey&license_key=f56beaac9f124616872c741c9ce4fa4e:5d40a903238f4ad98abbed1877d4e3d1
+https://d2tjypxxy769fn.cloudfront.net/out/v1/096d5cf064294e7ea3a7f59ee2899669/index.mpd|license_type=clearkey&license_key=17fb563c784848f09d8a1ea88a2fa989:1d0bd94eab5d5f56a950b784d9345439&User-Agent=referrer=https://www.visionplus.id/
+https://d2tjypxxy769fn.cloudfront.net/out/v1/3c619ecc120b46e999d1eaa627cc544f/index.mpd|license_type=clearkey&license_key=3ffab3471a994535bdf7fc663792f08b:6e82876474df025c39ae804ba738ff17&User-Agent=referrer=https://www.visionplus.id/
+https://d2tjypxxy769fn.cloudfront.net/out/v1/3fe6d9eb97ed455c942eb8d3d1c2c2e8/index.mpd|license_type=clearkey&license_key=676b60c2b84b49b6b316207a590203e4:da9878a96062ea105895f310e052fa7b&User-Agent=referrer=https://www.visionplus.id/
+https://d2tjypxxy769fn.cloudfront.net/out/v1/782400332c96440598260730a864bc6f/index.mpd|license_type=org.w3.clearkey&license_key=1dc30f49888c4652897d9c998aa2cac1:8ccb6857157c1a01c5a47eb853f51aa2&User-Agent=referrer=https://www.visionplus.id/
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/456143d3b12140e1a872b25f067ddb62/index.mpd|license_type=clearkey&license_key=2b095c9946d242cb9108e6a589a26072:8bc2cdfd0e86f7cfa935ef05978be229&User-Agent=referrer=https://www.visionplus.id/
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/7518da9041c4414d86f173daa719152e/index.mpd|license_type=clearkey&license_key=ecd651d0872c46d6b75a902f3b796e6b:3915b032de12140475d2696ae734cf58&User-Agent=referrer=https://www.visionplus.id/
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/8554b3cb938e44038093df2d65080932/index.mpd|license_type=clearkey&license_key=780f283e8dd84dc195d93899ea9fcabe:59103ac45e9c5e411651e3fa26a2e6d9&User-Agent=referrer=https://www.visionplus.id/
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/9041826689ae4f9c9619576d411fa989/index.mpd|license_type=clearkey&license_key=ec31647c5c3b490bbb5c840ca3e96c9e:a28271a4ba4d085efa1f7738e0f82ea1&User-Agent=referrer=https://www.visionplus.id/
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/bde0a6d8d3fd4d77ae5093ad2e6699dc/index.mpd|license_type=org.w3.clearkey&license_key=5a6668f3a5d64338bce13307e5c570be:d0c76237c5ee38e7a420e9c83323023e&User-Agent=referrer=https://www.visionplus.id/
+https://d3b0v7fggu5zwm.cloudfront.net/out/v1/e992e986a88346c18a5dcc4fbcdae6b9/index.mpd|license_type=org.w3.clearkey&license_key=33333f38930949b1af65b3361ad80d1d:b159847f9af0500738b01e91cf023e30&User-Agent=referrer=https://www.visionplus.id/
+https://e.siar.us/live/surabayatv.m3u8
+https://flv.intechmedia.net/live/ch107.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36 Maxthon/5.2.7.3000
+https://jawapostv.siar.us/jawapostv/live/playlist.m3u8
+https://kudos111.terranovax1.cfd/kuk4/usergendx0thc60skrdnnd.m3u8
+https://live-hls-5rxy.livepush.io/live_cdn/em_LJ5aZjqp0LdiQ/index.m3u8
+https://live.15plusmg.ru/memfs/90b76c71-a86e-488a-aac4-cb66d6f88781.m3u8
+https://live.artidijitalmedya.com/artidijital_birtv/birtv/playlist.m3u8
+https://live.canthotv.vn/cs3/tv/chunklist.m3u8
+https://live.kwikmotion.com/fujairahlive/fujairah.smil/playlist.m3u8
+https://mdstrm.com/live-stream-playlist/5a5e1c2568b1910913db5fe2.m3u8
+https://mifntechnology.github.io/siaranMy/channels/DewanNegara/index.m3u8
+https://mifntechnology.github.io/siaranMy/channels/DuniaSinema/index.m3u8|license_type=org.w3.clearkey&license_key=fc23c442355854992a264931a28fc1c5:3a3368fa385a049695ff4de3c36809cd&User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+https://mifntechnology.github.io/siaranMy/channels/SukanRTM/index.m3u8
+https://mifntechnology.github.io/siaranMy/channels/Tv9/index.m3u8
+https://mifntechnology.github.io/siaranMy/channels/TvIkim/index.m3u8
+https://mumt01.tangotv.in/AADINATHTV/index.m3u8
+https://ola1.com.ar/atccohd/playlist.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Aceh/hls/Aceh-avc1_900000=10005-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Babel/hls/Babel-avc1_900000=10002-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Bali/hls/Bali-avc1_500000=10001-mp4a_64000=20002.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Bengkulu/hls/Bengkulu-avc1_900000=10005-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Gorontalo/hls/Gorontalo-avc1_900000=10005-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Jabar/hls/Jabar-avc1_900000=10006-mp4a_96000_eng=20000.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Jambi/hls/Jambi-avc1_1500000=10005-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Jateng/hls/Jateng-avc1_900000=10007-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Jatim/hls/Jatim-avc1_900000=10005-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Kalbar/hls/Kalbar-avc1_900000=10005-mp4a_96000=20003.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Kalsel/hls/Kalsel-avc1_500000=10007-mp4a_64000=20002.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Kalteng/hls/Kalteng-avc1_900000=10008-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Kaltim/hls/Kaltim-avc1_250000=10008-mp4a_64000=20002.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Lampung/hls/Lampung-avc1_900000=10007-mp4a_96000=20002.m3u8
+https://ott-balancer.tvri.go.id/live/eds/NTT/hls/NTT-avc1_900000=10002-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional-avc1_1500000=10003-mp4a_96000_eng=20000.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Papua/hls/Papua-avc1_900000=10002-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD-avc1_900000=10002-mp4a_96000=20002.m3u8
+https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Sulbar/hls/Sulbar-avc1_900000=10002-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Sulsel/hls/Sulsel-avc1_900000=10002-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Sulteng/hls/Sulteng-avc1_900000=10002-mp4a_96000=20002.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Sultra/hls/Sultra-avc1_900000=10002-mp4a_96000=20001.m3u8
+https://ott-balancer.tvri.go.id/live/eds/Sulut/hls/Sulut-avc1_900000=10002-mp4a_96000=20001.m3u8
+https://playerservices.streamtheworld.com/api/livestream-redirect/PRAMBORS_FM.mp3?dist=onlineradiobox
+https://qp-pldt-live-bpk-02-prod.akamaized.net/bpk-tv/cg_onesportsplus_hd1/default/index.mpd
+https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/angerstele.m3u8
+https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/arabel.m3u8
+https://raw.githubusercontent.com/Sibprod/streams/main/ressources/dm/py/hls/bsmart.m3u8
+https://s5.mexside.net:1936/medios/medios/playlist.m3u8
+https://sampit-tv.siar.us/live/sampit-tv.m3u8
+https://slive.mana2.my/AniPlus/index.mpd|license_type=clearkey&license_key=3dd653fc7aa1e3075b7f0233620df68f:8573791fa55bff03a3094ff559fc1407&User-Agent=Mozilla/5.0 (Linux; Android 13; AndroidTV Build/V3.2025; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/136.0.7103.61 Mobile Safari/537.36
+https://stream.jogjatv.co.id/jtvlive/stream/index.m3u8
+https://t.northtelecom.org/ABALFADHLTV.m3u8
+https://tbs5.mov3.co/hls/tbs.m3u8
+https://v2.siar.us/radartasikmalaya/live/playlist.m3u8
+https://video.primexsports.com/pnn/live/playlist.m3u8
+https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_026/Stream/playlist.m3u8
+https://wurljansonmedia.global.transmit.live/hls/69029561e0b3f0f215eef867/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36

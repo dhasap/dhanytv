@@ -4,14 +4,6 @@
 
 # <============================================== Bola Indonesia (HLS - bisa diputar di semua player) ===========================================================>
 
-#EXTVLCOPT:http-referrer=https://tvri.go.id/
-#EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://tvrinasional.wordpress.com/wp-content/uploads/2019/11/cropped-png-small-white.png" group-title="WorldCup 2026",TVRI (Piala Dunia 2026)
-https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
-
-#EXTVLCOPT:http-referrer=https://tvri.go.id/
-#EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://tvrinasional.wordpress.com/wp-content/uploads/2019/11/cropped-png-small-white.png" group-title="WorldCup 2026",TVRI Sports (Piala Dunia 2026)
-https://ott-balancer.tvri.go.id/live/eds/SportHD/hls/SportHD.m3u8
-
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
 #EXTINF:-1 tvg-id="TransTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/__j35q7LPpcS2EgkR7v8GpE4USQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/733/ecaa60.png" group-title="⚽ Bola Indonesia",TransTV HD
 https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8
@@ -1887,9 +1879,6 @@ http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/282773
 
 #EXTINF:-1 tvg-id="auto.bein.sports.fr.1" tvg-logo="https://i.ibb.co.com/Rk12P1KG/20260110-065741.jpg" group-title="bEIN SPORTS",bEIN SPORTS FR 1
 http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/144
-
-#EXTINF:-1 tvg-id="auto.bein.sports.fr.2" tvg-logo="https://i.ibb.co.com/Rk12P1KG/20260110-065741.jpg" group-title="bEIN SPORTS",bEIN SPORTS FR 2
-http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/145
 
 #EXTINF:-1 tvg-id="auto.fr.bein.sports.3",FR: beIN Sports 3
 http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/146
