@@ -23,6 +23,7 @@ jobs:
       - name: Download Latest Source
         env:
           SRC: ${{ secrets.PLAYLIST_SOURCE }}
+          SRC2: ${{ secrets.PLAYLIST_SOURCE_2 }}
         run: |
           if [ -z "$SRC" ]; then
             echo "ERROR: Secret PLAYLIST_SOURCE belum diset!"
@@ -30,6 +31,17 @@ jobs:
           fi
           echo "Mengunduh data terbaru..."
           curl -sL "$SRC" -o source_latest.m3u
+          # Secondary source (URL kept only in the PLAYLIST_SOURCE_2 secret).
+          # Appended to the combined source so merge_source.py ingests both.
+          if [ -n "$SRC2" ]; then
+            echo "Mengunduh sumber sekunder..."
+            printf '\n' >> source_latest.m3u
+            if curl -sL "$SRC2" >> source_latest.m3u; then
+              echo "Sumber sekunder ditambahkan."
+            else
+              echo "WARNING: sumber sekunder gagal diunduh (dilewati)."
+            fi
+          fi
           echo "Download selesai. Ukuran file: $(wc -c < source_latest.m3u) bytes"
 
       - name: Merge & Fix Playlist
