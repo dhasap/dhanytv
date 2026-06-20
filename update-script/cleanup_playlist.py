@@ -79,6 +79,13 @@ _RE_TVG_URL_URL = re.compile(r'\s+tvg-url="(?:tvg-url=")?https?://[^"\s]+"*')
 _RE_TVG_URL = re.compile(r'\s+tvg-url="[^"]*"')
 _RE_EMPTY_QUOTED_ATTR = re.compile(r'\s+""(?=\s|,)')
 _RE_FIREFOX_UA_TYPO = re.compile(r'Firefox/(\d+(?:\.\d+)*)F\b')
+# TVRI's OTT balancer rotates hard-coded bitrate-variant filenames (e.g.
+# ".../eds/Aceh/hls/Aceh-avc1_900000=10005-mp4a_96000=20001.m3u8"), which makes
+# pinned variant URLs return 404 over time. Rewrite them to the stable master
+# playlist URL (".../eds/Aceh/hls/Aceh.m3u8") so streams keep working.
+_RE_TVRI_VARIANT_URL = re.compile(
+    r"(https?://ott-balancer\.tvri\.go\.id/live/eds/([^/]+)/hls/)\2-[^\"\s]+\.m3u8"
+)
 _RE_UNQUOTED_TVG_ID = re.compile(r'\btvg-id=([^"\s][^"]*?)"')
 _RE_DUP_WHITESPACE = re.compile(r"\s+,")
 _RE_MULTI_SPACE = re.compile(r"\s{2,}")
@@ -246,6 +253,8 @@ def normalize_line(raw: str) -> str:
         return ""
     # Fix malformed Firefox UA strings that break strict clients.
     line = _RE_FIREFOX_UA_TYPO.sub(r"Firefox/\1", line)
+    # Rewrite pinned TVRI bitrate-variant URLs to the stable master playlist URL.
+    line = _RE_TVRI_VARIANT_URL.sub(r"\1\2.m3u8", line)
     if line.startswith("KODIPROP:"):
         line = "#" + line
     # Fix KODIPROP typo: inputstream= should be inputstreamaddon=
