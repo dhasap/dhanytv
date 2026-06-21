@@ -2,9 +2,7 @@
 
 Front-end pemutar (SPA statis) untuk playlist **dhanytv**. Membaca `dhanytv-ott.m3u`
 / `dhanytv.m3u` + `epg.xml` langsung dari repo (`raw.githubusercontent.com`) lalu
-memutar stream **HLS** langsung di browser — tanpa install aplikasi IPTV.
-
-> Implementasi **Fase 1 (MVP)** + **Fase 2 (DRM & Proxy)** dari [`web/PRD.md`](PRD.md).
+memutar stream **HLS / DASH (DRM)** langsung di browser — tanpa install aplikasi IPTV.
 
 ## 🔐 Fase 2 — DRM + Stream Proxy
 
@@ -44,16 +42,23 @@ python3 -m http.server 8080
 
 ```
 web/
-├── index.html            # entry SPA (Tailwind-free, CSS sendiri; hls.js via CDN)
+├── index.html            # entry SPA (CSS sendiri; hls.js + Shaka via CDN)
+├── _headers              # header keamanan + CSP (Cloudflare Pages)
+├── README.md
+├── DEPLOY.md             # panduan deploy Cloudflare + keamanan
 ├── src/
-│   ├── main.js           # bootstrap: routing hash, grid, search, player, tema
+│   ├── main.js           # bootstrap: routing hash, grid, search, player, tema, settings
 │   ├── styles.css        # design system (neutral + biru, dark mode)
 │   └── lib/
-│       ├── m3u.js        # parser M3U (#EXTINF / #EXTVLCOPT / #KODIPROP)
+│       ├── m3u.js        # parser M3U (#EXTINF / #EXTVLCOPT / #KODIPROP + DRM)
 │       ├── epg.js        # store EPG + now/next
 │       ├── epgWorker.js  # parser XMLTV di Web Worker
-│       └── player.js     # pembungkus hls.js (+ hook DRM Fase 2)
-└── PRD.md
+│       ├── player.js     # hls.js (HLS) + Shaka (DASH/DRM) + proxy
+│       └── proxy.js      # helper stream-proxy (localStorage)
+└── proxy/
+    ├── worker.js         # Cloudflare Worker (inject header + CORS + rewrite manifest)
+    ├── wrangler.toml     # config deploy + rate-limit binding
+    └── package.json
 ```
 
 ## 🌐 Deploy
@@ -61,7 +66,6 @@ web/
 Full Cloudflare (Pages + Workers) — lihat panduan lengkap di [`DEPLOY.md`](DEPLOY.md).
 Singkatnya: **frontend** → Cloudflare Pages (output dir `web`, header keamanan via
 `_headers`), **proxy** → Cloudflare Workers (`cd web/proxy && npx wrangler deploy`).
-Alternatif frontend gratis: GitHub Pages (workflow `.github/workflows/pages.yml`).
 
 ## 🔒 Keamanan
 
@@ -70,10 +74,10 @@ yang di-hardening (CORS allowlist, anti-SSRF, rate-limit per-IP). Detail di [`DE
 
 ## ⚠️ Catatan kejujuran
 
-Sebagian channel butuh header `Referer`/`User-Agent` atau kena CORS/geo-block — ini
-**tidak bisa** diputar langsung dari browser tanpa **stream proxy** (Fase 2). Channel
-DRM (ClearKey/Widevine, `.mpd`) juga menyusul via Shaka Player di Fase 2. MVP fokus ke
-channel **HLS non-DRM** yang paling kompatibel.
+Sebagian channel butuh header `Referer`/`User-Agent` atau kena CORS/geo-block — putar
+lewat **stream proxy** (aktifkan URL Worker di ⚙ Pengaturan). Channel **Widevine** tidak
+jalan di iOS/Safari, dan channel **geo-locked Indonesia** bisa tetap `403` dari edge
+global Cloudflare (butuh proxy di VPS Indonesia). Channel HLS biasa diputar langsung.
 
 Website ini **tidak meng-host konten apa pun** — hanya memutar tautan publik dari
 playlist repo. Lihat [`DISCLAIMER.md`](../DISCLAIMER.md).

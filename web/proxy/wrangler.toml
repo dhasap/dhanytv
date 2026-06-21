@@ -5,7 +5,7 @@ compatibility_date = "2024-09-23"
 # Origin yang boleh memakai proxy ini (CORS + cek Referer).
 # GANTI sesuai domain Pages kamu. Pisahkan dengan koma. Kosongkan = izinkan semua (TIDAK disarankan).
 [vars]
-ALLOWED_ORIGINS = "https://dhanytv.pages.dev,https://dhasap.github.io"
+ALLOWED_ORIGINS = "https://dhanytv.pages.dev"
 
 # Rate limit per-IP (anti-abuse). period hanya boleh 10 atau 60 (detik).
 # 600 request / 60 dtk cukup untuk live HLS/DASH (manifest + segmen) tapi menahan abuse.

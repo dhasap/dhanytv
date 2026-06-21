@@ -15,7 +15,7 @@
  *   5. Tidak meneruskan cookie / header sensitif; respons diberi header anti-sniff.
  *
  * Konfigurasi (wrangler.toml [vars]):
- *   ALLOWED_ORIGINS = "https://dhasap.github.io,https://dhanytv.pages.dev"
+ *   ALLOWED_ORIGINS = "https://dhanytv.pages.dev"
  *   (kosongkan untuk izinkan semua — TIDAK disarankan di produksi)
  *
  * Deploy:  cd web/proxy && npm i -g wrangler && wrangler deploy
