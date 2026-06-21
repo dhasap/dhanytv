@@ -2,14 +2,14 @@
 
 # 📺 dhanytv — IPTV Indonesia Gratis · Playlist M3U & EPG XMLTV
 
-**Playlist IPTV Indonesia gratis** dengan **990+ channel live TV** dari **27+ negara**, **EPG XMLTV** lengkap, dan **update otomatis tiap hari**. Siap pakai di **TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV**.
+**Playlist IPTV Indonesia gratis** dengan **1040+ channel live TV** dari **27+ negara**, **EPG XMLTV** lengkap, dan **update otomatis tiap hari**. Siap pakai di **TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV**.
 
 [![Auto Update](https://img.shields.io/github/actions/workflow/status/dhasap/dhanytv/auto-update.yml?label=auto-update&logo=githubactions&logoColor=white)](https://github.com/dhasap/dhanytv/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/dhasap/dhanytv?logo=git&logoColor=white)](https://github.com/dhasap/dhanytv/commits/main)
 [![Stars](https://img.shields.io/github/stars/dhasap/dhanytv?style=flat&logo=github)](https://github.com/dhasap/dhanytv/stargazers)
-[![Channels](https://img.shields.io/badge/channels-990+-blue)](#-kategori-channel)
-[![OTT](https://img.shields.io/badge/OTT--friendly-700+-purple)](#-link-playlist)
-[![EPG](https://img.shields.io/badge/EPG-918%20channels-green)](#-epg-electronic-program-guide)
+[![Channels](https://img.shields.io/badge/channels-1040+-blue)](#-kategori-channel)
+[![OTT](https://img.shields.io/badge/OTT--friendly-730+-purple)](#-link-playlist)
+[![EPG](https://img.shields.io/badge/EPG-955%20channels-green)](#-epg-electronic-program-guide)
 [![Format](https://img.shields.io/badge/format-M3U%20%7C%20M3U8%20%7C%20XMLTV-orange)](#-link-playlist)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
@@ -17,19 +17,20 @@
 
 </div>
 
-> **English:** Free Indonesia IPTV playlist — 990+ M3U/M3U8 live TV channels from 27+ countries, XMLTV EPG guide, daily auto-update. Works with TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV.
+> **English:** Free Indonesia IPTV playlist — 1040+ M3U/M3U8 live TV channels from 27+ countries, XMLTV EPG guide, daily auto-update. Works with TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV.
 
 ---
 
 ## ⚽ Nonton Piala Dunia 2026 GRATIS
 
-Piala Dunia FIFA 2026 (11 Juni – 19 Juli 2026) tayang **gratis di Indonesia lewat TVRI**. Channel-nya sudah ada di playlist ini, grup **`WorldCup 2026`** + **`⚽ Bola Indonesia`**:
+Piala Dunia FIFA 2026 (11 Juni – 19 Juli 2026). **TVRI memegang hak siar di Indonesia, tapi TIDAK menyiarkan online** via tvri.go.id — gratis hanya lewat **TV digital terestrial (DVB-T2)**, atau online berbayar via **MAXStream (Telkomsel) / Folaplay**. Channel sepak bola lain tersedia di playlist ini, grup **`WorldCup 2026`** + **`⚽ Bola Indonesia`**:
 
 | Channel | Acara | Format |
 |---------|-------|--------|
-| **TVRI** & **TVRI Sports** | Piala Dunia 2026 (siaran resmi FTA) | HLS — jalan di semua player |
-| **SCTV**, **MOJI TV** | Liga 1, Timnas Indonesia | HLS — jalan di semua player |
-| **Premier Sports 1 & 2** | Sepak bola internasional | HLS — jalan di semua player |
+| **TVRI Nasional** | Siaran nasional FTA (bukan stream WC online) | HLS — jalan di semua player |
+| **TVP Sport, JOJ Sport, ČT Sport** | Feed olahraga (ada EPG jadwal asli) | DASH/DRM — butuh TiviMate / OTT Navigator / Kodi |
+| **RTB Go Live & Aneka** | Feed Brunei (geo-locked) | HLS — mungkin geo-block dari luar negeri |
+| **TransTV, Trans7, Metro TV** | Bola Indonesia | HLS — jalan di semua player |
 | **beIN Sports, SPOTV, Champions TV** | Liga top Eropa | DASH/DRM — butuh TiviMate / OTT Navigator / Kodi |
 
 > 💡 Kalau muncul **"siaran ini tidak didukung"**, itu channel format **DASH + DRM** — pakai **TiviMate**, **OTT Navigator**, atau **Kodi** (bukan VLC). Atau pilih channel grup **⚽ Bola Indonesia** yang HLS dan jalan di player apa pun.
@@ -66,10 +67,10 @@ Salin salah satu link di bawah ke IPTV player kamu:
 
 | Statistik | Jumlah |
 |-----------|--------|
-| Channel playlist utama | **990+** |
-| Channel OTT-friendly | **700+** |
-| Channel dengan EPG | **918** |
-| Programme entries | **21.000+** |
+| Channel playlist utama | **1040+** |
+| Channel OTT-friendly | **730+** |
+| Channel dengan EPG | **955** |
+| Programme entries | **23.000+** |
 | Negara | **27+** |
 | Update | **Otomatis tiap hari** |
 
@@ -115,7 +116,7 @@ Channel **(V+)** / **(DASH/MPD)** memakai format **DASH + DRM ClearKey**. Hanya 
 |----------|--------|
 | **Nasional** | RCTI, SCTV, Trans TV, Trans 7, Indosiar, GTV, ANTV, Metro TV, MNCTV, TVRI, MDTV, MOJI |
 | **Berita** | CNN Indonesia, CNBC Indonesia, iNews, tvOne, Kompas TV, BTV |
-| **Olahraga / Bola** | TVRI Sports, SCTV, MOJI, beIN Sports, SPOTV, Champions TV, Sportstars |
+| **Olahraga / Bola** | TVRI, SCTV, MOJI, beIN Sports, SPOTV, Champions TV, Sportstars |
 | **Regional** | Jawa Pos TV, JTV, Bali TV, Bandung TV, Jogja TV, Banjar TV, Sultra TV |
 | **Hiburan** | HITS, CelebritiesTV, Vision Prime, Food Travel, Hanacaraka TV |
 
@@ -138,16 +139,16 @@ Channel **(V+)** / **(DASH/MPD)** memakai format **DASH + DRM ClearKey**. Hanya 
 
 ## 📡 EPG (Electronic Program Guide)
 
-Jadwal acara dalam format **XMLTV** supaya muncul di TiviMate, Kodi, OTT Navigator, dan player lain. **918 channel** punya EPG dengan **21.000+ programme** asli (sisanya placeholder otomatis).
+Jadwal acara dalam format **XMLTV** supaya muncul di TiviMate, Kodi, OTT Navigator, dan player lain. **Semua 955 channel punya entri EPG** (audit otomatis memastikan tidak ada yang bolong) dengan **23.000+ programme**; channel yang belum cocok dengan sumber EPG diberi placeholder *"Jadwal belum tersedia"* agar tetap terbaca player.
 
 | Statistik | Nilai |
 |-----------|-------|
-| Channel dengan EPG | 918 |
-| Programme entries | 21.000+ |
-| File size | ~8.4 MB |
+| Channel dengan EPG | 955 (100%) |
+| Programme entries | 23.000+ |
+| File size | ~8.5 MB |
 | Format | XMLTV (`epg.xml`) |
 
-**Sumber EPG:** epgshare01.online · open-epg.com · AqFad2811/epg (Indonesia, Malaysia, Singapore, Brunei, Astro, Sooka, RTM, dll).
+**Sumber EPG:** epgshare01.online (Indonesia, Singapore, Malaysia, Canada, Italia, Prancis, UAE, India, Al Jazeera, **Polandia, Ceko**) · open-epg.com · AqFad2811/epg (Indonesia, Malaysia, Singapore, Brunei, Astro, Sooka, RTM, dll).
 
 Channel tanpa jadwal asli tetap dibuatkan entry placeholder supaya terbaca semua IPTV player.
 
@@ -168,7 +169,7 @@ Source M3U (×2) → merge_source → merge_extra → merge_international → cl
 - ✅ Tambah channel internasional dari [iptv-org](https://github.com/iptv-org/iptv) (27 negara)
 - ✅ Deduplikasi + **buang channel mati otomatis lewat `blocklist.txt`** + fix syntax M3U
 - ✅ Generate playlist OTT-friendly (HLS, non-DRM)
-- ✅ Generate EPG XMLTV multi-source (17 sumber)
+- ✅ Generate EPG XMLTV multi-source (19 sumber)
 - ✅ **Safety gate:** commit dibatalkan kalau channel/EPG anjlok tidak wajar
 
 Trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run workflow**.
@@ -178,8 +179,8 @@ Trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run work
 ## 📁 Struktur Repo
 
 ```
-├── dhanytv.m3u                 # Playlist utama (990+ channel)
-├── dhanytv-ott.m3u             # Playlist OTT-friendly (700+ channel, non-DASH/DRM)
+├── dhanytv.m3u                 # Playlist utama (1040+ channel)
+├── dhanytv-ott.m3u             # Playlist OTT-friendly (730+ channel, non-DASH/DRM)
 ├── epg.xml                     # EPG XMLTV (auto-generated, ~9 MB)
 ├── LICENSE                     # MIT License
 ├── DISCLAIMER.md               # Catatan hukum / DMCA
@@ -230,7 +231,7 @@ bash update-script/update_playlist.sh -s "<source_url>" -t "<github_token>"
 
 Mau menambah channel atau lapor channel mati? Lihat **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
-Channel manual (yang tidak ada di source) ditambahkan di **`update-script/extra_channels.m3u`** — itu satu-satunya tempat yang dijamin tidak terhapus saat auto-update mingguan.
+Channel manual (yang tidak ada di source) ditambahkan di **`update-script/extra_channels.m3u`** — itu satu-satunya tempat yang dijamin tidak terhapus saat auto-update harian.
 
 ---
 
@@ -257,7 +258,7 @@ Semua link dikumpulkan dari sumber publik di internet. Repo ini tidak meng-host 
 <details>
 <summary><b>Kok ada channel yang mati/buffering?</b></summary>
 
-Server stream berubah sewaktu-waktu. Auto-update mingguan membersihkan link mati. Beberapa channel mungkin butuh VPN tergantung region.
+Server stream berubah sewaktu-waktu. Auto-update harian membersihkan link mati. Beberapa channel mungkin butuh VPN tergantung region.
 </details>
 
 <details>

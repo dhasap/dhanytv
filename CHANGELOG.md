@@ -16,13 +16,29 @@ diperbarui otomatis.
   yang sudah dikonfirmasi mati (HTTP 404/400/410/500). `cleanup_playlist.py`
   membuangnya otomatis di setiap run, jadi channel mati tidak muncul lagi walau
   masih ada di source. Statistik baru: `blocklist_removed`.
+- **EPG asli untuk channel olahraga Piala Dunia.** Ditambah sumber epgshare01
+  **Polandia (PL1)** & **Ceko (CZ1)**, lalu dipetakan di `generate_epg.py`:
+  **TVP Sport**, **JOJ Sport**, dan **ČT Sport** kini punya jadwal acara asli
+  (sebelumnya hanya placeholder). Total sumber EPG: 17 → **19**.
 
 ### Changed
 - Jadwal auto-update berjalan **harian (07:00 WIB)** agar EPG selalu segar.
-- README, CONTRIBUTING, dan struktur repo diperbarui: 990+ channel, 700+ OTT,
-  918 channel ber-EPG.
+- README, CONTRIBUTING, dan struktur repo diperbarui: 1040+ channel, 730+ OTT,
+  955 channel ber-EPG.
 
 ### Fixed
+- **DRM key hilang akibat EXTINF orphan.** Sebagian source menaruh blok
+  `#KODIPROP` (termasuk `license_key` ClearKey) **sebelum** `#EXTINF`, dan ada
+  entri EXTINF ganda/orphan. Akibatnya `cleanup_playlist.py` menempelkan key ke
+  EXTINF tanpa URL yang lalu dibuang — channel jadi gagal didekripsi (layar
+  hitam). Diperbaiki dengan meneruskan props orphan ke channel berikutnya.
+  Memulihkan key **beIN Sports 1 Indonesia, TSN 1, Celestial Movies (V+),
+  BTV (V+)**, dll (`license_key` 273 → 281).
+- **TVRI Nasional dipulihkan.** URL `…/Nasional/hls/Nasional.m3u8` (hidup + punya
+  EPG asli) sempat masuk `blocklist.txt` sehingga terbuang tiap run. Dikeluarkan
+  dari blocklist agar muncul lagi di grup `WorldCup 2026`.
+- **TVRI Sports (SportHD) dihapus** dari `extra_channels.m3u`: URL `SportHD.m3u8`
+  sudah 404, dan TVRI tidak menyiarkan Piala Dunia via stream OTT.
 - **URL TVRI di-stabilkan.** URL varian bitrate TVRI yang di-hardcode
   (mis. `.../Aceh-avc1_900000=10005-...m3u8`) sering 404 karena nama varian
   dirotasi server. Sekarang otomatis ditulis ulang ke URL master

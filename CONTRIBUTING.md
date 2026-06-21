@@ -4,7 +4,7 @@ Terima kasih sudah mau ikut menjaga playlist ini tetap hidup! Berikut cara berko
 
 ## ➕ Menambah channel baru
 
-Karena auto-update mingguan **menimpa `dhanytv.m3u` dengan source terbaru**, channel yang ditambahkan langsung ke `dhanytv.m3u` akan **hilang tiap Senin**. Tambahkan channel manual di satu tempat yang aman:
+Karena auto-update harian **menimpa `dhanytv.m3u` dengan source terbaru**, channel yang ditambahkan langsung ke `dhanytv.m3u` akan **hilang tiap hari**. Tambahkan channel manual di satu tempat yang aman:
 
 **`update-script/extra_channels.m3u`**
 
