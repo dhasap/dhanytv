@@ -4,7 +4,16 @@ Front-end pemutar (SPA statis) untuk playlist **dhanytv**. Membaca `dhanytv-ott.
 / `dhanytv.m3u` + `epg.xml` langsung dari repo (`raw.githubusercontent.com`) lalu
 memutar stream **HLS** langsung di browser — tanpa install aplikasi IPTV.
 
-> Implementasi **Fase 1 (MVP)** dari [`web/PRD.md`](PRD.md). DRM/DASH + proxy menyusul di Fase 2.
+> Implementasi **Fase 1 (MVP)** + **Fase 2 (DRM & Proxy)** dari [`web/PRD.md`](PRD.md).
+
+## 🔐 Fase 2 — DRM + Stream Proxy
+
+- **DASH (`.mpd`) via Shaka Player** dengan EME.
+- **ClearKey**: parse `license_key` (JSON `{"kid":"key"}` atau `kid:key` hex) → `drm.clearKeys` Shaka.
+- **Widevine**: `license_key` berupa URL → license server EME (`com.widevine.alpha`). *Tidak jalan di iOS/Safari.*
+- Toggle mode **OTT (kompatibel)** ↔ **Lengkap (1042 channel, DRM aktif)**.
+- **Stream Proxy** (`proxy/worker.js`, Cloudflare Worker): inject header `Referer`/`User-Agent`/`Origin`, tambah CORS, proxy manifest + segmen, **rewrite URL di dalam manifest** (HLS & DASH) agar ikut lewat proxy. Atur URL-nya di **Pengaturan (⚙)**.
+- Channel berheader / DRM otomatis dirutekan lewat proxy (request filter Shaka & manifest rewrite untuk HLS).
 
 ## ✨ Fitur (MVP)
 

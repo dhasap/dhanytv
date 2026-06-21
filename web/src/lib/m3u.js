@@ -49,18 +49,16 @@ function splitPipeHeaders(rawUrl) {
 export function parseM3U(text) {
   const lines = text.split(/\r?\n/);
   const channels = [];
-  let pending = null; // channel yang sedang dibangun
-
-  const reset = () => {
-    pending = { name: '', tvgId: '', logo: '', group: '', headers: {}, kodiprops: {}, url: '', type: 'hls', drm: null };
-  };
+  // Directive (#KODIPROP/#EXTVLCOPT) bisa muncul SEBELUM atau SESUDAH #EXTINF,
+  // jadi kita akumulasi di `pending` sepanjang blok channel sampai ketemu URL.
+  const newChan = () => ({ name: '', tvgId: '', logo: '', group: 'Lainnya', headers: {}, kodiprops: {}, url: '', type: 'hls', drm: null });
+  let pending = newChan();
 
   for (let raw of lines) {
     const line = raw.trim();
     if (!line) continue;
 
     if (line.startsWith('#EXTINF')) {
-      reset();
       const attrs = parseAttrs(line);
       pending.tvgId = attrs['tvg-id'] || '';
       pending.logo = attrs['tvg-logo'] || '';
@@ -68,8 +66,6 @@ export function parseM3U(text) {
       pending.name = parseName(line) || attrs['tvg-name'] || pending.tvgId || 'Tanpa Nama';
       continue;
     }
-
-    if (!pending) continue; // abaikan komentar/separator sebelum EXTINF
 
     if (line.startsWith('#EXTVLCOPT')) {
       const v = line.slice('#EXTVLCOPT:'.length);
@@ -93,31 +89,88 @@ export function parseM3U(text) {
         pending.kodiprops[key] = val;
         if (key === 'inputstream.adaptive.license_type') {
           pending.drm = pending.drm || {};
-          pending.drm.type = val; // clearkey | com.widevine.alpha
+          // beberapa playlist menaruh semuanya di satu baris:
+          // license_type=clearkey&license_key=KID:KEY&User-Agent=referrer=...
+          const parts = val.split('&');
+          pending.drm.type = parts[0].trim();
+          for (let i = 1; i < parts.length; i++) {
+            const seg = parts[i];
+            const se = seg.indexOf('=');
+            if (se < 0) continue;
+            const k = seg.slice(0, se).trim().toLowerCase();
+            const vv = seg.slice(se + 1).trim();
+            if (k === 'license_key') pending.drm.key = vv;
+            else if (k === 'user-agent') {
+              if (/^referrer=/i.test(vv)) pending.headers['Referer'] = vv.replace(/^referrer=/i, '');
+              else pending.headers['User-Agent'] = vv;
+            }
+          }
         }
-        if (key === 'inputstream.adaptive.license_key') {
+        if (key === 'inputstream.adaptive.license_key' && !pending.drm?.key) {
           pending.drm = pending.drm || {};
-          pending.drm.key = val; // "kid:key" (clearkey) atau URL license server
+          pending.drm.key = val; // JSON {"kid":"key"}, "kid:key", atau URL license server
         }
       }
       continue;
     }
 
-    if (line.startsWith('#')) continue; // komentar lain
+    if (line.startsWith('#')) continue; // komentar/separator lain (dibiarkan, pending tetap)
 
-    // baris non-# = URL stream
+    // baris non-# = URL stream -> tutup channel
     const { url, headers } = splitPipeHeaders(line);
     Object.assign(pending.headers, headers);
     pending.url = url;
     pending.type = streamType(url);
-    // id stabil untuk routing
+    if (pending.drm) pending.drm = normalizeDrm(pending.drm);
     pending.id = pending.tvgId || slug(pending.name) || `ch-${channels.length}`;
     channels.push(pending);
-    pending = null;
+    pending = newChan();
   }
 
   return channels;
 }
+
+/**
+ * Ubah {type, key} mentah menjadi konfigurasi DRM siap-pakai untuk Shaka.
+ * @returns {{system:'clearkey'|'widevine', clearKeys?:Object, serverUrl?:string}|null}
+ */
+function normalizeDrm(drm) {
+  const type = (drm.type || '').toLowerCase();
+  const key = (drm.key || '').trim();
+  // Widevine: license_key berupa URL license server
+  if (type.includes('widevine') || /^https?:\/\//i.test(key)) {
+    if (/^https?:\/\//i.test(key)) return { system: 'widevine', serverUrl: key };
+    return { system: 'widevine', serverUrl: '' }; // butuh server (mungkin di header lain)
+  }
+  // ClearKey
+  if (type.includes('clearkey')) {
+    const clearKeys = parseClearKeys(key);
+    if (clearKeys) return { system: 'clearkey', clearKeys };
+  }
+  // tipe lain tak dikenal -> tandai butuh DRM
+  return { system: type || 'unknown' };
+}
+
+// Terima JSON {"kid":"key"} atau "kid:key" (hex), kembalikan map hex.
+function parseClearKeys(raw) {
+  if (!raw) return null;
+  const s = raw.trim();
+  if (s.startsWith('{')) {
+    try {
+      const obj = JSON.parse(s);
+      const out = {};
+      for (const k in obj) out[stripHex(k)] = stripHex(obj[k]);
+      return Object.keys(out).length ? out : null;
+    } catch { return null; }
+  }
+  if (s.includes(':')) {
+    const [kid, key] = s.split(':');
+    if (kid && key) return { [stripHex(kid)]: stripHex(key) };
+  }
+  return null;
+}
+
+function stripHex(s) { return String(s).trim().replace(/^0x/i, ''); }
 
 function slug(s) {
   return (s || '')

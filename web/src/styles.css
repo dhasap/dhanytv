@@ -170,6 +170,16 @@ button { font-family: inherit; cursor: pointer; }
 .alert { padding: 12px 14px; border-radius: 10px; background: var(--accent-soft); border: 1px solid color-mix(in srgb,var(--accent) 30%,var(--border)); font-size: .85rem; margin-bottom: 16px; color: var(--text); }
 .alert.error-banner { background: color-mix(in srgb,var(--danger) 10%,var(--surface)); border-color: color-mix(in srgb,var(--danger) 40%,var(--border)); }
 
+/* ---------- Modal ---------- */
+.modal-backdrop { position: fixed; inset: 0; z-index: 100; background: rgba(8,10,14,.55); backdrop-filter: blur(3px); display: grid; place-items: center; padding: 20px; }
+.modal-backdrop[hidden] { display: none; }
+.modal { width: 100%; max-width: 460px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 22px; }
+.modal h2 { margin: 0 0 14px; font-size: 1.15rem; }
+.modal label { font-size: .85rem; font-weight: 600; }
+.modal-help { font-size: .78rem; color: var(--text-muted); line-height: 1.5; margin: 0 0 16px; }
+.modal-help code { background: var(--surface-2); padding: 1px 5px; border-radius: 5px; font-size: .9em; }
+.modal-actions { display: flex; align-items: center; gap: 8px; }
+
 footer.app-footer { border-top: 1px solid var(--border); padding: 22px 20px; color: var(--text-muted); font-size: .8rem; text-align: center; }
 footer.app-footer a { color: var(--accent); }
 

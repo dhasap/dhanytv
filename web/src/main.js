@@ -2,6 +2,7 @@
 import { parseM3U, groupSummary } from './lib/m3u.js';
 import { EpgStore, fmtTime } from './lib/epg.js';
 import { Player } from './lib/player.js';
+import { getProxyBase, setProxyBase } from './lib/proxy.js';
 
 const REPO = 'https://raw.githubusercontent.com/dhasap/dhanytv/main';
 const SOURCES = {
@@ -272,6 +273,7 @@ function bindHeader() {
     }, 220);
   });
   $('#theme').addEventListener('click', toggleTheme);
+  bindSettings();
   $('#mode').addEventListener('change', async (e) => {
     state.mode = e.target.value;
     $('#app').innerHTML = `<div class="loading-screen"><div class="spinner"></div><p>Mengganti mode…</p></div>`;
@@ -285,6 +287,23 @@ function bindHeader() {
     } catch (err) { $('#app').innerHTML = `<div class="empty"><p>${esc(err.message)}</p></div>`; }
   });
   $('.brand').addEventListener('click', () => { location.hash = ''; });
+}
+
+/* ---------- settings / proxy ---------- */
+function bindSettings() {
+  const backdrop = $('#modal-backdrop');
+  const open = () => { $('#proxy-url').value = getProxyBase(); backdrop.hidden = false; };
+  const close = () => { backdrop.hidden = true; };
+  $('#settings').addEventListener('click', open);
+  $('#modal-cancel').addEventListener('click', close);
+  backdrop.addEventListener('click', (e) => { if (e.target === backdrop) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !backdrop.hidden) close(); });
+  $('#proxy-save').addEventListener('click', () => {
+    setProxyBase($('#proxy-url').value);
+    close();
+    if (location.hash.startsWith('#/channel/')) route(); // muat ulang player dgn proxy baru
+  });
+  $('#proxy-clear').addEventListener('click', () => { $('#proxy-url').value = ''; setProxyBase(''); });
 }
 
 function initTheme() {
