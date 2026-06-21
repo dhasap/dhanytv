@@ -55,6 +55,10 @@ MANUAL_ID_MAP: dict[str, str] = {
     "Warner TV": "WarnerTV.id",
     "Uniques": "UNIQUES.id",
     "Moonbug": "Moonbug.id",
+    # World Cup 2026 sports feeds -> real EPG from epgshare01 (PL1/CZ1)
+    "TVP Sport.cz": "TVP.Sport.pl",
+    "auto.joj.sport": "JOJ.\u0160PORT.cz",
+    "auto.ct.sport": "\u010cT.sport.cz",
     # Champions TV
     "Champions.TV.1.id": "ChampionsTV1.id",
     "Champions.TV.2.id": "ChampionsTV2.id",

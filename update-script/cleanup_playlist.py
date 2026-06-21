@@ -504,7 +504,16 @@ def extract_items(lines: list[str]) -> tuple[str, list[str | Entry], dict[str, i
             continue
 
         if normalized.startswith("#EXTINF"):
-            finish_current()
+            # If the previous EXTINF never received a URL, it is an orphan/stray
+            # duplicate (some upstream sources emit a bare EXTINF above the real
+            # props+EXTINF+URL block). Carry its props forward instead of letting
+            # them die with the discarded orphan -- otherwise DRM license keys /
+            # headers placed before the real EXTINF are lost.
+            if current is not None and not current.urls:
+                pending_props = dedupe_keep_order([*current.props, *pending_props])
+                current = None
+            else:
+                finish_current()
             normalized = ensure_tvg_id(normalized, used_tvg_ids)
             current = Entry(props=pending_props, extinf=normalized, line_no=line_no)
             pending_props = []

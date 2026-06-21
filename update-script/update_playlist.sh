@@ -144,7 +144,7 @@ curl -sL "${AQFAD_BASE}/epg.xml" -o "aqfad_epg.xml" 2>/dev/null || true
 
 # epgshare01.online sources (gzipped)
 EPGSHARE_BASE="https://epgshare01.online/epgshare01"
-for f in ID1 SG1 MY1 CA2 IT1 FR1 AE1 IN1 ALJAZEERA1; do
+for f in ID1 SG1 MY1 CA2 IT1 FR1 AE1 IN1 ALJAZEERA1 PL1 CZ1; do
     curl -sL "${EPGSHARE_BASE}/epg_ripper_${f}.xml.gz" -o "epgshare01_${f}.xml.gz"
     gunzip -f "epgshare01_${f}.xml.gz" 2>/dev/null || rm -f "epgshare01_${f}.xml.gz"
 done
@@ -158,6 +158,7 @@ python3 update-script/generate_epg.py --m3u "$TARGET_FILE" --output "$EPG_OUTPUT
         epgshare01_ID1.xml epgshare01_SG1.xml epgshare01_MY1.xml \
         epgshare01_CA2.xml epgshare01_IT1.xml epgshare01_FR1.xml \
         epgshare01_AE1.xml epgshare01_IN1.xml epgshare01_ALJAZEERA1.xml \
+        epgshare01_PL1.xml epgshare01_CZ1.xml \
         open_epg_indonesia.xml \
         indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml \
         aqfad_epg.xml sooka.xml
