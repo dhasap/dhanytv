@@ -1,0 +1,20 @@
+name = "dhanytv-proxy"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# Origin yang boleh memakai proxy ini (CORS + cek Referer).
+# GANTI sesuai domain Pages kamu. Pisahkan dengan koma. Kosongkan = izinkan semua (TIDAK disarankan).
+[vars]
+ALLOWED_ORIGINS = "https://dhanytv.pages.dev,https://dhasap.github.io"
+
+# Rate limit per-IP (anti-abuse). period hanya boleh 10 atau 60 (detik).
+# 600 request / 60 dtk cukup untuk live HLS/DASH (manifest + segmen) tapi menahan abuse.
+[[unsafe.bindings]]
+name = "RL"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 600, period = 60 }
+
+# Batasi pemakaian CPU agar tidak kebobolan (ms).
+[limits]
+cpu_ms = 50

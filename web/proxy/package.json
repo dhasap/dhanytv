@@ -1,0 +1,13 @@
+{
+  "name": "dhanytv-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker stream-proxy untuk dhanytv Web (inject header + CORS + manifest rewrite).",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.78.0"
+  }
+}

@@ -30,6 +30,19 @@ const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&':
 function loadFavs() { try { return JSON.parse(localStorage.getItem('dhany_favs') || '[]'); } catch { return []; } }
 function saveFavs() { localStorage.setItem('dhany_favs', JSON.stringify(state.favorites)); }
 function isFav(id) { return state.favorites.includes(id); }
+
+// Ganti logo yang gagal-load dengan inisial (tanpa inline handler → aman untuk CSP ketat).
+function wireImgFallback(root) {
+  (root || document).querySelectorAll('img[data-ini]').forEach((img) => {
+    if (img._wired) return; img._wired = true;
+    img.addEventListener('error', () => {
+      const span = document.createElement('span');
+      span.className = 'ph';
+      span.textContent = img.dataset.ini || '?';
+      img.replaceWith(span);
+    }, { once: true });
+  });
+}
 function toggleFav(id) {
   const i = state.favorites.indexOf(id);
   if (i === -1) state.favorites.push(id); else state.favorites.splice(i, 1);
@@ -148,6 +161,7 @@ function paintGrid() {
   }
   slot.innerHTML = '';
   grid.innerHTML = list.map(cardHTML).join('');
+  wireImgFallback(grid);
   grid.querySelectorAll('.card').forEach((el) => {
     el.addEventListener('click', () => { location.hash = `#/channel/${encodeURIComponent(el.dataset.id)}`; });
     el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); } });
@@ -157,7 +171,7 @@ function paintGrid() {
 
 function cardHTML(c) {
   const initials = esc((c.name || '?').slice(0, 2).toUpperCase());
-  const logo = c.logo ? `<img loading="lazy" src="${esc(c.logo)}" alt="${esc(c.name)}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'${initials}'}))">` : `<span class="ph">${initials}</span>`;
+  const logo = c.logo ? `<img loading="lazy" src="${esc(c.logo)}" alt="${esc(c.name)}" data-ini="${initials}">` : `<span class="ph">${initials}</span>`;
   const drm = c.drm || c.type === 'dash';
   return `
     <div class="card" data-id="${esc(c.id)}" tabindex="0" role="button" aria-label="Tonton ${esc(c.name)}">
@@ -232,6 +246,7 @@ function renderPlayer(id) {
     </div>`;
 
   $('#back').addEventListener('click', () => { location.hash = ''; });
+  wireImgFallback(document);
   $('#fav').addEventListener('click', (e) => {
     toggleFav(c.id);
     e.target.classList.toggle('on', isFav(c.id));
@@ -256,7 +271,7 @@ function renderPlayer(id) {
 
 function relItemHTML(r) {
   const ini = esc((r.name || '?').slice(0, 2).toUpperCase());
-  const img = r.logo ? `<img loading="lazy" src="${esc(r.logo)}" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'${ini}'}))">` : `<span class="ph">${ini}</span>`;
+  const img = r.logo ? `<img loading="lazy" src="${esc(r.logo)}" alt="" data-ini="${ini}">` : `<span class="ph">${ini}</span>`;
   return `<div class="rel-item" data-id="${esc(r.id)}">${img}<span class="rn">${esc(r.name)}</span></div>`;
 }
 

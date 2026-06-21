@@ -56,11 +56,17 @@ web/
 └── PRD.md
 ```
 
-## 🌐 Deploy (GitHub Pages)
+## 🌐 Deploy
 
-Workflow `.github/workflows/pages.yml` mem-publish isi folder `web/` ke GitHub Pages
-otomatis saat ada push ke `main` yang menyentuh `web/`. Aktifkan **Settings → Pages →
-Source: GitHub Actions**. Situs akan tersedia di `https://dhasap.github.io/dhanytv/`.
+Full Cloudflare (Pages + Workers) — lihat panduan lengkap di [`DEPLOY.md`](DEPLOY.md).
+Singkatnya: **frontend** → Cloudflare Pages (output dir `web`, header keamanan via
+`_headers`), **proxy** → Cloudflare Workers (`cd web/proxy && npx wrangler deploy`).
+Alternatif frontend gratis: GitHub Pages (workflow `.github/workflows/pages.yml`).
+
+## 🔒 Keamanan
+
+CSP ketat + header keamanan (`_headers`), anti-XSS (escape atribut M3U/EPG), dan proxy
+yang di-hardening (CORS allowlist, anti-SSRF, rate-limit per-IP). Detail di [`DEPLOY.md`](DEPLOY.md).
 
 ## ⚠️ Catatan kejujuran
 
