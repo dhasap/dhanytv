@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>dhanytv — Nonton TV Live Indonesia di Browser</title>
+  <meta name="description" content="Nonton 700+ channel TV live Indonesia & internasional langsung di browser. Playlist dhanytv, EPG lengkap, tanpa install aplikasi." />
+  <meta name="theme-color" content="#2563eb" />
+  <meta property="og:title" content="dhanytv Web — Nonton TV Live di Browser" />
+  <meta property="og:description" content="700+ channel TV live + EPG, langsung dari playlist dhanytv. Tanpa aplikasi." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white'>📺</text></svg>" />
+  <link rel="stylesheet" href="src/styles.css" />
+  <!-- HLS playback (hls.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand" role="button" tabindex="0">
+      <span class="dot">📺</span>
+      <span>dhanytv<br><small>Nonton TV Live</small></span>
+    </div>
+    <div class="search-wrap">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" class="search-input" type="search" placeholder="Cari channel… (mis. TVRI, beIN, Trans)" autocomplete="off" />
+    </div>
+    <select id="mode" class="icon-btn" style="width:auto;padding:0 10px;font-size:.82rem;" title="Mode playlist">
+      <option value="ott">OTT</option>
+      <option value="full">Lengkap</option>
+    </select>
+    <button id="theme" class="icon-btn" title="Ganti tema" aria-label="Ganti tema">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </header>
+
+  <div id="app"></div>
+
+  <footer class="app-footer">
+    <p>dhanytv Web hanya memutar tautan stream publik dari playlist
+      <a href="https://github.com/dhasap/dhanytv" target="_blank" rel="noopener">dhasap/dhanytv</a>
+      dan <strong>tidak meng-host konten apa pun</strong>.
+      Lihat <a href="https://github.com/dhasap/dhanytv/blob/main/DISCLAIMER.md" target="_blank" rel="noopener">DISCLAIMER</a>.</p>
+    <p style="margin-top:6px;opacity:.8">MVP · Fase 1 (channel HLS / OTT). DRM &amp; proxy menyusul di Fase 2.</p>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
