@@ -54,6 +54,15 @@ button { font-family: inherit; cursor: pointer; }
 .brand .dot { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), #7c3aed); display: grid; place-items: center; color: #fff; font-size: 15px; }
 .brand small { color: var(--text-muted); font-weight: 500; font-size: .72rem; }
 
+/* nav */
+.nav { display: flex; gap: 2px; }
+.nav-link { padding: 8px 13px; border-radius: 9px; font-size: .9rem; font-weight: 500; color: var(--text-muted); transition: background .12s, color .12s; }
+.nav-link:hover { background: var(--surface-2); color: var(--text); }
+.nav-link.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+
+.install-btn { flex: none; padding: 0 14px; height: 40px; border-radius: 10px; border: 1px solid var(--accent); background: var(--accent); color: #fff; font-weight: 600; font-size: .85rem; }
+.install-btn:hover { background: var(--accent-hover); }
+
 .search-wrap { position: relative; flex: 1; max-width: 460px; }
 .search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
 .search-input {
@@ -170,6 +179,50 @@ button { font-family: inherit; cursor: pointer; }
 .alert { padding: 12px 14px; border-radius: 10px; background: var(--accent-soft); border: 1px solid color-mix(in srgb,var(--accent) 30%,var(--border)); font-size: .85rem; margin-bottom: 16px; color: var(--text); }
 .alert.error-banner { background: color-mix(in srgb,var(--danger) 10%,var(--surface)); border-color: color-mix(in srgb,var(--danger) 40%,var(--border)); }
 
+/* ---------- Home rows (carousel) ---------- */
+.hrow { margin-bottom: 26px; }
+.row-title { font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em; margin: 0 0 12px; }
+.row-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x proximity; }
+.row-scroll::-webkit-scrollbar { height: 6px; }
+.row-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+.mini { flex: none; width: 132px; background: transparent; border: 0; padding: 0; text-align: left; scroll-snap-align: start; cursor: pointer; }
+.mini-thumb { position: relative; aspect-ratio: 16/10; background: var(--surface-2); border: 1px solid var(--border); border-radius: 12px; display: grid; place-items: center; padding: 12px; transition: transform .14s, box-shadow .14s, border-color .14s; }
+.mini:hover .mini-thumb { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb,var(--accent) 40%,var(--border)); }
+.mini:focus-visible .mini-thumb { outline: none; box-shadow: 0 0 0 3px var(--accent); }
+.mini-thumb img { max-width: 86%; max-height: 52px; object-fit: contain; }
+.mini-thumb .ph { font-weight: 700; color: var(--text-muted); }
+.live-dot { position: absolute; top: 7px; right: 7px; width: 7px; height: 7px; border-radius: 99px; background: #dc2626; box-shadow: 0 0 0 3px color-mix(in srgb,#dc2626 30%,transparent); animation: pulse 1.4s infinite; }
+.mini-name { display: block; font-size: .82rem; font-weight: 600; margin-top: 7px; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini-now { display: block; font-size: .72rem; color: var(--text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- Guide ---------- */
+.guide-view { max-width: 920px; margin: 0 auto; }
+.guide-list { display: flex; flex-direction: column; gap: 8px; }
+.guide-row { display: flex; align-items: center; gap: 14px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-align: left; cursor: pointer; transition: border-color .12s, transform .12s; }
+.guide-row:hover { border-color: var(--accent); transform: translateX(2px); }
+.guide-row:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--accent); }
+.guide-logo { width: 56px; height: 38px; flex: none; display: grid; place-items: center; background: var(--surface-2); border-radius: 8px; overflow: hidden; }
+.guide-logo img { max-width: 90%; max-height: 32px; object-fit: contain; }
+.guide-logo .ph { font-weight: 700; color: var(--text-muted); font-size: .85rem; }
+.guide-info { flex: 1; min-width: 0; }
+.guide-name { display: block; font-weight: 600; font-size: .95rem; }
+.guide-prog { display: block; font-size: .82rem; color: var(--text-muted); margin-top: 2px; }
+.guide-prog b { color: var(--text); }
+.guide-prog .gt { font-variant-numeric: tabular-nums; }
+.guide-prog .gnext { display: block; opacity: .85; margin-top: 1px; }
+.guide-play { flex: none; color: var(--accent); font-size: 1rem; }
+
+/* ---------- Player controls bar ---------- */
+.pi-head { display: flex; align-items: center; gap: 10px; }
+.player-bar { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: linear-gradient(transparent, rgba(0,0,0,.75)); opacity: 0; transition: opacity .2s; }
+.video-shell:hover .player-bar, .video-shell:focus-within .player-bar, .video-shell.show .player-bar { opacity: 1; }
+.pb-btn { background: rgba(255,255,255,.14); border: 0; color: #fff; width: 36px; height: 36px; border-radius: 9px; font-size: 1rem; backdrop-filter: blur(4px); }
+.pb-btn:hover { background: rgba(255,255,255,.28); }
+.pb-vol { width: 90px; accent-color: var(--accent); }
+.pb-spacer { flex: 1; }
+.pb-quality select { background: rgba(255,255,255,.14); color: #fff; border: 0; border-radius: 8px; padding: 7px 8px; font-size: .82rem; }
+.pb-quality select option { color: #111; }
+
 /* ---------- Modal ---------- */
 .modal-backdrop { position: fixed; inset: 0; z-index: 100; background: rgba(8,10,14,.55); backdrop-filter: blur(3px); display: grid; place-items: center; padding: 20px; }
 .modal-backdrop[hidden] { display: none; }
@@ -185,11 +238,13 @@ footer.app-footer a { color: var(--accent); }
 
 /* ---------- Responsive ---------- */
 .mobile-only { display: none; }
+@media (max-width: 980px) { .nav { display: none; } }
 @media (max-width: 860px) {
   .sidebar { display: none; }
   .mobile-only { display: flex; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
   .search-wrap { max-width: none; }
   .brand small { display: none; }
+  .install-btn { display: none; }
 }
 @media (min-width: 1800px) { .grid { grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); } }

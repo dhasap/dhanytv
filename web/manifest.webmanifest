@@ -1,0 +1,19 @@
+{
+  "name": "dhanytv — Nonton TV Live",
+  "short_name": "dhanytv",
+  "description": "Nonton 1000+ channel TV live Indonesia & internasional di browser. Playlist dhanytv + EPG.",
+  "lang": "id",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0c0e12",
+  "theme_color": "#2563eb",
+  "categories": ["entertainment", "video", "news"],
+  "icons": [
+    { "src": "public/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "public/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "public/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

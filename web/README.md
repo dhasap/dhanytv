@@ -13,7 +13,17 @@ memutar stream **HLS / DASH (DRM)** langsung di browser — tanpa install aplika
 - **Stream Proxy** (`proxy/worker.js`, Cloudflare Worker): inject header `Referer`/`User-Agent`/`Origin`, tambah CORS, proxy manifest + segmen, **rewrite URL di dalam manifest** (HLS & DASH) agar ikut lewat proxy. Atur URL-nya di **Pengaturan (⚙)**.
 - Channel berheader / DRM otomatis dirutekan lewat proxy (request filter Shaka & manifest rewrite untuk HLS).
 
-## ✨ Fitur (MVP)
+## ✨ Pengalaman (UI/UX)
+
+- **Navigasi tab**: Beranda · Panduan (EPG) · Favorit.
+- **Beranda**: baris **"Lanjut nonton"** (riwayat, localStorage) + **"Sedang tayang sekarang"** (channel dengan acara EPG live) + sidebar/chips kategori + grid.
+- **Halaman Panduan (EPG)**: daftar channel dengan acara sekarang (jam + progress) & berikutnya, klik untuk langsung nonton.
+- **PWA**: installable (manifest + ikon), **offline shell** via service worker (app shell + playlist/EPG di-cache; stream tidak di-cache). Tombol **Install** muncul otomatis.
+- **Mode TV/remote**: kartu fokusable + navigasi **panah** (←↑↓→) antar kartu.
+- **Player**: kontrol kustom (play/pause, mute, volume, **pemilih kualitas** HLS, fullscreen) + **shortcut keyboard** (Space, F, M, ↑/↓ volume), tap-to-show di layar sentuh.
+- **Performa**: grid render bertahap (120/loncatan, IntersectionObserver), logo lazy-load, EPG 8 MB di Web Worker.
+
+## ✨ Fitur inti
 
 - **731+ channel HLS** dari playlist OTT, grid kartu dengan logo + badge `HLS`/`DRM` + indikator `LIVE`.
 - **Kategori & negara** dari `group-title` (sidebar desktop + chips mobile) dengan jumlah channel.
@@ -43,7 +53,10 @@ python3 -m http.server 8080
 ```
 web/
 ├── index.html            # entry SPA (CSS sendiri; hls.js + Shaka via CDN)
+├── manifest.webmanifest  # PWA manifest
+├── sw.js                 # service worker (offline shell + cache)
 ├── _headers              # header keamanan + CSP (Cloudflare Pages)
+├── public/               # ikon PWA/favicon
 ├── README.md
 ├── DEPLOY.md             # panduan deploy Cloudflare + keamanan
 ├── src/

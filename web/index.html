@@ -6,10 +6,14 @@
   <title>dhanytv — Nonton TV Live Indonesia di Browser</title>
   <meta name="description" content="Nonton 700+ channel TV live Indonesia & internasional langsung di browser. Playlist dhanytv, EPG lengkap, tanpa install aplikasi." />
   <meta name="theme-color" content="#2563eb" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="public/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="dhanytv" />
   <meta property="og:title" content="dhanytv Web — Nonton TV Live di Browser" />
-  <meta property="og:description" content="700+ channel TV live + EPG, langsung dari playlist dhanytv. Tanpa aplikasi." />
+  <meta property="og:description" content="1000+ channel TV live + EPG, langsung dari playlist dhanytv. Tanpa aplikasi." />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232563eb'/><text x='50' y='68' font-size='58' text-anchor='middle' fill='white'>📺</text></svg>" />
+  <link rel="icon" href="public/favicon-64.png" />
   <link rel="stylesheet" href="src/styles.css" />
   <!-- HLS playback (hls.js) -->
   <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
@@ -18,14 +22,20 @@
 </head>
 <body>
   <header class="app-header">
-    <div class="brand" role="button" tabindex="0">
-      <span class="dot">📺</span>
+    <a class="brand" href="#/" role="button">
+      <span class="dot"><img src="public/favicon-64.png" alt="" width="22" height="22" style="border-radius:6px"></span>
       <span>dhanytv<br><small>Nonton TV Live</small></span>
-    </div>
+    </a>
+    <nav class="nav">
+      <a class="nav-link active" data-nav="" href="#/">Beranda</a>
+      <a class="nav-link" data-nav="guide" href="#/guide">Panduan</a>
+      <a class="nav-link" data-nav="favorit" href="#/favorit">Favorit</a>
+    </nav>
     <div class="search-wrap">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="search" class="search-input" type="search" placeholder="Cari channel… (mis. TVRI, beIN, Trans)" autocomplete="off" />
+      <input id="search" class="search-input" type="search" placeholder="Cari channel…" autocomplete="off" />
     </div>
+    <button id="install" class="install-btn" hidden title="Install aplikasi">⤓ Install</button>
     <select id="mode" class="icon-btn" style="width:auto;padding:0 10px;font-size:.82rem;" title="Mode playlist">
       <option value="ott">OTT</option>
       <option value="full">Lengkap</option>
@@ -61,7 +71,7 @@
       <a href="https://github.com/dhasap/dhanytv" target="_blank" rel="noopener">dhasap/dhanytv</a>
       dan <strong>tidak meng-host konten apa pun</strong>.
       Lihat <a href="https://github.com/dhasap/dhanytv/blob/main/DISCLAIMER.md" target="_blank" rel="noopener">DISCLAIMER</a>.</p>
-    <p style="margin-top:6px;opacity:.8">MVP · Fase 1 (channel HLS / OTT). DRM &amp; proxy menyusul di Fase 2.</p>
+    <p style="margin-top:6px;opacity:.8">1000+ channel live · HLS &amp; DASH/DRM · EPG XMLTV · bisa di-install (PWA).</p>
   </footer>
 
   <script type="module" src="src/main.js"></script>
