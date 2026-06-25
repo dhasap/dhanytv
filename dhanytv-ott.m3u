@@ -21,29 +21,8 @@ https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8
 
 # <============================================== WorldCup 2026 ===========================================================>
 
-#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
-#KODIPROP:mimetype=application/x-mpegURL
-#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
-#KODIPROP:inputstream.ffmpegdirect.stream_mode=timeshift
-#KODIPROP:inputstream.ffmpegdirect.manifest_type=mpd
-#EXTINF:-1 group-title="WorldCup 2026" tvg-id="GoLive" tvg-logo="https://i.imgur.com/CGlzsD5.png",RTB Go Live FHD
-https://d1211whpimeups.cloudfront.net/smil:rtbgo/chunklist_b4096000_slENG.m3u8?id=1229
-
-#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
-#KODIPROP:mimetype=application/x-mpegURL
-#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
-#KODIPROP:inputstream.ffmpegdirect.stream_mode=timeshift
-#KODIPROP:inputstream.ffmpegdirect.manifest_type=mpd
-#EXTINF:-1 group-title="WorldCup 2026" tvg-id="Aneka" tvg-logo="https://upload.wikimedia.org/wikipedia/en/a/aa/RTB_Aneka.png",RTB Aneka FHD
-https://d1211whpimeups.cloudfront.net/smil:rtb2/chunklist.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
-#KODIPROP:mimetype=application/x-mpegURL
-#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
-#KODIPROP:inputstream.ffmpegdirect.stream_mode=timeshift
-#KODIPROP:inputstream.ffmpegdirect.manifest_type=mpd
-#EXTINF:-1 group-title="WorldCup 2026" tvg-id="Sukmaindera" tvg-logo="https://upload.wikimedia.org/wikipedia/en/c/c0/RTB_Sukmaindera.png",RTB Sukmaindera FHD
-https://d1211whpimeups.cloudfront.net/smil:rtb1/playlist.m3u8?id=2
+#EXTINF:-1 tvg-id="auto.fussballtv.1" group-title="WorldCup 2026" tvg-logo="https://assets.football-logos.cc/logos/tournaments/700x700/fifa-world-cup-2026--white.9ba8a004.png",FUSSBALLTV 1
+https://91.208.115.26:80/play/live.php?mac=00:1B:79:44:18:49&stream=1745092&extension=m3u8
 
 # <============================================================== Indonesia Channels ==================================================>
 
@@ -176,11 +155,9 @@ https://op-group1-swiftservehd-1.dens.tv/h/h236/02.m3u8
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 https://op-group1-swiftservehd-1.dens.tv/h/h244/02.m3u8
-##EXTVLCOPT:http-referrer=https://www.visionplus.id/
+##EXTVLCOPT:http-referrer=https://m.visionplus.id
 
 # <==================================================================== Indonesian Entertainment & Movies ==============================================================================>
-
-#
 
 #EXTINF:-1 tvg-id="Channel Jowo" tvg-logo="https://channeljowo.com/wp-content/uploads/2024/09/cropped-LOGO-CHANNEL-JOWO_04-1536x642.png" group-title="Indonesian Entertainment & Movies", Channel Jowo (DensTV)
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
@@ -209,8 +186,7 @@ https://flv.intechmedia.net/live/ch107.m3u8
 
 ####EXTINF:-1  tvg-logo="https://i.ibb.co.com/7Md2qy9/fubosp.png" group-title="Sports", FUBO SPORTS 2
 ####EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0
-####KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-####KODIPROP:inputstream.adaptive.license_key=3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135
+####KODIPROP:inputstream.adaptive.license_type=clearkey####KODIPROP:inputstream.adaptive.license_key=3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135
 ####https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd
 
 # <======================================================================= News =========================================================================================================================>
@@ -337,6 +313,30 @@ https://d2idp3hzkhjpih.cloudfront.net/out/v1/4b85d9c2bf97413eb0c9fd875599b837/in
 https://d25tgymtnqzu8s.cloudfront.net/event/smil:event1/chunklist_b2596000_slENG.m3u8
 
 # <===================================================================== Brunei =======================================================================================>
+
+#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
+#KODIPROP:mimetype=application/x-mpegURL
+#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
+#KODIPROP:inputstream.ffmpegdirect.stream_mode=timeshift
+#KODIPROP:inputstream.ffmpegdirect.manifest_type=mpd
+#EXTINF:-1 group-title="Brunei" tvg-id="Sukmaindera" tvg-logo="https://upload.wikimedia.org/wikipedia/en/c/c0/RTB_Sukmaindera.png",RTB Sukmaindera FHD
+https://d1211whpimeups.cloudfront.net/smil:rtb1/playlist.m3u8?id=2
+
+#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
+#KODIPROP:mimetype=application/x-mpegURL
+#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
+#KODIPROP:inputstream.ffmpegdirect.stream_mode=timeshift
+#KODIPROP:inputstream.ffmpegdirect.manifest_type=mpd
+#EXTINF:-1 group-title="Brunei" tvg-id="Aneka" tvg-logo="https://upload.wikimedia.org/wikipedia/en/a/aa/RTB_Aneka.png",RTB Aneka FHD
+https://d1211whpimeups.cloudfront.net/smil:rtb2/chunklist.m3u8
+
+#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
+#KODIPROP:mimetype=application/x-mpegURL
+#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
+#KODIPROP:inputstream.ffmpegdirect.stream_mode=timeshift
+#KODIPROP:inputstream.ffmpegdirect.manifest_type=mpd
+#EXTINF:-1 group-title="Brunei" tvg-id="GoLive" tvg-logo="https://i.imgur.com/CGlzsD5.png",RTB Go Live FHD
+https://d1211whpimeups.cloudfront.net/smil:rtbgo/chunklist_b4096000_slENG.m3u8?id=1229
 
 # <================================================== JAPAN =====================================================>
 
@@ -578,6 +578,12 @@ https://svara-stream.radioddns.net:8443/jakarta_smoothfm_mp3
 # <== Special Thanks to Apistech for the EPG Source ===>
 
 # <=================================== Trial Channel ===================================>
+
+##EXTINF:-1 tvg-id="TSN1 HD.ca" tvg-logo="https://mimipipi22.github.io/logo/png/tsn1.png" group-title="Sports", TSN 1
+##EXTINF:-1 tvg-id="TSN2 HD.ca" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/TSN2_New_Logo.svg/1280px-TSN2_New_Logo.svg.png" group-title="Sports", TSN 2
+##EXTINF:-1 tvg-id="TSN3 HD.ca" tvg-logo="https://mimipipi22.github.io/logo/png/tsn3.png" group-title="Sports", TSN 3
+##EXTINF:-1 tvg-id="TSN4 HD.ca" tvg-logo="https://mimipipi22.github.io/logo/png/tsn4.png" group-title="Sports", TSN 4
+##EXTINF:-1 tvg-id="TSN5 HD.ca" tvg-logo="https://mimipipi22.github.io/logo/png/tsn5.png" group-title="Sports", TSN 5
 
 # <=======================================Trial Sports ================================================>
 
@@ -1296,7 +1302,7 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/CitraEntertainmentHD/mediampd/Cit
 #EXTINF:-1 tvg-id="auto.citra.dangdut" tvg-logo="https://images.indihometv.com/images/channels/image_ch_citradangdut.png" group-title="MOVIES & ENTERTAINMENT",Citra Dangdut
 https://atemecdnbalancer-voe.sysln.id/live/eds/CitraDangdutHD/mediampd/CitraDangdutHD.mpd|license_type=clearkey&license_key=44a4c73921ea4f5f90eaaaf793d3f7cf:3be319093fec8a409fe0553128089671&User-Agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
 
-#EXTINF:-1 tvg-id="auto.citra.drama.2" tvg-logo="https://images.indihometv.com/images/channels/image_ch_citradrama.png" group-title="MOVIES & ENTERTAINMENT",Citra Drama
+#EXTINF:-1 tvg-id="auto.citra.drama" tvg-logo="https://images.indihometv.com/images/channels/image_ch_citradrama.png" group-title="MOVIES & ENTERTAINMENT",Citra Drama
 https://atemecdnbalancer-voe.sysln.id/live/eds/CitraDramaHD/mediampd/CitraDramaHD.mpd|license_type=clearkey&license_key=eabfbb7dd5ef461699c879b05941e18d:c2f7e8f9468def5266e01a4c646b76a6&User-Agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
 
 #EXTINF:-1 tvg-id="auto.citra.drama.osc" tvg-logo="https://images.indihometv.com/images/channels/image_ch_citradrama.png" group-title="MOVIES & ENTERTAINMENT",Citra Drama (OSC)
@@ -2151,8 +2157,17 @@ https://oqgdrb8my4rm-hls-live.5centscdn.com/GNF02/bcea197d8b00f79cb716c6288a8610
 #EXTINF:-1 tvg-id="AviationTV.ke@SD" tvg-logo="https://i.imgur.com/WOU9z5G.png" group-title="Kenya",Aviation TV (480p)
 http://streamer02.nbo1.angani.co:1935/aviationtv/myStream/playlist.m3u8
 
+#EXTINF:-1 tvg-id="4seven.uk@SD" tvg-logo="https://i.imgur.com/Fpaxyop.png" group-title="United Kingdom",4seven (576p)
+https://adpnetworkhd-cmd.github.io/iptv/4Seven.m3u8
+
 #EXTINF:-1 tvg-id="5Cops.us@UK" tvg-logo="https://i.imgur.com/QFPRaXK.png" group-title="United Kingdom",5 Cops
 https://jmp2.uk/plu-5d2c571faeb3e2738ae27933.m3u8
+
+#EXTINF:-1 tvg-id="5SELECT.uk@SD" tvg-logo="https://i.imgur.com/WJ9xR6l.png" group-title="United Kingdom",5SELECT (576p)
+https://adpnetworkhd-cmd.github.io/iptv/5Select.m3u8
+
+#EXTINF:-1 tvg-id="5STAR.uk@SD" tvg-logo="https://i.imgur.com/PI11s9s.png" group-title="United Kingdom",5STAR (576p)
+https://adpnetworkhd-cmd.github.io/iptv/5Star.m3u8
 
 #EXTINF:-1 tvg-id="48Hours.us@GB" tvg-logo="https://images.pluto.tv/channels/6299e5afdd5833000727e795/colorLogoPNG.png" group-title="United Kingdom",48 Hours GB (720p)
 https://jmp2.uk/plu-6299e5afdd5833000727e795.m3u8
@@ -2193,12 +2208,6 @@ http://193.46.58.239:8080/CbeebiesHD/index.m3u8
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="BBCLifestyle.uk@Asia" tvg-logo="https://i.imgur.com/9mzJJ3y.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" group-title="United Kingdom",BBC Lifestyle Asia (720p)
 https://cdn4.skygo.mn/live/disk1/BBC_lifestyle/HLSv3-FTA/BBC_lifestyle.m3u8
-
-#EXTINF:-1 tvg-id="BBCOne.uk@London" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/BBC_One_logo_2021.svg/960px-BBC_One_logo_2021.svg.png" group-title="United Kingdom",BBC One (1080p)
-http://149.102.245.111/1196/index.m3u8
-
-#EXTINF:-1 tvg-id="BBCOne.uk@EastMidlands" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/BBC_One_logo_2021.svg/960px-BBC_One_logo_2021.svg.png" group-title="United Kingdom",BBC One East Midlands (1080p)
-http://149.102.245.111/1263/index.m3u8
 
 #EXTINF:-1 tvg-id="DareToDreamNetwork.us@SD" tvg-logo="https://i.imgur.com/oNUpXA9.png" group-title="United States",3ABN Dare To Dream Network
 https://3abn.bozztv.com/3abn2/d2d_live/smil:d2d_live.smil/playlist.m3u8
@@ -2285,6 +2294,9 @@ https://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8
 #EXTINF:-1 tvg-id="3sat.de@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/3sat_2019.svg/960px-3sat_2019.svg.png" group-title="Germany",3sat HD (720p)
 http://41.223.30.230/3SAT/index.m3u8
 
+#EXTINF:-1 tvg-id="13thStreetUniversal.de@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/13th_Street_Universal.svg/500px-13th_Street_Universal.svg.png" group-title="Germany",13th Street Universal HD (1080p)
+https://adpnetworkhd-cmd.github.io/iptv/13thStreet.m3u8
+
 #EXTINF:-1 tvg-id="AlexBerlin.de@SD" tvg-logo="https://i.imgur.com/eTmHk4e.png" group-title="Germany",Alex Berlin (1080p)
 https://alex-stream.rosebud-media.de/bounce/alexlivetv50.smil/index.m3u8
 
@@ -2317,9 +2329,6 @@ https://jmp2.uk/plu-60e4519e6873180007d3cddb.m3u8
 
 #EXTINF:-1 tvg-id="BeverlyHills90210.us@Germany" tvg-logo="https://i.imgur.com/td3d1F8.png" group-title="Germany",Beverly Hills 90210
 https://jmp2.uk/plu-60afb576053df900076fa2f0.m3u8
-
-#EXTINF:-1 tvg-id="BibelTV.de@SD" tvg-logo="https://i.imgur.com/RLwmrk3.png" group-title="Germany",Bibel TV (720p)
-https://bibint01.iptv-playoutcenter.de/bibint01/bibint01.stream_all/playlist.m3u8
 
 #EXTINF:-1 tvg-id="20MinutesTV.fr@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/20_Minutes_TV_IDF_logo_%282023%29.png/960px-20_Minutes_TV_IDF_logo_%282023%29.png" group-title="France",20 Minutes TV (1080p)
 https://live-20minutestv.digiteka.com/1961167769/index.m3u8
@@ -2587,6 +2596,9 @@ https://live-vgtrksmotrim.cdnvideo.ru/vgtrksmotrim/smotrim-live-03-srt.smil/play
 #EXTINF:-1 tvg-id="365daysTV.ru@SD" tvg-logo="https://i.imgur.com/NfnAiTR.png" group-title="Russia",365 Дней (576p)
 http://31.148.48.15/365_dney/index.m3u8
 
+#EXTINF:-1 tvg-id="black.ru@SD" tvg-logo="https://i.imgur.com/Q4A6ci4.png" group-title="Russia",.black (1080p)
+https://adpnetworkhd-cmd.github.io/iptv/Black.m3u8
+
 #EXTINF:-1 tvg-id="scifi.ru@SD" tvg-logo="https://i.imgur.com/nSSUHcg.png" group-title="Russia",.sci-fi (576p)
 http://31.148.48.15/SONY_SCI_FI/index.m3u8
 
@@ -2604,6 +2616,3 @@ http://31.148.48.15/A2/index.m3u8
 
 #EXTINF:-1 tvg-id="AmediaHit.ru@SD" tvg-logo="https://i.imgur.com/a8ZBGBw.png" group-title="Russia",Amedia Hit (720p)
 http://31.148.48.15/Amedia_HIT_HD/index.m3u8
-
-#EXTINF:-1 tvg-id="AmediaPremium.ru@SD" tvg-logo="https://i.imgur.com/UUjehw9.png" group-title="Russia",Amedia Premium (720p)
-http://31.148.48.15/Amedia_Premium_HD/index.m3u8
