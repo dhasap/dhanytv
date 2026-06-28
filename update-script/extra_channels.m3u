@@ -8,7 +8,7 @@
 # Indosiar V+). Because dedup keeps the first (top) copy, adding them here would
 # RELOCATE them out of "Indonesia Channels" into this group. Keep only channels
 # that are either missing from the source (TVRI World Cup) or that we genuinely
-# want grouped under football and that are reliable HLS (TransTV/Trans7/Metro).
+# want grouped under football.
 
 # <============================================== WorldCup 2026 ===========================================================>
 
@@ -16,33 +16,29 @@
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://tvrinasional.wordpress.com/wp-content/uploads/2019/11/cropped-png-small-white.png" group-title="WorldCup 2026",TVRI (Piala Dunia 2026)
 https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
 
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=5466ebd70704bdeb657f0abf3c5ca4ef:bdd79b72d8e48ed483aa623cc38a8a16
-#EXTINF:-1 tvg-id="auto.fox.sports.1" tvg-logo="https://iili.io/KYJqv0G.png" group-title="WorldCup 2026",Fox Sports 1
-https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/tmpzbbdj9y/out/v1/962736723a534ba294e7592fef49827b/cenc.mpd
-
 #EXTINF:-1 tvg-id="" tvg-logo="https://images.seeklogo.com/logo-png/61/1/cazetv-logo-png_seeklogo-619708.png" group-title="WorldCup 2026",CazeTV
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
 
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="FIFAPlus.uk@English" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/FIFA%2B_(2025).svg/960px-FIFA%2B_(2025).svg.png" group-title="WorldCup 2026",FIFA+ (English)
+https://d2w9q46ikgrcwx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-of5cbk3sav3w5/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8
+
+#EXTINF:-1 tvg-id="FIFAPlus.uk@Spain" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/FIFA%2B_(2025).svg/960px-FIFA%2B_(2025).svg.png" group-title="WorldCup 2026",FIFA+ (Spanish)
+https://d63fabad.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/UmFrdXRlblRWLWVzX0ZJRkFQbHVzU3BhbmlzaF9ITFM/playlist.m3u8
+
+#EXTINF:-1 tvg-id="FIFAPlusWomen.uk@English" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/FIFA%2B_(2025).svg/960px-FIFA%2B_(2025).svg.png" group-title="WorldCup 2026",FIFA+ Women (English)
+https://cffda8ff.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3VuZy1nYl9GSUZBUGx1c3dvbWVuX0hMUw/playlist.m3u8
+
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTVLCOPT:http-referer=https://webtv.sk/tv/
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=dash
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://drm.antik.sk/widevine/key
-#EXTINF:-1 tvg-name="" tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/72/%C4%8CT_sport_logo.png" group-title="WorldCup 2026",CT SPORT
+#EXTINF:-1 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/72/%C4%8CT_sport_logo.png" group-title="WorldCup 2026",CT SPORT
 https://dash2.antik.sk/stream/nvidia_ct_sport/playlist_cbcs.mpd
 
-# <============================================== Bola Indonesia (HLS - bisa diputar di semua player) ===========================================================>
+#EXTINF:-1 tvg-id="beINSPORTSXTRA.us@SD" tvg-logo="https://i.ibb.co/HT49GPmB/XTRA-2.png" group-title="WorldCup 2026",beIN SPORTS XTRA
+https://bein-xtra-bein.amagi.tv/playlist.m3u8
 
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
-#EXTINF:-1 tvg-id="TransTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/__j35q7LPpcS2EgkR7v8GpE4USQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/733/ecaa60.png" group-title="⚽ Bola Indonesia",TransTV HD
-https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8
-
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0
-#EXTINF:-1 tvg-id="Trans7.id" tvg-logo="https://thumbor.prod.vidiocdn.com/-MEB2a6J4sB6SvBDimCb7JYP6WY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/734/131514.png" group-title="⚽ Bola Indonesia",Trans7 HD
-https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8
-
-#EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/b/b2/Metro_TV_2010.svg" group-title="⚽ Bola Indonesia",Metro TV
-https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8
+#EXTINF:-1 tvg-id="beINSPORTSXTRAenEspanol.us@SD" tvg-logo="https://i.imgur.com/V562tpO.png" group-title="WorldCup 2026",beIN Sports XTRA en Espanol
+https://dc1644a9jazgj.cloudfront.net/beIN_Sports_Xtra_Espanol.m3u8
