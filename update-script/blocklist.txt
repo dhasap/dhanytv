@@ -12,8 +12,18 @@
 #
 # Cara menambah: tempel URL stream yang mati di bawah, commit. Selesai.
 # Terakhir diperbarui otomatis: 2026-06-20 21:29 UTC
-# Total entri saat ini: 131
+# Total entri saat ini: 134
 # ============================================================
+
+# ── WorldCup 2026: channel mati (confirmed HTTP 000) ───
+re:91\.208\.115\.26
+https://estreams.tv.nej.cz/dash/CH_TVP_SPORT_Portable.ism/playlist.mpd
+
+# ── Fox Sports 1 via CORS proxy publik (sering 403 rate-limit) ───
+# Ganti dengan direct URL di extra_channels.m3u — proxy publik gak reliable
+https://cors-everywhere-wc8b4.ondigitalocean.app/https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/tmpzbbdj9y/out/v1/962736723a534ba294e7592fef49827b/cenc.mpd
+
+re:cors-everywhere-.*\.ondigitalocean\.app
 
 http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/145
 http://013tv.com:8080/vtprotonium/CuUWPf5b7jywB68SxZ5/267769
