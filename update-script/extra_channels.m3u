@@ -1,13 +1,28 @@
 # Curated channels that are NOT reliably present in the upstream source.
 # merge_extra.py injects every entry below into dhanytv.m3u on each update so the
-# weekly auto-update (which REPLACES dhanytv.m3u with the fresh source) can never
-# silently drop them. cleanup_playlist.py dedupes by (tvg-id, url) keeping the
-# first occurrence, so the curated copies here win their group.
+# weekly auto-update can never silently drop them.
 #
-# NOTE: do NOT duplicate channels that already live in the source (e.g. SCTV /
-# Indosiar V+). Because dedup keeps the first (top) copy, adding them here would
-# RELOCATE them out of "Indonesia Channels" into this group. Keep only channels
-# that are either missing from the source or that we genuinely want grouped
-# under a specific category.
-#
-# KOSONG — World Cup channels already come from KITKATJOSS source.
+# World Cup 2026 — verified from GitHub repos (kufa-tv, KickNow26, StreamHub)
+
+# <============================================== WorldCup 2026 ===========================================================>
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/FIFA%2B_(2025).svg/960px-FIFA%2B_(2025).svg.png" group-title="WorldCup 2026",FIFA World Cup live 2 (1080p)
+https://mflixott.com/tv/dd/live.php?id=966
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/FIFA%2B_(2025).svg/960px-FIFA%2B_(2025).svg.png" group-title="WorldCup 2026",FIFA World Cup FOX (540p)
+http://84.17.50.102/fox/index.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/FOX_Sports_logo.svg/960px-FOX_Sports_logo.svg.png" group-title="WorldCup 2026",FS1 HD
+http://190.11.225.124:5000/live/fs1_hd/playlist.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://i.imgur.com/LHtxKI8.png" group-title="WorldCup 2026",FS2
+https://1nyaler.streamhostingcdn.top/stream/26/index.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://images.seeklogo.com/logo-png/61/1/cazetv-logo-png_seeklogo-619708.png" group-title="WorldCup 2026",Caze TV BR
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/72/%C4%8CT_sport_logo.png" group-title="WorldCup 2026",CT Sport
+http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8
+
+#EXTINF:-1 tvg-id="" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/DD_Sports_Logo.svg/960px-DD_Sports_Logo.svg.png" group-title="WorldCup 2026",DD Sports
+https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
