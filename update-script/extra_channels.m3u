@@ -38,6 +38,15 @@ https://cffda8ff.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/U2Ftc3
 #EXTINF:-1 tvg-id="" tvg-logo="https://images.seeklogo.com/logo-png/61/1/cazetv-logo-png_seeklogo-619708.png" group-title="WorldCup 2026",Caze TV BR
 https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
 
+# --- Fallback non-DRM untuk issue #2 (moji tv avc voli) ---
+# TVRI Nasional versi HLS resmi tanpa DRM (server ott-balancer TVRI) —
+# bisa diputar di semua player, tidak butuh ClearKey. Diverifikasi hidup 2026-07-05.
+# TVRI Sport: endpoint resmi ott-balancer saat ini 404 (offline dari sisi TVRI),
+# belum ada URL sehat yang bisa ditambahkan.
+
+#EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/F6W__Y0wn_7mFW0cOuz7mi7qjWU=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/6441/528cc9.png" group-title="Indonesia Channels",TVRI Nasional (HLS - Tanpa DRM)
+https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
+
 # --- CT Sport (Czech) ---
 # (URL lama http://88.212.15.19/... dihapus 2026-07-04: stream mati saat
 #  diverifikasi — masuk blocklist.txt. CT SPORT via dash2.antik.sk masih ada
