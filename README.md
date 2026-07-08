@@ -287,7 +287,7 @@ Repo ini **tidak meng-host, meng-upload, atau menyimpan konten media apa pun**. 
 
 Star membantu lebih banyak orang menemukan playlist IPTV Indonesia gratis ini.
 
-[![Star History Chart](https://api.star-history.com/svg?repos=dhasap/dhanytv&type=Date)](https://star-history.com/#dhasap/dhanytv&Date)
+[![Star History Chart](assets/star-history.svg)](https://github.com/dhasap/dhanytv/stargazers)
 
 **Kata kunci:** IPTV Indonesia gratis · playlist M3U Indonesia · M3U8 TV Indonesia · TV online gratis · EPG XMLTV Indonesia · nonton Piala Dunia 2026 gratis · IPTV Smart TV · TiviMate Indonesia · Kodi IPTV · VLC IPTV playlist · streaming bola Indonesia
 
