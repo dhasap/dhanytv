@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Iterable
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
-# ── Pre-compiled regexes ─────────────────────────────────────
+# ── Pre-compiled regexes ──────────────────────────────────────────────
 STREAM_RE = re.compile(r"^(?:[a-z][a-z0-9+.-]*://|plugin://|pipe://)", re.I)
 PROP_PREFIXES = (
     "#EXTVLCOPT",
@@ -105,7 +105,7 @@ _RE_NON_ALNUM = re.compile(r"[^A-Za-z0-9]+")
 
 # ensure_tvg_id compiled patterns
 _RE_TVG_ID_EXTRACT = re.compile(r'tvg-id="([^"]*)"')
-_RE_EMPTY_TVG_ID = re.compile(r'\s+tvg-id=""')
+_RE_EMPTY_TVG_ID = re.compile(r'\s*tvg-id=""')
 
 # KODIPROP fix
 _RE_KODIPROP_INPUTSTREAM = re.compile(r"^#KODIPROP:inputstream=(?!\.)")
