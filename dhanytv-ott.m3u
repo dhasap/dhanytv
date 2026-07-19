@@ -1849,6 +1849,9 @@ https://fujitv4.mov3.co/hls/fujitv.m3u8
 #EXTINF:-1 tvg-id="JOEXDTV.jp@SD" tvg-logo="https://i.imgur.com/YCqB5Kj.png" group-title="Japan",JOEX-DTV (540p)
 https://tvasahi.mov3.co/hls/tvasahi.m3u8
 
+#EXTINF:-1 tvg-id="NHKGeneralTV.jp@SD" tvg-logo="https://i.imgur.com/fAZ2BEZ.png" group-title="Japan",NHK General TV (720p)
+https://nhk4.mov3.co/hls/nhk.m3u8
+
 #EXTINF:-1 tvg-id="QVC.jp@SD" tvg-logo="https://i.imgur.com/6TWUVrh.png" group-title="Japan",QVC (1080p)
 https://d1flvb4iqlercm.cloudfront.net/live/live_1080p_2nd.m3u8
 
@@ -2063,8 +2066,8 @@ https://amg00861-amg00861c10-rakuten-uk-3152.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="JeepneyTV.ph@SD" tvg-logo="https://i.imgur.com/RNxfhcc.png" group-title="Philippines",Jeepney TV (480p)
 https://streams.comclark.com/pknsd/jeepney/playlist.m3u8
 
-#EXTINF:-1 tvg-id="KoolTV.ph@SD" tvg-logo="https://yt3.googleusercontent.com/opqPJfc0Ptd9ohl4R-2hPjaquIAdWuqvRb0T_LBCmfyGznIvfGN0HOlcWZk6Lj2jk11s2Zlk=s1200-c-k-c0x00ffffff-no-rj" group-title="Philippines",Kool TV (720p)
-https://twitch-m3u8.bastypro112.workers.dev/kooltvlive/index.m3u8
+#EXTINF:-1 tvg-id="KapatidTV5.ph@SD" tvg-logo="https://i.imgur.com/xb5lkwG.png" group-title="Philippines",Kapatid TV 5 (480p) [Geo-blocked]
+https://thinkkast.dpdns.org/tkk-ph/i7/kapatid_hd/kapatid.m3u8
 
 #EXTINF:-1 tvg-id="AnGiangTV1.vn@SD" tvg-logo="https://i.imgur.com/mgp6RAU.png" group-title="Vietnam",An Giang TV1 (1080p) [Geo-blocked]
 https://tv.angiangtv.vn/live/kgtv/kgtv.m3u8
@@ -2716,6 +2719,9 @@ http://177.245.131.133:8080/AXN/index.m3u8
 #EXTINF:-1 tvg-id="Azteca7.mx@SD" tvg-logo="https://i.imgur.com/UtFXjIn.png" group-title="Mexico",Azteca 7 (1080p)
 http://45.189.62.33:8002/play/a0fm/index.m3u8
 
+#EXTINF:-1 tvg-id="AztecaDeportesNetwork.mx@SD" tvg-logo="https://match-images.icdb.tv/5913207f2494844101287828e87625eb.jpg" group-title="Mexico",Azteca Deportes Network (720p)
+http://38.194.226.190:8000/play/a02r/index.m3u8
+
 #EXTINF:-1 tvg-id="AztecaInternacional.mx@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/e/eb/Azteca_Internacional_logo_2023.png" group-title="Mexico",Azteca Internacional (1080p)
 https://azt-mun.otteravision.com/azt/mun/mun.m3u8
 
@@ -2730,9 +2736,6 @@ https://s5.mexside.net:1936/envio2/envio2/playlist.m3u8
 
 #EXTINF:-1 tvg-id="Canal5.mx@SD" tvg-logo="https://i.imgur.com/uZdVSoW.png" group-title="Mexico",Canal 5 (1080p)
 http://45.181.87.106/CANAL5HD/index.m3u8
-
-#EXTINF:-1 tvg-id="Canal5TVCozumel.mx@SD" tvg-logo="https://i.imgur.com/0nzNMuP.jpeg" group-title="Mexico",Canal 5 TV Cozumel (1080p)
-https://video0.rogohosting.com:19360/tvcozumel/tvcozumel.m3u8
 
 #EXTINF:-1 tvg-id="247CanaldeNoticias.ar@SD" tvg-logo="https://i.imgur.com/4hDCB1M.png" group-title="Argentina",24/7 Canal de Noticias
 https://panel.host-live.com:19360/cn247tv/cn247tv.m3u8
