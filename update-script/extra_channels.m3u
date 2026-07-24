@@ -140,13 +140,7 @@ http://103.165.93.31:8095/ptv/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-id="" tvg-logo="" group-title="WorldCup 2026",Somoy TV (Bangladesh)
 http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8
 
-# --- India WC streams (verified stable 2026-07-07) ---
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="WorldCup 2026",India WC Stream 1
-http://66.102.126.10:8000/play/a076/index.m3u8
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="WorldCup 2026",India WC Stream 2
-http://66.102.126.10:8000/play/a022/index.m3u8
-
-#EXTINF:-1 tvg-id="" tvg-logo="" group-title="WorldCup 2026",India WC Stream 3
-http://66.102.126.10:8000/play/a018/index.m3u8
+# --- India WC streams (removed 2026-07-24: HTTP 404 confirmed dead) ---
+# http://66.102.126.10:8000/play/a076/index.m3u8  (dead)
+# http://66.102.126.10:8000/play/a022/index.m3u8  (dead)
+# http://66.102.126.10:8000/play/a018/index.m3u8  (dead)

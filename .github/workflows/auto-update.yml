@@ -43,6 +43,17 @@ jobs:
             fi
           fi
           echo "Download selesai. Ukuran file: $(wc -c < source_latest.m3u) bytes"
+          # Validate: file must be non-empty and start with #EXTM3U (not HTML error page)
+          if [ ! -s source_latest.m3u ]; then
+            echo "ERROR: File sumber kosong!"
+            exit 1
+          fi
+          if ! head -1 source_latest.m3u | grep -q '#EXTM3U'; then
+            echo "ERROR: File sumber bukan playlist M3U yang valid (tidak diawali #EXTM3U)."
+            echo "  Header pertama: $(head -1 source_latest.m3u | head -c 120)"
+            exit 1
+          fi
+          echo "Validasi sumber: OK"
 
       - name: Merge & Fix Playlist
         env:
@@ -103,6 +114,14 @@ jobs:
           python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check "${SANITIZE_ARG[@]}"
           echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
           echo "OTT channels      : $(grep -c '#EXTINF' dhanytv-ott.m3u || echo '0')"
+          # Validate OTT: must not contain active .mpd (DASH) URLs
+          DASH_IN_OTT=$(grep -v '^#' dhanytv-ott.m3u | grep -c '\.mpd' || true)
+          if [ "$DASH_IN_OTT" -gt 0 ]; then
+            echo "ERROR: OTT playlist mengandung $DASH_IN_OTT channel DASH (.mpd)!"
+            echo "  cleanup_playlist.py seharusnya membuang semua DASH dari OTT."
+            exit 1
+          fi
+          echo "OTT validation: OK (0 DASH channels)"
 
       - name: Download EPG Sources (Multi-Source)
         run: |
@@ -180,6 +199,11 @@ jobs:
           NEW_PROG=$(grep -c '<programme ' epg.xml || true); NEW_PROG=${NEW_PROG:-0}
           WC=$(grep -c 'group-title="WorldCup 2026"' dhanytv.m3u || true); WC=${WC:-0}
           echo "Channels: $OLD_CH -> $NEW_CH | EPG programmes: $OLD_PROG -> $NEW_PROG | WorldCup: $WC"
+          # Minimum absolute threshold: playlist must have at least 500 channels
+          if [ "$NEW_CH" -lt 500 ]; then
+            echo "ERROR: Channel terlalu sedikit ($NEW_CH < 500). Kemungkinan source gagal."
+            exit 1
+          fi
           if [ "$WC" -lt 1 ]; then
             echo "ERROR: Channel WorldCup 2026 hilang! Abort tanpa commit."
             exit 1

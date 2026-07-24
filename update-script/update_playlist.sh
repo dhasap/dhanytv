@@ -65,7 +65,7 @@ if [ -z "$SOURCE_URL" ]; then
 fi
 
 # Step 1: Clone repo
-echo -e "${YELLOW}[1/6] Cloning repository...${NC}"
+echo -e "${YELLOW}[1/8] Cloning repository...${NC}"
 WORK_DIR=$(mktemp -d)
 cd "$WORK_DIR"
 
@@ -81,12 +81,21 @@ if [ ! -f "$TARGET_FILE" ]; then
 fi
 
 # Step 2: Download source
-echo -e "${YELLOW}[2/6] Downloading source playlist...${NC}"
+echo -e "${YELLOW}[2/8] Downloading source playlist...${NC}"
 curl -sL "$SOURCE_URL" -o source_latest.m3u
 echo "  Downloaded: $(wc -c < source_latest.m3u) bytes"
+if [ ! -s source_latest.m3u ]; then
+    echo -e "${RED}ERROR: File sumber kosong!${NC}"
+    exit 1
+fi
+if ! head -1 source_latest.m3u | grep -q '#EXTM3U'; then
+    echo -e "${RED}ERROR: File sumber bukan playlist M3U yang valid!${NC}"
+    echo "  Header: $(head -1 source_latest.m3u | head -c 120)"
+    exit 1
+fi
 
 # Step 3: Merge with source using merge_source.py
-echo -e "${YELLOW}[3/6] Merging & fixing playlist...${NC}"
+echo -e "${YELLOW}[3/8] Merging & fixing playlist...${NC}"
 BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
 
 SANITIZE_ARG=()
@@ -101,13 +110,13 @@ rm -f source_latest.m3u
 # Step 3b: Re-inject curated extra channels (World Cup, events). merge_source
 # above REPLACES the playlist with the fresh source, so anything hand-added must
 # be re-applied here or it disappears every run.
-echo -e "${YELLOW}[3b] Injecting curated extra channels...${NC}"
+echo -e "${YELLOW}[4/8] Injecting curated extra channels...${NC}"
 if [ -f "update-script/merge_extra.py" ]; then
     python3 update-script/merge_extra.py --target "$TARGET_FILE" --ci
 fi
 
 # Step 4: Merge international channels from iptv-org
-echo -e "${YELLOW}[4/7] Merging international channels...${NC}"
+echo -e "${YELLOW}[5/8] Merging international channels...${NC}"
 if [ -f "update-script/merge_international.py" ]; then
     INTL_BEFORE=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
     python3 update-script/merge_international.py --ci
@@ -119,7 +128,7 @@ else
 fi
 
 # Step 5: Normalize playlist and generate OTT-friendly variant
-echo -e "${YELLOW}[5/7] Cleaning playlist syntax & generating OTT variant...${NC}"
+echo -e "${YELLOW}[6/8] Cleaning playlist syntax & generating OTT variant...${NC}"
 if [ -f "update-script/cleanup_playlist.py" ]; then
     python3 update-script/cleanup_playlist.py "$TARGET_FILE" --write --ott-output dhanytv-ott.m3u --check "${SANITIZE_ARG[@]}"
 else
@@ -132,7 +141,7 @@ OTT_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
 echo -e "  ${GREEN}Channel: $BEFORE → $AFTER | OTT: $OTT_COUNT${NC}"
 
 # Step 6: Generate Custom EPG (multi-source)
-echo -e "${YELLOW}[6/7] Downloading EPG sources & generating custom EPG...${NC}"
+echo -e "${YELLOW}[7/8] Downloading EPG sources & generating custom EPG...${NC}"
 
 # AqFad2811/epg sources
 # NOTE: epg.xml renamed to aqfad_epg.xml to avoid collision with output
@@ -168,7 +177,7 @@ rm -f indonesia.xml astro.xml singapore.xml rtmklik.xml unifitv.xml sooka.xml
 rm -f aqfad_epg.xml epgshare01_*.xml open_epg_indonesia.xml
 
 # Step 7: Push
-echo -e "${YELLOW}[7/7] Pushing to GitHub...${NC}"
+echo -e "${YELLOW}[8/8] Pushing to GitHub...${NC}"
 if [ "$NO_PUSH" = true ]; then
     echo -e "${CYAN}Skipping push (--no-push)${NC}"
 else
