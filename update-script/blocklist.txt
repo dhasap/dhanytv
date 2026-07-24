@@ -11,8 +11,8 @@
 #   - Awali dengan "re:"  -> diperlakukan sebagai pola regex (mis. re:^http://115\.42\.)
 #
 # Cara menambah: tempel URL stream yang mati di bawah, commit. Selesai.
-# Terakhir diperbarui otomatis: 2026-06-20 21:29 UTC
-# Total entri saat ini: 134
+# Terakhir diperbarui otomatis: 2026-07-24 00:00 UTC
+# Total entri saat ini: 137
 # ============================================================
 
 # ── WorldCup 2026: channel mati (confirmed HTTP 000) ───
@@ -162,3 +162,8 @@ https://v2.siar.us/radartasikmalaya/live/playlist.m3u8
 https://video.primexsports.com/pnn/live/playlist.m3u8
 https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_026/Stream/playlist.m3u8
 https://wurljansonmedia.global.transmit.live/hls/69029561e0b3f0f215eef867/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+
+# ── India WC streams (confirmed HTTP 404, removed 2026-07-24) ───
+http://66.102.126.10:8000/play/a076/index.m3u8
+http://66.102.126.10:8000/play/a022/index.m3u8
+http://66.102.126.10:8000/play/a018/index.m3u8

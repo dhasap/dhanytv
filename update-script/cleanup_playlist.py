@@ -136,7 +136,10 @@ class Entry:
     @property
     def is_dash(self) -> bool:
         if self._dash is None:
-            path = urlparse(self.url).path.lower()
+            # Check the URL *before* the DRM pipe separator (`|`) which some
+            # IPTV players use to embed DRM query params (e.g. `index.mpd|license_type=clearkey`).
+            url_base = self.url.split("|", 1)[0] if "|" in self.url else self.url
+            path = urlparse(url_base).path.lower()
             self._dash = path.endswith(".mpd")
         return self._dash
 
@@ -144,10 +147,14 @@ class Entry:
     def is_drm(self) -> bool:
         if self._drm is None:
             joined = "\n".join(self.props).lower()
+            url_lower = self.url.lower()
+            # Also check DRM params embedded after the pipe separator in the URL.
+            url_tail = url_lower.split("|", 1)[1] if "|" in url_lower else ""
             self._drm = (
                 "license_type=clearkey" in joined
                 or "license_key=" in joined
-                or "/cenc.mpd" in self.url.lower()
+                or "license_type=" in url_tail
+                or "/cenc.mpd" in url_lower
             )
         return self._drm
 
