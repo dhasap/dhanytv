@@ -289,11 +289,13 @@ Star membantu lebih banyak orang menemukan playlist IPTV Indonesia gratis ini.
 
 <a href="https://www.star-history.com/?repos=dhasap%2Fdhanytv&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&theme=dark&legend=top-left&sealed_token=q2t8YDk9N7xMWqIzjneAyYB9Bbq4OggbpxdHN4NNR1SLcFvAnOE7n1XBrSEbKF-IPon7bSmXtq5Lz39vwxJQDwyEzAl7oLfgZiixwkrCTbdUSc03nkkShDk7YEDWyAHl0cP8YcQRJK3Fxura9vwmdKSLLRw2jnZ4hOkkHcdnFXYbVEG7g2pgDtwG-Gbj" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&legend=top-left&sealed_token=q2t8YDk9N7xMWqIzjneAyYB9Bbq4OggbpxdHN4NNR1SLcFvAnOE7n1XBrSEbKF-IPon7bSmXtq5Lz39vwxJQDwyEzAl7oLfgZiixwkrCTbdUSc03nkkShDk7YEDWyAHl0cP8YcQRJK3Fxura9vwmdKSLLRw2jnZ4hOkkHcdnFXYbVEG7g2pgDtwG-Gbj" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&legend=top-left&sealed_token=q2t8YDk9N7xMWqIzjneAyYB9Bbq4OggbpxdHN4NNR1SLcFvAnOE7n1XBrSEbKF-IPon7bSmXtq5Lz39vwxJQDwyEzAl7oLfgZiixwkrCTbdUSc03nkkShDk7YEDWyAHl0cP8YcQRJK3Fxura9vwmdKSLLRw2jnZ4hOkkHcdnFXYbVEG7g2pgDtwG-Gbj" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&legend=top-left" />
  </picture>
 </a>
+
+[![GitHub stars](https://img.shields.io/github/stars/dhasap/dhanytv?style=social&label=⭐%20Star%20History%20Chart%20klik%20di%20sini)](https://www.star-history.com/?repos=dhasap%2Fdhanytv&type=date&legend=top-left)
 
 **Kata kunci:** IPTV Indonesia gratis · playlist M3U Indonesia · M3U8 TV Indonesia · TV online gratis · EPG XMLTV Indonesia · nonton Piala Dunia 2026 gratis · IPTV Smart TV · TiviMate Indonesia · Kodi IPTV · VLC IPTV playlist · streaming bola Indonesia
 
