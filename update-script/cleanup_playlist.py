@@ -74,6 +74,29 @@ SCTV_FALLBACK_PROPS = (
 # instances that were committed before that merge-time sanitizer existed.
 SOURCE_TRACES = ("bluestraveller13", "super-duper-spork", "kitkatjoss")
 
+# ── Group normalisation ───────────────────────────────────────────────
+GROUP_NORMALIZE_MAP: dict[str, str] = {
+    "nasional": "Nasional",
+    "hbo group": "HBO Group",
+    "lokal": "Local Channels",
+    "kids": "Kids",
+    "kids channel": "Kids",
+    "tv malaysia": "Malaysia",
+    "tv jepang": "Japan",
+    "korean channels": "Korea",
+}
+_RE_GROUP_TITLE = re.compile(r'group-title="([^"]*)"')
+
+def normalize_group_title(extinf: str) -> str:
+    m = _RE_GROUP_TITLE.search(extinf)
+    if not m:
+        return extinf
+    original = m.group(1)
+    canonical = GROUP_NORMALIZE_MAP.get(original.lower(), original)
+    if canonical == original:
+        return extinf
+    return extinf[: m.start(1)] + canonical + extinf[m.end(1):]
+
 # normalize_extinf compiled patterns
 _RE_EPG_URL_AFTER_GROUP = re.compile(r'(group-title="[^"]+")\s*https?://[^"\s]+"?')
 _RE_TVG_URL_URL = re.compile(r'\s+tvg-url="(?:tvg-url=")?https?://[^"\s]+"*')
@@ -279,6 +302,8 @@ def normalize_extinf(line: str) -> str:
     line = _RE_UNQUOTED_TVG_ID.sub(lambda m: f'tvg-id="{m.group(1).strip()}"', line)
     # Collapse duplicate whitespace before the channel name comma.
     line = _RE_DUP_WHITESPACE.sub(",", line)
+    # Normalise duplicate group-title variants (e.g. "KIDS" → "Kids").
+    line = normalize_group_title(line)
     # Remove duplicate attributes, keeping the first occurrence.
     for attr, pattern in _RE_ATTR_PATTERNS.items():
         seen = False
@@ -635,6 +660,7 @@ def clean_items(
     }
     cleaned: list[str | Entry] = []
     seen: set[tuple[str, str]] = set()
+    seen_urls: set[str] = set()
 
     for item in items:
         if isinstance(item, str):
@@ -705,7 +731,11 @@ def clean_items(
             if key in seen:
                 stats["duplicates_removed"] += 1
                 continue
+            if candidate.url in seen_urls:
+                stats["duplicates_removed"] += 1
+                continue
             seen.add(key)
+            seen_urls.add(candidate.url)
             cleaned.append(candidate)
             stats["entries_kept"] += 1
 
