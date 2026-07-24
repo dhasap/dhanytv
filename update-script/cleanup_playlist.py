@@ -72,7 +72,8 @@ SCTV_FALLBACK_PROPS = (
 # Source trace URLs are not real maintained stream endpoints. merge_source.py
 # already drops them from fresh source imports; cleanup must also drop stale
 # instances that were committed before that merge-time sanitizer existed.
-SOURCE_TRACES = ("bluestraveller13", "super-duper-spork", "kitkatjoss")
+# Patterns are loaded from SANITIZE_PATTERNS secret at runtime — never hardcoded.
+SOURCE_TRACES: tuple[str, ...] = ()
 
 # ── Group normalisation ───────────────────────────────────────────────
 GROUP_NORMALIZE_MAP: dict[str, str] = {
