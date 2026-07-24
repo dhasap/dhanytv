@@ -776,6 +776,42 @@ def clean_items(
     if prioritize_sctv_preferred(cleaned):
         stats["sctv_preferred_prioritized"] = 1
 
+    # Reorder groups: priority groups first (keeping internal order intact),
+    # then all remaining groups in their original order.
+    PRIORITY_GROUPS = [
+        "Indonesia Channels",
+        "Sports",
+        "Kids",
+        "WorldCup 2026",
+        "Local Channels",
+    ]
+    priority_set = {g.lower() for g in PRIORITY_GROUPS}
+    prioritized: list[str | Entry] = []
+    remaining: list[str | Entry] = []
+    # Track which items go where based on their group
+    for item in cleaned:
+        if isinstance(item, Entry):
+            gm = _RE_GROUP_TITLE.search(item.extinf)
+            group = gm.group(1) if gm else ""
+            if group.lower() in priority_set:
+                prioritized.append(item)
+                continue
+        # Keep comments/dividers attached to the group that follows them.
+        # If a comment is immediately before a priority entry, move it too.
+        remaining.append(item)
+
+    # Rebuild: priority groups first (in PRIORITY_GROUPS order), then remaining
+    reordered: list[str | Entry] = []
+    for target in PRIORITY_GROUPS:
+        for item in prioritized:
+            if isinstance(item, Entry):
+                gm = _RE_GROUP_TITLE.search(item.extinf)
+                if gm and gm.group(1) == target:
+                    reordered.append(item)
+    reordered.extend(remaining)
+
+    cleaned = reordered
+
     return cleaned, stats
 
 
