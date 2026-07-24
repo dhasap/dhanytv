@@ -125,7 +125,9 @@ _RE_EMPTY_QUOTED_ATTR = re.compile(r'\s+""(?=\s|,)')
 _RE_FIREFOX_UA_TYPO = re.compile(r'Firefox/(\d+(?:\.\d+)*)F\b')
 
 # ── Config ───────────────────────────────────────────────────
-SOURCE_TRACES = ["bluestraveller13", "super-duper-spork", "kitkatjoss"]
+# Source trace patterns are loaded at runtime from SANITIZE_PATTERNS
+# secret — never hardcoded in source code.
+SOURCE_TRACES: list[str] = []
 
 HTTP_KEEP = frozenset([
     "122.248.43.242", "cdn6.163189.xyz", "45.64.97.211",
