@@ -287,15 +287,13 @@ Repo ini **tidak meng-host, meng-upload, atau menyimpan konten media apa pun**. 
 
 Star membantu lebih banyak orang menemukan playlist IPTV Indonesia gratis ini.
 
-<a href="https://www.star-history.com/?repos=dhasap%2Fdhanytv&type=date&legend=top-left">
+<a href="https://star-history-virid.vercel.app/?repo=dhasap/dhanytv">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=dhasap/dhanytv&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history-virid.vercel.app/chart?repo=dhasap/dhanytv&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://star-history-virid.vercel.app/chart?repo=dhasap/dhanytv&theme=light" />
+   <img alt="Star History Chart" src="https://star-history-virid.vercel.app/chart?repo=dhasap/dhanytv&theme=light" />
  </picture>
 </a>
-
-[![GitHub stars](https://img.shields.io/github/stars/dhasap/dhanytv?style=social&label=⭐%20Star%20History%20Chart%20klik%20di%20sini)](https://www.star-history.com/?repos=dhasap%2Fdhanytv&type=date&legend=top-left)
 
 **Kata kunci:** IPTV Indonesia gratis · playlist M3U Indonesia · M3U8 TV Indonesia · TV online gratis · EPG XMLTV Indonesia · nonton Piala Dunia 2026 gratis · IPTV Smart TV · TiviMate Indonesia · Kodi IPTV · VLC IPTV playlist · streaming bola Indonesia
 
