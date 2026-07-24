@@ -660,7 +660,17 @@ def clean_items(
     }
     cleaned: list[str | Entry] = []
     seen: set[tuple[str, str]] = set()
-    seen_urls: set[str] = set()
+    # Track URLs that are already in the playlist so that the same stream URL
+    # is never shipped twice (even with different tvg-id or channel name).
+    # Maps URL → index in cleaned, so we can replace with a preferred group.
+    seen_urls: dict[str, int] = {}
+
+    # Groups that should win when two entries share the same URL.
+    PREFERRED_GROUPS = frozenset({
+        "indonesia channels",
+        "nasional",
+        "bola indonesia",
+    })
 
     for item in items:
         if isinstance(item, str):
@@ -731,11 +741,34 @@ def clean_items(
             if key in seen:
                 stats["duplicates_removed"] += 1
                 continue
+            # Also drop entries whose URL already appeared (regardless of
+            # tvg-id) — the same stream should never ship twice.
+            # Exception: if the new candidate is in a preferred group (e.g.
+            # "Indonesia Channels"), replace the existing entry with it.
             if candidate.url in seen_urls:
+                existing_idx = seen_urls[candidate.url]
+                existing_entry = cleaned[existing_idx]
+                existing_group = ""
+                if isinstance(existing_entry, Entry):
+                    gm = _RE_GROUP_TITLE.search(existing_entry.extinf)
+                    existing_group = gm.group(1).lower() if gm else ""
+                candidate_group_m = _RE_GROUP_TITLE.search(candidate.extinf)
+                candidate_group = candidate_group_m.group(1).lower() if candidate_group_m else ""
+                if candidate_group in PREFERRED_GROUPS and existing_group not in PREFERRED_GROUPS:
+                    # Replace the existing entry with this preferred one
+                    existing_tvg_id = ""
+                    if isinstance(existing_entry, Entry):
+                        em = _RE_TVG_ID_EXTRACT.search(existing_entry.extinf)
+                        existing_tvg_id = em.group(1).strip().lower() if em else ""
+                    seen.discard((existing_tvg_id, candidate.url))
+                    cleaned[existing_idx] = candidate
+                    seen.add((tvg_id, candidate.url))
+                    stats["duplicates_removed"] += 1
+                    continue
                 stats["duplicates_removed"] += 1
                 continue
             seen.add(key)
-            seen_urls.add(candidate.url)
+            seen_urls[candidate.url] = len(cleaned)
             cleaned.append(candidate)
             stats["entries_kept"] += 1
 
