@@ -12,7 +12,7 @@
 #
 # Cara menambah: tempel URL stream yang mati di bawah, commit. Selesai.
 # Terakhir diperbarui otomatis: 2026-07-24 00:00 UTC
-# Total entri saat ini: 137
+# Total entri saat ini: 161
 # ============================================================
 
 # ── WorldCup 2026: channel mati (confirmed HTTP 000) ───
@@ -167,3 +167,35 @@ https://wurljansonmedia.global.transmit.live/hls/69029561e0b3f0f215eef867/playli
 http://66.102.126.10:8000/play/a076/index.m3u8
 http://66.102.126.10:8000/play/a022/index.m3u8
 http://66.102.126.10:8000/play/a018/index.m3u8
+
+# ── Channel mati confirmed HTTP 404/410 (tested 2026-07-24) ───
+# Server 45.189.62.33 mati total (7 Mexico channels)
+http://45.189.62.33:8002/play/a0oc/index.m3u8
+http://45.189.62.33:8002/play/a0ob/index.m3u8
+http://45.189.62.33:8002/play/a0fm/index.m3u8
+http://45.189.62.33:8002/play/a0cc/index.m3u8
+# Server mexside.net mati
+https://s5.mexside.net:1936/clientetv/clientetv/playlist.m3u8
+https://s5.mexside.net:1936/lsac/lsac/playlist.m3u8
+https://s5.mexside.net:1936/envio2/envio2/playlist.m3u8
+# Server 122.248.43.242 mati (4 Jawapos/JTV channels)
+http://122.248.43.242:1935/JTVKEDIRI/_definst_/myStream/playlist.m3u8
+http://122.248.43.242:1935/JAWAPOSTVBALI/_definst_/myStream/playlist.m3u8
+http://122.248.43.242:1935/JAWAPOSTVMADIUN/_definst_/myStream/playlist.m3u8
+http://122.248.43.242:1935/JAWAPOSTVSEMARANG/_definst_/myStream/playlist.m3u8
+# Server bozztv.com mati (2 Bangladesh channels)
+https://bozztv.com/rongo/rongo-ATNNews/index.m3u8
+https://bozztv.com/rongo/rongo-AnandaTV/index.m3u8
+# Server streamlock.net bermasalah (2 Local channels)
+https://5bf7b725107e5.streamlock.net/davika/davika/chunklist_w997967539.m3u8
+https://5bf7b725107e5.streamlock.net/tvtabalong/tvtabalong/chunklist_w1267801285.m3u8
+# Channel individual mati
+http://playcom.trapemn.tv:1935/transcoderip/america.stream/playlist.m3u8
+https://dbcanada.sonarbanglatv.com/azantv/atv/index.m3u8
+https://stream10.xdevel.com/video0s977798-2239/stream/playlist.m3u8
+https://goliveafrica.media:9998/live/64227f58b8413/index.m3u8
+https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/master.m3u8
+https://jstre.am/live/jsl:7A1swL7Fhlh.m3u8
+https://fast-tailor.3catdirectes.cat/v1/channel/bunquer/hls.m3u8
+http://185.9.2.18/chid_326/index.m3u8
+https://jmp2.uk/plu-6299e5afdd5833000727e795.m3u8
