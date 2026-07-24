@@ -85,8 +85,58 @@ GROUP_NORMALIZE_MAP: dict[str, str] = {
     "tv malaysia": "Malaysia",
     "tv jepang": "Japan",
     "korean channels": "Korea",
+    "trial idh": "__TRIAL_IDH__",
 }
 _RE_GROUP_TITLE = re.compile(r'group-title="([^"]*)"')
+
+# Channel-name → target group for Trial IDH members.
+TRIAL_IDH_REMAP: dict[str, str] = {
+    "RCTI": "Indonesia Channels",
+    "Global TV": "Indonesia Channels",
+    "MNC TV": "Indonesia Channels",
+    "Indosiar": "Nasional",
+    "Kompas TV": "Indonesia Channels",
+    "TV One": "Indonesia Channels",
+    "Nusantara TV": "Indonesia Channels",
+    "Rajawali TV": "Indonesia Channels",
+    "Berita Satu": "Indonesia Channels",
+    "Jawa Pos": "Local Channels",
+    "Bali TV": "Local Channels",
+    "Jak TV": "Local Channels",
+    "JTV": "Local Channels",
+    "Prambors TV": "Internet Radio",
+    "TVRI": "TVRI",
+    "TVRI World": "TVRI",
+    "Usee Sport": "Sports Indo",
+    "Boomerang": "Kids",
+    "CBeebies": "Kids",
+    "IndiKids": "Kids",
+    "My Kids": "Kids",
+    "Nickelodeon": "Kids",
+    "ABC Australia": "Australia",
+    "Arirang": "Korea",
+    "CCTV 4": "China",
+    "CGTN Documentary": "China",
+    "TV5 Monde": "France",
+    "AXN": "MOVIES & ENTERTAINMENT",
+    "HITS": "MOVIES & ENTERTAINMENT",
+    "HITS Movies": "MOVIES & ENTERTAINMENT",
+    "K+": "MOVIES & ENTERTAINMENT",
+    "KIX": "MOVIES & ENTERTAINMENT",
+    "Thrill": "MOVIES & ENTERTAINMENT",
+    "Warner TV": "Entertainment & LifeStyle",
+    "Fashion TV": "Entertainment & LifeStyle",
+    "Rock Action": "MOVIES & ENTERTAINMENT",
+    "Rock Entertainment": "MOVIES & ENTERTAINMENT",
+    "Z Bioskop": "MOVIES & ENTERTAINMENT",
+    "Fight Sport": "Sports",
+    "IDX": "News",
+    "Max Eats": "Entertainment & LifeStyle",
+    "Max Streak": "Entertainment & LifeStyle",
+    "New TV Comprehensive": "Entertainment & LifeStyle",
+    "New TV Finance": "News",
+    "New TV Variety": "Entertainment & LifeStyle",
+}
 
 def normalize_group_title(extinf: str) -> str:
     m = _RE_GROUP_TITLE.search(extinf)
@@ -94,6 +144,12 @@ def normalize_group_title(extinf: str) -> str:
         return extinf
     original = m.group(1)
     canonical = GROUP_NORMALIZE_MAP.get(original.lower(), original)
+    # Trial IDH needs special handling: remap by channel name, not a single target.
+    if canonical == "__TRIAL_IDH__":
+        name_m = re.search(r',(.+)$', extinf)
+        name = name_m.group(1).strip() if name_m else ""
+        remap = TRIAL_IDH_REMAP.get(name, "MOVIES & ENTERTAINMENT")
+        return extinf[: m.start(1)] + remap + extinf[m.end(1):]
     if canonical == original:
         return extinf
     return extinf[: m.start(1)] + canonical + extinf[m.end(1):]
