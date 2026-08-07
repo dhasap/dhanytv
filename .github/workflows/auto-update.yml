@@ -123,6 +123,30 @@ jobs:
           fi
           echo "OTT validation: OK (0 DASH channels)"
 
+      - name: Generate SS IPTV Variant
+        run: |
+          echo "=== Generate SS IPTV Variant (dhanytv-ssiptv.m3u) ==="
+          python3 update-script/make_ssiptv.py \
+            --input dhanytv-ott.m3u \
+            --output dhanytv-ssiptv.m3u
+          EXTINF_CNT=$(grep -c '#EXTINF' dhanytv-ssiptv.m3u || echo 0)
+          URL_CNT=$(grep -c '^https\?://' dhanytv-ssiptv.m3u || true)
+          # Sanity: every #EXTINF must be paired with a stream URL, and no DASH.
+          if [ "$EXTINF_CNT" -lt 100 ]; then
+            echo "ERROR: SS IPTV playlist terlalu sedikit ($EXTINF_CNT EXTINF)."
+            exit 1
+          fi
+          DASH_IN_SSIPTV=$(grep -v '^#' dhanytv-ssiptv.m3u | grep -c '\.mpd' || true)
+          if [ "$DASH_IN_SSIPTV" -gt 0 ]; then
+            echo "ERROR: SS IPTV playlist mengandung DASH (.mpd)!"
+            exit 1
+          fi
+          if grep -qE '#EXTVLCOPT|#KODIPROP|#EXTHTTP' dhanytv-ssiptv.m3u; then
+            echo "ERROR: SS IPTV playlist masih mengandung EXTVLCOPT/KODIPROP/EXTHTTP!"
+            exit 1
+          fi
+          echo "SS IPTV channels: $EXTINF_CNT | URLs: $URL_CNT | validation OK"
+
       - name: Download EPG Sources (Multi-Source)
         run: |
           echo "=== Downloading EPG sources ==="
@@ -221,13 +245,13 @@ jobs:
       - name: Check for Changes
         id: check_changes
         run: |
-          CHANGED_FILES=$(git status --porcelain -- dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/)
+          CHANGED_FILES=$(git status --porcelain -- dhanytv.m3u dhanytv-ott.m3u dhanytv-ssiptv.m3u epg.xml update-script/)
           if [ -z "$CHANGED_FILES" ]; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
             echo "$CHANGED_FILES"
-            git diff --stat dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/ || true
+            git diff --stat dhanytv.m3u dhanytv-ott.m3u dhanytv-ssiptv.m3u epg.xml update-script/ || true
           fi
 
       - name: Commit and Push Changes
@@ -235,12 +259,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dhanytv.m3u dhanytv-ott.m3u epg.xml update-script/
+          git add dhanytv.m3u dhanytv-ott.m3u dhanytv-ssiptv.m3u epg.xml update-script/
           COMMIT_DATE=$(date -u '+%Y-%m-%d %H:%M UTC')
           CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
           OTT_CHANNEL_COUNT=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo "0")
           EPG_CHANNELS=$(grep -c '<channel ' epg.xml 2>/dev/null || echo "0")
-          git commit -m "auto-update: Playlist + OTT + EPG ($CHANNEL_COUNT ch, $OTT_CHANNEL_COUNT OTT, $EPG_CHANNELS EPG) - $COMMIT_DATE"
+          SS_CNT=$(grep -c '#EXTINF' dhanytv-ssiptv.m3u 2>/dev/null || echo "0")
+          git commit -m "auto-update: Playlist + OTT + SSIPTV + EPG ($CHANNEL_COUNT ch, $OTT_CHANNEL_COUNT OTT, $SS_CNT SSIPTV, $EPG_CHANNELS EPG) - $COMMIT_DATE"
           git push
 
       - name: Summary
@@ -252,6 +277,7 @@ jobs:
           echo "Tanggal   : $(date -u '+%Y-%m-%d %H:%M UTC')"
           echo "Channel   : $(grep -c '#EXTINF' dhanytv.m3u 2>/dev/null || echo 'N/A')"
           echo "OTT Ch    : $(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || echo 'N/A')"
+          echo "SS IPTV Ch : $(grep -c '#EXTINF' dhanytv-ssiptv.m3u 2>/dev/null || echo 'N/A')"
           echo "EPG Ch    : $(grep -c '<channel ' epg.xml 2>/dev/null || echo 'N/A')"
           echo "EPG Size  : $(du -h epg.xml 2>/dev/null | cut -f1 || echo 'N/A')"
           echo "Perubahan : ${{ steps.check_changes.outputs.has_changes }}"

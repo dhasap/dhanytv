@@ -61,14 +61,16 @@ Salin salah satu link di bawah ke IPTV player kamu:
 |------|------------|
 | `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv.m3u` | ⭐ Playlist utama (lengkap, termasuk DASH/DRM) |
 | `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv-ott.m3u` | 📺 Playlist OTT-friendly / Smart TV (non-DASH/DRM, HLS saja) |
+| `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv-ssiptv.m3u` | 📱 Playlist khusus **SS IPTV** (Smart TV Samsung/LG, header di-embed di URL) |
 | `https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml` | 🗓️ EPG XMLTV (jadwal acara) |
 
-**Short link:** [`bit.ly/dhanytv`](https://bit.ly/dhanytv) · [`bit.ly/dhanytv-ott`](https://bit.ly/dhanytv-ott) · [`bit.ly/dhanytv-epg`](https://bit.ly/dhanytv-epg)
+**Short link:** [`bit.ly/dhanytv`](https://bit.ly/dhanytv) · [`bit.ly/dhanytv-ott`](https://bit.ly/dhanytv-ott) · [`bit.ly/dhanytv-ssiptv`](https://bit.ly/dhanytv-ssiptv) · [`bit.ly/dhanytv-epg`](https://bit.ly/dhanytv-epg)
 
 | Statistik | Jumlah |
 |-----------|--------|
 | Channel playlist utama | **1100+** |
 | Channel OTT-friendly | **740+** |
+| Channel SS IPTV | **740+** |
 | Channel dengan EPG | **1040+** |
 | Programme entries | **25.000+** |
 | Negara | **27+** |
@@ -98,6 +100,27 @@ Salin salah satu link di bawah ke IPTV player kamu:
 
 EPG sudah tertanam di header playlist. Kalau jadwal tidak muncul, tambah URL EPG manual:
 `https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml`
+
+### 📱 Khusus SS IPTV
+
+**SS IPTV** (Samsung/LG Smart TV, Android, iOS) tidak memahami `#KODIPROP` / `#EXTHTTP`.
+Gunakan playlist khusus: **`dhanytv-ssiptv.m3u`**.
+
+- Hanya **HLS** (tanpa DASH/DRM), semua kanal dari varian OTT (740+).
+- Header `Referer` / `User-Agent` / `Origin` **di-embed** sebagai:
+  - atribut di baris `#EXTINF` (`http-referrer="..."` dll), **dan**
+  - suffix di URL stream (`|Referer=...|User-Agent=...`).
+- Bebas dari `#EXTVLCOPT` / `#KODIPROP` / `#EXTHTTP` yang diabaikan SS IPTV.
+- EPG ditautkan otomatis lewat header `url-tvg` → `epg.xml`.
+
+> Cara isi di SS IPTV: **Add → URL** → tempel
+> `https://raw.githubusercontent.com/dhasap/dhanytv/main/dhanytv-ssiptv.m3u`
+> → **Save**. EPG muncul otomatis.
+>
+> Jika ada kanal yang masih gagal setelah ini (contoh: kanal butuh header yang
+> tidak dikenal SS IPTV build kamu), coba tambahkan header manual lewat
+> **Channel settings** di SS IPTV (Referer / User-Agent), atau pakai playlist
+> utama `dhanytv.m3u` di player ber-DRM.
 
 ### 3. Channel "tidak didukung"?
 
@@ -169,6 +192,7 @@ Source M3U (×2) → merge_source → merge_extra → merge_international → cl
 - ✅ Tambah channel internasional dari [iptv-org](https://github.com/iptv-org/iptv) (27 negara)
 - ✅ Deduplikasi + **buang channel mati otomatis lewat `blocklist.txt`** + fix syntax M3U
 - ✅ Generate playlist OTT-friendly (HLS, non-DRM)
+- ✅ Generate playlist khusus **SS IPTV** (`dhanytv-ssiptv.m3u`: HLS saja, header di-embed sebagai atribut `#EXTINF` + suffix URL, tanpa `#EXTVLCOPT/#KODIPROP/#EXTHTTP`)
 - ✅ Generate EPG XMLTV multi-source (19 sumber)
 - ✅ **Safety gate:** commit dibatalkan kalau channel/EPG anjlok tidak wajar
 
@@ -181,6 +205,7 @@ Trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run work
 ```
 ├── dhanytv.m3u                 # Playlist utama (1040+ channel)
 ├── dhanytv-ott.m3u             # Playlist OTT-friendly (730+ channel, non-DASH/DRM)
+├── dhanytv-ssiptv.m3u         # Playlist khusus SS IPTV (HLS saja, header embedded)
 ├── epg.xml                     # EPG XMLTV (auto-generated, ~9 MB)
 ├── LICENSE                     # MIT License
 ├── DISCLAIMER.md               # Catatan hukum / DMCA
@@ -217,6 +242,9 @@ python3 update-script/merge_international.py
 
 # Cleanup + generate OTT
 python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check
+
+# Generate varian khusus SS IPTV (dari OTT)
+python3 update-script/make_ssiptv.py --input dhanytv-ott.m3u --output dhanytv-ssiptv.m3u
 
 # Generate EPG multi-source
 python3 update-script/generate_epg.py --m3u dhanytv.m3u --output epg.xml
