@@ -659,6 +659,8 @@ http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8
 # <============================================== WorldCup 2026 ===========================================================>
 
 #============================================================== Indonesia Channels ==================================================#
+###https://d2tjypxxy769fn.cloudfront.net/out/v1/e930be336fed49e6b26a7554e113f7a4/index.mpd
+#https://nextgenz.my.id/event/pidio/play.mpd?id=205&type=dash
 #================================================================================= Premium Movies ============================================================================================#
 
 #KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
@@ -666,13 +668,7 @@ http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="USA.HALLMARK" tvg-name="USA HALLMARK" tvg-logo="https://vectorseek.com/wp-content/uploads/2023/08/Hallmark-Channel-Logo-Vector.svg-.png" group-title="Premium Movies",USA HALLMARK
 https://23.237.104.106:8080/USA_HALLMARK/index.m3u8
 #========================================================================= Korean Channels ===============================================================================#
-
-#EXTINF:-1 tvg-id="tvNMovies.id" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_25.png" group-title="Korea",TvN movies HD
-https://202.150.161.212:5000/live/channel30/playlist.m3u8
-
-#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
-#EXTINF:-1 tvg-id="KBS.World.id" tvg-name="KBS World (HD)" tvg-logo="https://mimipipi22.github.io/logo/international/kbsworld.jpg" group-title="Korea",KBS WORLD
-https://119.82.250.109:8080/nl.m3u8?id=1154
+###https://d84q7nw4qf3j3.cloudfront.net/out/v1/9ec31bcce34848d69d4771270ff23ab9/index.mpd
 
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0
 #EXTINF:-1 tvg-id="auto.k.drama" tvg-logo="https://cdn88-accio.its-newid.net/channel/newid_008/lg_channels/img/channel_logo/default/channel_logo.png" group-title="Korea",K-DRAMA+
@@ -2124,6 +2120,9 @@ https://zdf-hls-18.akamaized.net/hls/live/2016501/dach/high/master.m3u8
 #EXTINF:-1 tvg-id="90210.de@DACH" tvg-logo="https://images.pluto.tv/channels/65a67dd13af63d0008257f17/colorLogoPNG.png" group-title="Germany",90210
 https://jmp2.uk/plu-65a67dd13af63d0008257f17.m3u8
 
+#EXTINF:-1 tvg-id="AdriaMusicTelevision.de@SD" tvg-logo="https://i.imgur.com/QoDpnKg.png" group-title="Germany",Adria Music Television
+https://adriaapp.b-cdn.net/1080p/index.m3u8
+
 #EXTINF:-1 tvg-id="AlexBerlin.de@SD" tvg-logo="https://i.imgur.com/eTmHk4e.png" group-title="Germany",Alex Berlin (1080p)
 https://alex-stream.rosebud-media.de/bounce/alexlivetv50.smil/index.m3u8
 
@@ -2156,9 +2155,6 @@ https://jmp2.uk/plu-62bc1784120ba80007935aaa.m3u8
 
 #EXTINF:-1 tvg-id="BadenTVSud.de@SD" tvg-logo="https://badentvsued.s3.welocal.cloud/sources/60631840dfa86.png" group-title="Germany",Baden TV Süd (480p)
 https://cdn.icu.de/rtplive/smil:btvsued.smil/playlist.m3u8
-
-#EXTINF:-1 tvg-id="BBCTravel.us@Germany" tvg-logo="https://i.imgur.com/QiuYWs9.png" group-title="Germany",BBC Travel
-https://jmp2.uk/plu-60e4519e6873180007d3cddb.m3u8
 
 #EXTINF:-1 tvg-id="6ter.fr@SD" tvg-logo="https://i.imgur.com/2nd5Cox.png" group-title="France",6ter (1080p)
 http://145.239.5.177/314/index.m3u8
