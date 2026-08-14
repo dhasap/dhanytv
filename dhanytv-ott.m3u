@@ -3,30 +3,6 @@
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/F6W__Y0wn_7mFW0cOuz7mi7qjWU=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/6441/528cc9.png" group-title="Indonesia Channels",TVRI Nasional (HLS - Tanpa DRM)
 https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
 
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:contentlookup=false
-#EXTVLCOPT:http-user-agent=android-R+
-#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
-#EXTINF:-1 tvg-id="RCTI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/9c-sEWp6Du7DoWDn56cjma0gMpY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/665/337c4d.png" group-title="Indonesia Channels",RCTI HD
-https://rpluz.ben45mcc.workers.dev/index.m3u8?ch=rcti
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:contentlookup=false
-#EXTVLCOPT:http-user-agent=android-R+
-#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
-#EXTINF:-1 tvg-id="MNCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/H-nyot3OCOIHY7qtKmguKyIUeBw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/870/ca65b5.png" group-title="Indonesia Channels",MNC TV
-https://rpluz.ben45mcc.workers.dev/index.m3u8?ch=mnctv
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:contentlookup=false
-#EXTVLCOPT:http-user-agent=android-R+
-#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
-#EXTINF:-1 tvg-id="GTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/6uEQ8IC06gH6XiMTVHtlRr1HAOE=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/778/810229.png" group-title="Indonesia Channels",GTV
-https://rpluz.ben45mcc.workers.dev/index.m3u8?ch=gtv
-
 #EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV (Video)
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
@@ -70,14 +46,6 @@ https://202.150.161.212:5000/live/channel31/playlist.m3u8
 #EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/IRVkD3QGRzroJ4IZzXBpS-0MRls=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/782/e1af8b.png" group-title="Indonesia Channels",ANTV HD (Vidio)
 https://beetv.my.id/stream/vd.m3u8?ch=antv
 
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#KODIPROP:contentlookup=false
-#EXTVLCOPT:http-user-agent=android-R+
-#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
-#EXTINF:-1 tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/BmeGg2IWkB_FAVPDviCk8gP8qcw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/5409/c40666.png" group-title="Indonesia Channels",iNews (RCTI+)
-https://rpluz.ben45mcc.workers.dev/index.m3u8?ch=inews
-
 #EXTINF:-1 tvg-id="KompasTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/Pf8yLSfHEUZeRI9tUzLDR2U8Zow=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/874/042ca3.png" group-title="Indonesia Channels",Kompas TV HD (IDH)
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
 #EXTVLCOPT:http-origin=https://www.dens.tv
@@ -98,6 +66,11 @@ https://op-flashcon-digdayahd-1.dens.tv/h/h12/01.m3u8
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="CNNIndonesia.id" tvg-logo="https://cdn.cnnindonesia.com/cnnid/images/logo_cnn_fav.png?v=10.15.2" group-title="Indonesia Channels",CNN Indonesia (ChannelFeed)
 https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w766556031_b384000_sleng.m3u8
+
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
+#EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
+#EXTINF:-1 tvg-id="auto.sin.po.tv" tvg-logo="https://thumbor.prod.vidiocdn.com/wZs8Xxf9gMUStqOa3fM3rznnDWM=/640x198/filters:quality(70)/vidio-web-prod-user/uploads/user/cover/187019218/ProfileBannerSinPoTV-a703fecf7ac03ff6.png" group-title="Indonesia Channels",SIN PO TV
+https://aspaltvpasti.top/Drmvidbos/Akun121/bosstv.m3u8?id=19046
 
 #EXTINF:-1 tvg-id="Moji" tvg-logo="https://thumbor.prod.vidiocdn.com/g7gTjD2Il1GI4DJULOZ1cv6NSj4=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/206/1823dc.png" group-title="Indonesia Channels",MOJI TV (Dens)
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
@@ -1610,9 +1583,6 @@ https://cdn-1.pishow.tv/live/1211/master.m3u8
 #EXTINF:-1 tvg-id="Andflix.in@HD" tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG0022J67W.png?lock=720x540" group-title="India",&flix HD (1080p)
 http://103.72.101.252:8080/live/1322.m3u8
 
-#EXTINF:-1 tvg-id="Andpictures.in@SD" tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG002FYK4V.png?lock=720x540" group-title="India",&pictures (720p)
-https://trs1.aynaott.com/andpictureshd/index.m3u8
-
 #EXTINF:-1 tvg-id="Andpictures.in@HD" tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG0022J67R.png?lock=720x540" group-title="India",&pictures HD (1080p)
 http://103.72.101.252:8080/live/185.m3u8
 
@@ -1652,6 +1622,9 @@ https://aasthaott.akamaized.net/110923/smil:aasthakannada.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AasthaPrime1.in@SD" tvg-logo="https://i.imgur.com/LyWSMJS.png" group-title="India",Aastha Prime 1 (720p)
 https://aasthaott.akamaized.net/110923/smil:aasthaprime1.smil/master.m3u8
+
+#EXTINF:-1 tvg-id="AasthaTamil.in@SD" tvg-logo="https://i.imgur.com/YQK9ewf.png" group-title="India",Aastha Tamil (480p)
+https://aasthaott.akamaized.net/110923/smil:aasthatamil.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="3HD.th@SD" tvg-logo="https://i.imgur.com/YRiulCU.png" group-title="Thailand",3HD
 https://live-us1.thaimomo.com/live-as/ch3hd-3/playlist.m3u8
@@ -1713,20 +1686,20 @@ https://stream-cdn-iad3.vaughnsoft.net/play/live_cartoonchannelph.flv
 #EXTINF:-1 tvg-id="CineMo.ph@SD" tvg-logo="https://i.imgur.com/rGAOD3f.png" group-title="Philippines",Cinemo (480p)
 https://streams.comclark.com/pknsd/cinemo/playlist.m3u8
 
+#EXTINF:-1 tvg-id="DZMMTeleRadyo.ph@SD" tvg-logo="https://i.imgur.com/qKyLqhd.png" group-title="Philippines",DZMM TeleRadyo (480p)
+https://streams.comclark.com/pknsd/teleradyo/playlist.m3u8
+
+#EXTINF:-1 tvg-id="DZRHNewsTV.ph@SD" tvg-logo="https://i.imgur.com/qe1QqZh.png" group-title="Philippines",DZRHTV (480p)
+https://streams.comclark.com/pknsd/dzrh/playlist.m3u8
+
 #EXTINF:-1 tvg-id="FilAmTVNetwork.us@HD" tvg-logo="https://i.imgur.com/nRiApdI.png" group-title="Philippines",FilAmTV Network (1080p)
 https://cdn.vegasplus.us/vegas/ftv/playlist.m3u8
 
+#EXTINF:-1 tvg-id="INCTV.ph@SD" tvg-logo="https://i.imgur.com/JGSLqA6.png" group-title="Philippines",INC TV (480p)
+https://streams.comclark.com/pknsd/inc_tv/playlist.m3u8
+
 #EXTINF:-1 tvg-id="INTRAVEL.nl@Philippines" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Intravel.png" group-title="Philippines",InTravel (1080p)
 https://amg00861-amg00861c10-rakuten-uk-3152.playouts.now.amagi.tv/playlist.m3u8
-
-#EXTINF:-1 tvg-id="JeepneyTV.ph@SD" tvg-logo="https://i.imgur.com/RNxfhcc.png" group-title="Philippines",Jeepney TV (480p)
-https://streams.comclark.com/pknsd/jeepney/playlist.m3u8
-
-#EXTINF:-1 tvg-id="KapatidTV5.ph@SD" tvg-logo="https://i.imgur.com/xb5lkwG.png" group-title="Philippines",Kapatid TV 5 (480p) [Geo-blocked]
-https://thinkkast.dpdns.org/tkk-ph/i7/kapatid_hd/kapatid.m3u8
-
-#EXTINF:-1 tvg-id="KoolTV.ph@SD" tvg-logo="https://yt3.googleusercontent.com/opqPJfc0Ptd9ohl4R-2hPjaquIAdWuqvRb0T_LBCmfyGznIvfGN0HOlcWZk6Lj2jk11s2Zlk=s1200-c-k-c0x00ffffff-no-rj" group-title="Philippines",Kool TV (720p)
-https://twitch-m3u8.bastypro112.workers.dev/kooltvlive/index.m3u8
 
 #EXTINF:-1 tvg-id="AnGiangTV1.vn@SD" tvg-logo="https://i.imgur.com/mgp6RAU.png" group-title="Vietnam",An Giang TV1 (1080p) [Geo-blocked]
 https://tv.angiangtv.vn/live/kgtv/kgtv.m3u8
@@ -2409,6 +2382,10 @@ https://g5.vxral-slo.transport.edge-access.net/a12/ngrp:a24-100056_all/playlist.
 #EXTINF:-1 tvg-id="ABTVBariloche.ar@SD" tvg-logo="https://i.imgur.com/l4TSfDr.png" group-title="Argentina",ABTV Bariloche
 https://videostream.shockmedia.com.ar/hls/abtvbariloche/abtvbariloche.m3u8
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36
+#EXTINF:-1 tvg-id="AdultSwimLatinAmerica.us@Panregional" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" group-title="Argentina",Adult Swim Latin America (720p)
+https://streamer.metronethn.com/AdultSwim/index.m3u8
+
 #EXTINF:-1 tvg-id="AiredeSantaFe.ar@SD" tvg-logo="https://i.imgur.com/60vSWW0.png" group-title="Argentina",Aire de Santa Fe (1080p)
 https://unlimited1-us.dps.live/airedesantafetv/airedesantafetv.smil/playlist.m3u8
 
@@ -2426,9 +2403,6 @@ https://streaming01.mikrolive.tv/bayrestv/live/playlist.m3u8
 
 #EXTINF:-1 tvg-id="BragadoTV.ar@SD" tvg-logo="https://i.imgur.com/xP88fKG.png" group-title="Argentina",Bragado TV
 https://mp.panelchs.com:1936/8028/ngrp:8028_all/playlist.m3u8
-
-#EXTINF:-1 tvg-id="BravoTV.ar@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/5e/Bravotv.png" group-title="Argentina",Bravo TV (1080p)
-https://redirector.rudo.video/hls-video/c54ac2799874375c81c1672abb700870537c5223/bravo/bravo.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AELatinAmerica.us@Panregional" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/A%26E_Network_logo.svg/960px-A%26E_Network_logo.svg.png" group-title="Colombia",A&E Latin America (1080p)
 http://138.121.15.230:9002/A&E/index.m3u8
