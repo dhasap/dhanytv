@@ -133,6 +133,7 @@ HTTP_KEEP = frozenset([
     "122.248.43.242", "cdn6.163189.xyz", "45.64.97.211",
     "live.serverstreaming.net", "stream.radiojar.com",
     "103.58.160.157", "live-pv-ta.amazon",
+    "202.80.222.20",  # Tvod: hanya layani http:// (https -> 000)
 ])
 
 DEFAULT_UA = (
