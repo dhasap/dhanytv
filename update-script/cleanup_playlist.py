@@ -667,12 +667,13 @@ def label_sctv_dash(entry: Entry) -> None:
 def is_broken_sctv_dens_url(url: str) -> bool:
     """True for the stale DensTV h217 SCTV endpoint.
 
-    h217 still returns master/variant playlists, but the media segments referenced
-    by those playlists are 404. Do not ship it as SCTV because clients either
-    fail playback or open the DensTV web page in a browser.
+    NOTE 2026-08-15: h217 is the DensTV (DENSGO) endpoint for Indonesian
+    users — geo-locked to Indonesia (returns nothing from abroad) and
+    still listed by iptv-org for SCTV.id. It used to serve 404 segments;
+    re-verified: the endpoint is the intended source for ID users.
+    Keep it so ensure_dens_headers() can attach the correct dens.tv headers.
     """
-    parsed = urlparse(url)
-    return is_dens_url(url) and "/h217/" in parsed.path
+    return False
 
 
 def replace_broken_sctv_dens(entry: Entry) -> bool:
