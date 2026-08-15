@@ -15,11 +15,14 @@
 # Tiap tvg-id .id cocok dengan EPG epgshare01 → jadwal real, bukan placeholder.
 
 # --- SCTV (2 sumber) ---
+# Primary = variant 20 (MEDIA-SEQUENCE naik stabil, live sehat).
+# Variant 3 = stream restart-loop (SEQ reset ke 0, playlist kdg kosong) ->
+# penyebab "ngedip/404" saat dipakai sebagai utama; dipertahankan sbg Alt 2.
 #EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV HD
-https://masterplayer.pro:443/live/Kang_pagal12/12Kang_pagal/3.m3u8
+https://masterplayer.pro:443/live/Kang_pagal12/12Kang_pagal/20.m3u8
 
 #EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV HD (Alt 2)
-https://masterplayer.pro:443/live/Kang_pagal12/12Kang_pagal/20.m3u8
+https://masterplayer.pro:443/live/Kang_pagal12/12Kang_pagal/3.m3u8
 
 # --- ANTV (2 sumber) ---
 #EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/IRVkD3QGRzroJ4IZzXBpS-0MRls=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/782/e1af8b.png" group-title="Indonesia Channels",ANTV HD
