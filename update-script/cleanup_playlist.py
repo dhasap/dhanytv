@@ -231,7 +231,7 @@ class Entry:
             # Also check DRM params embedded after the pipe separator in the URL.
             url_tail = url_lower.split("|", 1)[1] if "|" in url_lower else ""
             self._drm = (
-                "license_type=clearkey" in joined
+                "license_type=" in joined
                 or "license_key=" in joined
                 or "license_type=" in url_tail
                 or "/cenc.mpd" in url_lower

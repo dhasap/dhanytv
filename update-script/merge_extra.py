@@ -91,7 +91,8 @@ def inject(target: Path, extras: Path) -> dict:
     # do NOT skip channels that also exist in the source: cleanup_playlist.py
     # dedupes by (tvg-id, url) keeping the FIRST occurrence, so a curated copy
     # placed here wins and the channel is relocated into its curated group.
-    seen_urls: set[str] = set()
+    existing = existing_urls(target_text)
+    seen_urls: set[str] = set(existing)
 
     block: list[str] = []
     for div in dividers:
