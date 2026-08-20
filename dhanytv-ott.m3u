@@ -745,13 +745,9 @@ http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8
 # <============================================== WorldCup 2026 ===========================================================># <============================================== WorldCup 2026 ===========================================================>
 
 #============================================================== Indonesia Channels ==================================================#
+###https://d2xz2v5wuvgur6.cloudfront.net/out/v1/2f1c4190dcf045c9aafc447d54ef7c91/index.mpd
 #======================KITKAT MOVIE GROUP =========================================#
 #================================================================================= Premium Movies ============================================================================================#
-
-#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
-#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
-#EXTINF:-1 tvg-id="USA.HALLMARK" tvg-name="USA HALLMARK" tvg-logo="https://vectorseek.com/wp-content/uploads/2023/08/Hallmark-Channel-Logo-Vector.svg-.png" group-title="Premium Movies",USA HALLMARK
-https://23.237.104.106:8080/USA_HALLMARK/index.m3u8
 #========================================================================= Korean Channels ===============================================================================#
 
 #EXTINF:-1 tvg-id="tvNMovies.id" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_25.png" group-title="Korea",TvN movies HD (V+)
