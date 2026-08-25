@@ -23,7 +23,7 @@
 
 ## ⚽ Nonton Piala Dunia 2026 GRATIS
 
-Piala Dunia FIFA 2026 (11 Juni – 19 Juli 2026). **TVRI memegang hak siar di Indonesia, tapi TIDAK menyiarkan online** via tvri.go.id — gratis hanya lewat **TV digital terestrial (DVB-T2)**, atau online berbayar via **MAXStream (Telkomsel) / Folaplay**. Channel sepak bola lain tersedia di playlist ini, grup **`WorldCup 2026`** + **`⚽ Bola Indonesia`**:
+Piala Dunia FIFA 2026 (11 Juni – 19 Juli 2026). **TVRI memegang hak siar di Indonesia, tapi TIDAK menyiarkan online** via tvri.go.id — gratis hanya lewat **TV digital terestrial (DVB-T2)**, atau online berbayar via **MAXStream (Telkomsel) / Folaplay**. Channel sepak bola lain tersedia di playlist ini, grup **`WorldCup 2026`** + channel bola di **`Indonesia Channels`**:
 
 | Channel | Acara | Format |
 |---------|-------|--------|
@@ -33,7 +33,7 @@ Piala Dunia FIFA 2026 (11 Juni – 19 Juli 2026). **TVRI memegang hak siar di In
 | **TransTV, Trans7, Metro TV** | Bola Indonesia | HLS — jalan di semua player |
 | **beIN Sports, SPOTV, Champions TV** | Liga top Eropa | DASH/DRM — butuh TiviMate / OTT Navigator / Kodi |
 
-> 💡 Kalau muncul **"siaran ini tidak didukung"**, itu channel format **DASH + DRM** — pakai **TiviMate**, **OTT Navigator**, atau **Kodi** (bukan VLC). Atau pilih channel grup **⚽ Bola Indonesia** yang HLS dan jalan di player apa pun.
+> 💡 Kalau muncul **"siaran ini tidak didukung"**, itu channel format **DASH + DRM** — pakai **TiviMate**, **OTT Navigator**, atau **Kodi** (bukan VLC). Atau pilih channel HLS (non-DRM) di grup **Indonesia Channels** yang jalan di player apa pun.
 
 ---
 
@@ -69,7 +69,7 @@ Salin salah satu link di bawah ke IPTV player kamu:
 |-----------|--------|
 | Channel playlist utama | **1100+** |
 | Channel OTT-friendly | **740+** |
-| Channel dengan EPG | **1040+** |
+| Channel dengan EPG | 1000+ (jadwal asli: ~120 channel ID/regional; lainnya placeholder) |
 | Programme entries | **25.000+** |
 | Negara | **27+** |
 | Update | **Otomatis tiap hari** |
@@ -104,7 +104,7 @@ EPG sudah tertanam di header playlist. Kalau jadwal tidak muncul, tambah URL EPG
 Channel **(V+)** / **(DASH/MPD)** memakai format **DASH + DRM ClearKey**. Hanya jalan di player yang support DRM:
 - ✅ **TiviMate**, **OTT Navigator** — native
 - ✅ **Kodi** — install `InputStream Adaptive`
-- ❌ **VLC / player bawaan Smart TV** — tidak support DRM → pakai playlist **OTT** atau channel grup **⚽ Bola Indonesia**
+- ❌ **VLC / player bawaan Smart TV** — tidak support DRM → pakai playlist **OTT** atau channel HLS di grup **Indonesia Channels**
 
 ---
 
@@ -143,7 +143,7 @@ Jadwal acara dalam format **XMLTV** supaya muncul di TiviMate, Kodi, OTT Navigat
 
 | Statistik | Nilai |
 |-----------|-------|
-| Channel dengan EPG | 1040+ (100%) |
+| Channel dengan EPG | 100% ter-cover (jadwal asli + placeholder) |
 | Programme entries | 25.000+ |
 | File size | ~9 MB |
 | Format | XMLTV (`epg.xml`) |
@@ -240,7 +240,7 @@ Channel manual (yang tidak ada di source) ditambahkan di **`update-script/extra_
 <details>
 <summary><b>Channel bola muncul "siaran ini tidak didukung", kenapa?</b></summary>
 
-Channel itu format **DASH + DRM ClearKey**. Player seperti VLC dan player bawaan Smart TV tidak bisa dekripsi DRM. Pakai **TiviMate**, **OTT Navigator**, atau **Kodi** (+ InputStream Adaptive), atau pilih channel grup **⚽ Bola Indonesia** yang HLS.
+Channel itu format **DASH + DRM ClearKey**. Player seperti VLC dan player bawaan Smart TV tidak bisa dekripsi DRM. Pakai **TiviMate**, **OTT Navigator**, atau **Kodi** (+ InputStream Adaptive), atau pilih channel HLS (non-DRM) di grup **Indonesia Channels**.
 </details>
 
 <details>

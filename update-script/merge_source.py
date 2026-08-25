@@ -243,11 +243,25 @@ def _fix_dens_url(raw: str) -> tuple[str, int]:
     return raw, 0
 
 
+def _has_explicit_port(url: str) -> bool:
+    """True when URL carries an explicit port other than :443."""
+    m = re.search(r"://[^/]+:(\d+)(?:[/?|]|$)", url)
+    return bool(m and m.group(1) != "443")
+
+
 def _fix_http_url(raw: str) -> tuple[str, int]:
-    """Convert http→https for URLs not in whitelist. Returns (fixed, changed)."""
+    """Convert http→https for URLs not in whitelist. Returns (fixed, changed).
+
+    Never upgrades hosts on explicit non-443 ports (e.g. :80, :8080): most of
+    those servers speak plain HTTP only, and forcing TLS breaks them entirely
+    (confirmed dead: 013tv.com:8080, iptvtree.net:8080, dhoomtv.xyz:80).
+    Staying on http is always safe — worst case the server also serves https.
+    """
     if not raw.startswith("http://"):
         return raw, 0
     if any(d in raw for d in HTTP_KEEP):
+        return raw, 0
+    if _has_explicit_port(raw):
         return raw, 0
     return raw.replace("http://", "https://", 1), 1
 

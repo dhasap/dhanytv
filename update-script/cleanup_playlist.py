@@ -290,16 +290,61 @@ def load_blocklist(path: str = BLOCKLIST_PATH) -> tuple[frozenset[str], tuple[re
                         continue
                 else:
                     exact.add(line)
+                    # Also index the scheme-stripped form so http:// and
+                    # https:// variants of the same dead URL both match.
+                    stripped = re.sub(r"^[a-zA-Z][a-zA-Z0-9+.-]*://", "", line)
+                    if stripped:
+                        exact.add(stripped)
     except FileNotFoundError:
         pass
     return frozenset(exact), tuple(regexes)
 
 
+_RE_URL_PIPE = re.compile(r"^(?P<base>[^|]+)(?:\|(?P<opts>.*))?$")
+_RE_KEY_OPT = re.compile(r"(?:^|[|&,;])\s*license[_-]?key=", re.IGNORECASE)
+
+
+def _drop_keyless_dash_duplicates(urls: list[str]) -> list[str]:
+    """Remove keyless copies of URLs that exist elsewhere with a license key.
+
+    A ClearKey DASH stream is unplayable without its key. When the same base
+    URL appears both bare and with "|...license_key=...", keep only the keyed
+    variant(s).
+    """
+    keyed_bases = set()
+    for u in urls:
+        m = _RE_URL_PIPE.match(u.strip())
+        if m and m.group("opts") and _RE_KEY_OPT.search("|" + m.group("opts")):
+            keyed_bases.add(m.group("base").strip())
+    if not keyed_bases:
+        return urls
+    out = []
+    for u in urls:
+        m = _RE_URL_PIPE.match(u.strip())
+        if (
+            m
+            and (not m.group("opts") or not _RE_KEY_OPT.search("|" + m.group("opts")))
+            and m.group("base").strip() in keyed_bases
+        ):
+            continue  # keyless twin of a keyed entry — drop
+        out.append(u)
+    return out
+
+
 def is_blocked(url: str, blocklist: tuple[frozenset[str], tuple[re.Pattern, ...]]) -> bool:
-    """True when a stream URL is on the dead-stream blocklist."""
+    """True when a stream URL is on the dead-stream blocklist.
+
+    Scheme-insensitive: merge_source used to rewrite http:// to https://, so
+    blocked http:// entries would silently stop matching their https:// twins.
+    Compare on scheme-stripped form for exact matches; regex entries still see
+    the full URL.
+    """
     exact, regexes = blocklist
     u = url.strip()
     if u in exact:
+        return True
+    u_noscheme = re.sub(r"^[a-zA-Z][a-zA-Z0-9+.-]*://", "", u)
+    if u_noscheme and u_noscheme in exact:
         return True
     return any(rx.search(u) for rx in regexes)
 
@@ -759,6 +804,8 @@ def clean_items(
             entry._dash = None
             entry._drm = None
 
+        # Keyless duplicates of ClearKey DASH entries are dropped by the
+        # global pass below (they live in different entries).
         if not entry.urls:
             stats["entries_no_url_removed"] += 1
             continue
@@ -829,6 +876,31 @@ def clean_items(
             seen_urls[candidate.url] = len(cleaned)
             cleaned.append(candidate)
             stats["entries_kept"] += 1
+
+    # Global pass: drop keyless copies of ClearKey DASH URLs that also exist
+    # (in any entry) with a "|...license_key=..." suffix. The keyless copy
+    # can't decrypt; keeping both wastes a channel slot on the same stream.
+    keyed_bases = {
+        u.split("|", 1)[0].strip()
+        for it in cleaned
+        if isinstance(it, Entry)
+        for u in it.urls
+        if "|" in u and _RE_KEY_OPT.search(u.split("|", 1)[1])
+    }
+    if keyed_bases:
+        for it in cleaned:
+            if isinstance(it, Entry):
+                before = len(it.urls)
+                it.urls = [
+                    u for u in it.urls
+                    if not (
+                        ("|" not in u or not _RE_KEY_OPT.search(u.split("|", 1)[1]))
+                        and u.split("|", 1)[0].strip() in keyed_bases
+                    )
+                ]
+                if len(it.urls) < before:
+                    stats["keyless_dash_dupes_removed"] = stats.get("keyless_dash_dupes_removed", 0) + (before - len(it.urls))
+        cleaned = [it for it in cleaned if not (isinstance(it, Entry) and not it.urls)]
 
     if prioritize_sctv_preferred(cleaned):
         stats["sctv_preferred_prioritized"] = 1
