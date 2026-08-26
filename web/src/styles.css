@@ -1,4 +1,5 @@
 /* dhanytv web — dark-first IPTV interface */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
   --bg: #0e1013;
@@ -45,6 +46,7 @@ body {
     var(--bg);
   color: var(--text);
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: -.011em;
   font-size: 15px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -138,7 +140,7 @@ button { font-family: inherit; cursor: pointer; }
 .card .thumb img { max-width: 82%; max-height: 60px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); }
 .card .thumb .ph { font-weight: 800; font-size: 1.35rem; color: #454e5c; letter-spacing: -.02em; }
 .card .meta { padding: 9px 11px 11px; border-top: 1px solid var(--border-soft); }
-.card .name { font-weight: 600; font-size: .88rem; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card .name { font-weight: 620; font-size: .88rem; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; mask-image: linear-gradient(90deg,#000 92%,transparent); }
 .card .group { font-size: .71rem; color: var(--text-muted); margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card .now { font-size: .73rem; color: var(--text-muted); margin-top: 6px; display: flex; align-items: center; gap: 5px; min-height: 16px; }
 .card .now b { color: var(--text); font-weight: 550; }
@@ -204,7 +206,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ---------- Home rows ---------- */
 .hrow { margin-bottom: 28px; }
-.row-title { font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
+.row-title { font-size: 1.04rem; font-weight: 750; letter-spacing: -.015em; margin: 0 0 13px; display: flex; align-items: center; gap: 9px; padding-left: clamp(16px,3vw,28px); margin-left: calc(-1 * clamp(16px,3vw,28px)); }
 .row-title::before { content: ""; width: 3px; height: 16px; background: var(--accent); border-radius: 2px; }
 .row-scroll { display: flex; gap: 11px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x proximity; }
 .row-scroll::-webkit-scrollbar { height: 5px; }
