@@ -153,6 +153,17 @@ https://op-flashcon-digdayahd-1.dens.tv/h/h210/01.m3u8
 #EXTVLCOPT:http-user-agent=DENSGO/3.00.00 (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1
 https://op-flashcon-digdayahd-1.dens.tv/s/s104/01.m3u8
 
+
+# --- Fubo Sports (aiv-cdn, Widevine DRM - butuh player support DRM) ---
+# Diverifikasi hidup 2026-08-26 (manifest cenc.mpd 200). Hilang sebelumnya karena
+# blocklist regex yang terlalu luas; sudah diperbaiki.
+
+#EXTINF:-1 tvg-id="auto.fubo.sports.1" tvg-logo="https://i.ibb.co.com/7Md2qy9/fubosp.png" group-title="Sports",FUBO SPORTS 1
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/out/v1/9f14895badca43e6a716db021dcd0c31/cenc.mpd
+
+#EXTINF:-1 tvg-id="auto.fubo.sports.2" tvg-logo="https://i.ibb.co.com/7Md2qy9/fubosp.png" group-title="Sports",FUBO SPORTS 2
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd
+
 # <============================================== WorldCup 2026 ===========================================================>
 
 # --- FIFA WORLD CUP 2026 — NON-DRM HLS (replaced DRM versions 2026-07-07) ---
