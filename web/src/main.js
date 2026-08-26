@@ -430,12 +430,13 @@ function bindSettings() {
 }
 function initTheme() {
   const saved = localStorage.getItem('dhany_theme');
-  const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-  document.documentElement.classList.toggle('dark', dark);
+  const dark = saved ? saved === 'dark' : (saved === null ? true : matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('light', !dark);
 }
 function toggleTheme() {
-  const dark = !document.documentElement.classList.contains('dark');
-  document.documentElement.classList.toggle('dark', dark);
+  const light = document.documentElement.classList.contains('light');
+  const dark = !light;
+  document.documentElement.classList.toggle('light', !dark);
   localStorage.setItem('dhany_theme', dark ? 'dark' : 'light');
 }
 function registerSW() {
