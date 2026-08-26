@@ -267,6 +267,20 @@ Server stream berubah sewaktu-waktu. Auto-update harian membersihkan link mati. 
 EPG sudah tertanam di header playlist. Kalau tidak muncul, tambah manual URL `epg.xml` di setting EPG player kamu, lalu refresh.
 </details>
 
+
+**Kenapa muncul "unable to resolve host op-group1-swiftservehd-1.dens.tv"?**
+
+Channel DensTV hanya resolve lewat DNS ISP partner dens.tv (First Media/MyRepublic/CBN). Jika kamu pakai DNS publik (8.8.8.8/1.1.1.1) atau ISP non-partner, hostname tidak bisa di-resolve — ini proteksi resmi dens.tv, bukan bug playlist. Sebagian channel sudah diganti ke edge `flashcon` yang resolve global (Indosiar, MDTV, Kompas Alt-3).
+
+**Kenapa muncul "403 key salah/tidak ada" pada RCTI/MNCTV/GTV/ANTV/tvOne versi V+?**
+
+Entri V+ memakai stream ber-DRM vidio dengan clearkey publik yang dirotasi berkala oleh vidio. Solusi: pakai entri **(HD)** via worker non-DRM (`mncmedia.malingtv.workers.dev`) untuk RCTI/MNCTV/GTV/iNews — tanpa key, jalan di semua player & semua ISP.
+
+**Kenapa SCTV/ANTV/MOJI/TVOne/Metro tetap error padahal IP Indonesia?**
+
+Encoder dens.tv untuk channel-channel ini sedang mati di edge publik (manifest menyajikan segmen lama yang sudah terhapus). Satu-satunya jalur aktif saat ini melalui koneksi ISP partner + DNS default ISP.
+
+
 ---
 
 ## ⚠️ Disclaimer
