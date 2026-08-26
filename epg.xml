@@ -161,6 +161,11 @@
     <icon src="https://image-resizer-cloud-cdn.api.cms.amdvids.com/image/7382296F-97F6-4450-B77B-8FE331FC04F6/3-1x1.png" />
     <url>https://github.com/dhasap/dhanytv</url>
   </channel>
+  <channel id="plex.tv.MotoGP.Channel.plex">
+    <display-name lang="id">MotoGP Channel</display-name>
+    <icon src="https://cdn.motorsport.com/images/mgl/YN1RZ4b2/s1000/motogp-logo.jpg" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
   <channel id="auto.tnt.sports.1">
     <display-name lang="id">TNT SPORTS 1</display-name>
     <icon src="https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/01/TNT-Sports-Logo.png" />
@@ -204,6 +209,21 @@
   <channel id="SPOTV2.id">
     <display-name>SPOTV 2.id</display-name>
     <icon src="https://images.open-epg.com/x1358.png" />
+  </channel>
+  <channel id="auto.fubo.sports.1">
+    <display-name lang="id">FUBO SPORTS 1</display-name>
+    <icon src="https://i.ibb.co.com/7Md2qy9/fubosp.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="auto.fubo.sports.2">
+    <display-name lang="id">FUBO SPORTS 2</display-name>
+    <icon src="https://i.ibb.co.com/7Md2qy9/fubosp.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="auto.hbo.boxing">
+    <display-name lang="id">HBO Boxing</display-name>
+    <icon src="https://www.thefightcity.com/wp-content/uploads/2019/10/HBO-logo-image-1.jpg" />
+    <url>https://github.com/dhasap/dhanytv</url>
   </channel>
   <channel id="FightSports.id">
     <display-name>Fight Sports.id</display-name>
@@ -295,6 +315,21 @@
     <icon src="https://www.lyngsat-logo.com/logo/tv/jj/j_sports_jp.png" />
     <url>https://github.com/dhasap/dhanytv</url>
   </channel>
+  <channel id="auto.sporttv.1">
+    <display-name lang="id">SportTV 1</display-name>
+    <icon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjW04JBhtv5zAMHJPs9J50hcOQM1Mr6H5YNg&amp;s" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="auto.sporttv.2">
+    <display-name lang="id">SportTV 2</display-name>
+    <icon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU4sgZZUSkmDqgJs1fIynGbzFfuY8ysERWtw&amp;s" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="auto.sporttv.3">
+    <display-name lang="id">SportTV 3</display-name>
+    <icon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2njIc8G4n315bL98yqaOl8vB7j0Qdx5Ejrw&amp;s" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
   <channel id="auto.espn.3">
     <display-name lang="id">ESPN 3</display-name>
     <icon src="https://i.imgur.com/ADc4YF5.jpg" />
@@ -320,6 +355,41 @@
   </channel>
   <channel id="auto.dgs.3">
     <display-name lang="id">DGS 3</display-name>
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="TSN 1">
+    <display-name lang="id">TSN 1</display-name>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/TSN1.svg/2560px-TSN1.svg.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="TSN 2">
+    <display-name lang="id">TSN 2</display-name>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/TSN2_New_Logo.svg/2560px-TSN2_New_Logo.svg.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="TSN 3">
+    <display-name lang="id">TSN 3</display-name>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/TSN3.svg/2560px-TSN3.svg.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="FOX SPORTS.mx">
+    <display-name lang="id">FOX SPORTS 1</display-name>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fox_Sports_1_logo.svg/2560px-Fox_Sports_1_logo.svg.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="FOX SPORTS 2.mx">
+    <display-name lang="id">FOX SPORTS 2</display-name>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Fox_sports_2_logo.svg/2560px-Fox_sports_2_logo.svg.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="FOX SPORTS 3.mx">
+    <display-name lang="id">FOX SPORTS 3</display-name>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Fox_sports_3_logo.svg/2560px-Fox_sports_3_logo.svg.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
+  <channel id="FOX SPORTS PREMIUM.mx">
+    <display-name lang="id">FOX SPORTS PREMIUM</display-name>
+    <icon src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Fox_Sports_Premium_%28Argentina%29_-_2018_logo.png" />
     <url>https://github.com/dhasap/dhanytv</url>
   </channel>
   <channel id="auto.sky.sports.laliga">
@@ -852,6 +922,11 @@
     <display-name lang="id">GALAXY Premium</display-name>
     <icon src="https://static.wikia.nocookie.net/logos/images/1/19/Galaxy_tv_2020.png/revision/latest/scale-to-width-down/1200?cb=20241026110710&amp;path-prefix=id" />
   </channel>
+  <channel id="auto.miramax.film">
+    <display-name lang="id">Miramax Film</display-name>
+    <icon src="https://art.pixilart.com/afe9e5311aad7d6.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
   <channel id="auto.mn">
     <display-name lang="id">MN+</display-name>
     <icon src="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/leazcc.jpeg" />
@@ -974,9 +1049,18 @@
     <icon src="https://upload.wikimedia.org/wikipedia/commons/a/af/HistoryHD_Logo_2015_4C_Black_type.png" />
     <url>https://github.com/dhasap/dhanytv</url>
   </channel>
+  <channel id="auto.bbc.treasures">
+    <display-name lang="id">BBC Treasures</display-name>
+    <icon src="https://images.ctfassets.net/xjuw11dfold3/7D9R6Lt76cBTPyRRpV9eit/64aba6ff966a6b286cbadd55aaf2d0ab/BBC-client-logo-256x256.png" />
+    <url>https://github.com/dhasap/dhanytv</url>
+  </channel>
   <channel id="CGTNDocumentary.id">
     <display-name>CGTN Documentary.id</display-name>
     <icon src="https://images.open-epg.com/x1338.png" />
+  </channel>
+  <channel id="NAT_GEO_SHARKS">
+    <display-name lang="id">Nat Geo Sharks</display-name>
+    <url>https://github.com/dhasap/dhanytv</url>
   </channel>
   <channel id="DiscoveryChannel">
     <display-name lang="en">Discovery Channel HD</display-name>
@@ -46870,6 +46954,18 @@
     <title lang="id">Jadwal belum tersedia</title>
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
   </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="plex.tv.MotoGP.Channel.plex">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="plex.tv.MotoGP.Channel.plex">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="plex.tv.MotoGP.Channel.plex">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
   <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.tnt.sports.1">
     <title lang="id">Jadwal belum tersedia</title>
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
@@ -48916,6 +49012,42 @@
   </programme>
   <programme start="20260830215500 +0700" stop="20260831025500 +0700" channel="SPOTV2.id">
     <title lang="id">2026 US Open Tennis C'ships (L)</title>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.fubo.sports.1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.fubo.sports.1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.fubo.sports.1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.fubo.sports.2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.fubo.sports.2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.fubo.sports.2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.hbo.boxing">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.hbo.boxing">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.hbo.boxing">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
   </programme>
   <programme start="20260825110000 +0000" stop="20260825133000 +0000" channel="FightSports.id">
     <title>Mega Fights S1, Ep 22</title>
@@ -59038,6 +59170,42 @@
     <title lang="id">Jadwal belum tersedia</title>
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
   </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.sporttv.1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.sporttv.1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.sporttv.1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.sporttv.2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.sporttv.2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.sporttv.2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.sporttv.3">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.sporttv.3">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.sporttv.3">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
   <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.espn.3">
     <title lang="id">Jadwal belum tersedia</title>
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
@@ -59107,6 +59275,90 @@
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
   </programme>
   <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.dgs.3">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="TSN 1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="TSN 1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="TSN 1">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="TSN 2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="TSN 2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="TSN 2">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="TSN 3">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="TSN 3">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="TSN 3">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="FOX SPORTS.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="FOX SPORTS.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="FOX SPORTS.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="FOX SPORTS 2.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="FOX SPORTS 2.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="FOX SPORTS 2.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="FOX SPORTS 3.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="FOX SPORTS 3.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="FOX SPORTS 3.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="FOX SPORTS PREMIUM.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="FOX SPORTS PREMIUM.mx">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="FOX SPORTS PREMIUM.mx">
     <title lang="id">Jadwal belum tersedia</title>
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
   </programme>
@@ -136696,6 +136948,18 @@
   <programme start="20260831225000 +0700" stop="20260901003500 +0700" channel="GALAXYPremium.id">
     <title lang="id">The Other Guys</title>
   </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.miramax.film">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.miramax.film">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.miramax.film">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
   <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.mn">
     <title lang="id">Jadwal belum tersedia</title>
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
@@ -165714,6 +165978,18 @@
     <title lang="id">Jadwal belum tersedia</title>
     <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
   </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="auto.bbc.treasures">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="auto.bbc.treasures">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="auto.bbc.treasures">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
   <programme start="20260825120000 +0000" stop="20260825130000 +0000" channel="CGTNDocumentary.id">
     <title>China's Food Culture</title>
     <desc>Food in Shenzhen embodies the aspirations of young people, the fusion of Eastern and Western cultures, adherence to tradition, and innovation.</desc>
@@ -168801,6 +169077,18 @@
   </programme>
   <programme start="20260831223000 +0700" stop="20260901000000 +0700" channel="CGTNDocumentary.id">
     <title lang="id">Wisdom's Breath, Ep 8</title>
+  </programme>
+  <programme start="20260825000000 +0700" stop="20260826000000 +0700" channel="NAT_GEO_SHARKS">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260826000000 +0700" stop="20260827000000 +0700" channel="NAT_GEO_SHARKS">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
+  </programme>
+  <programme start="20260827000000 +0700" stop="20260828000000 +0700" channel="NAT_GEO_SHARKS">
+    <title lang="id">Jadwal belum tersedia</title>
+    <desc lang="id">EPG asli belum tersedia untuk channel ini. Channel dibuat agar tetap terbaca oleh IPTV player.</desc>
   </programme>
   <programme start="20260805164300 +0000" stop="20260805173800 +0000" channel="DiscoveryChannel">
     <title lang="en">Expedition Files S2</title>
