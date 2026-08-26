@@ -143,6 +143,14 @@ DEFAULT_UA = (
 
 DEFAULT_REFERRER = "https://www.dens.tv/"
 
+# ── ClearKey overrides (Widevine license servers yang mati) ──────────────
+# Source menempelkan license URL Widevine pihak ketiga (bintangstreaming dll)
+# yang 403. Clearkey berikut terverifikasi KID-nya cocok dengan manifest vidio.
+CLEARKEY_OVERRIDES: dict[str, str] = {
+    # TransTV / Trans7 (vidio CloudFront)
+    "7a69cfc9e135493f87ac4efd63000429": "764e726a234a435c87a82e4a1da6a69b:0de18199ebb3316e3aed8529e39542b7",
+}
+
 # ── dens.tv replacement map ──────────────────────────────────
 DENS_REPLACEMENTS: dict[str, dict] = {
     "h217": {  # SCTV
@@ -427,6 +435,38 @@ def _dedupe_props(lines: list[str]) -> list[str]:
     return cleaned
 
 
+def _apply_clearkey_overrides(lines: list[str]) -> list[str]:
+    """Replace dead Widevine license props with verified clearkeys."""
+    out = list(lines)
+    replaced = 0
+    for frag, ck in CLEARKEY_OVERRIDES.items():
+        url_idx = next((i for i, l in enumerate(out) if l.startswith("http") and frag in l), None)
+        if url_idx is None:
+            continue
+        # walk backwards from the URL past all # comment lines to find the
+        # license_type and license_key props belonging to this entry
+        key_idx = None
+        type_idx = None
+        j = url_idx - 1
+        while j >= 0:
+            l = out[j]
+            if not l.startswith("#") or "#EXTM3U" in l:
+                break
+            if "license_key=" in l:
+                key_idx = j
+            if "license_type=" in l:
+                type_idx = j
+            j -= 1
+        if key_idx is None or type_idx is None:
+            continue
+        out[type_idx] = "#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey"
+        out[key_idx] = f"#KODIPROP:inputstream.adaptive.license_key={ck}"
+        replaced += 1
+    if replaced:
+        print(f"  clearkey overrides applied: {replaced}")
+    return out
+
+
 def merge(
     source_path: Path,
     target_path: Path,
@@ -496,6 +536,9 @@ def merge(
             stats["epg_fixed"] += mapped
 
         output.append(raw)
+
+    # Phase 1b: apply ClearKey overrides (dead Widevine license URLs)
+    output = _apply_clearkey_overrides(output)
 
     # Phase 2: Add missing dens.tv referrers
     output = _add_missing_referrers(output)
