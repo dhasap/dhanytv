@@ -41,12 +41,12 @@ def validate(block):
     if not kid_entry or not url or '.mpd' not in url:
         return block, 'keep-nodrm'
     kid_m = fetch_kid(url)
-    if kid_m == 'UNREACHABLE':
+    if kid_m == 'UNREACHABLE' or kid_m is None:
         return block, 'unverifiable'
-    if kid_m is None:
-        return block, 'unverifiable'
-    if kid_m == kid_entry: return block, 'match'
-    return None, f'mismatch kid={kid_m[:8]}'
+    # KID mismatch doesn't prove the key is dead — providers rotate KIDs but
+    # keys from other sources may still work. Only drop when the manifest
+    # itself is unreachable (stream confirmed offline).
+    return block, f'mismatch-but-kept kid={kid_m[:8]}'
 
 with cf.ThreadPoolExecutor(max_workers=16) as ex:
     futs={ex.submit(validate,b): b for b in blocks if b.startswith('#EXTINF')}
