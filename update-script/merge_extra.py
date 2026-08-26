@@ -125,15 +125,12 @@ def inject(target: Path, extras: Path) -> dict:
     _ck_re = _re.compile(r"license_type=.*clearkey", _re.IGNORECASE)
     for entry in entries:
         url = entry["url"]
-        if url in seen_urls:
-            # If this extra has a clearkey and the target copy doesn't,
-            # replace the keyless copy with the keyed one.
-            if any(_ck_re.search(p) for p in entry.get("props", [])):
-                _replace_keyless_entry(target, url)
-                added += 1
-                continue
+        has_ck_props = any(_ck_re.search(p) for p in entry.get("props", []))
+        if url in seen_urls and not has_ck_props:
             skipped += 1
             continue
+        # Clearkey entries always get injected even if URL already exists —
+        # they carry the working decryption key.
         block.append("")
         block.extend(entry["props"])
         block.append(entry["extinf"])

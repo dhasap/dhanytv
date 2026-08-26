@@ -149,6 +149,7 @@ DEFAULT_REFERRER = "https://www.dens.tv/"
 CLEARKEY_OVERRIDES: dict[str, str] = {
     # TransTV / Trans7 (vidio CloudFront)
     "7a69cfc9e135493f87ac4efd63000429": "764e726a234a435c87a82e4a1da6a69b:0de18199ebb3316e3aed8529e39542b7",
+    "7b0404cd6a8a4a908123f10774854e46": "8ee7df15ff584967a3eb7b885bafc71e:9a297bf2200eee7dee21b9ace9f57c77",
 }
 
 # ── dens.tv replacement map ──────────────────────────────────
