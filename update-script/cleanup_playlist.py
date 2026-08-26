@@ -853,12 +853,18 @@ def clean_items(
             # Same stream with a different pipe-header suffix (e.g. one entry
             # carries |User-Agent=...) is still the same channel — compare on
             # the bare URL so these variants dedupe too.
-            # Exception: entries WITH a clearkey license pair beat keyless
-            # duplicates from the source, since only the keyed copy can decrypt.
+            # Clearkey entries always beat keyless duplicates of the same URL,
+            # since only the keyed copy can decrypt. This check runs before
+            # the generic duplicate removal below.
             bare_url = candidate.url.split("|", 1)[0]
-            cand_has_ck = any("license_type=" in p and "clearkey" in p for p in candidate.props)
-            if bare_url in seen_bare_urls and not cand_has_ck:
-                stats["duplicates_removed"] += 1
+            cand_has_ck = any("license_type=" in p for p in candidate.props)
+            if cand_has_ck and bare_url in seen_bare_urls:
+                # Replace the existing keyless entry with this keyed one
+                for idx2, item2 in enumerate(cleaned):
+                    if isinstance(item2, Entry) and item2.url.split("|",1)[0] == bare_url:
+                        cleaned[idx2] = candidate
+                        stats["duplicates_removed"] += 1
+                        break
                 continue
             # Also drop entries whose URL already appeared (regardless of
             # tvg-id) — the same stream should never ship twice.

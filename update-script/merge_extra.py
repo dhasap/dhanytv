@@ -82,6 +82,25 @@ def existing_urls(text: str) -> set[str]:
     return urls
 
 
+def _replace_keyless_entry(target: Path, url: str) -> None:
+    """Replace a keyless duplicate entry (same base URL) with a keyed version."""
+    lines = target.read_text(encoding="utf-8", errors="replace").splitlines()
+    base = url.split("|")[0].rstrip("/")
+    for i, l in enumerate(lines):
+        if l.startswith("http") and l.split("|")[0].rstrip("/") == base:
+            # walk backwards to find license lines for this entry and replace them
+            j = i - 1
+            while j >= 0 and lines[j].startswith("#") and "#EXTINF" not in lines[j]:
+                if "license_key=" in lines[j] and "://" in lines[j]:
+                    lines[j] = "#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey"
+                    lines.insert(j + 1, f"#KODIPROP:inputstream.adaptive.license_key={url.split('|')[1].strip()}")
+                    break
+                j -= 1
+            break
+    target.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+
 def inject(target: Path, extras: Path) -> dict:
     target_text = target.read_text(encoding="utf-8", errors="replace")
     extras_lines = extras.read_text(encoding="utf-8", errors="replace").splitlines()
@@ -100,8 +119,19 @@ def inject(target: Path, extras: Path) -> dict:
         block.append(div)
     added = 0
     skipped = 0
+    # Map bare URL -> props of existing target entries, so we can detect which
+    # ones lack a clearkey. A clearkey extra replaces its keyless twin.
+    import re as _re
+    _ck_re = _re.compile(r"license_type=.*clearkey", _re.IGNORECASE)
     for entry in entries:
-        if entry["url"] in seen_urls:
+        url = entry["url"]
+        if url in seen_urls:
+            # If this extra has a clearkey and the target copy doesn't,
+            # replace the keyless copy with the keyed one.
+            if any(_ck_re.search(p) for p in entry.get("props", [])):
+                _replace_keyless_entry(target, url)
+                added += 1
+                continue
             skipped += 1
             continue
         block.append("")
