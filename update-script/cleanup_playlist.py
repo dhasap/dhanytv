@@ -853,8 +853,11 @@ def clean_items(
             # Same stream with a different pipe-header suffix (e.g. one entry
             # carries |User-Agent=...) is still the same channel — compare on
             # the bare URL so these variants dedupe too.
+            # Exception: entries WITH a clearkey license pair beat keyless
+            # duplicates from the source, since only the keyed copy can decrypt.
             bare_url = candidate.url.split("|", 1)[0]
-            if bare_url in seen_bare_urls:
+            has_ck = "license_type=" in candidate.extinf and "license_key=" in candidate.extinf and "http" not in candidate.extinf
+            if bare_url in seen_bare_urls and not has_ck:
                 stats["duplicates_removed"] += 1
                 continue
             # Also drop entries whose URL already appeared (regardless of
