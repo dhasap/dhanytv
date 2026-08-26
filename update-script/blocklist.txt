@@ -194,7 +194,6 @@ http://playcom.trapemn.tv:1935/transcoderip/america.stream/playlist.m3u8
 https://dbcanada.sonarbanglatv.com/azantv/atv/index.m3u8
 https://stream10.xdevel.com/video0s977798-2239/stream/playlist.m3u8
 https://goliveafrica.media:9998/live/64227f58b8413/index.m3u8
-https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/master.m3u8
 https://jstre.am/live/jsl:7A1swL7Fhlh.m3u8
 https://fast-tailor.3catdirectes.cat/v1/channel/bunquer/hls.m3u8
 http://185.9.2.18/chid_326/index.m3u8
@@ -217,3 +216,7 @@ https://23.237.104.106:8080/USA_MTV/index.m3u8
 https://ams.juraganstreaming.com:5443/LiveApp/streams/pktv.m3u8
 https://unifi-live07.secureswiftcontent.com/UnifiHD/live11.mpd
 https://btv.secureswiftcontent.com/han/btv/btv10005/srtoutput/manifest.m3u8
+
+# --- 2026-08-26: masterplayer.pro Kang_pagal paths 404 massal (kecuali /10 Kompas) ---
+re:masterplayer\.pro(?::443)?/live/Kang_pagal12/12Kang_pagal/(1|2|5|6|9|11|19|20|21|24|25|29|30|35|478)\.m3u8
+re:beetv\.my\.id
