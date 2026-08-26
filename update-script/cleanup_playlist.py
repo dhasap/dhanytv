@@ -677,9 +677,11 @@ def extract_items(lines: list[str]) -> tuple[str, list[str | Entry], dict[str, i
             if pending_props:
                 stats["orphan_props"] += len(pending_props)
                 pending_props = []
-            # Drop commented-out channels/URLs, keep section/comments.
-            if not normalized.startswith(("##http", "###EXTINF", "##https")):
-                items.append(normalized)
+            # Drop commented-out channels/URLs/props (##http, ###EXTINF,
+            # ####KODIPROP, ###https, ...), keep section/comments.
+            if re.match(r"^#{2,}(?:https?://|EXTINF|KODIPROP|EXTVLCOPT|EXTGRP|EXTHTTP)", normalized):
+                continue
+            items.append(normalized)
             continue
 
         # Any remaining plain text is invalid in M3U. Preserve as comment.
@@ -767,6 +769,8 @@ def clean_items(
     # is never shipped twice (even with different tvg-id or channel name).
     # Maps URL → index in cleaned, so we can replace with a preferred group.
     seen_urls: dict[str, int] = {}
+    # Bare URLs (no pipe-header suffix) seen so far, for variant-insensitive dedupe.
+    seen_bare_urls: set[str] = set()
 
     # Groups that should win when two entries share the same URL.
     PREFERRED_GROUPS = frozenset({
@@ -846,6 +850,13 @@ def clean_items(
             if key in seen:
                 stats["duplicates_removed"] += 1
                 continue
+            # Same stream with a different pipe-header suffix (e.g. one entry
+            # carries |User-Agent=...) is still the same channel — compare on
+            # the bare URL so these variants dedupe too.
+            bare_url = candidate.url.split("|", 1)[0]
+            if bare_url in seen_bare_urls:
+                stats["duplicates_removed"] += 1
+                continue
             # Also drop entries whose URL already appeared (regardless of
             # tvg-id) — the same stream should never ship twice.
             # Exception: if the new candidate is in a preferred group (e.g.
@@ -874,6 +885,7 @@ def clean_items(
                 continue
             seen.add(key)
             seen_urls[candidate.url] = len(cleaned)
+            seen_bare_urls.add(bare_url)
             cleaned.append(candidate)
             stats["entries_kept"] += 1
 
