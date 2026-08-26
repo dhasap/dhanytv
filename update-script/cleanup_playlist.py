@@ -856,8 +856,8 @@ def clean_items(
             # Exception: entries WITH a clearkey license pair beat keyless
             # duplicates from the source, since only the keyed copy can decrypt.
             bare_url = candidate.url.split("|", 1)[0]
-            has_ck = "license_type=" in candidate.extinf and "license_key=" in candidate.extinf and "http" not in candidate.extinf
-            if bare_url in seen_bare_urls and not has_ck:
+            cand_has_ck = any("license_type=" in p and "clearkey" in p for p in candidate.props)
+            if bare_url in seen_bare_urls and not cand_has_ck:
                 stats["duplicates_removed"] += 1
                 continue
             # Also drop entries whose URL already appeared (regardless of
