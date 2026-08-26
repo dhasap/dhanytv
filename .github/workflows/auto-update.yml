@@ -123,6 +123,12 @@ jobs:
           fi
           echo "OTT validation: OK (0 DASH channels)"
 
+      - name: Validate ClearKey entries (drop revoked keys)
+        continue-on-error: true
+        timeout-minutes: 15
+        run: |
+          python3 update-script/validate_clearkeys.py dhanytv.m3u --write || echo "WARN: clearkey validation skipped"
+
       - name: Download EPG Sources (Multi-Source)
         run: |
           echo "=== Downloading EPG sources ==="
