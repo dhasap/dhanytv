@@ -107,10 +107,18 @@ python3 update-script/merge_source.py source_latest.m3u --target "$TARGET_FILE" 
 
 rm -f source_latest.m3u
 
-# Step 3b: Re-inject curated extra channels (World Cup, events). merge_source
-# above REPLACES the playlist with the fresh source, so anything hand-added must
-# be re-applied here or it disappears every run.
-echo -e "${YELLOW}[4/8] Injecting curated extra channels...${NC}"
+# Step 3b: Early cleanup to remove dead-channel dupes BEFORE extra injection.
+# merge_source may inject dead URLs (e.g. defunct DensTV/Cloudfront hosts).
+# cleanup must run first so merge_extra can inject working URLs that would
+# otherwise be skipped as "already present" (same channel, different dead URL).
+echo -e "${YELLOW}[4/8] Early dedup: removing dead-channel duplicates...${NC}"
+if [ -f "update-script/cleanup_playlist.py" ]; then
+    python3 update-script/cleanup_playlist.py "$TARGET_FILE" --write
+fi
+
+# Step 3c: Re-inject curated extra channels (World Cup, events). Now that dead
+# URLs are removed, merge_extra will inject working flashcon/medcom/daaiplus URLs.
+echo -e "${YELLOW}[4.5/8] Injecting curated extra channels...${NC}"
 if [ -f "update-script/merge_extra.py" ]; then
     python3 update-script/merge_extra.py --target "$TARGET_FILE" --ci
 fi

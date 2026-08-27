@@ -923,6 +923,44 @@ def clean_items(
                     stats["keyless_dash_dupes_removed"] = stats.get("keyless_dash_dupes_removed", 0) + (before - len(it.urls))
         cleaned = [it for it in cleaned if not (isinstance(it, Entry) and not it.urls)]
 
+    # Name-based dedup: when the same channel name appears multiple times,
+    # remove entries whose URLs are on the blocklist (dead hosts). This fixes
+    # the case where merge_source injects dead URLs first, then merge_extra
+    # injects working URLs for the same channel — both survive the URL-based
+    # dedup because they have different URLs.
+    name_groups: dict[str, list[int]] = {}
+    for idx, item in enumerate(cleaned):
+        if isinstance(item, Entry):
+            norm_name = item.name.strip().lower()
+            # Normalize common suffixes for grouping
+            norm_name = re.sub(r"\s*\(.*?\)\s*$", "", norm_name)
+            norm_name = re.sub(r"\s+hd\s*$", "", norm_name)
+            norm_name = re.sub(r"\s+", " ", norm_name).strip()
+            if norm_name:
+                name_groups.setdefault(norm_name, []).append(idx)
+
+    indices_to_remove: set[int] = set()
+    for norm_name, indices in name_groups.items():
+        if len(indices) < 2:
+            continue
+        # Check if any entry has a blocked URL
+        has_blocked = any(
+            any(is_blocked(url, blocklist) for url in cleaned[idx].urls)
+            for idx in indices
+            if isinstance(cleaned[idx], Entry)
+        )
+        if not has_blocked:
+            continue
+        # Remove blocked entries; keep working ones
+        for idx in indices:
+            if isinstance(cleaned[idx], Entry):
+                if any(is_blocked(url, blocklist) for url in cleaned[idx].urls):
+                    indices_to_remove.add(idx)
+                    stats["blocklist_removed"] += len(cleaned[idx].urls)
+
+    if indices_to_remove:
+        cleaned = [item for idx, item in enumerate(cleaned) if idx not in indices_to_remove]
+
     if prioritize_sctv_preferred(cleaned):
         stats["sctv_preferred_prioritized"] = 1
 
