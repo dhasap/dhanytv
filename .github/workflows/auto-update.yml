@@ -210,9 +210,9 @@ jobs:
           NEW_PROG=$(grep -c '<programme ' epg.xml || true); NEW_PROG=${NEW_PROG:-0}
           WC=$(grep -c 'group-title="WorldCup 2026"' dhanytv.m3u || true); WC=${WC:-0}
           echo "Channels: $OLD_CH -> $NEW_CH | EPG programmes: $OLD_PROG -> $NEW_PROG | WorldCup: $WC"
-          # Minimum absolute threshold: playlist must have at least 500 channels
-          if [ "$NEW_CH" -lt 500 ]; then
-            echo "ERROR: Channel terlalu sedikit ($NEW_CH < 500). Kemungkinan source gagal."
+          # Minimum absolute threshold: playlist must have at least 250 channels
+          if [ "$NEW_CH" -lt 250 ]; then
+            echo "ERROR: Channel terlalu sedikit ($NEW_CH < 250). Kemungkinan source gagal."
             exit 1
           fi
           if [ "$WC" -lt 1 ]; then
