@@ -181,6 +181,21 @@ https://tvstreamcast.com/indonesiana.m3u8
 #EXTINF:-1 tvg-id="IDX.id" tvg-logo="https://www.mncvision.id/userfiles/image/channel/iBcm_IDX.jpg" group-title="Indonesia Channels",IDX (V+)
 https://d2xx73ro32cip.cloudfront.net/out/v1/db34a1b61f414d2181c29f1892bc8d0b/index.mpd
 
+#EXTINF:-1 tvg-id="auto.angel.tv.indonesia" group-title="Indonesia Channels",Angel TV Indonesia
+https://janya-digimix.akamaized.net/vglive-sk-234616/indonesia/ngarirang.m3u8
+
+#EXTINF:-1 tvg-id="auto.dtvi" group-title="Indonesia Channels",dTVi
+https://e.siar.us/live/dtvi.m3u8
+
+#EXTINF:-1 tvg-id="auto.ficom.channel" group-title="Indonesia Channels",Ficom Channel
+https://v3.siar.us/ficomchannel/live/playlist.m3u8
+
+#EXTINF:-1 tvg-id="auto.jambi.tv" group-title="Indonesia Channels",Jambi TV
+https://jambitv.globaldigitalcore.com/hls/sah5tu7Eiveepohyieyie3O9Aeich6ooxohm3luqueeFie2ooH2iebahy4haeCh9oobi0j/index.m3u8
+
+#EXTINF:-1 tvg-id="auto.groovia.kanal" group-title="Indonesia Channels",Groovia Kanal
+https://gist.githubusercontent.com/iptvonlinetv/02d20920708284601733a7d61f21a942/raw/grooviakanal.m3u
+
 #EXTINF:-1 tvg-id="Moji.id" tvg-logo="https://thumbor.prod.vidiocdn.com/g7gTjD2Il1GI4DJULOZ1cv6NSj4=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/206/1823dc.png" group-title="Indonesia Channels",MOJI TV HD (Alt 3 - DensTV flashcon)
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
 #EXTVLCOPT:http-origin=https://www.dens.tv
@@ -426,6 +441,12 @@ https://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5e9f2c05172a0f0007db4
 #EXTINF:-1 tvg-id="auto.cbs.golazo.network" group-title="Sports" tvg-logo="https://wwwimage-tve.cbsstatic.com/base/files/seo/cbs_seo_1200x627_1.jpg", CBS Golazo Network
 https://stitcher.pluto.tv/stitch/hls/channel/63a0e33a45264d000850ed7e/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=cb5874fc-6948-11ef-b8e3-ea3db3d97a96
 
+#EXTINF:-1 tvg-id="auto.groovia.kids" group-title="Kids",Groovia Kids
+https://gist.githubusercontent.com/iptvonlinetv/244b66c61f162a7c0dbf32b1064f1a79/raw/grooviakids.m3u
+
+#EXTINF:-1 tvg-id="auto.pogo" group-title="Kids",Pogo
+http://starshare.org:8080/live/gxc733/sxk877/1918.m3u8
+
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.assured_buffer_length=30
@@ -575,6 +596,21 @@ https://cianjur.staratv.id/hls/0/stream.m3u8
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.banjartv" group-title="Local Channels" tvg-logo="https://i.imgur.com/TA76a10.png",BanjarTV
 https://banjartv.siar.us/banjartv/live/playlist.m3u8
+
+# <============================================== Indonesia Channels (HLS multi-source) ===========================================================>
+
+# <============================================== WorldCup 2026 ===========================================================>
+
+# <============================================== OSINT New Channels (verified working 2026-08-27) ==============================================>
+
+#EXTINF:-1 tvg-id="auto.dw.english" group-title="News",DW English
+https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
+
+#EXTINF:-1 tvg-id="auto.cgtn" group-title="News",CGTN
+https://english.cctv.com/live/cctv_English/index.m3u8
+
+#EXTINF:-1 tvg-id="auto.arirang.tv" group-title="News",Arirang TV
+https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8
 
 # <============================================== Indonesia Channels (HLS multi-source) ===========================================================>
 
