@@ -989,13 +989,33 @@ def clean_items(
         remaining.append(item)
 
     # Rebuild: priority groups first (in PRIORITY_GROUPS order), then remaining
+    # Within "Indonesia Channels", sort by popularity (most-watched first).
+    POPULAR_CHANNELS = [
+        "SCTV", "RCTI", "MNCTV", "GTV", "Indosiar", "ANTV", "TransTV", "Trans7",
+        "iNews", "MDTV", "Metro TV", "TVOne", "Kompas TV", "DAAI TV", "MOJI",
+        "RTV", "TVRI", "CNN Indonesia", "CNBC Indonesia", "Magna Channel",
+        "Nusantara TV", "Garuda TV", "BN Channel", "BTV", "Antara TV",
+        "Indonesiana TV", "IDX",
+    ]
+    popular_set = {p.lower() for p in POPULAR_CHANNELS}
+    popular_rank = {p.lower(): i for i, p in enumerate(POPULAR_CHANNELS)}
+
     reordered: list[str | Entry] = []
     for target in PRIORITY_GROUPS:
-        for item in prioritized:
-            if isinstance(item, Entry):
-                gm = _RE_GROUP_TITLE.search(item.extinf)
-                if gm and gm.group(1) == target:
-                    reordered.append(item)
+        group_items = [item for item in prioritized
+                       if isinstance(item, Entry) and
+                       _RE_GROUP_TITLE.search(item.extinf) and
+                       _RE_GROUP_TITLE.search(item.extinf).group(1) == target]
+        # Sort Indonesia Channels by popularity
+        if target == "Indonesia Channels":
+            def _popularity_key(item: Entry) -> int:
+                name_lower = item.name.lower()
+                # Strip common suffixes for matching
+                clean = re.sub(r"\s*\(.*?\)\s*$", "", name_lower)
+                clean = re.sub(r"\s+hd\s*$", "", clean).strip()
+                return popular_rank.get(clean, 999)
+            group_items.sort(key=_popularity_key)
+        reordered.extend(group_items)
     reordered.extend(remaining)
 
     cleaned = reordered
