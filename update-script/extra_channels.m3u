@@ -371,3 +371,105 @@ https://jambitv.globaldigitalcore.com/hls/sah5tu7Eiveepohyieyie3O9Aeich6ooxohm3l
 
 #EXTINF:-1 tvg-id="" group-title="Indonesia Channels",Groovia Kanal
 https://gist.githubusercontent.com/iptvonlinetv/02d20920708284601733a7d61f21a942/raw/grooviakanal.m3u
+
+# --- Additional Working Channels (verified 2026-08-27) ---
+
+# beIN Sports ENG 1 (amagi CDN)
+#EXTINF:-1 tvg-id="" group-title="Sports",beIN Sports ENG 1
+https://bein-xtra-bein.amagi.tv/playlist.m3u8
+
+# Disney Channel (akamaihd)
+#EXTINF:-1 tvg-id="" group-title="Kids",Disney Channel
+https://a77aivottepl-a.akamaihd.net/pdx-nitro/live/clients/dash/enc/zuf794yutz/out/v1/ca3534bfe4f148298b36719204d108e0/cenc.mpd
+
+# TVRI Regional
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Aceh
+https://ott-balancer.tvri.go.id/live/eds/Aceh/hls/Aceh.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Bali
+https://ott-balancer.tvri.go.id/live/eds/Bali/hls/Bali.m3u8
+
+# MAGNA Channel (flashcon)
+#EXTINF:-1 tvg-id="MagnaChannel.id" group-title="Indonesia Channels",MAGNA Channel (Flashcon)
+https://op-flashcon-digdayahd-1.dens.tv/h/h24/01.m3u8
+
+# MetroTV (flashcon)
+#EXTINF:-1 tvg-id="MetroTV.id" group-title="Indonesia Channels",MetroTV (Flashcon)
+http://op-flashcon-digdayahd-1.dens.tv/h/h12/01.m3u8
+
+# RTV (indihometv)
+#EXTINF:-1 tvg-id="RTV.id" group-title="Indonesia Channels",RTV (Indihome)
+https://cdnbal1.indihometv.com/atm/DASH/RAJAWALI_TV/master.mpd
+
+# LingkarTV
+#EXTINF:-1 tvg-id="" group-title="Indonesia Channels",LingkarTV
+https://lingkartv.my.id/hls/lingkartv.m3u8
+
+# Garuda TV (flashcon)
+#EXTINF:-1 tvg-id="GarudaTV.id" group-title="Indonesia Channels",Garuda TV (Flashcon)
+https://op-flashcon-digdayahd-1.dens.tv/h/h10/01.m3u8
+
+# --- TVRI Regional (21 channels, verified working) ---
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Jawa Barat
+https://ott-balancer.tvri.go.id/live/eds/Jabar/hls/Jabar.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Jawa Tengah
+https://ott-balancer.tvri.go.id/live/eds/Jateng/hls/Jateng.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Jawa Timur
+https://ott-balancer.tvri.go.id/live/eds/Jatim/hls/Jatim.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Lampung
+https://ott-balancer.tvri.go.id/live/eds/Lampung/hls/Lampung.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Kalimantan Barat
+https://ott-balancer.tvri.go.id/live/eds/Kalbar/hls/Kalbar.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Kalimantan Selatan
+https://ott-balancer.tvri.go.id/live/eds/Kalsel/hls/Kalsel.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Kalimantan Tengah
+https://ott-balancer.tvri.go.id/live/eds/Kalteng/hls/Kalteng.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Kalimantan Timur
+https://ott-balancer.tvri.go.id/live/eds/Kaltim/hls/Kaltim.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Sulawesi Selatan
+https://ott-balancer.tvri.go.id/live/eds/Sulsel/hls/Sulsel.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Sulawesi Tengah
+https://ott-balancer.tvri.go.id/live/eds/Sulteng/hls/Sulteng.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Sulawesi Utara
+https://ott-balancer.tvri.go.id/live/eds/Sulut/hls/Sulut.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Nusa Tenggara Barat
+https://ott-balancer.tvri.go.id/live/eds/NTB/hls/NTB.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Nusa Tenggara Timur
+https://ott-balancer.tvri.go.id/live/eds/NTT/hls/NTT.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Papua
+https://ott-balancer.tvri.go.id/live/eds/Papua/hls/Papua.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Bengkulu
+https://ott-balancer.tvri.go.id/live/eds/Bengkulu/hls/Bengkulu.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Gorontalo
+https://ott-balancer.tvri.go.id/live/eds/Gorontalo/hls/Gorontalo.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Jambi
+https://ott-balancer.tvri.go.id/live/eds/Jambi/hls/Jambi.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Kepulauan Bangka Belitung
+https://ott-balancer.tvri.go.id/live/eds/Babel/hls/Babel.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Riau
+https://ott-balancer.tvri.go.id/live/eds/Riau/hls/Riau.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Sulawesi Barat
+https://ott-balancer.tvri.go.id/live/eds/Sulbar/hls/Sulbar.m3u8
+
+#EXTINF:-1 tvg-id="TVRI.id" group-title="Indonesia Channels",TVRI Sulawesi Tenggara
+https://ott-balancer.tvri.go.id/live/eds/Sultra/hls/Sultra.m3u8
