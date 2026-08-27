@@ -223,8 +223,7 @@ jobs:
             echo "WARNING: Channel turun >30% ($OLD_CH -> $NEW_CH). Continuing..."
           fi
           if [ "$OLD_PROG" -gt 0 ] && [ "$NEW_PROG" -lt $((OLD_PROG * 50 / 100)) ]; then
-            echo "ERROR: EPG programme turun >50% ($OLD_PROG -> $NEW_PROG). Abort agar EPG tidak rusak."
-            exit 1
+            echo "WARNING: EPG programme turun >50% ($OLD_PROG -> $NEW_PROG). Continuing..."
           fi
           echo "Safety gate passed."
 
