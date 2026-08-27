@@ -147,9 +147,37 @@ DEFAULT_REFERRER = "https://www.dens.tv/"
 # Source menempelkan license URL Widevine pihak ketiga (bintangstreaming dll)
 # yang 403. Clearkey berikut terverifikasi KID-nya cocok dengan manifest vidio.
 CLEARKEY_OVERRIDES: dict[str, str] = {
-    # TransTV / Trans7 (vidio CloudFront)
+    # TransTV / Trans7 (vidio CloudFront) — ClearKey overrides
     "7a69cfc9e135493f87ac4efd63000429": "764e726a234a435c87a82e4a1da6a69b:0de18199ebb3316e3aed8529e39542b7",
     "7b0404cd6a8a4a908123f10774854e46": "8ee7df15ff584967a3eb7b885bafc71e:9a297bf2200eee7dee21b9ace9f57c77",
+}
+
+# Widevine license server mapping: boti.my.id (poisoned) → bintangstreaming.my.id (correct)
+# SOURCE_1 URL was tampered — keys replaced with fake boti.my.id URLs.
+# This mapping restores the correct Widevine license server for each channel.
+WIDEVINE_KEY_MAP: dict[str, str] = {
+    "boti.my.id/saya.suka?id=1&": "bintangstreaming.my.id/rcti_pro/index.drm?id=1",   # RCTI
+    "boti.my.id/saya.suka?id=2&": "bintangstreaming.my.id/rcti_pro/index.drm?id=2",   # MNCTV
+    "boti.my.id/saya.suka?id=3&": "bintangstreaming.my.id/rcti_pro/index.drm?id=3",   # GTV
+    "boti.my.id/saya.suka?id=6&": "bintangstreaming.my.id/rcti_pro/index.drm?id=6",   # TransTV
+    "boti.my.id/saya.suka?id=7&": "bintangstreaming.my.id/rcti_pro/index.drm?id=7",   # Trans7
+    "boti.my.id/saya.suka?id=23&": "bintangstreaming.my.id/rcti_pro/index.drm?id=23", # MDTV
+    "boti.my.id/saya.suka?id=10&": "bintangstreaming.my.id/rcti_pro/index.drm?id=10", # ANTV
+    "boti.my.id/saya.suka?id=4&": "bintangstreaming.my.id/rcti_pro/index.drm?id=4",   # iNews
+    "boti.my.id/saya.suka?id=12&": "bintangstreaming.my.id/rcti_pro/index.drm?id=12", # TVOne
+    "boti.my.id/saya.suka?id=5&": "bintangstreaming.my.id/rcti_pro/index.drm?id=5",   # SindoNews
+    "boti.my.id/saya.suka?id=74&": "bintangstreaming.my.id/rcti_pro/index.drm?id=74", # ONE
+    "boti.my.id/saya.suka?id=122&": "bintangstreaming.my.id/rcti_pro/index.drm?id=122",
+    "boti.my.id/saya.suka?id=123&": "bintangstreaming.my.id/rcti_pro/index.drm?id=123",
+    "boti.my.id/saya.suka?id=124&": "bintangstreaming.my.id/rcti_pro/index.drm?id=124",
+    "boti.my.id/saya.suka?id=119&": "bintangstreaming.my.id/rcti_pro/index.drm?id=119",
+    "boti.my.id/saya.suka?id=120&": "bintangstreaming.my.id/rcti_pro/index.drm?id=120",
+    "boti.my.id/saya.suka?id=115&": "bintangstreaming.my.id/rcti_pro/index.drm?id=115",
+    "boti.my.id/saya.suka?id=112&": "bintangstreaming.my.id/rcti_pro/index.drm?id=112",
+    "boti.my.id/saya.suka?id=113&": "bintangstreaming.my.id/rcti_pro/index.drm?id=113",
+    "boti.my.id/saya.suka?id=114&": "bintangstreaming.my.id/rcti_pro/index.drm?id=114",
+    "boti.my.id/saya.suka?id=205&": "bintangstreaming.my.id/rcti_pro/index.drm?id=205",
+    "boti.my.id/saya.suka?id=70&": "bintangstreaming.my.id/rcti_pro/index.drm?id=70",
 }
 
 # ── dens.tv replacement map ──────────────────────────────────
@@ -468,6 +496,39 @@ def _apply_clearkey_overrides(lines: list[str]) -> list[str]:
     return out
 
 
+
+def _fix_poisoned_widevine_keys(lines: list[str]) -> list[str]:
+    """Replace poisoned boti.my.id Widevine license keys with correct bintangstreaming keys.
+    
+    SOURCE_1 URL (Bluestraveller13/super-duper-spork) was tampered —
+    all Widevine license_key URLs replaced with fake boti.my.id/saya.suka URLs.
+    This function restores the correct license server for each channel.
+    """
+    import re as _re
+    out = list(lines)
+    fixed = 0
+    for i, line in enumerate(out):
+        if "boti.my.id" in line and "license_key=" in line:
+            # Fix hhttps:// typo (double h prefix from poisoned source)
+            if line.startswith("#KODIPROP:inputstream.adaptive.license_key=hhttps://"):
+                line = line.replace("hhttps://", "https://", 1)
+                out[i] = line
+            # Replace entire license_key value: extract id number, build correct URL
+            m = _re.search(r'license_key=https://boti\.my\.id/saya\.suka\?id=(\d+)', line)
+            if m:
+                channel_id = m.group(1)
+                correct_key = f"https://bintangstreaming.my.id/rcti_pro/index.drm?id={channel_id}"
+                line = _re.sub(
+                    r'license_key=https://boti\.my\.id/saya\.suka\?id=\d+[^\s|"]*',
+                    f'license_key={correct_key}',
+                    line
+                )
+                out[i] = line
+                fixed += 1
+    if fixed:
+        print(f"  poisoned widevine keys fixed: {fixed}")
+    return out
+
 def merge(
     source_path: Path,
     target_path: Path,
@@ -540,6 +601,7 @@ def merge(
 
     # Phase 1b: apply ClearKey overrides (dead Widevine license URLs)
     output = _apply_clearkey_overrides(output)
+    output = _fix_poisoned_widevine_keys(output)
 
     # Phase 2: Add missing dens.tv referrers
     output = _add_missing_referrers(output)

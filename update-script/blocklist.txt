@@ -28,7 +28,6 @@ https://mn-nl.mncdn.com/cbcsports_live/cbcsports/playlist.m3u8
 
 # ── Fox Sports 1 via CORS proxy publik (sering 403 rate-limit) ───
 # Ganti dengan direct URL di extra_channels.m3u — proxy publik gak reliable
-https://cors-everywhere-wc8b4.ondigitalocean.app/https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/tmpzbbdj9y/out/v1/962736723a534ba294e7592fef49827b/cenc.mpd
 
 re:cors-everywhere-.*\.ondigitalocean\.app
 
@@ -208,7 +207,6 @@ re:sinalprivado\.info
 re:fl1\.moveonjoy\.com
 re:gooo\.blog
 re:atemecdnbalancer-voe\.sysln\.id
-re:otte\.live\.fly\.ww\.aiv-cdn\.net
 
 # --- arrived https-only from source but host serves plain HTTP only ---
 https://23.237.104.106:8080/USA_BOOMERANG/index.m3u8
@@ -250,7 +248,6 @@ re:abc\-iview\-mediapackagestreams\-2\.akamaized\.net
 re:cdnjkt913\.transvision\.co\.id
 re:tv\.cloudcdn\.me
 re:live\.serverstreaming\.net
-re:stream\.radiojar\.com
 re:live\.thebosstv\.com
 re:livestream\.biznetvideo\.net
 re:load\.perfecttv\.net
@@ -282,8 +279,6 @@ re:ayo\.maling\.pl
 re:galandriel1\.thobias\.cfd
 re:ultra2\.falconx1\.cfd
 re:pulse1\.zalmora\.cfd
-re:moonbug\-rokuus\.amagi\.tv
-re:zoomoo\-samsungau\.amagi\.tv
 re:vipketseyket\.top
 re:norkadymm\.top
 re:line\.trx\-ott\.com
@@ -303,3 +298,4 @@ re:d2w9q46ikgrcwx\.cloudfront\.net
 re:d3b73b34o7cvkq\.cloudfront\.net
 re:d3pnbvng3bx2nj\.cloudfront\.net
 re:013tv\.com
+re:boti\.my\.id
