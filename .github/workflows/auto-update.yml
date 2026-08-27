@@ -85,6 +85,11 @@ jobs:
           AFTER=$(grep -c '#EXTINF' "$TARGET_FILE" || echo "0")
           echo "Channel setelah merge: $AFTER"
 
+      - name: Early Cleanup (remove dead-channel dupes before extra injection)
+        run: |
+          echo "=== Early cleanup: removing dead-channel duplicates ==="
+          python3 update-script/cleanup_playlist.py dhanytv.m3u --write || true
+
       - name: Inject Curated Extra Channels (World Cup, events)
         run: |
           echo "=== Injecting curated extra channels (update-script/extra_channels.m3u) ==="
