@@ -756,9 +756,9 @@ def _fix_clearkey_shifts(items: list[str | Entry]) -> None:
     import os as _os
     
     # Load correct keys from source files
-    source_dir = _os.path.expanduser("~/.hermes/cache/documents")
+    source_dir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)))
     correct_keys: dict[str, str] = {}
-    for fname in ["doc_78a0a84de70b_SOURCE_1.txt", "doc_d4892ca95e7c_SOURCE_2.txt"]:
+    for fname in ["source1.m3u", "source2.m3u", "doc_78a0a84de70b_SOURCE_1.txt", "doc_d4892ca95e7c_SOURCE_2.txt"]:
         fpath = _os.path.join(source_dir, fname)
         if not _os.path.exists(fpath):
             continue
