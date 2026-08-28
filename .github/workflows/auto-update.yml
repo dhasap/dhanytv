@@ -108,6 +108,8 @@ jobs:
           echo "International channels: $ADDED added (total: $AFTER)"
 
       - name: Fix ClearKey license keys
+        env:
+          FIX_CLEARKEY_URLS: "${{ secrets.PLAYLIST_SOURCE }}|${{ secrets.PLAYLIST_SOURCE_2 }}"
         run: |
           echo "=== Fixing ClearKey keys ==="
           python3 update-script/fix_clearkeys.py dhanytv.m3u
@@ -123,54 +125,8 @@ jobs:
           fi
           python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check "${SANITIZE_ARG[@]}"
           # Re-fix ClearKeys after final cleanup
-          python3 update-script/fix_clearkeys.py dhanytv.m3u
-          # Verify critical ClearKeys are correct
-          python3 -c "
-import re, sys
-with open('dhanytv.m3u') as f: pl = f.read()
-checks = {
-    'FUBO SPORTS 1': 'dc69b6159a0f9f0a4e03b3ff91cbacd5:d0dcbcd7723bc40df0bf34c9c092d51f',
-    'FUBO SPORTS 2': '3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135',
-    'Disney Channel': 'be9caaa813c5305e761c66ac63645901:3d40f2e87e2e6e4d201b845b2bb4b8c0',
-}
-bad = 0
-for name, expected_key in checks.items():
-    idx = pl.find(name)
-    if idx > 0:
-        chunk = pl[max(0,idx-500):idx]
-        keys = re.findall(r'license_key=([^\s|"
-]+)', chunk)
-        if not keys or not keys[-1].startswith(expected_key[:20]):
-            bad += 1
-            print(f'WRONG KEY: {name} — will auto-fix')
-if bad:
-    print(f'WARNING: {bad} critical keys wrong, fixing...')
-    # Direct fix for critical channels
-    fixes = {
-        'FUBO SPORTS 1': ('dc69b6159a0f9f0a4e03b3ff91cbacd5:d0dcbcd7723bc40df0bf34c9c092d51f', 'license_key=0bbb23a5'),
-        'FUBO SPORTS 2': ('3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135', 'license_key=eaea4551'),
-        'Disney Channel': ('be9caaa813c5305e761c66ac63645901:3d40f2e87e2e6e4d201b845b2bb4b8c0', 'license_key=cbb673fb'),
-    }
-    for name, (correct_key, wrong_prefix) in fixes.items():
-        idx = pl.find(name)
-        if idx > 0:
-            chunk = pl[max(0,idx-500):idx]
-            for m in re.finditer(r'license_key=[^\s|"
-]+', chunk):
-                if m.group(0).startswith(wrong_prefix):
-                    line_start = pl.rfind('
-', 0, idx+m.start()) + 1
-                    line_end = pl.find('
-', idx+m.start())
-                    old_line = pl[line_start:line_end]
-                    pl = pl[:line_start] + old_line.replace(m.group(0).split('=')[1], correct_key) + pl[line_end:]
-                    break
-    with open('dhanytv.m3u', 'w') as f: f.write(pl)
-    print('Critical keys fixed!')
-else:
-    print('All critical keys correct ✓')
-"
-          echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
+          FIX_CLEARKEY_URLS="${{ secrets.PLAYLIST_SOURCE }}|${{ secrets.PLAYLIST_SOURCE_2 }}" python3 update-script/fix_clearkeys.py dhanytv.m3u
+                    echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
           echo "OTT channels      : $(grep -c '#EXTINF' dhanytv-ott.m3u || echo '0')"
           # Validate OTT: must not contain active .mpd (DASH) URLs
           DASH_IN_OTT=$(grep -v '^#' dhanytv-ott.m3u | grep -c '\.mpd' || true)

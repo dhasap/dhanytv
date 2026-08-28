@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Fix shifted ClearKey license keys in dhanytv.m3u.
 
-The cleanup pipeline sometimes shifts KODIPROP license_key lines by 1+ positions
-when processing complex source formats. This script corrects the shifts by
-comparing each entry's key against the known correct keys from the source files.
+Downloads source playlists from the configured URLs (PLAYLIST_SOURCE /
+PLAYLIST_SOURCE_2), extracts correct ClearKey mappings, and corrects any
+shifted keys in the generated playlist.
 
-Usage: python3 fix_clearkeys.py dhanytv.m3u [--dry-run]
+Usage:
+  python3 fix_clearkeys.py dhanytv.m3u [--dry-run]
+  FIX_CLEARKEY_URLS="url1|url2" python3 fix_clearkeys.py dhanytv.m3u
+
+Environment:
+  FIX_CLEARKEY_URLS  Pipe-separated source URLs (overrides defaults)
 """
 from __future__ import annotations
 
@@ -13,16 +18,43 @@ import argparse
 import os
 import re
 import sys
+import tempfile
+import urllib.request
 from pathlib import Path
 
+# Default source URLs — same as PLAYLIST_SOURCE / PLAYLIST_SOURCE_2 secrets.
+# Overridden by FIX_CLEARKEY_URLS env var at runtime.
+DEFAULT_URLS = [
+    "https://raw.githubusercontent.com/Bluestraveller13/super-duper-spork/refs/heads/main/KITKATJOSS",
+    "https://bit.ly/4rSRTpn",
+]
 
-def load_correct_keys(source_dir: Path) -> dict[str, str]:
-    """Load ClearKey mappings from source files."""
+
+def download_source(url: str, tmp_dir: str) -> str | None:
+    """Download a source M3U from URL, return path to temp file or None."""
+    try:
+        path = os.path.join(tmp_dir, f"src_{hash(url) & 0xFFFF:04x}.m3u")
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            with open(path, "wb") as f:
+                f.write(resp.read())
+        # Validate it looks like M3U (skip blank/CRLF lines at start)
+        with open(path, encoding="utf-8", errors="replace") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    if line.startswith(("#EXTM3U", "#EXTINF")):
+                        return path
+                    break
+    except Exception:
+        pass
+    return None
+
+
+def load_correct_keys(source_paths: list[str]) -> dict[str, str]:
+    """Load ClearKey mappings from downloaded source files."""
     correct: dict[str, str] = {}
-    for fname in ["source1.m3u", "source2.m3u"]:
-        fpath = source_dir / fname
-        if not fpath.exists():
-            continue
+    for fpath in source_paths:
         try:
             with open(fpath, encoding="utf-8") as fh:
                 lines = fh.readlines()
@@ -82,9 +114,31 @@ def main() -> int:
     args = parser.parse_args()
 
     playlist_path = Path(args.playlist)
-    source_dir = Path(__file__).parent  # update-script/
 
-    correct_keys = load_correct_keys(source_dir)
+    # Get source URLs from env or defaults
+    urls_env = os.environ.get("FIX_CLEARKEY_URLS", "")
+    if urls_env:
+        urls = [u.strip() for u in urls_env.split("|") if u.strip()]
+    else:
+        urls = DEFAULT_URLS
+
+    # Download sources to temp directory
+    source_paths = []
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        for url in urls:
+            path = download_source(url, tmp_dir)
+            if path:
+                source_paths.append(path)
+                print(f"  Downloaded source: {url[:60]}...")
+            else:
+                print(f"  WARNING: Failed to download {url[:60]}...", file=sys.stderr)
+
+        if not source_paths:
+            print("ERROR: No source files downloaded", file=sys.stderr)
+            return 1
+
+        correct_keys = load_correct_keys(source_paths)
+
     if not correct_keys:
         print("ERROR: No source keys found", file=sys.stderr)
         return 1
