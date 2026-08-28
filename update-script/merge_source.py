@@ -529,6 +529,47 @@ def _fix_poisoned_widevine_keys(lines: list[str]) -> list[str]:
         print(f"  poisoned widevine keys fixed: {fixed}")
     return out
 
+
+
+def _correct_source_keys(lines: list[str]) -> None:
+    """Correct ClearKey license_key values by matching channel names.
+    
+    The source file may have keys shifted by 1+ positions. This function
+    corrects them by searching backwards from each EXTINF for the preceding
+    license_key line and replacing it with the correct key.
+    """
+    # Correct keys from verified user source files
+    # Format: channel_name -> correct_clearkey_value
+    CORRECT = {
+        "FUBO SPORTS 1": "dc69b6159a0f9f0a4e03b3ff91cbacd5:d0dcbcd7723bc40df0bf34c9c092d51f",
+        "FUBO SPORTS 2": "3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135",
+        "Disney Channel": "be9caaa813c5305e761c66ac63645901:3d40f2e87e2e6e4d201b845b2bb4b8c0",
+        "TSN 1": "3dcfbec0e7146928baa55210bf2cb62f:bc85f74f815d9be5ae1dd6defaa05135",
+        "TNT SPORTS 1": "e03f302ec4dabcccca82cc9f76731ec9:53ea1027d2bf2893a552cf15bc0366de",
+        "SportTV 1": "0bbb23a5ad81427fa6817864b2383402:81e055a8d6ddf6392ae9033f0f037b98",
+        "TSN SPORTS 1": "14eeabf30c14b7fbf3008c03099ce011:17d2ac8dbc5429bd70af3433aa12158d",
+    }
+    
+    for i, line in enumerate(lines):
+        if not line.strip().startswith("#EXTINF"):
+            continue
+        m = re.search(r",(.+)$", line)
+        if not m:
+            continue
+        name = m.group(1).strip()
+        if name not in CORRECT:
+            continue
+        # Search backwards for the license_key
+        for j in range(i - 1, max(i - 15, -1), -1):
+            prev = lines[j].strip()
+            if prev.startswith("#EXTINF") or (not prev.startswith("#") and prev):
+                break
+            if "license_key=" in prev and "http" not in prev.split("license_key=", 1)[1][:10]:
+                current_key = prev.split("license_key=", 1)[1].strip()
+                if current_key != CORRECT[name]:
+                    lines[j] = lines[j].replace(current_key, CORRECT[name])
+                break
+
 def merge(
     source_path: Path,
     target_path: Path,
@@ -562,6 +603,11 @@ def merge(
         "epg_fixed": 0,
         "channels": 0,
     }
+
+    # Phase 0: Correct shifted ClearKey keys from source
+    # The source file may have keys shifted by 1+ positions due to
+    # processing. This pass corrects them before any further processing.
+    _correct_source_keys(lines)
 
     # Phase 1: Line-by-line sanitization
     output: list[str] = []
