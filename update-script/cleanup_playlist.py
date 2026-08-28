@@ -988,33 +988,16 @@ def clean_items(
         # If a comment is immediately before a priority entry, move it too.
         remaining.append(item)
 
-    # Rebuild: priority groups first (in PRIORITY_GROUPS order), then remaining
-    # Within "Indonesia Channels", sort by popularity (most-watched first).
-    POPULAR_CHANNELS = [
-        "SCTV", "RCTI", "MNCTV", "GTV", "Indosiar", "ANTV", "TransTV", "Trans7",
-        "iNews", "MDTV", "Metro TV", "TVOne", "Kompas TV", "DAAI TV", "MOJI",
-        "RTV", "TVRI", "CNN Indonesia", "CNBC Indonesia", "Magna Channel",
-        "Nusantara TV", "Garuda TV", "BN Channel", "BTV", "Antara TV",
-        "Indonesiana TV", "IDX",
-    ]
-    popular_set = {p.lower() for p in POPULAR_CHANNELS}
-    popular_rank = {p.lower(): i for i, p in enumerate(POPULAR_CHANNELS)}
-
+    # Rebuild: priority groups first (in PRIORITY_GROUPS order), then remaining.
+    # IMPORTANT: do NOT sort within groups — sorting reorders entries and shifts
+    # KODIPROP license_key lines relative to their EXTINF entries, causing
+    # "crypto key not available" errors in the player.
     reordered: list[str | Entry] = []
     for target in PRIORITY_GROUPS:
         group_items = [item for item in prioritized
                        if isinstance(item, Entry) and
                        _RE_GROUP_TITLE.search(item.extinf) and
                        _RE_GROUP_TITLE.search(item.extinf).group(1) == target]
-        # Sort Indonesia Channels by popularity
-        if target == "Indonesia Channels":
-            def _popularity_key(item: Entry) -> int:
-                name_lower = item.name.lower()
-                # Strip common suffixes for matching
-                clean = re.sub(r"\s*\(.*?\)\s*$", "", name_lower)
-                clean = re.sub(r"\s+hd\s*$", "", clean).strip()
-                return popular_rank.get(clean, 999)
-            group_items.sort(key=_popularity_key)
         reordered.extend(group_items)
     reordered.extend(remaining)
 
