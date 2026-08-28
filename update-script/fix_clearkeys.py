@@ -775,27 +775,38 @@ CORRECT_CLEARKEYS: dict[str, str] = {
 
 
 def fix_keys(playlist_path: Path, dry_run: bool = False) -> int:
-    """Fix wrong ClearKey keys by matching channel names."""
+    """Fix wrong ClearKey keys by matching channel names.
+
+    Strategy: for each EXTINF entry, search BACKWARDS to find the preceding
+    license_key line and verify it matches the correct key for that channel.
+    This handles entries that have been reordered by the cleanup pipeline.
+    """
     content = playlist_path.read_text(encoding="utf-8")
     lines = content.split("\n")
     fixed = 0
 
     for i, line in enumerate(lines):
-        if "license_key=" not in line:
-            continue
-        tail = line.split("license_key=", 1)[1]
-        if "http" in tail[:10]:
+        if not line.strip().startswith("#EXTINF"):
             continue
 
-        for j in range(i + 1, min(i + 10, len(lines))):
-            if lines[j].strip().startswith("#EXTINF"):
-                m = re.search(r",(.+)$", lines[j])
-                if m:
-                    name = m.group(1).strip()
-                    current_key = tail.strip()
-                    if name in CORRECT_CLEARKEYS and current_key != CORRECT_CLEARKEYS[name]:
-                        lines[i] = line.replace(current_key, CORRECT_CLEARKEYS[name])
-                        fixed += 1
+        # Get channel name
+        m = re.search(r",(.+)$", line)
+        if not m:
+            continue
+        name = m.group(1).strip()
+        if name not in CORRECT_CLEARKEYS:
+            continue
+
+        # Search BACKWARDS for the license_key line belonging to this entry
+        for j in range(i - 1, max(i - 15, -1), -1):
+            prev = lines[j].strip()
+            if prev.startswith("#EXTINF") or (not prev.startswith("#") and prev):
+                break  # Hit another entry or non-comment
+            if "license_key=" in prev and "http" not in prev.split("license_key=", 1)[1][:10]:
+                current_key = prev.split("license_key=", 1)[1].strip()
+                if current_key != CORRECT_CLEARKEYS[name]:
+                    lines[j] = lines[j].replace(current_key, CORRECT_CLEARKEYS[name])
+                    fixed += 1
                 break
 
     if fixed > 0 and not dry_run:
