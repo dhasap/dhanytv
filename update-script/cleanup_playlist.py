@@ -1766,17 +1766,26 @@ CORRECT_CLEARKEYS = {
 }
 
 def _fix_keys_in_render(items: list[str | Entry]) -> None:
-    """Correct shifted ClearKey keys in rendered entries."""
+    import sys as _sys
+    ck_count = sum(1 for it in items if isinstance(it, Entry) and any('license_key=' in p for p in it.props))
+    print(f"  _fix_keys_in_render called: {len(items)} items, {ck_count} with ClearKey", file=_sys.stderr)
+    """Correct shifted ClearKey keys in rendered entries.
+
+    For each entry with a ClearKey, check if the key matches the correct
+    value from CORRECT_CLEARKEYS. If not, replace it.
+    """
     for item in items:
         if not isinstance(item, Entry):
             continue
-        # Check if this entry has a license_key
         for pi, prop in enumerate(item.props):
             if 'license_key=' in prop and 'http' not in prop.split('license_key=', 1)[1][:10]:
                 current_key = prop.split('license_key=', 1)[1].strip()
                 correct = CORRECT_CLEARKEYS.get(item.name, '')
                 if correct and current_key != correct:
                     item.props[pi] = prop.replace(current_key, correct)
+                elif item.name in ['FUBO SPORTS 1', 'FUBO SPORTS 2', 'Disney Channel']:
+                    import sys as _sys
+                    print(f"  DEBUG {item.name}: current={current_key[:20]} correct={correct[:20] if correct else 'NONE'}", file=_sys.stderr)
                 break
 
 def render(header: str, items: list[str | Entry]) -> str:
