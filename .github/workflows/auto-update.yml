@@ -126,7 +126,7 @@ jobs:
           python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check "${SANITIZE_ARG[@]}"
           # Re-fix ClearKeys after final cleanup
           FIX_CLEARKEY_URLS="${{ secrets.PLAYLIST_SOURCE }}|${{ secrets.PLAYLIST_SOURCE_2 }}" python3 update-script/fix_clearkeys.py dhanytv.m3u
-                    echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
+          echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
           echo "OTT channels      : $(grep -c '#EXTINF' dhanytv-ott.m3u || echo '0')"
           # Validate OTT: must not contain active .mpd (DASH) URLs
           DASH_IN_OTT=$(grep -v '^#' dhanytv-ott.m3u | grep -c '\.mpd' || true)
