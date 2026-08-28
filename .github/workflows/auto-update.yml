@@ -107,6 +107,11 @@ jobs:
           ADDED=$((AFTER - BEFORE))
           echo "International channels: $ADDED added (total: $AFTER)"
 
+      - name: Fix ClearKey license keys
+        run: |
+          echo "=== Fixing ClearKey keys ==="
+          python3 update-script/fix_clearkeys.py dhanytv.m3u
+
       - name: Clean Playlist & Generate OTT Variant
         env:
           SANITIZE_PATTERNS: ${{ secrets.SANITIZE_PATTERNS }}
@@ -117,6 +122,8 @@ jobs:
             SANITIZE_ARG=(--sanitize "$SANITIZE_PATTERNS")
           fi
           python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check "${SANITIZE_ARG[@]}"
+          # Re-fix ClearKeys after final cleanup
+          python3 update-script/fix_clearkeys.py dhanytv.m3u
           echo "Playlist channels : $(grep -c '#EXTINF' dhanytv.m3u || echo '0')"
           echo "OTT channels      : $(grep -c '#EXTINF' dhanytv-ott.m3u || echo '0')"
           # Validate OTT: must not contain active .mpd (DASH) URLs

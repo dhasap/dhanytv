@@ -116,6 +116,11 @@ if [ -f "update-script/cleanup_playlist.py" ]; then
     python3 update-script/cleanup_playlist.py "$TARGET_FILE" --write
 fi
 
+# Fix shifted ClearKey keys
+if [ -f "update-script/fix_clearkeys.py" ]; then
+    python3 update-script/fix_clearkeys.py "$TARGET_FILE"
+fi
+
 # Step 3c: Re-inject curated extra channels (World Cup, events). Now that dead
 # URLs are removed, merge_extra will inject working flashcon/medcom/daaiplus URLs.
 echo -e "${YELLOW}[4.5/8] Injecting curated extra channels...${NC}"

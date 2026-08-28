@@ -744,67 +744,6 @@ def is_sctv_preferred_entry(item: str | Entry) -> bool:
     return SCTV_FALLBACK_URL in item.urls
 
 
-
-def _fix_clearkey_shifts(items: list[str | Entry]) -> None:
-    """Re-align shifted ClearKey keys by matching against source files.
-    
-    The cleanup pipeline sometimes shifts KODIPROP license_key lines by 1+ 
-    positions when processing complex source formats (commented URLs, multiple
-    KODIPROP blocks per entry). This function corrects the shifts by comparing
-    each entry's key against the known correct keys from the source files.
-    """
-    import os as _os
-    
-    # Load correct keys from source files
-    source_dir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)))
-    correct_keys: dict[str, str] = {}
-    for fname in ["source1.m3u", "source2.m3u", "doc_78a0a84de70b_SOURCE_1.txt", "doc_d4892ca95e7c_SOURCE_2.txt"]:
-        fpath = _os.path.join(source_dir, fname)
-        if not _os.path.exists(fpath):
-            continue
-        try:
-            with open(fpath, encoding="utf-8") as fh:
-                lines = fh.readlines()
-            ck = ""
-            for line in lines:
-                line = line.strip()
-                if "license_key=" in line and "http" not in line.split("license_key=", 1)[1][:10]:
-                    ck = line.split("license_key=", 1)[1].strip()
-                if line.startswith("#EXTINF") and ck:
-                    m = re.search(r",(.+)$", line)
-                    if m:
-                        name = m.group(1).strip()
-                        if name not in correct_keys:
-                            correct_keys[name] = ck
-        except Exception:
-            continue
-    
-    if not correct_keys:
-        return
-    
-    # Fix each entry
-    fixed = 0
-    for item in items:
-        if not isinstance(item, Entry):
-            continue
-        # Find current key
-        key_idx = None
-        for pi, prop in enumerate(item.props):
-            if "license_key=" in prop and "http" not in prop.split("license_key=", 1)[1][:10]:
-                key_idx = pi
-                break
-        if key_idx is None:
-            continue
-        
-        current_key = item.props[key_idx].split("license_key=", 1)[1].strip()
-        correct_key = correct_keys.get(item.name, "")
-        if correct_key and current_key != correct_key:
-            item.props[key_idx] = item.props[key_idx].replace(current_key, correct_key)
-            fixed += 1
-    
-    if fixed:
-        print(f"  clearkey shifts fixed: {fixed}")
-
 def clean_items(
     items: list[str | Entry],
     trace_patterns: Iterable[str] = SOURCE_TRACES,
@@ -1022,15 +961,6 @@ def clean_items(
     if indices_to_remove:
         cleaned = [item for idx, item in enumerate(cleaned) if idx not in indices_to_remove]
 
-
-    # Fix shifted ClearKey keys: when KODIPROP lines get assigned to wrong
-    # entries during extract_items, the keys end up shifted by N positions.
-    # This post-process pass re-aligns keys by matching them against the
-    # source files (SOURCE_1.txt, SOURCE_2.txt) using channel names.
-    try:
-        _fix_clearkey_shifts(cleaned)
-    except Exception:
-        pass  # Non-fatal: if sources unavailable, skip
     if prioritize_sctv_preferred(cleaned):
         stats["sctv_preferred_prioritized"] = 1
 
