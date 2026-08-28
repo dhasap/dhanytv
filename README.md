@@ -2,14 +2,14 @@
 
 # 📺 dhanytv — IPTV Indonesia Gratis · Playlist M3U & EPG XMLTV
 
-**Playlist IPTV Indonesia gratis** dengan **1100+ channel live TV** dari **27+ negara**, **EPG XMLTV** lengkap, dan **update otomatis tiap hari**. Siap pakai di **TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV**.
+**Playlist IPTV Indonesia gratis** dengan **920+ channel live TV** dari **27+ negara**, **EPG XMLTV** lengkap (32.900+ programme), dan **update otomatis tiap hari**. Siap pakai di **TiviMate, Kodi, VLC, OTT Navigator, Android TV & Smart TV**.
 
 [![Auto Update](https://img.shields.io/github/actions/workflow/status/dhasap/dhanytv/auto-update.yml?label=auto-update&logo=githubactions&logoColor=white)](https://github.com/dhasap/dhanytv/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/dhasap/dhanytv?logo=git&logoColor=white)](https://github.com/dhasap/dhanytv/commits/main)
 [![Stars](https://img.shields.io/github/stars/dhasap/dhanytv?style=flat&logo=github)](https://github.com/dhasap/dhanytv/stargazers)
-[![Channels](https://img.shields.io/badge/channels-1100+-blue)](#-kategori-channel)
+[![Channels](https://img.shields.io/badge/channels-920+-blue)](#-kategori-channel)
 [![OTT](https://img.shields.io/badge/OTT--friendly-740+-purple)](#-link-playlist)
-[![EPG](https://img.shields.io/badge/EPG-1040+-channels-green)](#-epg-electronic-program-guide)
+[![EPG](https://img.shields.io/badge/EPG-870+-channels-green)](#-epg-electronic-program-guide)
 [![Format](https://img.shields.io/badge/format-M3U%20%7C%20M3U8%20%7C%20XMLTV-orange)](#-link-playlist)
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 
@@ -67,10 +67,10 @@ Salin salah satu link di bawah ke IPTV player kamu:
 
 | Statistik | Jumlah |
 |-----------|--------|
-| Channel playlist utama | **1100+** |
+| Channel playlist utama | **920+** |
 | Channel OTT-friendly | **740+** |
-| Channel dengan EPG | 1000+ (jadwal asli: ~120 channel ID/regional; lainnya placeholder) |
-| Programme entries | **25.000+** |
+| Channel dengan EPG | 870+ (jadwal asli: ~120 channel ID/regional; lainnya placeholder) |
+| Programme entries | **32.900+** |
 | Negara | **27+** |
 | Update | **Otomatis tiap hari** |
 
@@ -139,12 +139,12 @@ Channel **(V+)** / **(DASH/MPD)** memakai format **DASH + DRM ClearKey**. Hanya 
 
 ## 📡 EPG (Electronic Program Guide)
 
-Jadwal acara dalam format **XMLTV** supaya muncul di TiviMate, Kodi, OTT Navigator, dan player lain. **Semua 1040+ channel punya entri EPG** (audit otomatis memastikan tidak ada yang bolong) dengan **25.000+ programme**; channel yang belum cocok dengan sumber EPG diberi placeholder *"Jadwal belum tersedia"* agar tetap terbaca player.
+Jadwal acara dalam format **XMLTV** supaya muncul di TiviMate, Kodi, OTT Navigator, dan player lain. **Semua 870+ channel punya entri EPG** (audit otomatis memastikan tidak ada yang bolong) dengan **32.900+ programme**; channel yang belum cocok dengan sumber EPG diberi placeholder *"Jadwal belum tersedia"* agar tetap terbaca player.
 
 | Statistik | Nilai |
 |-----------|-------|
-| Channel dengan EPG | 100% ter-cover (jadwal asli + placeholder) |
-| Programme entries | 25.000+ |
+| Channel dengan EPG | 870+ (jadwal asli + placeholder, 100% ter-cover) |
+| Programme entries | 32.900+ |
 | File size | ~9 MB |
 | Format | XMLTV (`epg.xml`) |
 
@@ -179,8 +179,8 @@ Trigger manual: tab **Actions** → **Auto Update IPTV Playlist** → **Run work
 ## 📁 Struktur Repo
 
 ```
-├── dhanytv.m3u                 # Playlist utama (1040+ channel)
-├── dhanytv-ott.m3u             # Playlist OTT-friendly (730+ channel, non-DASH/DRM)
+├── dhanytv.m3u                 # Playlist utama (920+ channel)
+├── dhanytv-ott.m3u             # Playlist OTT-friendly (740+ channel, non-DASH/DRM)
 ├── epg.xml                     # EPG XMLTV (auto-generated, ~9 MB)
 ├── LICENSE                     # MIT License
 ├── DISCLAIMER.md               # Catatan hukum / DMCA

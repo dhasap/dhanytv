@@ -17,6 +17,14 @@ Format tiap channel (HLS lebih disukai karena jalan di semua player):
 https://contoh.com/stream.m3u8
 ```
 
+**Penting:** untuk menghasilkan playlist yang konsisten, gunakan `group-title`
+dari **67 group yang sudah dipakai** di playlist. Cek `dhanytv.m3u` untuk
+referensi. Group populer: `Indonesia Channels`, `Sports`, `Entertainment`,
+`News`, `Music`, `Kids`, `Documentary`, `Movies`, `Animation / Anime Channels`,
+`Auto / Motor / Otomotif Channels`, `Comedy Channels`, `Religious Channels`,
+`General`, `Series`, `Show`, dan group negara (`Italy`, `Japan`, `Korea`,
+`United States`, `United Kingdom`, `Saudi Arabia`, `UAE & Arab`, dll).
+
 Untuk channel berheader khusus (referrer / user-agent), tambahkan baris properti **sebelum** `#EXTINF`:
 
 ```m3u
@@ -60,12 +68,32 @@ mati yang terus muncul dari source.
 # Validasi & rapikan playlist (harus exit 0)
 python3 update-script/cleanup_playlist.py dhanytv.m3u --write --ott-output dhanytv-ott.m3u --check
 
-# Pastikan channel kurasi ter-inject
+# Pastikan channel kurasi ter-inject (374+ channel)
 python3 update-script/merge_extra.py
 
-# Generate EPG (opsional, butuh source EPG)
+# Generate EPG (butuh source EPG)
 python3 update-script/generate_epg.py --m3u dhanytv.m3u --output epg.xml
+
+# Atau semua langkah sekaligus (download + merge + cleanup + EPG):
+bash update-script/update_playlist.sh -s "<source_url>" -n
 ```
+
+## 🔍 Quality check otomatis
+
+Pipeline auto-update di GitHub Actions menjalankan quality check berlapis:
+
+1. **Syntax-check** `python3 -m py_compile update-script/*.py` — kalau ada
+   script yang broken, workflow gagal cepat.
+2. **Header check** — `head -1 source | grep '#EXTM3U'` — pastikan source
+   valid (bukan HTML error page).
+3. **Anti-wipe guard** — `merge_source.py` exit 1 kalau result 0 channel.
+4. **Safety gate** — channel count minimal 250 dan EPG coverage harus lengkap,
+   kalau tidak commit dibatalkan.
+5. **Blocklist auto-filter** — `cleanup_playlist.py` membuang URL dari
+   `blocklist.txt` (verified 418 exact + 91 regex saat ini).
+
+Sebelum PR, jalan semua 5 quality check di lokal — kalau ada yang fail,
+workflow di CI juga akan fail.
 
 ## 📋 Aturan ringkas
 
