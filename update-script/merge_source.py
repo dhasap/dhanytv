@@ -537,6 +537,7 @@ def _correct_source_keys(lines: list[str]) -> None:
     Searches BOTH backwards and forwards from each EXTINF to find the
     associated license_key line, then replaces with the correct value.
     """
+    print(f"  _correct_source_keys called, {len(lines)} lines")
     CORRECT_CLEARKEYS = {
     "&PICTURES HD": "de8045e9f0fb4d03845dcc4a8bd7712a:6807bd09bda34ada83152908192af6d6",
     "&TV HD": "67d18634ccb04875875c60fb8d9caaba:99a66471c09e4b8a8dc39a0de6803f75",
@@ -1296,6 +1297,7 @@ def _correct_source_keys(lines: list[str]) -> None:
     "tvOne": "251c384e846841abafa1f7c723d57e66:e45b06a38cd261b74c5160f0912c042f",
     }
     
+    fixed = 0
     for i, line in enumerate(lines):
         if not line.strip().startswith("#EXTINF"):
             continue
@@ -1315,6 +1317,7 @@ def _correct_source_keys(lines: list[str]) -> None:
                 current_key = prev.split("license_key=", 1)[1].strip()
                 if current_key != CORRECT_CLEARKEYS[name]:
                     lines[j] = lines[j].replace(current_key, CORRECT_CLEARKEYS[name])
+                    fixed += 1
                 break
         else:
             # Search FORWARDS (KODIPROP after EXTINF)
@@ -1326,7 +1329,16 @@ def _correct_source_keys(lines: list[str]) -> None:
                     current_key = nxt.split("license_key=", 1)[1].strip()
                     if current_key != CORRECT_CLEARKEYS[name]:
                         lines[j] = lines[j].replace(current_key, CORRECT_CLEARKEYS[name])
+                    fixed += 1
                     break
+    if fixed:
+        print(f"  correct_source_keys: {fixed} entries fixed")
+    else:
+        # Debug: check if FUBO is in CORRECT_CLEARKEYS
+        if "FUBO SPORTS 1" in CORRECT_CLEARKEYS:
+            print(f"  _correct_source_keys: 0 fixed, dict has FUBO1 key={CORRECT_CLEARKEYS['FUBO SPORTS 1'][:30]}")
+        else:
+            print(f"  _correct_source_keys: 0 fixed, FUBO1 NOT in dict")
 
 def merge(
     source_path: Path,
