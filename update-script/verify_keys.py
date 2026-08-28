@@ -770,6 +770,17 @@ CORRECT = {
 
 
 
+def _extinf_channel_name(line: str) -> str:
+    """Channel name = text after the first comma OUTSIDE quoted attributes."""
+    in_quotes = False
+    for idx, ch in enumerate(line):
+        if ch == '"':
+            in_quotes = not in_quotes
+        elif ch == "," and not in_quotes:
+            return line[idx + 1:].strip()
+    return ""
+
+
 def main() -> int:
     filepath = sys.argv[1] if len(sys.argv) > 1 else "dhanytv.m3u"
     with open(filepath) as f:
@@ -779,10 +790,9 @@ def main() -> int:
     for i, line in enumerate(lines):
         if not line.strip().startswith("#EXTINF"):
             continue
-        m = re.search(r",(.+)$", line)
-        if not m:
+        name = _extinf_channel_name(line)
+        if not name:
             continue
-        name = m.group(1).strip()
         if name not in CORRECT:
             continue
 

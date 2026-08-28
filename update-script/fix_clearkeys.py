@@ -774,6 +774,17 @@ CORRECT_CLEARKEYS: dict[str, str] = {
 }
 
 
+def _extinf_channel_name(line: str) -> str:
+    """Channel name = text after the first comma OUTSIDE quoted attributes."""
+    in_quotes = False
+    for idx, ch in enumerate(line):
+        if ch == '"':
+            in_quotes = not in_quotes
+        elif ch == "," and not in_quotes:
+            return line[idx + 1:].strip()
+    return ""
+
+
 def fix_keys(playlist_path: Path, dry_run: bool = False) -> int:
     """Fix wrong ClearKey keys by matching channel names.
 
@@ -789,11 +800,11 @@ def fix_keys(playlist_path: Path, dry_run: bool = False) -> int:
         if not line.strip().startswith("#EXTINF"):
             continue
 
-        # Get channel name
-        m = re.search(r",(.+)$", line)
-        if not m:
+        # Get channel name (comma outside quoted attrs; naive regex breaks
+        # when tvg-logo/group-title contain commas)
+        name = _extinf_channel_name(line)
+        if not name:
             continue
-        name = m.group(1).strip()
         if name not in CORRECT_CLEARKEYS:
             continue
 

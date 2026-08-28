@@ -20,6 +20,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Syntax-check update scripts
+        run: |
+          # Fail fast on broken Python before touching the playlist — prevents
+          # SyntaxError/NameError mid-pipeline (happened 2026-08-28).
+          python3 -m py_compile update-script/*.py
+          echo "All update scripts compile OK"
+
       - name: Download Latest Source
         env:
           SRC: ${{ secrets.PLAYLIST_SOURCE }}
