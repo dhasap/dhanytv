@@ -241,7 +241,6 @@ re:hgmtv\.com
 re:dhoomtv\.xyz
 re:cdns\.jp\-primehome\.com
 re:wurl\.com
-re:streamlock\.net
 re:mediatailor\..*\.amazonaws\.com
 re:abc\-iview\-mediapackagestreams\-1\.akamaized\.net
 re:abc\-iview\-mediapackagestreams\-2\.akamaized\.net
@@ -255,11 +254,9 @@ re:103\.165\.93\.31
 re:103\.175\.73\.12
 re:103\.18\.181\.69
 re:103\.213\.31\.109
-re:103\.255\.15\.222
 re:103\.72\.101\.252
 re:103\.99\.249\.139
 re:116\.90\.120\.151
-re:122\.248\.43\.242
 re:138\.121\.15\.230
 re:149\.71\.34\.166
 re:170\.83\.49\.66
@@ -284,7 +281,6 @@ re:norkadymm\.top
 re:line\.trx\-ott\.com
 re:nl\.utako\.moe
 re:mam\.jogjaprov\.go\.id
-re:live\.cnbcindonesia\.com
 re:mn\-nl\.mncdn\.com
 re:mic\.siar\.us
 re:v10\.siar\.us
@@ -299,3 +295,114 @@ re:d3b73b34o7cvkq\.cloudfront\.net
 re:d3pnbvng3bx2nj\.cloudfront\.net
 re:013tv\.com
 re:boti\.my\.id
+
+# ── Audit 2026-08-28: konfirmasi HTTP 404/410 (GET dgn UA+referer per-entry) ───
+https://jambitv.globaldigitalcore.com/hls/sah5tu7Eiveepohyieyie3O9Aeich6ooxohm3luqueeFie2ooH2iebahy4haeCh9oobi0j/index.m3u8
+https://janya-digimix.akamaized.net/vglive-sk-234616/indonesia/ngarirang.m3u8
+https://gist.githubusercontent.com/iptvonlinetv/02d20920708284601733a7d61f21a942/raw/grooviakanal.m3u
+https://gist.githubusercontent.com/iptvonlinetv/244b66c61f162a7c0dbf32b1064f1a79/raw/grooviakids.m3u
+https://ataide0.sandhost.dpdns.org/tsn.m3u8
+https://svara-stream.radioddns.net:8443/jakarta_smoothfm_mp3
+https://nhk4.mov3.co/hls/nhk.m3u8
+https://tvsen3.aynaott.com/jzT482XQ/index.m3u8
+https://afrashls.wns.live/hls/stream.m3u8
+http://m.live.net.sa:1935/live/quran/gmswf.m3u8
+http://africatv.live.net.sa:1935/live/africatv3/playlist.m3u8
+https://oqgdrb8my4rm-hls-live.5centscdn.com/GNF02/bcea197d8b00f79cb716c6288a861000.sdp/playlist.m3u8
+re:^https://app\.ncare\.live/
+# jmp2.uk plu-* shortener: semua 404 (Pluto relaynya mati)
+# jmp2.uk plu-* shortener: 6 channel Pluto relay mati (health 2026-08-28)
+https://jmp2.uk/plu-65ea8b928145cb0008509426.m3u8
+https://jmp2.uk/plu-5a74b8e1e22a61737979c6bf.m3u8
+https://jmp2.uk/plu-62ba60f059624e000781c436.m3u8
+https://jmp2.uk/plu-68487fb3f212bedacf5a53e3.m3u8
+https://jmp2.uk/plu-5f4d878d3d19b30007d2e782.m3u8
+https://jmp2.uk/plu-5ca525b650be2571e3943c63.m3u8
+# ratu77 workers proxy: 404 semua id
+re:^https://ratu77\.adptv\.workers\.dev/
+# get.perfecttv.net: 404 + kredensial vip expired
+re:^https://get\.perfecttv\.net/
+
+# ── Audit 2026-08-28: host NXDOMAIN (DNS dihapus, konfirmasi via Google DNS) ───
+# Vision+ FTA CDN dimatikan permanen oleh provider
+re:^https://fta[0-9]-cdn-flr\.visionplus\.id/
+re:^https://cdn-live1\.qvc\.jp/
+re:^https://live3-mediaset-it\.akamaized\.net/
+re:^https://live2\.msf\.cdn\.mediaset\.net/
+re:^https://cdn-tiva-video01-logicahost-com-br\.smartbit\.co/
+re:^https://jhh7vextfg8r\.hgagecdn\.com/
+
+# ── Auto-added 2026-08-28 dari health-check lokal ───
+# 12 URL baru yang sebelumnya tidak ada di blocklist:
+# 8 BAD_FORMAT_PIPE (suffix |User-Agent=... tidak didukung player),
+# 4 HOST_DEAD Vision+ CDN (regex subdomain sudah ada, tapi beberapa
+# path spesifik ditambahkan untuk dokumentasi).
+
+# Regex untuk semua host mati — supaya 1 entry mencakup banyak URL:
+re:^https?://moonbug\-rokuus\.amagi\.tv/.*\|User\-Agent=
+re:^https?://zoomoo\-samsungau\.amagi\.tv/.*\|User\-Agent=
+re:^https?://cdn\-live1\.qvc\.jp/.*\|User\-Agent=
+re:^https?://cdn10jtedge\.indihometv\.com/.*\|User\-Agent=
+re:^https?://stream3\.shopch\.jp/.*\|User\-Agent=
+
+# ── PIPE_FORMAT ───
+# MOONBUG (AMG) [BAD_FORMAT_PIPE]
+https://moonbug-rokuus.amagi.tv/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+# ZOO MOO (AMG) [BAD_FORMAT_PIPE]
+https://zoomoo-samsungau.amagi.tv/playlist.m3u8|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+# SHOP CHANNEL [BAD_FORMAT_PIPE]
+https://stream3.shopch.jp/httporiginlivech1/ch1.stream_1280p/chunklist.m3u8|User-Agent=referrer=https://tv.garden/
+# Zee BIOSKOP (IHT) [BAD_FORMAT_PIPE]
+https://cdn10jtedge.indihometv.com/atm/DASH/zbioskop/manifest.mpd|User-Agent=referrer=https://www.indihometv.com/
+# THRILL (IHT) [BAD_FORMAT_PIPE]
+https://cdn10jtedge.indihometv.com/atm/DASH/thrill/manifest.mpd|User-Agent=referrer=https://www.indihometv.com/
+# ROCK ACTION (IHT) [BAD_FORMAT_PIPE]
+https://cdn10jtedge.indihometv.com/atm/DASH/ROCK_ACTION/manifest.mpd|User-Agent=referrer=https://www.indihometv.com/
+# AXN (IHT) [BAD_FORMAT_PIPE]
+https://cdn10jtedge.indihometv.com/atm/DASH/axn/manifest.mpd|User-Agent=referrer=https://www.indihometv.com/
+# K-PLUS (IHT) [BAD_FORMAT_PIPE]
+https://cdn10jtedge.indihometv.com/atm/DASH/kplus/manifest.mpd|User-Agent=referrer=https://www.indihometv.com/
+
+# ── VISIONPLUS ───
+# GALAXY (VS)
+https://fta4-cdn-flr.visionplus.id/out/v1/751a0982779f4edd904205eb351e220d/index.mpd|license_type=org.w3.clearkey&license_key=0d9539db24004da9ac36ea49a09e255c:30304533b5008ad7f33c25f225506bc0&User-Agent=referrer=https://www.visionplus.id/&User-Agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1
+# Celestial Movies
+https://fta4-cdn-flr.visionplus.id/out/v1/fd25e662b7154c60a94f7c061573ba2d/index.mpd|license_type=clearkey&license_key=12a34fccac944a19a14101a9009dae05:2d1543668411b31aec7269d889d4821c&User-Agent=ExoPlayerDemo/2.15.1 (Linux; Android 13) ExoPlayerLib/2.15.1&User-Agent=referrer=https://www.visionplus.id/
+# CCM (VS)
+https://fta1-cdn-flr.visionplus.id/out/v1/6bdbe6ce7f034807aba5f09bed048b05/index.mpd|license_type=clearkey&license_key=cf861d26e7834166807c324d57df5119:64a81e30f6e5b7547e3516bbf8c647d0&User-Agent=ExoPlayerDemo/2.15.1 (Linux; Android 14) ExoPlayerLib/2.15.1
+# TVN (VS)
+https://fta1-cdn-flr.visionplus.id/out/v1/6dc5412d26ea4e65961c825d866f2a34/index.mpd|license_type=clearkey&license_key=3fbf0d50c48a46bfbf287715296f17e5:b1e63bdfd4e89fc42ea41635ab2bc3a9&User-Agent=ExoPlayerDemo/2.15.1 (Linux; Android 14) ExoPlayerLib/2.15.1
+
+# ── Auto-added 2026-08-28 dari health-check final (post-fix) ───
+# 13 channel confirmed 404/503/591 di playlist final:
+# 9 radio stream mati (i-Radio, Trax FM, Hard Rock FM), 4 stream TV mati.
+
+# Regex untuk radio.radiojar.com: beberapa stream mati, tapi tidak
+# bisa block semua (mungkin ada radio lain yang hidup). Exact-match only.
+
+# Kids TV [503]
+http://origin5.mediacdn.ru/live/kidstv/index.m3u8
+# BBC Treasures [591]
+https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/aczgdiuxsu/out/v1/31374ef324ce4bd2bd278b78f4a97d60/cenc.mpd?encoding=segmentBase
+# i-Radio Medan [404]
+https://stream.radiojar.com/hkuevehswk8uv
+# i-Radio Bandung [404]
+https://stream.radiojar.com/u6ppe6hswk8uv
+# i-Radio Banjarmasin [404]
+https://stream.radiojar.com/qfqd2aw80k8uv
+# Hard Rock FM Bandung [503]
+https://stream.radiojar.com/fnex9bkswk8uv
+# i-Radio Makasar [404]
+https://stream.radiojar.com/seqmzfeu5k8uv
+# Trax FM Jakarta [404]
+https://stream.radiojar.com/rrqf78p3bnzuv.mp3?1729556952
+# Hard Rock FM Surabaya [404]
+https://stream.radiojar.com/yg8ne2v80k8uv
+# Hard Rock FM Bali [404]
+https://stream.radiojar.com/9k28wsbu5k8uv
+# ATV Avrupa (576p) [503]
+https://flask-api-hls-atvavrupahdtrkvz-live.onrender.com/hls_stream/master.m3u8
+# +SBT Novelas (1080p) [Geo-blocked] [404]
+https://novelas.maissbt.com/v1/master/215c0da80606fed29372070168106400a6ca7e1a/Novelas_cmaf/index.m3u8
+# Aupur Television (1080p) [404]
+https://canal.aupurtv.co/live/stream/index.m3u8

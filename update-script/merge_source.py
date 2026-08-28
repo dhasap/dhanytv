@@ -68,7 +68,9 @@ CHANNEL_TO_EPG: dict[str, str] = {
     "Music TV": "MusicTV.id", "Soccer Channel": "SoccerChannel.id",
     "Fight Sports": "FightSports.id", "Outdoor Channel": "OutdoorChannel.id",
     "Love Nature": "LoveNature.id", "Global Trekker": "GlobalTrekker.id",
-    "BBC Earth": "BBCEarth.id", "BBC News": "BBCNews.id",
+    "BBC Earth": "BBCEarth.id",
+    # NOTE: "BBC News" mapped once below (duplicate key here used to silently
+    # override this earlier .id mapping — keep a single entry).
     "Crime Investigation": "CrimeInvestigation.id", "KIX": "KIX.id",
     "ROCK Action": "ROCKAction.id", "ROCK Entertainment": "ROCKEntertainment.id",
     "Jak TV": "JakTV.id", "JakTV": "JakTV.id",
@@ -310,14 +312,29 @@ def _fix_referrer_prop(raw: str) -> str:
     return raw
 
 
+def extinf_channel_name(line: str) -> str:
+    """Extract channel display name from an #EXTINF line.
+
+    The name is everything after the first comma that sits OUTSIDE quoted
+    attribute values. A naive `,(.+)$` regex breaks when tvg-logo/group-title
+    contain commas.
+    """
+    in_quotes = False
+    for idx, ch in enumerate(line):
+        if ch == '"':
+            in_quotes = not in_quotes
+        elif ch == "," and not in_quotes:
+            return line[idx + 1:].strip()
+    return ""
+
+
 def _fix_extinf(raw: str) -> tuple[str, int]:
     """Remove tvg-url, fix tvg-id via EPG mapping. Returns (fixed, epg_mapped)."""
     raw = _RE_TVG_URL_URL.sub("", raw)
     raw = _RE_TVG_URL.sub("", raw)
     raw = _RE_EMPTY_QUOTED_ATTR.sub("", raw)
-    name_match = re.search(r",(.+?)$", raw.strip())
-    if name_match:
-        name = name_match.group(1).strip()
+    name = extinf_channel_name(raw.strip())
+    if name:
         epg_id = get_epg_id(name)
         if epg_id:
             raw = _RE_TVG_ID.sub(f'tvg-id="{epg_id}"', raw)
@@ -1301,10 +1318,9 @@ def _correct_source_keys(lines: list[str]) -> None:
     for i, line in enumerate(lines):
         if not line.strip().startswith("#EXTINF"):
             continue
-        m = re.search(r",(.+)$", line)
-        if not m:
+        name = extinf_channel_name(line)
+        if not name:
             continue
-        name = m.group(1).strip()
         if name not in CORRECT_CLEARKEYS:
             continue
         
@@ -1430,6 +1446,13 @@ def merge(
 
     # Write output
     stats["channels"] = sum(1 for l in output if l.startswith("#EXTINF"))
+    # Safety guard: never wipe the target. If the merge result has no channels
+    # (e.g. empty/corrupt source), abort WITHOUT writing so CI fails loudly
+    # instead of silently committing an empty playlist.
+    if stats["channels"] == 0:
+        print("ERROR: merge produced 0 channels — refusing to overwrite target "
+              "(source kosong/korup?). Target tidak diubah.", file=sys.stderr)
+        raise SystemExit(1)
     target_path.write_text(
         header_line + "\n\n" + "\n".join(output) + "\n",
         encoding="utf-8",

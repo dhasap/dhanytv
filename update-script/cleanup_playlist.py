@@ -138,6 +138,17 @@ TRIAL_IDH_REMAP: dict[str, str] = {
     "New TV Variety": "Entertainment & LifeStyle",
 }
 
+def _extinf_channel_name(line: str) -> str:
+    """Channel name = text after the first comma OUTSIDE quoted attributes."""
+    in_quotes = False
+    for idx, ch in enumerate(line):
+        if ch == '"':
+            in_quotes = not in_quotes
+        elif ch == "," and not in_quotes:
+            return line[idx + 1:].strip()
+    return ""
+
+
 def normalize_group_title(extinf: str) -> str:
     m = _RE_GROUP_TITLE.search(extinf)
     if not m:
@@ -146,8 +157,7 @@ def normalize_group_title(extinf: str) -> str:
     canonical = GROUP_NORMALIZE_MAP.get(original.lower(), original)
     # Trial IDH needs special handling: remap by channel name, not a single target.
     if canonical == "__TRIAL_IDH__":
-        name_m = re.search(r',(.+)$', extinf)
-        name = name_m.group(1).strip() if name_m else ""
+        name = _extinf_channel_name(extinf)
         remap = TRIAL_IDH_REMAP.get(name, "MOVIES & ENTERTAINMENT")
         return extinf[: m.start(1)] + remap + extinf[m.end(1):]
     if canonical == original:

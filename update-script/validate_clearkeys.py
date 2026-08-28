@@ -48,23 +48,30 @@ def validate(block):
     # itself is unreachable (stream confirmed offline).
     return block, f'mismatch-but-kept kid={kid_m[:8]}'
 
+# Deterministic: validate concurrently but rebuild in ORIGINAL block order,
+# preserving non-EXTINF blocks (header/comments). as_completed-ordered output
+# used to shuffle the playlist randomly on every run.
+results = {}
 with cf.ThreadPoolExecutor(max_workers=16) as ex:
-    futs={ex.submit(validate,b): b for b in blocks if b.startswith('#EXTINF')}
-    others=[b for b in blocks if not b.startswith('#EXTINF')]
+    futs = {ex.submit(validate, b): idx
+            for idx, b in enumerate(blocks) if b.startswith('#EXTINF')}
     for f in cf.as_completed(futs):
-        b=futs[f]
+        idx = futs[f]
         newb, status = f.result()
+        results[idx] = (newb, status)
+
+out = []
+for idx, b in enumerate(blocks):
+    if idx in results:
+        newb, status = results[idx]
         if status.startswith('mismatch'):
             dropped.append((status, b.splitlines()[0][-50:]))
-        elif status=='unverifiable':
+        elif status == 'unverifiable':
             unverif.append(b)
-        kept.append(newb if newb else '')
-
-new_txt=''.join(o for o in others) if False else '\n'.join([k for k in kept if k is not None])
-# rebuild sederhana: gabung blok yang dipertahankan dengan pemisah baris
-out=[]
-for k in kept:
-    if k: out.append(k.strip('\n'))
+        if newb:
+            out.append(newb.strip('\n'))
+    elif b.strip():
+        out.append(b.strip('\n'))
 new='\n\n'.join(out)+'\n'
 # pertahankan header
 hdr=txt.splitlines()[0]
