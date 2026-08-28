@@ -137,6 +137,14 @@ jobs:
           fi
           echo "OTT validation: OK (0 DASH channels)"
 
+      - name: Re-fix ClearKeys after cleanup
+        run: |
+          echo "=== Re-fixing ClearKeys after cleanup ==="
+          BEFORE=$(grep -c 'license_key=' dhanytv.m3u || echo 0)
+          python3 update-script/fix_clearkeys.py dhanytv.m3u
+          AFTER=$(grep -c 'license_key=' dhanytv.m3u || echo 0)
+          echo "ClearKey entries: $BEFORE -> $AFTER"
+
       - name: Validate ClearKey entries (drop revoked keys)
         continue-on-error: true
         timeout-minutes: 15
