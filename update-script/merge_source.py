@@ -1303,7 +1303,7 @@ def _correct_source_keys(lines: list[str]) -> None:
         if not m:
             continue
         name = m.group(1).strip()
-        if name not in CORRECT:
+        if name not in CORRECT_CLEARKEYS:
             continue
         
         # Search BACKWARDS
@@ -1313,8 +1313,8 @@ def _correct_source_keys(lines: list[str]) -> None:
                 break
             if "license_key=" in prev and "http" not in prev.split("license_key=", 1)[1][:10]:
                 current_key = prev.split("license_key=", 1)[1].strip()
-                if current_key != CORRECT[name]:
-                    lines[j] = lines[j].replace(current_key, CORRECT[name])
+                if current_key != CORRECT_CLEARKEYS[name]:
+                    lines[j] = lines[j].replace(current_key, CORRECT_CLEARKEYS[name])
                 break
         else:
             # Search FORWARDS (KODIPROP after EXTINF)
@@ -1324,8 +1324,8 @@ def _correct_source_keys(lines: list[str]) -> None:
                     break
                 if "license_key=" in nxt and "http" not in nxt.split("license_key=", 1)[1][:10]:
                     current_key = nxt.split("license_key=", 1)[1].strip()
-                    if current_key != CORRECT[name]:
-                        lines[j] = lines[j].replace(current_key, CORRECT[name])
+                    if current_key != CORRECT_CLEARKEYS[name]:
+                        lines[j] = lines[j].replace(current_key, CORRECT_CLEARKEYS[name])
                     break
 
 def merge(
