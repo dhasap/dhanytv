@@ -1294,7 +1294,7 @@ def _correct_source_keys(lines: list[str]) -> None:
     "i-Radio Medan": "86e50e1506af46c780233c0091b67159:549788738d10df77094a0d4efaf0d567",
     "iNews": "6a8b65c83036329e7185b9cd8cbdee29:0eb2beb5633f8e35cafab45af3d21de0",
     "tvOne": "251c384e846841abafa1f7c723d57e66:e45b06a38cd261b74c5160f0912c042f",
-}}
+    }
     
     for i, line in enumerate(lines):
         if not line.strip().startswith("#EXTINF"):
