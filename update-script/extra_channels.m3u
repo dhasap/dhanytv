@@ -49,6 +49,10 @@ https://mncmedia.malingtv.workers.dev/gtv.m3u8
 #EXTINF:-1 tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/wSfbef0k6V3fn7rnZa4azgVrLcM=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/728/eb7747.png" group-title="Indonesia Channels",iNews HD
 https://mncmedia.malingtv.workers.dev/inews.m3u8
 
+# --- iNews HD backup (official website, global HLS) ---
+#EXTINF:-1 tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/wSfbef0k6V3fn7rnZa4azgVrLcM=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/728/eb7747.png" group-title="Indonesia Channels",iNews HD
+https://live.i-news.tv/hls/stream.m3u8
+
 # --- Indosiar (DensTV primary utk user ID) ---
 #EXTINF:-1 tvg-id="Indosiar.id" tvg-logo="https://thumbor.prod.vidiocdn.com/0plBZ7Gso7gNBJxid9ksA8HMGxc=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/205/54ab19.png" group-title="Indonesia Channels",Indosiar HD
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
