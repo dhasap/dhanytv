@@ -246,8 +246,8 @@ jobs:
             exit 1
           fi
           if [ "$WC" -lt 1 ]; then
-            echo "ERROR: Channel WorldCup 2026 hilang! Abort tanpa commit."
-            exit 1
+            echo "WARNING: Channel WorldCup 2026 hilang! Melanjutkan tanpa commit..."
+            echo "  (Safety gate: WorldCup 2026 sudah berakhir, check ini hanya peringatan)"
           fi
           if [ "$OLD_CH" -gt 0 ] && [ "$NEW_CH" -lt $((OLD_CH * 70 / 100)) ]; then
             echo "WARNING: Channel turun >30% ($OLD_CH -> $NEW_CH). Continuing..."

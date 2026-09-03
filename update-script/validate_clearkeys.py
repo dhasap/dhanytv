@@ -7,7 +7,8 @@ Pemakaian:
 
 - Manifest tak terbaca / geo / timeout -> entri DIPERTAHANKAN (tidak bisa divalidasi).
 - KID terbaca & match   -> entri DIPERTAHANKAN.
-- KID terbaca & mismatch-> entri DIBUANG (pasti gagal dekripsi).
+- KID terbaca & mismatch-> entri DIPERTAHANKAN (provider sering rotasi KID, key dari
+  sumber lain mungkin tetap valid). Hanya dilaporkan sebagai statistik.
 """
 import concurrent.futures as cf
 import re, sys, ssl, urllib.request, ssl as _ssl
@@ -31,7 +32,7 @@ def fetch_kid(url):
 txt=open(M3U,encoding='utf-8',errors='replace').read()
 blocks=re.split(r'(?=^#EXTINF)', txt, flags=re.M)
 
-kept, dropped, unverif = [], [], []
+kept, mismatch, unverif = [], [], []
 def validate(block):
     url=None; kid_entry=None
     for l in block.splitlines():
@@ -65,7 +66,7 @@ for idx, b in enumerate(blocks):
     if idx in results:
         newb, status = results[idx]
         if status.startswith('mismatch'):
-            dropped.append((status, b.splitlines()[0][-50:]))
+            mismatch.append((status, b.splitlines()[0][-50:]))
         elif status == 'unverifiable':
             unverif.append(b)
         if newb:
@@ -77,8 +78,8 @@ new='\n\n'.join(out)+'\n'
 hdr=txt.splitlines()[0]
 if not new.startswith('#EXTM3U'): new=hdr+'\n'+new
 
-print(f'dropped (KID mismatch): {len(dropped)}')
-for s,n in dropped: print('  ',s,'|',n)
+print(f'mismatch (KID beda, tetap dipertahankan): {len(mismatch)}')
+for s,n in mismatch: print('  ',s,'|',n)
 print(f'unverifiable (geo/offline): {len(unverif)}')
 if WRITE:
     open(M3U,'w',encoding='utf-8').write(new)
