@@ -1878,9 +1878,6 @@ https://cdn-4.pishow.tv/live/1007/master.m3u8
 #EXTINF:-1 tvg-id="6TVTelugu.in@SD" tvg-logo="https://i.imgur.com/l3EcRnZ.png" group-title="India",6 TV Telugu (576p)
 https://yuppparoriglin.akamaized.net/181224/smil:6tv.smil/playlist.m3u8?hdnts=st=1735898689~exp=1835898688~acl=*~hmac=f5fe24724fe05481e3841f9eb5ab8efdee0a3dd83645ae9dcf45703f525bab7b
 
-#EXTINF:-1 tvg-id="7SMusic.in@SD" tvg-logo="https://i.imgur.com/zDiIhdN.png" group-title="India",7S Music (576p)
-https://mumt03.tangotv.in/Dsly5z3H7SMUSIC/index.m3u8
-
 #EXTINF:-1 tvg-id="9XJalwa.in@SD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_9X_JALWA/images/LOGO_HD/image.png" group-title="India",9X Jalwa (1080p)
 https://wiselp.wiseplayout.com/9X_Jalwa/master.m3u8
 
@@ -1934,6 +1931,9 @@ https://mumt04.tangotv.in/m18aqlK4AASTHAGUJARATI/index.m3u8
 
 #EXTINF:-1 tvg-id="AasthaTamil.in@SD" tvg-logo="https://i.imgur.com/YQK9ewf.png" group-title="India",Aastha Tamil (480p)
 https://aasthaott.akamaized.net/110923/smil:aasthatamil.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-id="AasthaTelugu.in@SD" tvg-logo="https://dtil.tmsimg.com/assets/s158136_ld_h15_aa.png?lock=720x540" group-title="India",Aastha Telugu (480p)
+https://aasthaott.akamaized.net/110923/smil:aasthatelugu.smil/playlist.m3u8
 
 #EXTINF:-1 tvg-id="3HD.th@SD" tvg-logo="https://i.imgur.com/YRiulCU.png" group-title="Thailand",3HD
 https://live-us1.thaimomo.com/live-as/ch3hd-3/playlist.m3u8
@@ -2506,7 +2506,7 @@ https://5e73cf528f404.streamlock.net/GR_sport/livestream/playlist.m3u8
 http://151.0.207.99:1935/AlmaTv/AlmaTv/playlist.m3u8
 
 #EXTINF:-1 tvg-id="AELatinAmerica.us@Brazil" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/A%26E_Network_logo.svg/960px-A%26E_Network_logo.svg.png" group-title="Brazil",A&E Latin America Brazil (720p)
-http://45.190.28.50/AE_HD/index.m3u8
+http://170.83.16.50/AeE/index.m3u8
 
 #EXTINF:-1 tvg-id="AdessoTV.br@SD" tvg-logo="https://i.imgur.com/KgetM8j.png" group-title="Brazil",Adesso TV (720p)
 https://cdn.jmvstream.com/w/LVW-9715/LVW9715_12B26T62tm/playlist.m3u8
@@ -2515,7 +2515,7 @@ https://cdn.jmvstream.com/w/LVW-9715/LVW9715_12B26T62tm/playlist.m3u8
 https://jmp2.uk/plu-61b790b985706b00072cb797.m3u8
 
 #EXTINF:-1 tvg-id="AdultSwimLatinAmerica.us@Brazil" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Adult_Swim_2003_logo.svg/960px-Adult_Swim_2003_logo.svg.png" group-title="Brazil",Adult Swim Latin America Brazil (720p)
-http://45.190.28.50/TRUTV_HD/index.m3u8
+http://168.197.104.22/ADULT_SWIM/index.m3u8
 
 #EXTINF:-1 tvg-id="AgroCanal.br@SD" tvg-logo="https://i.imgur.com/5XyopHf.png" group-title="Brazil",AgroCanal (720p)
 http://45.162.64.114/AGRO_CANAL/index.m3u8
@@ -2549,13 +2549,13 @@ https://jmp2.uk/plu-6759eeb1bd523200083b4f29.m3u8
 https://awtv.nuvemplay.live/hls/stream.m3u8
 
 #EXTINF:-1 tvg-id="AXN.br@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/AXN_logo_%282015%29.svg/960px-AXN_logo_%282015%29.svg.png" group-title="Brazil",AXN (720p)
-http://45.190.28.50/AXN_HD/index.m3u8
+http://170.83.16.50/AXN/index.m3u8
 
 #EXTINF:-1 tvg-id="BabyFirst.us@Brazil" tvg-logo="https://i.imgur.com/WxLHBwu.png" group-title="Brazil",Babyfirst
 https://jmp2.uk/plu-5f4fb4cf605ddf000748e16f.m3u8
 
 #EXTINF:-1 tvg-id="Band.br@SD" tvg-logo="https://i.imgur.com/1r5T6Pw.png" group-title="Brazil",Band (720p)
-http://45.190.28.50/BAND_HD/index.m3u8
+http://170.84.165.204/BAND_HD/index.m3u8
 
 #EXTINF:-1 tvg-id="BandSports.br@SD" tvg-logo="https://i.imgur.com/EuPvzJe.png" group-title="Brazil",Band Sports (1080p)
 https://cdn-5.nxplay.com.br/BAND_SPORTS/index.m3u8
