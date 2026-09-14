@@ -218,12 +218,6 @@ https://rtvstream.rtv.co.id:4555/hls/rtv.m3u8
 #EXTINF:-1 tvg-id="magna.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Indonesia Channels",MAGNA TV (ChannelFeed)
 https://edge.medcom.id/live-edge/smil:magna.smil/chunklist_w521170343_b1128000_sleng.m3u8
 
-#EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV (DASH/MPD)
-https://cdnbal1.indihometv.com/atm/DASH/sctv/sctv-avc1_2500000=7-3277707030000000.mpd
-
-#EXTINF:-1 tvg-id="Indosiar.id" tvg-logo="https://thumbor.prod.vidiocdn.com/0plBZ7Gso7gNBJxid9ksA8HMGxc=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/205/54ab19.png" group-title="Indonesia Channels",Indosiar
-https://cdnbal1.indihometv.com/atm/DASH/indosiar/indosiar-avc1_2500000=7-3277707030000000.mpd
-
 #EXTINF:-1 tvg-id="MDTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/LCZH_yEBnTYEQzrU1pB7w7ev-Bw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/875/325605.png" group-title="Indonesia Channels",MDTV
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
 #EXTVLCOPT:http-origin=https://www.dens.tv
@@ -390,6 +384,15 @@ https://flv.intechmedia.net/live/ch112.m3u8?
 
 #EXTINF:-1 tvg-id="Indonesiana TV" tvg-logo="https://layarceritaperempuan.indonesiana.tv/_nuxt/img/logo-indonesianatv-fit.0d9697f.png" group-title="Indonesia Channels",Indonesiana TV (ChannelFeed)
 https://tvstreamcast.com/indonesiana.m3u8
+
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstreamaddon=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=dash
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36
+
+#EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV (DASH/MPD)
+https://cdnbal1.indihometv.com/atm/DASH/sctv/sctv-avc1_2500000=7-3277707030000000.mpd
 
 #EXTINF:-1 tvg-id="auto.golf.channel" group-title="Sports",Golf Channel
 https://30a-tv.com/feeds/vidaa/golf.m3u8
@@ -2207,6 +2210,7 @@ https://visionplus.fazznet.my.id/out/v1/a82a32a7b69f40f58ae25d619548d215/index.m
 
 #EXTINF:-1 tvg-id="Jiangsu TV" group-title="China" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/d/dc/Jiangsu_Broadcasting_Corporation.svg/800px-Jiangsu_Broadcasting_Corporation.svg.png",Jiangsu TV (V+)
 https://visionplus.fazznet.my.id/out/v1/ccc51c0317284496b6cde9f7bd670b80/index.mpd
+# ================================================= Australia =====================================================#
 #======================================================= DAERAH =================================#
 # ================== Internet Radio ================================#
 
