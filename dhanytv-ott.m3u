@@ -378,6 +378,11 @@ https://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5e9f2c05172a0f0007db4
 #EXTINF:-1 tvg-id="auto.cbs.golazo.network" group-title="Sports" tvg-logo="https://wwwimage-tve.cbsstatic.com/base/files/seo/cbs_seo_1200x627_1.jpg", CBS Golazo Network
 https://stitcher.pluto.tv/stitch/hls/channel/63a0e33a45264d000850ed7e/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=cb5874fc-6948-11ef-b8e3-ea3db3d97a96
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
+#EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
+#EXTINF:-1 tvg-id="MentariTV.id@SD" tvg-logo="https://thumbor.prod.vidiocdn.com/59CZO-IVdps6hUK6gEQqn-w-bCw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/8237/18585d.png" group-title="Kids",Mentari TV (VIDIO)
+https://aspaltvpasti.top/Drmvidbos/Akun121/bosstv.m3u8?id=8237
+
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="auto.vtv" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/7/7b/VTV_Indonesia_red.png" group-title="Kids",VTV
 https://flv.intechmedia.net/live/ch107.m3u8
@@ -1408,6 +1413,7 @@ http://filex.me:8080/akkvdGtMUWkvVnMvaWx3V2hXa2NaZy9CTmYrVG13Z0pQVjFaRjhoMzNzRmc
 #EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0/v2206","user-agent":"Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0/v2206"}
 https://op-flashcon-digdayasd-1.dens.tv/h/h215/S1/mnf.m3u8
 #============================================================= KIDS ==================================================================================================#
+# EXTINF:-1 tvg-id="MentariTV.id@SD" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-logo="https://thumbor.prod.vidiocdn.com/59CZO-IVdps6hUK6gEQqn-w-bCw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/8237/18585d.png" group-title="Kids Channel",Mentari TV (Vision+)
 #================================================================================ Music ===================================================================================#
 
 #EXTVLCOPT:http-user-agent=VidioPlayer/6.31.6
