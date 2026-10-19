@@ -62,8 +62,17 @@ https://op-flashcon-digdayahd-1.dens.tv/h/h210/01.m3u8
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/F6W__Y0wn_7mFW0cOuz7mi7qjWU=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/6441/528cc9.png" group-title="Indonesia Channels",TVRI Nasional (HLS - Tanpa DRM)
 https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
 
+#EXTINF:-1 tvg-id="auto.banjar.tv" group-title="Indonesia Channels",Banjar TV
+https://banjartv.siar.us/banjartv/live/playlist.m3u8
+
+#EXTINF:-1 tvg-id="auto.banten.tv" group-title="Indonesia Channels",Banten TV
+https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8
+
 #EXTINF:-1 tvg-id="auto.bungo.tv" group-title="Indonesia Channels",Bungo TV
 https://5bf7b725107e5.streamlock.net/bungotv/bungotv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="auto.dhoho.tv" group-title="Indonesia Channels",Dhoho TV
+https://dhohotv.siar.us/dhohotv/live/playlist.m3u8
 
 #EXTINF:-1 tvg-id="auto.ficom.channel" group-title="Indonesia Channels",Ficom Channel
 https://v3.siar.us/ficomchannel/live/playlist.m3u8
@@ -452,78 +461,11 @@ http://122.248.43.242:1935/TIMORTV/_definst_/myStream/playlist.m3u8
 #EXTINF:-1 tvg-id="jek.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Local Channels",JEK TV
 http://27.124.81.245:1935/jektv/myStream/playlist.m3u8
 
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1
-#EXTVLCOPT:http-user-agent=VidioPlayer/6.41.11
-#EXTINF:-1 tvg-id="auto.jawapos.tv" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/id/thumb/3/3b/Logo_Jawapos_TV.png",JAWAPOS TV
-https://aspaltvpasti.top/Drmvidbos/Akun121/bosstv.m3u8?id=9714
+#EXTINF:-1 tvg-id="auto.kawanua.tv" tvg-logo="https://kawanua.tv/wp/wp-content/themes/kawanua-tv/assets/img/ktv-color.png" group-title="Local Channels",Kawanua TV
+https://63b2dc7196c38.streamlock.net:1937/KAWANUATV/_definst_/myStream/chunklist_w552982770.m3u8
 
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.lingkar.tv" group-title="Local Channels" tvg-logo="https://lingkartv.com/assets/img/logo-square.png",Lingkar TV
-https://lingkartv.my.id/hls/lingkartv.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.carubantv" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/CarubanTV%28Low-res%29.png",CarubanTV
-https://stream.carubantv.id/hls/0/stream.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-referrer=https://kstv.co.id/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.kilisuci.tv.kediri" group-title="Local Channels" tvg-logo="https://wiki.edunitas.com/_sepakbola/_baca_image.php?td=21&kodegb=200px-Kilisuci_TV.png",Kilisuci TV Kediri
-https://5bf7b725107e5.streamlock.net/kstv/kstv/chunklist_w1799577873.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-referrer=https://cdn.siar.us/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.dhoho.tv.kediri" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/id/8/86/DhohoTV.png",Dhoho TV- Kediri
-https://dhohotv.siar.us/dhohotv/live/playlist.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.salira.tv" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_Salira_TV.png" group-title="Local Channels",Salira TV
-https://live.salira.tv/p/3870/hybrid/play.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.staratv.sumedang" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png",StaraTV Sumedang
-https://stream.staratv.id/hls/0/stream.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.staratv.malang" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png",StaraTV Malang
-https://malang.staratv.id/hls/0/stream.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.staratv.cianjur" group-title="Local Channels" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png",StaraTV Cianjur
-https://cianjur.staratv.id/hls/0/stream.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.banjartv" group-title="Local Channels" tvg-logo="https://i.imgur.com/TA76a10.png",BanjarTV
-https://banjartv.siar.us/banjartv/live/playlist.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.bantentv" group-title="Local Channels" tvg-logo="https://i.imgur.com/tbtF40p.png",BantenTV
-https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8
-
-#KODIPROP:inputstreamaddon=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=hls
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
-#EXTINF:-1 tvg-id="auto.banyumastv" group-title="Local Channels" tvg-logo="https://i.imgur.com/snMxng5.png",BanyumasTV
-https://5bf7b725107e5.streamlock.net/bmstv/bmstv/playlist.m3u8
+#EXTINF:-1 tvg-id="auto.jitv.jogja" tvg-logo="https://jitv.jogjaprov.go.id/assets/logo_jitv-d49121b3.png" group-title="Local Channels",JITV Jogja
+https://jitv.jogjaprov.go.id/tv/stream/chunklist_w448928976.m3u8
 
 #EXTINF:-1 tvg-id="JogjaIstimewaTV.id@SD" tvg-logo="https://i.imgur.com/VEqQfTu.png" group-title="Local Channels",Jogja Istimewa TV (720p)
 http://103.255.15.222:1935/tv/jitv_720p/playlist.m3u8
@@ -536,6 +478,9 @@ http://122.248.43.242:1935/KAWANUATV/_definst_/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-id="KilisuciTV.id@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/id/e/e4/Kilisuci_TV_NEW_LOGO_2016.png" group-title="Local Channels",Kilisuci TV
 https://5bf7b725107e5.streamlock.net/kstv/kstv/playlist.m3u8
+
+#EXTINF:-1 tvg-id="LingkarTV.id@SD" tvg-logo="https://lingkartv.com/assets/img/logo-square.png" group-title="Local Channels",Lingkar TV
+https://lingkartv.my.id/hls/lingkartv.m3u8
 
 #EXTINF:-1 tvg-id="PONTV.id@SD" tvg-logo="https://i.imgur.com/P5erWzm.png" group-title="Local Channels",PONTV (720p)
 http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8
@@ -1390,6 +1335,12 @@ https://op-flashcon-digdayahd-1.dens.tv/s/s16/index.m3u8
 # EXTINF:-1 group-title="News" tvg-id="CNN International" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-name="CNN" tvg-logo="https://w7.pngwing.com/pngs/335/473/png-transparent-cnn-international-fox-news-television-tv-channel-television-text-logo.png",CNN Int HD
 # EXTINF:-1 tvg-id="NHKWorldJapan.jp@SD" group-title="News" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_nhkworldjapan.png",NHK World Japan (Vision+)
 
+#EXTINF:-1 tvg-id="auto.tv1" tvg-logo="https://raw.githubusercontent.com/Iqbalbala/CHANNEL/refs/heads/main/tv1my.png" group-title="Malaysia",TV1 HD
+https://d25tgymtnqzu8s.cloudfront.net/main/A0jyR3/dl_1080p.m3u8
+
+#EXTINF:-1 tvg-id="auto.tv6" tvg-logo="https://raw.githubusercontent.com/Iqbalbala/CHANNEL/refs/heads/main/tv6my.png" group-title="Malaysia",TV6
+https://d25tgymtnqzu8s.cloudfront.net/smil:tv6/playlist.m3u8?id=6
+
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
 #EXTVLCOPT:http-referrer=https://rtmklik.rtm.gov.my/
@@ -1498,6 +1449,10 @@ https://live.nagaswarafm.com:9900/stream
 # EXTINF:-1 group-title="Entertainment & LifeStyle" tvg-id="FashionTVAsia.fr@SD" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-logo="https://i.pinimg.com/564x/26/0d/97/260d9789cdda7b9e85099e80f5ca0a2f.jpg",Fashion TV
 # EXTINF:-1 group-title="Indonesian Entertainment & Movies" tvg-logo="https://warningfm.github.io/v3/img/XQvrxhl.png?v=1.1.1.1"  tvg-id="Flik.id" tvg-name="Flik", Flik
 # EXTINF:-1 tvg-id="Citra.Entertainment.id" tvg-name="Citra Entertainment" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_Citra_Entertainment.png/960px-Logo_Citra_Entertainment.png" group-title="Indonesian Entertainment & Movies",CITRA ENTERTAINMENT
+# EXTINF:-1 tvg-id="HBOAsia.sg@SD" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-logo="https://iili.io/Ju79f8g.png" group-title="HBO Group",HBO #EXTINF:-1 tvg-id="HBOHitsAsia.sg@SD" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-logo="https://iili.io/Ju79nwv.png" group-title="HBO Group",HBO Hits
+# EXTINF:-1 tvg-id="HBO Signature" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-logo="https://iili.io/Ju79IMN.png" group-title="HBO Group",HBO Signature
+# EXTINF:-1 tvg-id="HBOFamilyAsia.sg@SD" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-logo="https://iili.io/Ju79otR.png" group-title="HBO Group",HBO Family
+# EXTINF:-1 tvg-id="CinemaxAsia.sg@SD" tvg-url="https://raw.githubusercontent.com/apistech/project/refs/heads/main/epgs/guide.xml" tvg-logo="https://iili.io/Ju79znp.png" group-title="HBO Group",Cinemax
 
 #EXTINF:-1 tvg-id="auto.cnn.indonesia" tvg-logo="https://download.logo.wine/logo/CNN/CNN-Logo.wine.png" group-title="Nasional",CNN INDONESIA
 https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w2069650134_b280000_sleng.m3u8
@@ -1525,6 +1480,22 @@ https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8
 #EXTINF:-1 tvg-id="auto.rcti.sports" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/RCTI_logo_2015.svg/250px-RCTI_logo_2015.svg.png" group-title="Sports Indo",RCTI SPORTS
 https://r-plus.sedotcw3.workers.dev/index.m3u8?id=rcti
 # ============TV HIBURAN=======================
+
+#EXTVLCOPT:http-referrer=https://stream.carubantv.id
+#EXTINF:-1 tvg-id="CarubanTV.id@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/CarubanTV%28Low-res%29.png" http-referrer="https://stream.carubantv.id" group-title="TV HIBURAN",Caruban TV (1080p)
+https://stream.carubantv.id/hls/0/stream.m3u8
+
+#EXTVLCOPT:http-referrer=https://stream.staratv.id/
+#EXTINF:-1 tvg-id="StaraTV.id@SumedangMajalengka" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://stream.staratv.id/" group-title="TV HIBURAN",Stara TV (720p)
+https://stream.staratv.id/hls/0/stream.m3u8
+
+#EXTVLCOPT:http-referrer=https://malang.staratv.id/
+#EXTINF:-1 tvg-id="pop/dangdut" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://malang.staratv.id/" group-title="TV HIBURAN",Stara TV Malang (1080p)
+https://malang.staratv.id/hls/0/stream.m3u8
+
+#EXTVLCOPT:http-referrer=https://cianjur.staratv.id/
+#EXTINF:-1 tvg-id="StaraTV.id@Cianjur" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://cianjur.staratv.id/" group-title="TV HIBURAN",Stara TV Cianjur (720p)
+https://cianjur.staratv.id/hls/0/stream.m3u8
 
 #EXTVLCOPT:http-referrer=https://bandung.staratv.id/
 #EXTINF:-1 tvg-id="StaraTV.id@Bandung" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://bandung.staratv.id/" group-title="TV HIBURAN",Stara TV Bandung (1080p)
