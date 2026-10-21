@@ -1663,12 +1663,6 @@ https://d43tg978oium5.cloudfront.net/out/v1/8c2df39f9b2842fbb997b89378841ad9/ind
 #EXTINF:-1 tvg-id="IDX.id" tvg-logo="https://www.visionplus.id/images/repository/659/659-LOGO-m.png" group-title="Trial Channel",IDX Channel
 https://d2xx73ro32cip.cloudfront.net/out/v1/db34a1b61f414d2181c29f1892bc8d0b/index.mpd
 
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=7dc3abc5027b234af5af237d9ba1fb16:2542140d96078c87eca2a2b2fd7529aa
-
-#EXTINF:-1 tvg-id="auto.bbc.first" tvg-logo="https://tse3.mm.bing.net/th/id/OIP._2P17CH7utW-IubLX2u_YgAAAA?pid=Api&P=0&h=220" group-logo="" group-title="Premium Movies", BBC First
-https://otte.live.fly.ww.aiv-cdn.net/sin-nitro/live/clients/dash/enc/dxhd2i96mn/out/v1/c622abb40a8143d08135f5d8a5fccdc9/cenc.mpd?encoding=segmentBase
-
 #EXTINF:-1 tvg-id="MyCinemaEurope.ch@SD" group-title="Premium Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/My_Cinema_Europe_HD_1.jpg",My Cinema Europe (DensTV)
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
 #EXTVLCOPT:http-origin=https://www.dens.tv
@@ -1740,6 +1734,12 @@ https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Andtvhd/default/index.mpd
 
 #EXTINF:-1 tvg-id="&Pictures HD" tvg-logo="https://i.ibb.co.com/0cCnnT4/andpictures.png" group-title="Premium Movies",&PICTURES HD
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Andpictureshd/default/index.mpd
+
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=7dc3abc5027b234af5af237d9ba1fb16:2542140d96078c87eca2a2b2fd7529aa
+
+#EXTINF:-1 tvg-id="auto.bbc.first" tvg-logo="https://tse3.mm.bing.net/th/id/OIP._2P17CH7utW-IubLX2u_YgAAAA?pid=Api&P=0&h=220" group-logo="" group-title="Premium Movies", BBC First
+https://otte.live.fly.ww.aiv-cdn.net/sin-nitro/live/clients/dash/enc/dxhd2i96mn/out/v1/c622abb40a8143d08135f5d8a5fccdc9/cenc.mpd?encoding=segmentBase
 
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6ffb9c53af284fd590217ede1eba765e:4abf1fd26e8c45a5b6bae60cf6ffc2b9
@@ -2024,25 +2024,11 @@ https://d25tgymtnqzu8s.cloudfront.net/smil:tv1/manifest.mpd?id=1
 #EXTINF:-1 tvg-id="auto.tv2" tvg-logo="https://raw.githubusercontent.com/Iqbalbala/CHANNEL/refs/heads/main/tv2my.png" group-title="Malaysia",TV2 HD
 https://d25tgymtnqzu8s.cloudfront.net/smil:tv2/manifest.mpd?id=2
 
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=4ee336861eed4840a555788dc54aea6e:f1f53644d4941d4ed31b4bb2478f8cf4
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; CPH1819 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/135.0.7049.99 Mobile Safari/537.36
-
-#EXTINF:-1 tvg-id="auto.tv.3" tvg-name="" tvg-logo="https://raw.githubusercontent.com/Iqbalbala/CHANNEL/refs/heads/main/tv3my.png" group-title="Malaysia",TV 3
-https://unifi-live2.secureswiftcontent.com/Content/DASH/Live/channel(TV3)/master.mpd
+#EXTINF:-1 tvg-id="auto.berita.rtm" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3d/Logo_Berita_RTM.png?utm_source=id.wikipedia.org&utm_campaign=index&utm_content=original" group-title="Malaysia",Berita RTM
+https://d25tgymtnqzu8s.cloudfront.net/main/VPxRb6/dl_1080p.m3u8
 
 #EXTINF:-1 tvg-id="auto.okey" tvg-logo="https://raw.githubusercontent.com/Iqbalbala/CHANNEL/refs/heads/main/okeytv.png" group-title="Malaysia",OKEY
 https://d25tgymtnqzu8s.cloudfront.net/smil:okey/manifest.mpd
-
-#EXTINF:-1 tvg-id="auto.tv6" tvg-logo="https://raw.githubusercontent.com/Iqbalbala/CHANNEL/refs/heads/main/tv6my.png" group-title="Malaysia",TV6
-https://d25tgymtnqzu8s.cloudfront.net/smil:tv6/playlist.m3u8?id=6
-
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key={"0cb7980e9d1d8957f9a293ed96342410": "11da1ad368d0cacffe4824b6b35e22b7"}
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 10; CPH1819 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/135.0.7049.99 Mobile Safari/537.36
-
-#EXTINF:-1 tvg-id="auto.8tv" tvg-logo="https://raw.githubusercontent.com/Iqbalbala/CHANNEL/refs/heads/main/tv8my.png" group-title="Malaysia",8TV
-https://unifi-live2.secureswiftcontent.com/Content/DASH/Live/channel(8TV)/master.mpd
 
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=hls
@@ -2107,12 +2093,6 @@ https://d1sq2slp9afh7o.cloudfront.net/smil:jr/chunklist_b2596000_slENG.m3u8
 
 #EXTINF:-1 tvg-id="AstroAwani.my" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/ff/Astro_Awani.png" group-title="Malaysia",Astro Awani
 https://d2idp3hzkhjpih.cloudfront.net/out/v1/4b85d9c2bf97413eb0c9fd875599b837/index.m3u8?c
-
-#KODIPROP:inputstreamaddon=inputstream.ffmpegdirect
-#KODIPROP:mimetype=application/x-mpegURL
-#KODIPROP:inputstream.ffmpegdirect.is_realtime_stream=true
-#KODIPROP:inputstream.ffmpegdirect.stream_mode=timeshift
-#KODIPROP:inputstream.ffmpegdirect.manifest_type=hls
 
 #EXTINF:-1 group-title="Brunei" tvg-id="Sukmaindera" tvg-logo="https://upload.wikimedia.org/wikipedia/en/c/c0/RTB_Sukmaindera.png",RTB Sukmaindera FHD
 https://d1211whpimeups.cloudfront.net/smil:rtb1/chunklist_b4096000_slENG.m3u8?id=2
@@ -2274,10 +2254,10 @@ https://d25tgymtnqzu8s.cloudfront.net/smil:tv1/manifest.mpd
 #EXTINF:-1 tvg-id="auto.tv2.2" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQONOMorHw3adASUOwCcf5I23wHWqmu4Y_fEWau82ndaQ&s=10" group-title="Malaysia",TV2
 https://d25tgymtnqzu8s.cloudfront.net/smil:tv2/manifest.mpd
 
-#EXTINF:-1 tvg-id="auto.tv6.2" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKuNr0Jl0NsZUSsOy_-KRCTzhTaF5SiFyNbwFWGccRQ&s=10" group-title="Malaysia",TV6
+#EXTINF:-1 tvg-id="auto.tv6" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKuNr0Jl0NsZUSsOy_-KRCTzhTaF5SiFyNbwFWGccRQ&s=10" group-title="Malaysia",TV6
 https://d25tgymtnqzu8s.cloudfront.net/smil:tv6/manifest.mpd
 
-#EXTINF:-1 tvg-id="auto.berita.rtm" tvg-logo="https://rtm-images.glueapi.io/320x0/live_channel/berita_bckg.png" group-title="Malaysia",BERITA RTM
+#EXTINF:-1 tvg-id="auto.berita.rtm.2" tvg-logo="https://rtm-images.glueapi.io/320x0/live_channel/berita_bckg.png" group-title="Malaysia",BERITA RTM
 https://d25tgymtnqzu8s.cloudfront.net/smil:berita/manifest.mpd
 
 #EXTINF:-1 tvg-id="auto.sukan.rtm.x1" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBfX1IrV-eg8rQU46VBWPZQCeUORH9uX-NOK9zvbOoWw&s=10" group-title="Malaysia",SUKAN RTM (X1)
@@ -2547,8 +2527,20 @@ https://japaneast.av.mk.io/mediakindcdn-mediakind/ca01a143-f823-4432-b670-c22ff9
 #EXTINF:-1 tvg-id="MNBWorld.mn@SD" tvg-logo="https://www.mongolsat.mn/assets/img/channel/22.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" group-title="Japan",MNB World (1080p)
 https://cdn4.skygo.mn/live/disk1/MNB_World/DASH-FTA/MNB_World.mpd
 
+#EXTVLCOPT:http-referrer=https://mov3.co/ntv.html
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+
+#EXTINF:-1 tvg-id="NipponTV.jp@JOAXDTV" tvg-logo="https://i.imgur.com/IxD8V5X.png" http-referrer="https://mov3.co/ntv.html" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="Japan",Nippon TV (576p)
+https://ntv5.mov3.co/hls/ntv.m3u8
+
 #EXTINF:-1 tvg-id="QVC.jp@SD" tvg-logo="https://i.imgur.com/6TWUVrh.png" group-title="Japan",QVC (Japan) (1080p)
 https://d1flvb4iqlercm.cloudfront.net/live/live_1080p_2nd.m3u8
+
+#EXTVLCOPT:http-referrer=https://mov3.co/tvtokyo.html
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+
+#EXTINF:-1 tvg-id="TVTokyo.jp@JOTXDTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/TV_Tokyo_%28Japanese%29_2023.svg/960px-TV_Tokyo_%28Japanese%29_2023.svg.png" http-referrer="https://mov3.co/tvtokyo.html" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="Japan",TV Tokyo (576p)
+https://tvtokyo.mov3.co/hls/tvtokyo.m3u8
 
 #EXTINF:-1 tvg-id="Weathernews.jp@SD" tvg-logo="https://i.imgur.com/A8uRSTS.png" group-title="Japan",Weathernews (720p)
 https://rch01e-alive-hls.akamaized.net/38fb45b25cdb05a1/out/v1/4e907bfabc684a1dae10df8431a84d21/index.m3u8
