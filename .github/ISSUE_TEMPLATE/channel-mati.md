@@ -6,10 +6,10 @@ labels: ["channel-mati"]
 ---
 
 **Nama channel:**
-<!-- mis. SCTV, beIN Sports 1 -->
+<!-- mis. SCTV, INDOSIAR, RCTI, GTV, RCTI, MNCTV, INEWS, CNBC INDONESIA,TRANS TV, TRANS 7 -->
 
 **Grup (group-title):**
-<!-- mis. Indonesia Channels, Sports, ⚽ Bola Indonesia -->
+<!-- mis. Indonesia Channels -->
 
 **Apa yang terjadi?**
 <!-- mis. layar hitam, buffering terus, error -->
