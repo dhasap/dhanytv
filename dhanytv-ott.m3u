@@ -2236,9 +2236,6 @@ https://5ee9633b25727.streamlock.net/jmbc_tv/_definst_/jmbc_tv.stream/playlist.m
 #EXTINF:-1 tvg-id="HLDEDTV.kr@SD" tvg-logo="https://i.imgur.com/jknoVmp.png" group-title="Korea",HLDE-DTV (540p)
 http://203.251.91.122:1935/on-air-Backup/tv/playlist.m3u8
 
-#EXTINF:-1 tvg-id="4SiDESTV.in@SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/4sites.png" group-title="India",4 SiDES TV (1080p)
-https://stream.ottlive.co.in/4sidestv/index.m3u8
-
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="4TVNews.in@SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/4_TV.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36" group-title="India",4TV News (576p)
 https://fta.ektv.in/live/647/master.m3u8
@@ -2276,6 +2273,15 @@ https://mumt07.tangotv.in/zHjX9OFlTWENTYFOURNEWS/index.m3u8
 #EXTINF:-1 tvg-id="99TV.in@SD" tvg-logo="https://i.imgur.com/dZA4gel.png" group-title="India",99TV (720p)
 https://cdn.pishow.tv/ott/live/1211/master.m3u8
 
+#EXTINF:-1 tvg-id="Andpictures.in@HD" tvg-logo="https://dtil.tmsimg.com/assets/GNLZZGG0022J67R.png?lock=720x540" group-title="India",&pictures HD (1080p)
+http://116.90.120.149:8000/play/a132/index.m3u8
+
+#EXTINF:-1 tvg-id="AndTV.in@HD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SYMANDTV/images/LOGO_HD/LOGO_HD_image.png" group-title="India",&TV HD (1080p)
+http://116.90.120.149:8000/play/a133/index.m3u8
+
+#EXTINF:-1 tvg-id="AndxplorHD.in@HD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_SYMANDXPLOR_HD/images/LOGO_HD/LOGO_HD_image.png" group-title="India",&xplor HD (1080p)
+http://116.90.120.149:8000/play/a11o/index.m3u8
+
 #EXTINF:-1 tvg-id="AadinathTV.in@SD" tvg-logo="https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_AADINATH_TV/images/LOGO_HD/image.png" group-title="India",Aadinath TV (576p)
 https://cdn.pishow.tv/ott/live/252/master.m3u8
 
@@ -2305,12 +2311,6 @@ http://163.61.226.31:9981/stream/channelid/565086134?profile=pass
 
 #EXTINF:-1 tvg-id="Aastha.in@HD" tvg-logo="https://i.imgur.com/IqgrV92.png" group-title="India",Aastha HD (720p)
 https://aasthaott.akamaized.net/110923/smil:aasthatv.smil/index.m3u8
-
-#EXTINF:-1 tvg-id="AasthaBhajan.in@SD" tvg-logo="https://dtil.tmsimg.com/assets/s142514_ld_h15_aa.png?lock=720x540" group-title="India",Aastha Bhajan (720p)
-https://d2lk5u59tns74c.cloudfront.net/out/v1/218f9e64bdce42369500e93cff50572f/index.m3u8
-
-#EXTINF:-1 tvg-id="AasthaGujarati.in@SD" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Aastha_Tamil.png" group-title="India",Aastha Gujarati (720p)
-https://d2lk5u59tns74c.cloudfront.net/out/v1/f5846689505a485a8d4d4c424009c1b3/index.m3u8
 
 #EXTINF:-1 tvg-id="3HD.th@SD" tvg-logo="https://i.imgur.com/YRiulCU.png" group-title="Thailand",3HD (576p)
 https://live-us1.thaimomo.com/live-as/ch3hd-3/playlist.m3u8
@@ -2370,7 +2370,7 @@ https://cdn.vegasplus.us/vegas/ftv/playlist.m3u8
 #EXTINF:-1 tvg-id="HopeChannelPhilippines.ph@SD" tvg-logo="https://i.imgur.com/LB2vmMt.png" group-title="Philippines",Hope Channel Philippines (1080p)
 https://jstre.am/live/jsl:nX5eC7gQvZb.m3u8
 
-#EXTINF:-1 tvg-id="INCTV.ph@SD" tvg-logo="https://i.imgur.com/JGSLqA6.png" group-title="Philippines",INC TV (1080p)
+#EXTINF:-1 tvg-id="INCTV.ph@SD" tvg-logo="https://i.imgur.com/iC11uWK.png" group-title="Philippines",INC TV (1080p)
 https://stream-243529.castr.net/6842a712b68c56f675d988f1/live_f5ac22b0566511f0805217b960326aaa/rewind-1800.m3u8
 
 #EXTINF:-1 tvg-id="INTRAVEL.nl@Philippines" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Intravel.png" group-title="Philippines",INTRAVEL (1080p)
@@ -2474,8 +2474,8 @@ https://edge.taksimbilisim.com/birtv/bant1/playlist.m3u8
 #EXTINF:-1 tvg-id="7News.pk@SD" tvg-logo="https://i.imgur.com/PTl92P5.png" group-title="Pakistan",7 News (720p)
 https://sscsott.com/7news/live/index.m3u8
 
-#EXTINF:-1 tvg-id="8XM.pk@HD" tvg-logo="https://i.ibb.co/Kc0xHyBb/8XM-Logo.png" group-title="Pakistan",8XM
-https://cdn4.mjunoon.tv:8087/streamtest/131M/chunks.m3u8
+#EXTINF:-1 tvg-id="8XM.pk@HD" tvg-logo="https://i.imgur.com/KLrfKRn.png" group-title="Pakistan",8XM (576p)
+http://116.90.120.149:8000/play/a0tw/index.m3u8
 
 #EXTINF:-1 tvg-id="24NewsHD.pk@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/en/9/93/24_News_HD_Logo.png" group-title="Pakistan",24 News HD
 https://cdn4.mjunoon.tv:8087/streamtest/146M/chunks.m3u8
@@ -2713,6 +2713,9 @@ http://138.59.177.78:9999/play/a0a3/index.m3u8
 #EXTINF:-1 tvg-id="3ABNProclaimNetwork.us@SD" tvg-logo="https://i.imgur.com/zUMUNhe.png" group-title="United States",3ABN Proclaim! Network (720p)
 https://3abn.bozztv.com/3abn2/Pro_live/smil:Pro_live.smil/playlist.m3u8
 
+#EXTINF:-1 tvg-id="3TV.us@KTVK" tvg-logo="https://i.imgur.com/kQ1x2yK.png" group-title="United States",3TV (1080p) [Geo-blocked]
+https://amg00312-amg00312c59-amgplt0022.playout.now3.amagi.tv/ts-us-e2-n2/playlist/amg00312-amg00312c59-amgplt0022/playlist.m3u8
+
 #EXTINF:-1 tvg-id="30ADarcizzleOffshore.us@SD" tvg-logo="https://i.imgur.com/Q4l2uao.png" group-title="United States",30A Darcizzle Offshore (720p)
 https://30a-tv.com/darcizzle.m3u8
 
@@ -2754,9 +2757,6 @@ https://30a-tv.com/feeds/vidaa/cars.m3u8
 
 #EXTINF:-1 tvg-id="48Hours.us@US" tvg-logo="https://images.pluto.tv/channels/6176f39e709f160007ec61c3/colorLogoPNG.png" group-title="United States",48 Hours (1080p)
 https://dai.google.com/linear/hls/event/JUr94WL2QAiVpGNHY5n5dA/master.m3u8
-
-#EXTINF:-1 tvg-id="90sKids.us@SD" tvg-logo="https://images.pluto.tv/channels/6452c814939a590008567a3b/colorLogoPNG_1731836283044.png" group-title="United States",90's Kids
-https://jmp2.uk/plu-6452c814939a590008567a3b.m3u8
 
 #EXTINF:-1 tvg-id="123tv.de@SD" tvg-logo="https://i.imgur.com/slSUDNX.png" group-title="Germany",1-2-3.tv (270p)
 https://123tv-mx1.flex-cdn.net/index.m3u8
@@ -2999,7 +2999,7 @@ http://138.59.227.20:8000/play/a05u/index.m3u8
 #EXTINF:-1 tvg-id="ABTVBariloche.ar@SD" tvg-logo="https://i.imgur.com/l4TSfDr.png" group-title="Argentina",ABTV Bariloche
 https://videostream.shockmedia.com.ar/hls/abtvbariloche/abtvbariloche.m3u8
 
-#EXTINF:-1 tvg-id="AiredeSantaFe.ar@SD" tvg-logo="https://i.imgur.com/60vSWW0.png" group-title="Argentina",Aire de Santa Fe (1080p)
+#EXTINF:-1 tvg-id="AiredeSantaFe.ar@SD" tvg-logo="https://files.catbox.moe/9tm8wx.png" group-title="Argentina",Aire de Santa Fe (1080p)
 https://mdstrm.com/live-stream-playlist/6931a0eb06778645348008e0.m3u8
 
 #EXTINF:-1 tvg-id="AllegroHD.ar@SD" tvg-logo="https://i.imgur.com/bRH34Rn.png" group-title="Argentina",Allegro HD (1080p)
@@ -3042,7 +3042,7 @@ https://canal.mediaserver.com.co/live/buenisimatv.m3u8
 #EXTINF:-1 tvg-id="1HDMusicTelevision.ru@HD" tvg-logo="https://i.imgur.com/4Ww7CsR.png" group-title="Russia",1HD Music Television (1080p)
 http://176.118.197.101/1HD/index.m3u8
 
-#EXTINF:-1 tvg-id="2x2.ru@SD" tvg-logo="https://i.imgur.com/fhQFLEl.png" group-title="Russia",2x2 (576p)
+#EXTINF:-1 tvg-id="2x2.ru@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/2x2_TV_Logo.svg/1920px-2x2_TV_Logo.svg.png" group-title="Russia",2x2 (576p)
 http://176.118.197.101/2x2/index.m3u8
 
 #EXTINF:-1 tvg-id="3ABNRussia.ru@SD" tvg-logo="https://i.imgur.com/4fhBbam.png" group-title="Russia",3ABN Russia (720p)
@@ -3070,10 +3070,13 @@ http://stream.mcquack.net/70/index.m3u8
 http://trk555.tv:8888/live
 
 #EXTINF:-1 tvg-id="black.ru@SD" tvg-logo="https://i.imgur.com/Q4A6ci4.png" group-title="Russia",.black (576p)
-http://s1.merlive.am/black/index.m3u8
+http://116.90.120.149:8000/play/a0s4/index.m3u8
+
+#EXTINF:-1 tvg-id="black.ru@HD" tvg-logo="https://i.imgur.com/Q4A6ci4.png" group-title="Russia",.black HD (1080p)
+http://116.90.120.149:8000/play/a0ac/index.m3u8
 
 #EXTINF:-1 tvg-id="red.ru@HD" tvg-logo="https://i.imgur.com/GET9Qut.png" group-title="Russia",.red HD (1080p)
 http://178.134.1.158:8081/red/index.m3u8
 
 #EXTINF:-1 tvg-id="scifi.ru@SD" tvg-logo="https://i.imgur.com/nSSUHcg.png" group-title="Russia",.sci-fi (576p)
-http://stream.mcquack.net/180/index.m3u8
+http://116.90.120.149:8000/play/a0ao/index.m3u8
