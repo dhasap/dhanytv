@@ -114,6 +114,19 @@ jobs:
           ADDED=$((AFTER - BEFORE))
           echo "International channels: $ADDED added (total: $AFTER)"
 
+      - name: Merge astatv Channels (extra source)
+        run: |
+          echo "=== Merging channels from astatv API (astatv.pages.dev) ==="
+          BEFORE=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          python3 update-script/merge_astatv.py dhanytv.m3u \
+            --base "https://astatv.pages.dev" \
+            --replace-hosts "mncmedia.malingtv.workers.dev,proxy-v.rctiplus.id" \
+            --report astatv_report.json || {
+              echo "WARNING: merge astatv gagal, lanjut tanpa sumber ini"
+            }
+          AFTER=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          echo "astatv: total channel sekarang $AFTER (sebelum $BEFORE)"
+
       - name: Fix ClearKey license keys
         env:
           FIX_CLEARKEY_URLS: "${{ secrets.PLAYLIST_SOURCE_2 }}"
@@ -230,6 +243,13 @@ jobs:
             echo "ERROR: Custom EPG gagal di-generate!"
             exit 1
           fi
+
+      - name: Ensure EPG covers every channel
+        run: |
+          echo "=== Melengkapi EPG untuk channel yang belum tercakup ==="
+          python3 update-script/append_epg.py dhanytv.m3u epg.xml --assign-ids --write
+          echo "EPG channels: $(grep -c '<channel ' epg.xml)"
+          echo "EPG programmes: $(grep -c '<programme ' epg.xml)"
 
       - name: Safety Gate (cegah penghapusan channel/EPG tidak sengaja)
         run: |
