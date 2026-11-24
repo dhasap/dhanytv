@@ -87,10 +87,10 @@ def main():
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--keep-dupes', action='store_true',
                     help='jangan dedupe nama (default: dedupe, prioritaskan astatv)')
-    ap.add_argument('--add-regions', default='ID',
-                    help='region astatv yang boleh DITAMBAH (koma). default ID')
-    ap.add_argument('--add-cats', default='Sports',
-                    help='kategori astatv yang boleh DITAMBAH (koma). default Sports')
+    ap.add_argument('--add-regions', default='*',
+                    help='region astatv yang boleh DITAMBAH (koma) atau * untuk semua')
+    ap.add_argument('--add-cats', default='*',
+                    help='kategori astatv yang boleh DITAMBAH (koma) atau * untuk semua')
     a = ap.parse_args()
 
     text = open(a.playlist, encoding='utf-8', errors='replace').read()
@@ -156,7 +156,8 @@ def main():
         k = norm(c['name'])
         if k in have_key or c['stream'] in used:
             continue
-        if c.get('region') not in add_regions and c.get('category') not in add_cats:
+        if ('*' not in add_regions and c.get('region') not in add_regions
+                and '*' not in add_cats and c.get('category') not in add_cats):
             continue
         grp = (REGION_GROUP.get(c.get('region', ''))
                or ('Sports Channels' if c.get('category') == 'Sports' else '')
