@@ -3,7 +3,7 @@
 //   DASH (.mpd) + DRM (ClearKey / Widevine) -> Shaka Player (EME)
 // Integrasi stream-proxy (Fase 2) untuk inject header + atasi CORS.
 
-import { needsProxy, hasProxy, proxify, getProxyBase } from './proxy.js';
+import { needsProxy, hasProxy, proxify, getProxyBase, isCorsOpen } from './proxy.js';
 
 export class Player {
   constructor(videoEl, { onState } = {}) {
@@ -51,7 +51,16 @@ export class Player {
 
   /* ---------------- HLS (hls.js) ---------------- */
   async _playHls(channel, useProxy) {
-    const url = useProxy ? proxify(channel.url, channel.headers) : channel.url;
+    const url = useProxy && !isCorsOpen(channel.url) ? proxify(channel.url, channel.headers) : channel.url;
+
+    // Sebagian sumber menyajikan DASH di balik path .m3u8 (mis. proxy astatv) — deteksi dulu.
+    try {
+      const probe = await fetch(url, { cache: 'no-store' });
+      if (probe.ok) {
+        const head = (await probe.text()).slice(0, 600);
+        if (/<MPD[\s>]/i.test(head)) return this._playShaka({ ...channel, type: 'dash' }, useProxy);
+      }
+    } catch {}
     const canNative = this.video.canPlayType('application/vnd.apple.mpegurl');
 
     if (canNative && !window.Hls) { this._attachNative(url); return; }

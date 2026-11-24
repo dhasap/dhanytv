@@ -15,9 +15,18 @@ export function setProxyBase(url) {
 }
 export function hasProxy() { return !!getProxyBase(); }
 
-// Channel butuh proxy bila punya header khusus.
+// Host yang sudah mengirim CORS terbuka — header tak diperlukan (dan tak bisa dipakai browser).
+const CORS_OK = /(^|\.)astatv\.pages\.dev$/i;
+
+export function isCorsOpen(url) {
+  try { return CORS_OK.test(new URL(url).host); } catch { return false; }
+}
+
+// Channel butuh proxy bila punya header khusus — kecuali URL-nya sudah CORS-terbuka.
 export function needsProxy(channel) {
-  return channel && channel.headers && Object.keys(channel.headers).length > 0;
+  if (!channel) return false;
+  if (isCorsOpen(channel.url)) return false;
+  return !!channel.headers && Object.keys(channel.headers).length > 0;
 }
 
 /**

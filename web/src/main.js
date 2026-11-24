@@ -2,7 +2,7 @@
 import { parseM3U, groupSummary } from './lib/m3u.js';
 import { EpgStore, fmtTime } from './lib/epg.js';
 import { Player } from './lib/player.js';
-import { getProxyBase, setProxyBase } from './lib/proxy.js';
+import { getProxyBase, setProxyBase, needsProxy, hasProxy } from './lib/proxy.js';
 
 const REPO = 'https://raw.githubusercontent.com/dhasap/dhanytv/main';
 const SOURCES = {
@@ -45,12 +45,21 @@ function recordHistory(id) {
   save('dhany_history', state.history);
 }
 function wireImgFallback(root) {
+  const swap = (img) => {
+    if (!img.isConnected) return;
+    const s = document.createElement('span');
+    s.className = 'ph';
+    s.textContent = img.dataset.ini || '?';
+    img.replaceWith(s);
+  };
   $$('img[data-ini]', root || document).forEach((img) => {
     if (img._w) return; img._w = true;
-    img.addEventListener('error', () => {
-      const s = document.createElement('span'); s.className = 'ph'; s.textContent = img.dataset.ini || '?';
-      img.replaceWith(s);
+    img.addEventListener('error', () => swap(img), { once: true });
+    // Sebagian sumber (thumbor) mengembalikan placeholder abu-abu 60x60, bukan error.
+    img.addEventListener('load', () => {
+      if (img.naturalWidth <= 80 && img.naturalHeight <= 80) swap(img);
     }, { once: true });
+    if (img.complete && img.naturalWidth > 0 && img.naturalWidth <= 80) swap(img);
   });
 }
 
@@ -166,17 +175,42 @@ function renderLiveRow() {
   const paint = () => {
     if (!epg.ready) return;
     const live = [];
+    const seenId = new Set();
     for (const c of state.channels) {
-      if (!c.tvgId) continue;
+      if (!c.tvgId || seenId.has(c.tvgId)) continue;
       const info = epg.lookup(c.tvgId);
-      if (info && info.now && info.now.t) { live.push([c, info.now.t]); if (live.length >= 16) break; }
+      if (info && info.now && info.now.t) {
+        seenId.add(c.tvgId);
+        live.push([c, info.now.t]);
+        if (live.length >= 16) break;
+      }
     }
     if (!live.length) return;
-    slot.innerHTML = `<section class="hrow"><h2 class="row-title">Sedang tayang sekarang</h2>
+    slot.innerHTML = `<section class="hrow">
+      <div class="hrow-head"><h2 class="row-title">Sedang tayang sekarang</h2>
+        <div class="row-nav"><button type="button" data-dir="-1" aria-label="Geser kiri">‹</button><button type="button" data-dir="1" aria-label="Geser kanan">›</button></div>
+      </div>
       <div class="row-scroll">${live.map(([c, t]) => `<button class="mini" data-id="${esc(c.id)}" title="${esc(c.name)} — ${esc(t)}">
         <div class="mini-thumb">${c.logo ? `<img loading="lazy" src="${esc(c.logo)}" alt="" data-ini="${esc(c.name.slice(0,2).toUpperCase())}">` : `<span class="ph">${esc(c.name.slice(0,2).toUpperCase())}</span>`}<span class="live-dot"></span></div>
         <span class="mini-name">${esc(c.name)}</span><span class="mini-now">${esc(t)}</span></button>`).join('')}</div></section>`;
-    bindRowClicks(); wireImgFallback(slot);
+    bindRowClicks();
+    wireImgFallback(slot);
+    const scroller = slot.querySelector('.row-scroll');
+    const nav = slot.querySelector('.row-nav');
+    if (scroller && nav) {
+      const sync = () => {
+        const max = scroller.scrollWidth - scroller.clientWidth - 2;
+        nav.querySelector('[data-dir="-1"]').disabled = scroller.scrollLeft <= 2;
+        nav.querySelector('[data-dir="1"]').disabled = scroller.scrollLeft >= max;
+      };
+      nav.querySelectorAll('button').forEach((b) => b.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        scroller.scrollBy({ left: Number(b.dataset.dir) * Math.max(220, scroller.clientWidth * 0.8), behavior: 'smooth' });
+      }));
+      scroller.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    }
   };
   epg.onReady(paint); paint();
 }
@@ -333,6 +367,7 @@ function renderPlayer(id) {
         </div>
         <div class="player-info">
           <div class="pi-head"><h1>${esc(c.name)}</h1><span class="badge ${c.drm || c.type === 'dash' ? 'drm' : 'hls'}" style="position:static">${c.drm || c.type === 'dash' ? 'DRM' : 'HLS'}</span></div>
+          <div class="src-host" id="src-host">sumber: ${esc(hostOf(c.url))}</div>
           <div class="epg-now" id="player-epg" data-epg="${esc(c.tvgId)}">…</div>
           <button class="fav-btn ${isFav(c.id) ? 'on' : ''}" id="fav">${isFav(c.id) ? '★ Tersimpan' : '☆ Favoritkan'}</button>
         </div>
@@ -349,18 +384,100 @@ function renderPlayer(id) {
   wireImgFallback(document);
 
   const video = $('#video'), overlay = $('#overlay'), ovMsg = $('#ov-msg');
+  let triedTwin = false;
   player = new Player(video, {
     onState(st, msg) {
       const sp = overlay.querySelector('.spinner');
       if (st === 'playing') { overlay.classList.add('hidden'); buildQuality(); }
       else { overlay.classList.remove('hidden'); ovMsg.textContent = msg || (st === 'loading' ? 'Memuat stream…' : ''); }
       sp.style.display = st === 'error' ? 'none' : '';
+      const acts = overlay.querySelector('.ov-actions');
+      if (st === 'error') {
+        if (!acts) {
+          const box = document.createElement('div');
+          box.className = 'ov-actions';
+          box.innerHTML = `<button type="button" class="ov-btn" data-a="retry">Coba lagi</button>
+            <button type="button" class="ov-btn" data-a="copy">Salin link</button>`;
+          overlay.querySelector('div').appendChild(box);
+          box.addEventListener('click', (ev) => {
+            const a = ev.target.closest('[data-a]');
+            if (!a) return;
+            if (a.dataset.a === 'retry') location.reload();
+            else if (a.dataset.a === 'copy') {
+              const url = (player && player.current && player.current.url) || '';
+              navigator.clipboard?.writeText(url).then(() => { a.textContent = 'Tersalin ✓'; setTimeout(() => (a.textContent = 'Salin link'), 1500); }).catch(() => {});
+            }
+          });
+        }
+      } else if (acts) acts.remove();
+      if (st === 'error' && !triedTwin) {
+        triedTwin = true;
+        ovMsg.textContent = 'Mencoba sumber alternatif…';
+        getAstatvTwin(c).then((twin) => {
+          if (!twin) { ovMsg.textContent = msg || 'Stream tidak bisa diputar.'; return; }
+          const sh = document.getElementById('src-host');
+          if (sh) sh.textContent = 'sumber: ' + hostOf(twin.url) + ' (alternatif)';
+          player.play({ ...c, ...twin, url: twin.url, headers: null, cookie: null, drm: null, type: twin.type });
+        });
+      }
     },
   });
-  player.play(c);
+  // Kalau channel butuh header dan proxy belum aktif, coba sumber astatv (CORS terbuka).
+  (async () => {
+    if (needsProxy(c) && !hasProxy()) {
+      ovMsg.textContent = 'Mencari sumber alternatif…';
+      const twin = await getAstatvTwin(c);
+      if (twin) {
+        ovMsg.textContent = 'Memuat dari sumber alternatif…';
+        const sh = document.getElementById('src-host'); if (sh) sh.textContent = 'sumber: ' + hostOf(twin.url) + ' (alternatif)';
+        player.play({ ...c, ...twin, url: twin.url, headers: null, cookie: null, drm: null, type: twin.type });
+        return;
+      }
+    }
+    player.play(c);
+  })();
   bindPlayerControls(video);
   refreshEpgOnScreen();
 }
+/* ---- Fallback ke sumber astatv kalau stream langsung gagal (CORS/geo/header) ---- */
+let astatvIndex = null;
+async function getAstatvTwin(ch) {
+  if (!ch || !ch.tvgId) return null;
+  try {
+    if (!astatvIndex) {
+      const text = await fetchPlaylist(state.mode === 'full' ? 'full' : 'full');
+      const list = parseM3U(text);
+      astatvIndex = new Map();
+      for (const x of list) {
+        if (!x.url || !/astatv\.pages\.dev/.test(x.url)) continue;
+        if (x.tvgId && !astatvIndex.has(x.tvgId)) astatvIndex.set(x.tvgId, x);
+        const nk = 'n:' + normName(x.name);
+        if (nk !== 'n:' && !astatvIndex.has(nk)) astatvIndex.set(nk, x);
+      }
+    }
+    const twin = astatvIndex.get(ch.tvgId) || astatvIndex.get('n:' + normName(ch.name));
+    if (!twin || twin.url === ch.url) return null;
+    // astatv menyajikan DASH di balik path .m3u8 juga -> cek content-type.
+    let type = /\.mpd(\?|$)/i.test(twin.url) ? 'dash' : 'hls';
+    try {
+      const head = await fetch(twin.url, { method: 'HEAD' });
+      const ct = (head.headers.get('content-type') || '').toLowerCase();
+      if (ct.includes('dash')) type = 'dash';
+    } catch {}
+    return { ...twin, type };
+  } catch { return null; }
+}
+
+// Nama kanal sering diberi sufiks (HD, (Vision+), Alt 2) -> samakan untuk pencocokan.
+function normName(n) {
+  return String(n || '')
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/\b(fhd|uhd|hd|sd|4k|8k|alt|backup|mirror)\b/g, ' ')
+    .replace(/[^a-z0-9]+/g, '')
+    .trim();
+}
+function hostOf(u) { try { return new URL(u).host.replace(/^www\./, ''); } catch { return '—'; } }
 function relItemHTML(r) {
   const ini = esc((r.name || '?').slice(0, 2).toUpperCase());
   const img = r.logo ? `<img loading="lazy" src="${esc(r.logo)}" alt="" data-ini="${ini}">` : `<span class="ph">${ini}</span>`;
