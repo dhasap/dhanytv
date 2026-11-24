@@ -145,7 +145,7 @@ def main():
         cand = by_key.get(k_name) or by_key.get(k_id)
         is_dead = (e['url'] in dead_urls or e['id'] in dead_keys or k_name in dead_keys
                    or any(h in e['url'] for h in replace_hosts))
-        if cand and is_dead and cand.get('stream'):
+        if cand and is_dead and cand.get('stream') and 'astatv.pages.dev' not in e['url']:
             old = e['url']
             e['url'] = cand['stream']
             replaced += 1

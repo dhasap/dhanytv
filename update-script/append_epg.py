@@ -96,6 +96,8 @@ def main():
     ap.add_argument('epg')
     ap.add_argument('--write', action='store_true')
     ap.add_argument('--out')
+    ap.add_argument('--prune', action='store_true',
+                    help='buang channel/programme EPG yang tidak ada di playlist')
     ap.add_argument('--assign-ids', action='store_true',
                     help='isi tvg-id yang kosong (turunan nama) lalu tulis playlist')
     a = ap.parse_args()
@@ -153,6 +155,20 @@ def main():
             ET.SubElement(pe, 'title', {'lang': 'id'}).text = title
             added_pr += 1
 
+    if a.prune:
+        want = {c['id'] for c in uniq}
+        gone_ch = 0
+        gone_pr = 0
+        for el in list(root.findall('channel')):
+            if el.get('id') not in want:
+                root.remove(el)
+                gone_ch += 1
+        for el in list(root.findall('programme')):
+            if el.get('channel') not in want:
+                root.remove(el)
+                gone_pr += 1
+        print(f'prune: {gone_ch} channel, {gone_pr} programme dibuang')
+
     total_ch = len(root.findall('channel'))
     total_pr = len(root.findall('programme'))
     missing = [c['id'] for c in uniq if c['id'] not in {x.get('id') for x in root.findall('channel')}]
@@ -164,6 +180,10 @@ def main():
         print('  contoh:', missing[:5])
 
     if a.write or a.out:
+        try:
+            ET.indent(tree, space='  ')
+        except AttributeError:
+            pass
         tree.write(a.out or a.epg, encoding='utf-8', xml_declaration=True)
         print('ditulis ke', a.out or a.epg)
     return 0

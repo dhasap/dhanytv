@@ -247,7 +247,7 @@ jobs:
       - name: Ensure EPG covers every channel
         run: |
           echo "=== Melengkapi EPG untuk channel yang belum tercakup ==="
-          python3 update-script/append_epg.py dhanytv.m3u epg.xml --assign-ids --write
+          python3 update-script/append_epg.py dhanytv.m3u epg.xml --assign-ids --prune --write
           echo "EPG channels: $(grep -c '<channel ' epg.xml)"
           echo "EPG programmes: $(grep -c '<programme ' epg.xml)"
 
