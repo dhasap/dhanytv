@@ -1,6 +1,24 @@
 {
  "replaced": [
   {
+   "name": "SCTV HD",
+   "old": "https://op-flashcon-digdayahd-1.dens.tv/h/h217/01.m3u8",
+   "new": "https://astatv.pages.dev/api/s/871.m3u8",
+   "astatv_id": "871"
+  },
+  {
+   "name": "iNews HD",
+   "old": "https://live.i-news.tv/hls/stream.m3u8",
+   "new": "https://astatv.pages.dev/api/s/5106.m3u8",
+   "astatv_id": "5106"
+  },
+  {
+   "name": "Indosiar HD",
+   "old": "https://op-flashcon-digdayahd-1.dens.tv/h/h207/01.m3u8",
+   "new": "https://astatv.pages.dev/api/s/1053.m3u8",
+   "astatv_id": "1053"
+  },
+  {
    "name": "TransTV HD",
    "old": "http://119.82.250.109:8080/nl.m3u8?id=1145",
    "new": "https://astatv.pages.dev/api/s/13.m3u8",
@@ -13,10 +31,28 @@
    "astatv_id": "11"
   },
   {
+   "name": "MDTV HD",
+   "old": "https://op-flashcon-digdayahd-1.dens.tv/h/h223/02.m3u8",
+   "new": "https://astatv.pages.dev/api/s/2831.m3u8",
+   "astatv_id": "2831"
+  },
+  {
    "name": "Metro TV HD",
    "old": "https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8",
    "new": "https://astatv.pages.dev/api/s/14.m3u8",
    "astatv_id": "14"
+  },
+  {
+   "name": "TVOne HD",
+   "old": "https://op-group1-densxvisionhd-1.dens.tv/h/h40/01.m3u8",
+   "new": "https://astatv.pages.dev/api/s/12.m3u8",
+   "astatv_id": "12"
+  },
+  {
+   "name": "FS2",
+   "old": "https://1nyaler.streamhostingcdn.top/stream/26/index.m3u8",
+   "new": "https://astatv.pages.dev/api/s/911.m3u8",
+   "astatv_id": "911"
   },
   {
    "name": "Banjar TV",
@@ -29,6 +65,12 @@
    "old": "https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8",
    "new": "https://astatv.pages.dev/api/s/i10008.m3u8",
    "astatv_id": "i10008"
+  },
+  {
+   "name": "BRTV",
+   "old": "https://5bf7b725107e5.streamlock.net/brtv/brtv/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10012.m3u8",
+   "astatv_id": "i10012"
   },
   {
    "name": "Bungo TV",
@@ -49,6 +91,18 @@
    "astatv_id": "i10022"
   },
   {
+   "name": "Jambi TV",
+   "old": "https://jambitv.globaldigitalcore.com/hls/sah5tu7Eiveepohyieyie3O9Aeich6ooxohm3luqueeFie2ooH2iebahy4haeCh9oobi0j/index.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10025.m3u8",
+   "astatv_id": "i10025"
+  },
+  {
+   "name": "LingkarTV",
+   "old": "https://lingkartv.my.id/hls/lingkartv.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10030.m3u8",
+   "astatv_id": "i10030"
+  },
+  {
    "name": "Ahsan TV",
    "old": "https://5bf7b725107e5.streamlock.net/ahsantv/ahsantv/playlist.m3u8",
    "new": "https://astatv.pages.dev/api/s/i10001.m3u8",
@@ -62,9 +116,15 @@
   },
   {
    "name": "TVRI World",
-   "old": "https://ott-balancer.tvri.go.id/live/eds/TVRIWorld/hls/TVRIWorld.m3u8",
+   "old": "https://ott-balancer.tvri.go.id/live/eds/TVRIWorld/hls/TVRIWorld-avc1_900000=10002-mp4a_96000=20002.m3u8",
    "new": "https://astatv.pages.dev/api/s/590.m3u8",
    "astatv_id": "590"
+  },
+  {
+   "name": "Berita Satu (DensTV)",
+   "old": "https://op-group1-swiftservehd-1.dens.tv/h/h209/02.m3u8",
+   "new": "https://astatv.pages.dev/api/s/5474.m3u8",
+   "astatv_id": "5474"
   },
   {
    "name": "BN Channel (ChannelFeed)",
@@ -73,148 +133,42 @@
    "astatv_id": "i10011"
   },
   {
-   "name": "Indonesiana TV (ChannelFeed)",
-   "old": "https://tvstreamcast.com/indonesiana.m3u8",
-   "new": "https://astatv.pages.dev/api/s/i10024.m3u8",
-   "astatv_id": "i10024"
+   "name": "Garuda TV (ChannelFeed)",
+   "old": "https://hgmtv.com:19360/garudatvlivestreaming/720p.m3u8",
+   "new": "https://astatv.pages.dev/api/s/65.m3u8",
+   "astatv_id": "65"
   },
   {
-   "name": "FUBO SPORTS 1",
-   "old": "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/out/v1/9f14895badca43e6a716db021dcd0c31/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/3393.m3u8",
-   "astatv_id": "3393"
+   "name": "Radar Tasikmalaya TV",
+   "old": "https://v2.siar.us/radartasikmalaya/live/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10039.m3u8",
+   "astatv_id": "i10039"
   },
   {
-   "name": "FUBO SPORTS 2",
-   "old": "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/2777.m3u8",
-   "astatv_id": "2777"
+   "name": "Sampit TV",
+   "old": "https://sampit-tv.siar.us/live/sampit-tv.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10044.m3u8",
+   "astatv_id": "i10044"
   },
   {
-   "name": "FOX SPORTS 1",
-   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/oboxe53wyo/out/v1/f7892a9d706d419a846d738fa22ea33e/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/185.m3u8",
-   "astatv_id": "185"
+   "name": "Bungo TV",
+   "old": "https://5bf7b725107e5.streamlock.net/bungotv/bungotv/chunklist_w1429108522.m3u8",
+   "new": "https://astatv.pages.dev/api/s/2651.m3u8",
+   "astatv_id": "2651"
   },
   {
-   "name": "FOX SPORTS 2",
-   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/tepjqej1ys/out/v1/c9c9159baee749a19612b1598495859a/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/460.m3u8",
-   "astatv_id": "460"
+   "name": "TV Tabalong",
+   "old": "https://5bf7b725107e5.streamlock.net/tvtabalong/tvtabalong/chunklist_w1267801285.m3u8",
+   "new": "https://astatv.pages.dev/api/s/2649.m3u8",
+   "astatv_id": "2649"
   },
   {
-   "name": "FOX SPORTS 3",
-   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/wybgz0orr8/out/v1/2f6d1612abd44f5883917f8a585b955f/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/476.m3u8",
-   "astatv_id": "476"
-  },
-  {
-   "name": "FOX SPORTS PREMIUM",
-   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/fdx74zqzhu/out/v1/7d7a8c6981a842b98a683e9fbfe51d17/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/1258.m3u8",
-   "astatv_id": "1258"
-  },
-  {
-   "name": "DAZN RINGSIDE",
-   "old": "https://aegis-cloudfront-1.tubi.video/bfad29e2-5bee-44f3-8256-127324e8b106/playlist.m3u8",
-   "new": "https://astatv.pages.dev/api/s/5396.m3u8",
-   "astatv_id": "5396"
-  },
-  {
-   "name": "FS2",
-   "old": "https://1nyaler.streamhostingcdn.top/stream/26/index.m3u8",
-   "new": "https://astatv.pages.dev/api/s/911.m3u8",
-   "astatv_id": "911"
-  },
-  {
-   "name": "Kilisuci TV",
-   "old": "https://5bf7b725107e5.streamlock.net/kstv/kstv/playlist.m3u8",
-   "new": "https://astatv.pages.dev/api/s/i10029.m3u8",
-   "astatv_id": "i10029"
-  },
-  {
-   "name": "Lingkar TV",
-   "old": "https://lingkartv.my.id/hls/lingkartv.m3u8",
-   "new": "https://astatv.pages.dev/api/s/i10030.m3u8",
-   "astatv_id": "i10030"
-  },
-  {
-   "name": "HBO",
-   "old": "http://aflaxtv.xyz:8080/F33848/cbd9779b/306484",
-   "new": "https://astatv.pages.dev/api/s/956.m3u8",
-   "astatv_id": "956"
-  },
-  {
-   "name": "MotoGP Channel",
-   "old": "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/wjeweupwyc/out/v1/8197c8e055c94a868623653ac55c10bf/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/5370.m3u8",
-   "astatv_id": "5370"
-  },
-  {
-   "name": "TNT SPORTS 1",
-   "old": "https://a96aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/rhf2dwosdt/out/v1/ee550d2a68d846c797e6ce4de2e8b76d/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/209.m3u8",
-   "astatv_id": "209"
-  },
-  {
-   "name": "TNT SPORTS 2",
-   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/puehlftk5j/out/v1/f7f0da1ee112481ca0024e6d4dd97f4a/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/210.m3u8",
-   "astatv_id": "210"
-  },
-  {
-   "name": "TSN SPORTS 1",
-   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/w0rehjjrwe/out/v1/69a2a7041395406b970598f61680e7cf/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/234.m3u8",
-   "astatv_id": "234"
-  },
-  {
-   "name": "TSN SPORTS 2",
-   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/cjglydxghe/out/v1/8977baf175da4b94873194613dd3fe55/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/4385.m3u8",
-   "astatv_id": "4385"
-  },
-  {
-   "name": "TSN SPORTS 3",
-   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/lsibpqruq1/out/v1/748887d614a84913ba8bcdf3c82823e6/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/236.m3u8",
-   "astatv_id": "236"
-  },
-  {
-   "name": "TSN SPORTS 4",
-   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ihys8nw4wv/out/v1/fde190f369484bc6b6117cc16cd82a9f/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/237.m3u8",
-   "astatv_id": "237"
-  },
-  {
-   "name": "TSN SPORTS 5",
-   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/cscevwljkq/out/v1/972185041b244140860b7d56398e9aaf/cenc.mpd",
-   "new": "https://astatv.pages.dev/api/s/238.m3u8",
-   "astatv_id": "238"
-  },
-  {
-   "name": "Astro Awani",
-   "old": "https://d2idp3hzkhjpih.cloudfront.net/out/v1/4b85d9c2bf97413eb0c9fd875599b837/index.m3u8?c",
-   "new": "https://astatv.pages.dev/api/s/100.m3u8",
-   "astatv_id": "100"
+   "name": "Dens Food Channel (DensTV)",
+   "old": "https://op-group1-swiftservehd-1.dens.tv/h/h221/02.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10017.m3u8",
+   "astatv_id": "i10017"
   }
  ],
- "added": [
-  {
-   "name": "Indosiar",
-   "id": "1053",
-   "group": "Indonesia Channels"
-  },
-  {
-   "name": "SCTV",
-   "id": "871",
-   "group": "Indonesia Channels"
-  },
-  {
-   "name": "tvOne",
-   "id": "12",
-   "group": "Indonesia Channels"
-  }
- ],
- "total": 1159
+ "added": [],
+ "total": 1204
 }
