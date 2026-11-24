@@ -120,6 +120,7 @@ jobs:
           BEFORE=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
           python3 update-script/merge_astatv.py dhanytv.m3u \
             --base "https://astatv.pages.dev" \
+            --prefer-astatv \
             --replace-hosts "mncmedia.malingtv.workers.dev,proxy-v.rctiplus.id" \
             --report astatv_report.json || {
               echo "WARNING: merge astatv gagal, lanjut tanpa sumber ini"

@@ -85,6 +85,8 @@ def main():
     ap.add_argument('--replace-hosts', default='mncmedia.malingtv.workers.dev,proxy-v.rctiplus.id')
     ap.add_argument('--report', help='tulis ringkasan ke file json')
     ap.add_argument('--dry-run', action='store_true')
+    ap.add_argument('--prefer-astatv', action='store_true',
+                    help='selalu pakai URL astatv untuk channel yang cocok (bukan hanya yang mati)')
     ap.add_argument('--keep-dupes', action='store_true',
                     help='jangan dedupe nama (default: dedupe, prioritaskan astatv)')
     ap.add_argument('--add-regions', default='*',
@@ -145,7 +147,8 @@ def main():
         cand = by_key.get(k_name) or by_key.get(k_id)
         is_dead = (e['url'] in dead_urls or e['id'] in dead_keys or k_name in dead_keys
                    or any(h in e['url'] for h in replace_hosts))
-        if cand and is_dead and cand.get('stream') and 'astatv.pages.dev' not in e['url']:
+        want = (a.prefer_astatv or is_dead)
+        if cand and want and cand.get('stream') and 'astatv.pages.dev' not in e['url']:
             old = e['url']
             e['url'] = cand['stream']
             replaced += 1

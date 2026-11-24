@@ -1,481 +1,220 @@
 {
- "replaced": [],
+ "replaced": [
+  {
+   "name": "TransTV HD",
+   "old": "http://119.82.250.109:8080/nl.m3u8?id=1145",
+   "new": "https://astatv.pages.dev/api/s/13.m3u8",
+   "astatv_id": "13"
+  },
+  {
+   "name": "Trans7 HD",
+   "old": "http://119.82.250.109:8080/nl.m3u8?id=1002",
+   "new": "https://astatv.pages.dev/api/s/11.m3u8",
+   "astatv_id": "11"
+  },
+  {
+   "name": "Metro TV HD",
+   "old": "https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/14.m3u8",
+   "astatv_id": "14"
+  },
+  {
+   "name": "Banjar TV",
+   "old": "https://banjartv.siar.us/banjartv/live/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10007.m3u8",
+   "astatv_id": "i10007"
+  },
+  {
+   "name": "Banten TV",
+   "old": "https://5bf7b725107e5.streamlock.net/bantentv/bantentv/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10008.m3u8",
+   "astatv_id": "i10008"
+  },
+  {
+   "name": "Bungo TV",
+   "old": "https://5bf7b725107e5.streamlock.net/bungotv/bungotv/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/2651.m3u8",
+   "astatv_id": "2651"
+  },
+  {
+   "name": "Dhoho TV",
+   "old": "https://dhohotv.siar.us/dhohotv/live/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/2648.m3u8",
+   "astatv_id": "2648"
+  },
+  {
+   "name": "Ficom Channel",
+   "old": "https://v3.siar.us/ficomchannel/live/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10022.m3u8",
+   "astatv_id": "i10022"
+  },
+  {
+   "name": "Ahsan TV",
+   "old": "https://5bf7b725107e5.streamlock.net/ahsantv/ahsantv/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10001.m3u8",
+   "astatv_id": "i10001"
+  },
+  {
+   "name": "U Channel",
+   "old": "https://srs.u-channel.tv/live/uchannel-tv.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10056.m3u8",
+   "astatv_id": "i10056"
+  },
+  {
+   "name": "TVRI World",
+   "old": "https://ott-balancer.tvri.go.id/live/eds/TVRIWorld/hls/TVRIWorld.m3u8",
+   "new": "https://astatv.pages.dev/api/s/590.m3u8",
+   "astatv_id": "590"
+  },
+  {
+   "name": "BN Channel (ChannelFeed)",
+   "old": "http://cdn.nng.cloudns.us/live/m3u8/id/6183ec225226ccf.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10011.m3u8",
+   "astatv_id": "i10011"
+  },
+  {
+   "name": "Indonesiana TV (ChannelFeed)",
+   "old": "https://tvstreamcast.com/indonesiana.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10024.m3u8",
+   "astatv_id": "i10024"
+  },
+  {
+   "name": "FUBO SPORTS 1",
+   "old": "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/3b7qwiqzk3/out/v1/9f14895badca43e6a716db021dcd0c31/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/3393.m3u8",
+   "astatv_id": "3393"
+  },
+  {
+   "name": "FUBO SPORTS 2",
+   "old": "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/uiffe4jhf0/out/v1/3534efafca8c4815adbb4d2e9a1fe003/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/2777.m3u8",
+   "astatv_id": "2777"
+  },
+  {
+   "name": "FOX SPORTS 1",
+   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/oboxe53wyo/out/v1/f7892a9d706d419a846d738fa22ea33e/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/185.m3u8",
+   "astatv_id": "185"
+  },
+  {
+   "name": "FOX SPORTS 2",
+   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/tepjqej1ys/out/v1/c9c9159baee749a19612b1598495859a/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/460.m3u8",
+   "astatv_id": "460"
+  },
+  {
+   "name": "FOX SPORTS 3",
+   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/wybgz0orr8/out/v1/2f6d1612abd44f5883917f8a585b955f/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/476.m3u8",
+   "astatv_id": "476"
+  },
+  {
+   "name": "FOX SPORTS PREMIUM",
+   "old": "https://otte.live.fly.ww.aiv-cdn.net/iad-nitro/live/clients/dash/enc/fdx74zqzhu/out/v1/7d7a8c6981a842b98a683e9fbfe51d17/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/1258.m3u8",
+   "astatv_id": "1258"
+  },
+  {
+   "name": "DAZN RINGSIDE",
+   "old": "https://aegis-cloudfront-1.tubi.video/bfad29e2-5bee-44f3-8256-127324e8b106/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/5396.m3u8",
+   "astatv_id": "5396"
+  },
+  {
+   "name": "FS2",
+   "old": "https://1nyaler.streamhostingcdn.top/stream/26/index.m3u8",
+   "new": "https://astatv.pages.dev/api/s/911.m3u8",
+   "astatv_id": "911"
+  },
+  {
+   "name": "Kilisuci TV",
+   "old": "https://5bf7b725107e5.streamlock.net/kstv/kstv/playlist.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10029.m3u8",
+   "astatv_id": "i10029"
+  },
+  {
+   "name": "Lingkar TV",
+   "old": "https://lingkartv.my.id/hls/lingkartv.m3u8",
+   "new": "https://astatv.pages.dev/api/s/i10030.m3u8",
+   "astatv_id": "i10030"
+  },
+  {
+   "name": "HBO",
+   "old": "http://aflaxtv.xyz:8080/F33848/cbd9779b/306484",
+   "new": "https://astatv.pages.dev/api/s/956.m3u8",
+   "astatv_id": "956"
+  },
+  {
+   "name": "MotoGP Channel",
+   "old": "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/wjeweupwyc/out/v1/8197c8e055c94a868623653ac55c10bf/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/5370.m3u8",
+   "astatv_id": "5370"
+  },
+  {
+   "name": "TNT SPORTS 1",
+   "old": "https://a96aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/rhf2dwosdt/out/v1/ee550d2a68d846c797e6ce4de2e8b76d/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/209.m3u8",
+   "astatv_id": "209"
+  },
+  {
+   "name": "TNT SPORTS 2",
+   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/puehlftk5j/out/v1/f7f0da1ee112481ca0024e6d4dd97f4a/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/210.m3u8",
+   "astatv_id": "210"
+  },
+  {
+   "name": "TSN SPORTS 1",
+   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/w0rehjjrwe/out/v1/69a2a7041395406b970598f61680e7cf/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/234.m3u8",
+   "astatv_id": "234"
+  },
+  {
+   "name": "TSN SPORTS 2",
+   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/cjglydxghe/out/v1/8977baf175da4b94873194613dd3fe55/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/4385.m3u8",
+   "astatv_id": "4385"
+  },
+  {
+   "name": "TSN SPORTS 3",
+   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/lsibpqruq1/out/v1/748887d614a84913ba8bcdf3c82823e6/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/236.m3u8",
+   "astatv_id": "236"
+  },
+  {
+   "name": "TSN SPORTS 4",
+   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/ihys8nw4wv/out/v1/fde190f369484bc6b6117cc16cd82a9f/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/237.m3u8",
+   "astatv_id": "237"
+  },
+  {
+   "name": "TSN SPORTS 5",
+   "old": "https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/cscevwljkq/out/v1/972185041b244140860b7d56398e9aaf/cenc.mpd",
+   "new": "https://astatv.pages.dev/api/s/238.m3u8",
+   "astatv_id": "238"
+  },
+  {
+   "name": "Astro Awani",
+   "old": "https://d2idp3hzkhjpih.cloudfront.net/out/v1/4b85d9c2bf97413eb0c9fd875599b837/index.m3u8?c",
+   "new": "https://astatv.pages.dev/api/s/100.m3u8",
+   "astatv_id": "100"
+  }
+ ],
  "added": [
   {
-   "name": "Discovery Channel Asia",
-   "id": "5198",
-   "group": "Australia"
-  },
-  {
-   "name": "10 Bold Adelaide",
-   "id": "3008",
-   "group": "Australia"
-  },
-  {
-   "name": "Sky News Extra 1",
-   "id": "3016",
-   "group": "Australia"
-  },
-  {
-   "name": "Sky News Extra 2",
-   "id": "3017",
-   "group": "Australia"
-  },
-  {
-   "name": "Sky News Extra 3",
-   "id": "3018",
-   "group": "Australia"
-  },
-  {
-   "name": "Adesso TV",
-   "id": "298",
-   "group": "Brazil"
-  },
-  {
-   "name": "Canal 38",
-   "id": "304",
-   "group": "Brazil"
-  },
-  {
-   "name": "Canal Educação",
-   "id": "305",
-   "group": "Brazil"
-  },
-  {
-   "name": "Canal Gov",
-   "id": "306",
-   "group": "Brazil"
-  },
-  {
-   "name": "Chroma TV",
-   "id": "312",
-   "group": "Brazil"
-  },
-  {
-   "name": "COM Brasil",
-   "id": "302",
-   "group": "Brazil"
-  },
-  {
-   "name": "Demais TV",
-   "id": "314",
-   "group": "Brazil"
-  },
-  {
-   "name": "ElyTV",
-   "id": "315",
-   "group": "Brazil"
-  },
-  {
-   "name": "Fala Litoral",
-   "id": "316",
-   "group": "Brazil"
-  },
-  {
-   "name": "ISTV",
-   "id": "317",
-   "group": "Brazil"
-  },
-  {
-   "name": "Nova Era TV",
-   "id": "323",
-   "group": "Brazil"
-  },
-  {
-   "name": "RecordTV",
-   "id": "331",
-   "group": "Brazil"
-  },
-  {
-   "name": "Rede SPTV",
-   "id": "337",
-   "group": "Brazil"
-  },
-  {
-   "name": "SBT Interior",
-   "id": "340",
-   "group": "Brazil"
-  },
-  {
-   "name": "SIC TV",
-   "id": "341",
-   "group": "Brazil"
-  },
-  {
-   "name": "TCM 10 HD",
-   "id": "398",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Boqueirão",
-   "id": "402",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Brasil Oeste",
-   "id": "403",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Cidade Verde",
-   "id": "407",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Clube",
-   "id": "422",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Guaraparí",
-   "id": "417",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Mais Maricá",
-   "id": "414",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Marajoara",
-   "id": "413",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Passo Fundo",
-   "id": "424",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Rio Preto",
-   "id": "425",
-   "group": "Brazil"
-  },
-  {
-   "name": "TV Sim Cachoeiro",
-   "id": "427",
-   "group": "Brazil"
-  },
-  {
-   "name": "TVídeoNews",
-   "id": "430",
-   "group": "Brazil"
-  },
-  {
-   "name": "TVNBN",
-   "id": "429",
-   "group": "Brazil"
-  },
-  {
-   "name": "360 TV HD",
-   "id": "619",
-   "group": "United Kingdom"
-  },
-  {
-   "name": "iLol Funny",
-   "id": "625",
-   "group": "United Kingdom"
-  },
-  {
-   "name": "Sky News Arabia",
-   "id": "620",
-   "group": "United Kingdom"
-  },
-  {
-   "name": "Berita Satu",
-   "id": "5474",
+   "name": "Indosiar",
+   "id": "1053",
    "group": "Indonesia Channels"
   },
   {
-   "name": "Garuda TV",
-   "id": "65",
+   "name": "SCTV",
+   "id": "871",
    "group": "Indonesia Channels"
   },
   {
-   "name": "CGNTV Japan",
-   "id": "2705",
-   "group": "Japan"
-  },
-  {
-   "name": "Arirang Radio",
-   "id": "451",
-   "group": "South Korea"
-  },
-  {
-   "name": "EBS+ 1",
-   "id": "116",
-   "group": "South Korea"
-  },
-  {
-   "name": "EBS+ 2",
-   "id": "117",
-   "group": "South Korea"
-  },
-  {
-   "name": "MBC",
-   "id": "119",
-   "group": "South Korea"
-  },
-  {
-   "name": "NBS",
-   "id": "120",
-   "group": "South Korea"
-  },
-  {
-   "name": "Stara TV Bandung",
-   "id": "5470",
-   "group": "TV Lokal"
-  },
-  {
-   "name": "Stara TV Banyumas",
-   "id": "5471",
-   "group": "TV Lokal"
-  },
-  {
-   "name": "Jowo Channel",
-   "id": "2669",
-   "group": "TV Lokal"
-  },
-  {
-   "name": "Kilisuci TV Kediri",
-   "id": "2642",
-   "group": "TV Lokal"
-  },
-  {
-   "name": "RCTV (Radar Cirebon)",
-   "id": "158",
-   "group": "TV Lokal"
-  },
-  {
-   "name": "TV Tabalong",
-   "id": "2649",
-   "group": "TV Lokal"
-  },
-  {
-   "name": "Maah TV",
-   "id": "3020",
-   "group": "Malaysia"
-  },
-  {
-   "name": "TVRI Ambon",
-   "id": "591",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Babel",
-   "id": "593",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Bali",
-   "id": "592",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Bengkulu",
-   "id": "594",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI DKI",
-   "id": "589",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Gorontalo",
-   "id": "595",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Jabar",
-   "id": "596",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Jambi",
-   "id": "597",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Jateng",
-   "id": "598",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Jatim",
-   "id": "599",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Jogja",
-   "id": "617",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Kalbar",
-   "id": "600",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Kalsel",
-   "id": "601",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Kalteng",
-   "id": "602",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Kaltim",
-   "id": "603",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Lampung",
-   "id": "604",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI NTB",
-   "id": "606",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI NTT",
-   "id": "607",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Papua",
-   "id": "608",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Papua barat",
-   "id": "618",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Riau",
-   "id": "609",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sulbar",
-   "id": "610",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sulsel",
-   "id": "588",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sulteng",
-   "id": "611",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sultra",
-   "id": "612",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sulut",
-   "id": "613",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sumbar",
-   "id": "614",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sumsel",
-   "id": "615",
-   "group": "TVRI"
-  },
-  {
-   "name": "TVRI Sumut",
-   "id": "616",
-   "group": "TVRI"
-  },
-  {
-   "name": "Al Arabiya Al Hadath",
-   "id": "2709",
-   "group": "Saudi Arabia"
-  },
-  {
-   "name": "Al Ekhbariya",
-   "id": "2710",
-   "group": "Saudi Arabia"
-  },
-  {
-   "name": "Al Khalij",
-   "id": "2711",
-   "group": "Saudi Arabia"
-  },
-  {
-   "name": "Asharq Discovery",
-   "id": "2715",
-   "group": "Saudi Arabia"
-  },
-  {
-   "name": "Asharq Documentary",
-   "id": "2716",
-   "group": "Saudi Arabia"
-  },
-  {
-   "name": "Asharq Radio",
-   "id": "2718",
-   "group": "Saudi Arabia"
-  },
-  {
-   "name": "Atfal & Mawaheb TV",
-   "id": "2719",
-   "group": "Saudi Arabia"
-  },
-  {
-   "name": "M-Live 8",
-   "id": "3670",
-   "group": "Singapore"
-  },
-  {
-   "name": "HOLLYWOOD MOVIES",
-   "id": "5431",
-   "group": "United States"
-  },
-  {
-   "name": "NBC 4 New York",
-   "id": "5369",
-   "group": "United States"
-  },
-  {
-   "name": "BRTV",
-   "id": "i10012",
-   "group": "Indonesia Channels"
-  },
-  {
-   "name": "Dens Food Channel",
-   "id": "i10017",
-   "group": "Indonesia Channels"
-  },
-  {
-   "name": "Jambi TV",
-   "id": "i10025",
-   "group": "Indonesia Channels"
-  },
-  {
-   "name": "Radar Tasikmalaya TV",
-   "id": "i10039",
-   "group": "Indonesia Channels"
-  },
-  {
-   "name": "Sampit TV",
-   "id": "i10044",
+   "name": "tvOne",
+   "id": "12",
    "group": "Indonesia Channels"
   }
  ],
- "total": 1164
+ "total": 1159
 }
