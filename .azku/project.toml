@@ -1,0 +1,14 @@
+[project]
+id = "01M8758P9GS145A3FEY24VG13A"
+slug = "dhanytv"
+tags = []
+note = ""
+
+[push]
+on_diverge = "fork"
+include_git_dir = true
+max_file_size = "20GiB"
+pre_push = []
+
+[ignore]
+extra = []

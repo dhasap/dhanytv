@@ -126,7 +126,14 @@ def main():
         seen.add(c['id'])
         uniq.append(c)
 
-    tree = ET.parse(a.epg)
+    try:
+        tree = ET.parse(a.epg)
+    except FileNotFoundError:
+        print(f'ERROR: {a.epg} tidak ada — jalankan generate_epg.py dulu', file=sys.stderr)
+        return 1
+    except ET.ParseError as e:
+        print(f'ERROR: {a.epg} bukan XML valid: {e}', file=sys.stderr)
+        return 1
     root = tree.getroot()
     have = {ch.get('id') for ch in root.findall('channel')}
     has_prog = set()
