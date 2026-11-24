@@ -1,7 +1,19 @@
 #EXTM3U url-tvg="https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml"
 
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=DENSGO/3.00.00 (Linux;Android 15.0.0;) ExoPlayerLib/2.19.1
+
 #EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV HD
 https://astatv.pages.dev/api/s/871.m3u8
+
+#EXTINF:-1 tvg-id="ANTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/IRVkD3QGRzroJ4IZzXBpS-0MRls=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/782/e1af8b.png" group-title="Indonesia Channels",ANTV HD
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstream.adaptive.stream_headers=Referer=https://www.dens.tv/|referrer=https://www.dens.tv/|Origin=https://www.dens.tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36|user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+https://op-flashcon-digdayahd-1.dens.tv/h/h235/01.m3u8
 
 #EXTINF:-1 tvg-id="RCTI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/9c-sEWp6Du7DoWDn56cjma0gMpY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/665/337c4d.png" group-title="Indonesia Channels",RCTI HD
 https://astatv.pages.dev/api/s/6.m3u8
@@ -27,11 +39,27 @@ https://astatv.pages.dev/api/s/11.m3u8
 #EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/u0aa_S_rQeujrp5eR6LwXdertrI=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/777/ea8483.png" group-title="Indonesia Channels",Metro TV HD
 https://astatv.pages.dev/api/s/14.m3u8
 
+#EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/u0aa_S_rQeujrp5eR6LwXdertrI=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/777/ea8483.png" group-title="Indonesia Channels",Metro TV HD (Alt 2)
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstream.adaptive.stream_headers=Referer=https://www.dens.tv/|referrer=https://www.dens.tv/|Origin=https://www.dens.tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36|user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+https://op-flashcon-digdayahd-1.dens.tv/h/h12/01.m3u8
+
 #EXTINF:-1 tvg-id="tvOne.id" tvg-logo="https://thumbor.prod.vidiocdn.com/APQ6a9vXvN6lU1zjeyL15IV_AJQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/783/07750c.png" group-title="Indonesia Channels",TVOne HD
 https://astatv.pages.dev/api/s/12.m3u8
 
 #EXTINF:-1 tvg-id="KompasTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/Pf8yLSfHEUZeRI9tUzLDR2U8Zow=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/874/042ca3.png" group-title="Indonesia Channels",Kompas TV HD (Alt 2)
 https://masterplayer.pro:443/live/Kang_pagal12/12Kang_pagal/10.m3u8
+
+#EXTINF:-1 tvg-id="Moji.id" tvg-logo="https://thumbor.prod.vidiocdn.com/g7gTjD2Il1GI4DJULOZ1cv6NSj4=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/206/1823dc.png" group-title="Indonesia Channels",MOJI TV HD (Alt 3 - DensTV flashcon)
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstream.adaptive.stream_headers=Referer=https://www.dens.tv/|referrer=https://www.dens.tv/|Origin=https://www.dens.tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36|user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+https://op-flashcon-digdayahd-1.dens.tv/h/h210/01.m3u8
 
 #EXTINF:-1 tvg-id="TVRI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/F6W__Y0wn_7mFW0cOuz7mi7qjWU=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/6441/528cc9.png" group-title="Indonesia Channels",TVRI Nasional (HLS - Tanpa DRM)
 https://ott-balancer.tvri.go.id/live/eds/Nasional/hls/Nasional.m3u8
@@ -42,6 +70,9 @@ https://astatv.pages.dev/api/s/i10007.m3u8
 #EXTINF:-1 tvg-id="auto.banten.tv" group-title="Indonesia Channels",Banten TV
 https://astatv.pages.dev/api/s/i10008.m3u8
 
+#EXTINF:-1 tvg-id="auto.brtv" group-title="Indonesia Channels",BRTV
+https://astatv.pages.dev/api/s/i10012.m3u8
+
 #EXTINF:-1 tvg-id="auto.bungo.tv" group-title="Indonesia Channels",Bungo TV
 https://astatv.pages.dev/api/s/2651.m3u8
 
@@ -51,8 +82,27 @@ https://astatv.pages.dev/api/s/2648.m3u8
 #EXTINF:-1 tvg-id="auto.ficom.channel" group-title="Indonesia Channels",Ficom Channel
 https://astatv.pages.dev/api/s/i10022.m3u8
 
+#EXTINF:-1 tvg-id="auto.jambi.tv" group-title="Indonesia Channels",Jambi TV
+https://astatv.pages.dev/api/s/i10025.m3u8
+
+#EXTINF:-1 tvg-id="MetroTV.id" group-title="Indonesia Channels",MetroTV (Flashcon)
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstream.adaptive.stream_headers=Referer=https://www.dens.tv/|referrer=https://www.dens.tv/|Origin=https://www.dens.tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36|user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+http://op-flashcon-digdayahd-1.dens.tv/h/h12/01.m3u8
+
 #EXTINF:-1 tvg-id="RTV.id" group-title="Indonesia Channels",RTV (Indihome)
 https://cdnbal1.indihometv.com/atm/DASH/RAJAWALI_TV/master.mpd
+
+#EXTINF:-1 tvg-id="GarudaTV.id" group-title="Indonesia Channels",Garuda TV (Flashcon)
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstream.adaptive.stream_headers=Referer=https://www.dens.tv/|referrer=https://www.dens.tv/|Origin=https://www.dens.tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36|user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+https://op-flashcon-digdayahd-1.dens.tv/h/h10/01.m3u8
 
 #EXTINF:-1 tvg-id="AshiilTV.id@SD" tvg-logo="https://i.imgur.com/bTktkcr.png" group-title="Indonesia Channels",Ashiil TV (480p)
 https://wahyu1ptv.pages.dev/AshiilTV-HD.m3u8
@@ -153,6 +203,9 @@ https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/chunklist_w909769083_b3840
 #EXTINF:-1 tvg-id="tvri.world" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Indonesia Channels",TVRI World
 https://astatv.pages.dev/api/s/590.m3u8
 
+#EXTINF:-1 tvg-id="berita.satu" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Indonesia Channels",Berita Satu (DensTV)
+https://astatv.pages.dev/api/s/5474.m3u8
+
 #EXTINF:-1 tvg-id="cnbc.indonesia" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Indonesia Channels",CNBC Indonesia (ChannelFeed)
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/chunklist_w1242192746_b384000_sleng.m3u8
 
@@ -161,6 +214,9 @@ https://astatv.pages.dev/api/s/i10011.m3u8
 
 #EXTINF:-1 tvg-id="magna.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Indonesia Channels",MAGNA TV (ChannelFeed)
 https://edge.medcom.id/live-edge/smil:magna.smil/chunklist_w521170343_b1128000_sleng.m3u8
+
+#EXTINF:-1 tvg-id="garuda.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Indonesia Channels",Garuda TV (ChannelFeed)
+https://astatv.pages.dev/api/s/65.m3u8
 
 #EXTINF:-1 tvg-id="RCTI.id" tvg-logo="https://thumbor.prod.vidiocdn.com/9c-sEWp6Du7DoWDn56cjma0gMpY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/665/337c4d.png" group-title="Indonesia Channels",RCTI (Vision+)
 https://rplus.inisemar.my.id/rcti.m3u8
@@ -246,40 +302,40 @@ https://flv.intechmedia.net/live/ch119.m3u8|user-agent=Mozilla/5.0
 #EXTINF:-1 tvg-id="SCTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/kH-K9J4cROqL0TZrAyQhw7P5pBk=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/204/4e9f5c.png" group-title="Indonesia Channels",SCTV (DASH/MPD)
 https://cdnbal1.indihometv.com/atm/DASH/sctv/sctv-avc1_2500000=7-3277707030000000.mpd
 
-#EXTINF:-1 tvg-id="2831" tvg-name="MD.tv" tvg-logo="https://astatv.pages.dev/api/lg?t=vw20o8Tlp14fqOCJKHS4xJ8U4-4bPJXvK4vEQJcmP1BG0AhnxVYcA24frrF2zDnkbpCtykAoekfbo8AHW4dPC7lU4nonMMlCWMSEWqiy6kSZr83SOKY9elY2te2JdNQm8ulhVsgnPbJA_K277IcnnoDGLvw66fZYSzDM4s9fHAfhbQ7MkkBQRnETjKXqTG78-ERmdHMof_7O84tcKUxjiNpkn53hxncarg" group-title="Indonesia Channels",MD.tv
+#EXTINF:-1 tvg-id="2831" tvg-name="MD.tv" tvg-logo="https://astatv.pages.dev/api/lg?t=QjaAksR1brzM2MokxWCf1LMoaUoSoc1zUEuyvqbwoSy5hU46U9DauqulvkwntJQhr6iQ01uE8lbrPcARgFfgO89uLKgKZO5p9QG_pkQbbKYwF3ADZsQ-IT16oPmq7hPcwLTYJ382NMjrTOtNgrAHnllQX88tcK6djEZwPTncy9s3gdHrCEnKShdU-f37pRJpbkkgCdmlBljZ1cvd77ZyejOQUnPO2iXwvw" group-title="Indonesia Channels",MD.tv
 https://astatv.pages.dev/api/s/2831.m3u8
 
-#EXTINF:-1 tvg-id="950" tvg-name="mOji" tvg-logo="https://astatv.pages.dev/api/lg?t=XfSmgkD81wa_F1naNLd27Jeb5uS5ErwhL-w3MGSznsb3m5ymTD8RUTW92yRPtYEb_2w2oAdfM4qYgC0-u0RJoDCiotEHsahmsBirAc-27URwdRz61CHWBMwDv_0WPj8WzXpoR5xZPzrtX1cruoQJGfi4JX6bGyU-Tni3Hx35PmNnIYAxZPTWB_DMmg0hxYcK-M2Ask5XVJPOGJ2SF6Kvkb6vTWT5IdFYvw" group-title="Indonesia Channels",mOji
+#EXTINF:-1 tvg-id="950" tvg-name="mOji" tvg-logo="https://astatv.pages.dev/api/lg?t=Ycvp9rjE6yI5Ng0PCYHPP7NTiVRX1JZ5xml2CWqAlepVyuvHe9NNq9HAAmUemq5fPiLp4KYGCWjupewbDf3-hppWqiIRa1Yha9EseI38g71TdPAh1AckSbNqyszFWw0gIElF49417X1Nv08Lo7JD4jROfCDX3laaNXOZV2Y4kajBZCI_kp5jx1r8lIUZSqowrCSEWhUmtMTMqfT7kMRI9k3AvpolGN3wWg" group-title="Indonesia Channels",mOji
 https://astatv.pages.dev/api/s/950.m3u8
 
-#EXTINF:-1 tvg-id="2667" tvg-name="Animal Planet" tvg-logo="https://astatv.pages.dev/api/lg?t=tFoVU2fq0qU1ZrO4uNgIQ5ebAwrf_gNkUzzbRVa6BYMyPAI5fXgI16eLmXgpQuJee4DzfUHex5MymIh3g7MOUA8EDXWuKc0wHY20evC89BzYQWP2mxPHWT_U7tm1qBaSXmczu24xcOAPCp2Dkr70GE0d4plVzW_2m2ptP44AL_Corlpcm7nuXMeV7-R3pNBpZpksTHpRzOutaJBoVn9GXCsWJ-BMGHynaA" group-title="Indonesia Channels",Animal Planet
+#EXTINF:-1 tvg-id="2667" tvg-name="Animal Planet" tvg-logo="https://astatv.pages.dev/api/lg?t=_340Llqixkfhw0gpN6e22wIoQaPWfEH_KZRgDIUZYxTUwXzomi7DE-aPwlVwiERR4Q26dLNQcye1cTagd-HsGj7BAsGpbJqIApfx4efa3n2p3ZLDUY2WrzGHqz-tb8AJnfXk1xW2pW1IxxCDXbrsuzHq3J5PIjlnIhmv5hPzpsorwRQ-pih1yxLIQUKiZrALeupuR3g_okdBfQZ3bzXeqX3Xq-fyJsSMrg" group-title="Indonesia Channels",Animal Planet
 https://astatv.pages.dev/api/s/2667.m3u8
 
-#EXTINF:-1 tvg-id="110" tvg-name="Rodja.tv" tvg-logo="https://astatv.pages.dev/api/lg?t=EaUs8ilHgYfDV7Di7QqnhD5EGqyNwh36YM-OS297EjjZkbnuh_UlCZh17GAX4wTHyOD6sNS3XhDIonkwRsGI1FUo_HHDu2qY7kL839UbCcy_1vQDkPJwIKvzzoII4iS-hSP0_3DT5KRBg003KdQYjYCWIV-SmoqA4Pvb0LmnjORytTIE7mlEZhHRY21Y6Lcad_vE2C7dApwJIPpFfnIPAXwBXEAIkoMEuw" group-title="Indonesia Channels",Rodja.tv
+#EXTINF:-1 tvg-id="110" tvg-name="Rodja.tv" tvg-logo="https://astatv.pages.dev/api/lg?t=yyjLs0rk3bdFZB0NPwtpCLzdjmNAtpALcmchLqpb5B_KWHwOT78MDQethPF5XdhSr8M4xdfh2i16IC_k5eCuNDthvfBZhaLMJGNeLE3ynBhQbQVdXMO_nfptHMnUe3nHjsLBlWIIMDl4-41KEqxeOdti_w5IZGptD61HFrHnDCBFxa8_TGlJbwNvgkG6PquDjnHyzB9mBS1p6mVSjqgu4JpV-K6cjYm34g" group-title="Indonesia Channels",Rodja.tv
 https://astatv.pages.dev/api/s/110.m3u8
 
-#EXTINF:-1 tvg-id="155" tvg-name="TV9 Nusantara" tvg-logo="https://astatv.pages.dev/api/lg?t=xYPJ-nm3hcdkv9gk7M9_7_B84fbFSXOyj9E8DecRKzHlmo3C9iF9uxoPsZMnXSVjonHjVNbEmGGWYmBN75TKhftOfVxutSGofGDDrIFjXSeTeEgeOuEYK_6N50gryw5ryk5NULOM-Gj9fGh7VPVYBZXSgd8heatdr6Wv4FL1mBR3l91KjnaF0l_HqPxoWsJpWli0ZQ32nzta4PdXWkyllT_MSr5fX7oJew" group-title="Indonesia Channels",TV9 Nusantara
+#EXTINF:-1 tvg-id="155" tvg-name="TV9 Nusantara" tvg-logo="https://astatv.pages.dev/api/lg?t=IS7gA8awzRzVB9XxPU6WuWmJjM7f5SaSfVOHeYPse1sEX5zLgJeW1AlQ2hlhhViubHoJdqOcG8TVrrUjrysT8cakzLbj9LC65faxD4gwY8UohkMuq2hqcQbULjlWEO5PG6LX_ynod3BXyWD6p6Rph2PMUXhkzsVgUgNGWRmhjiNh02lum3wl4zjclrf7RUv1530U9lD0jlZeRASWL0Kg9wngKf1aJRgl7w" group-title="Indonesia Channels",TV9 Nusantara
 https://astatv.pages.dev/api/s/155.m3u8
 
-#EXTINF:-1 tvg-id="5393" tvg-name="DIRECTV" tvg-logo="https://astatv.pages.dev/api/lg?t=wpGVrJuXs7W8pwafcFp965hotvnak6AyWCM9Rl8UHnqC1WdtDouvr7RhHZ0XxZ-TcxtyXQRTVc0XwJ-onNAhUjm2lvYP8msFZgpnAw9dBgbpmZOabUSqOOYDRLSZtL222kyHvv7MB5R-ENjzi54kmsB7dGh74ko1Jm45yTinupXmRQ61l5qdSe7DUmNMTkOC860ATcL014iqwIXDF_5vNjO-ZyzSVCASTA" group-title="Indonesia Channels",DIRECTV
+#EXTINF:-1 tvg-id="5393" tvg-name="DIRECTV" tvg-logo="https://astatv.pages.dev/api/lg?t=1QKdvSJk7JGcntBzE-TN348DP04RGSiCTKbGRChxHyZMgZpxedHkE26HOsGo3KdRM34KH9z22WVMNd405lBsVCQ6zzMIoX-KcvXZcD8EGnLTrSQ0bus6sM-WG96neELIjyRpK4wXufXW75Bczp3fft4tt5u4BkaoM1fjy6dlukoMp7TeCB_3H93MoRBxqXDO2GEqGXtXfcuCQS1QslvJ2R5s8lPEdJ4O8w" group-title="Indonesia Channels",DIRECTV
 https://astatv.pages.dev/api/s/5393.m3u8
 
-#EXTINF:-1 tvg-id="27" tvg-name="CNBC" tvg-logo="https://astatv.pages.dev/api/lg?t=EO121TQfK6l2iWav_H6o4CpST6VkhOy2aVUhcHTMxFsp1IGuRydqikiX8BkZWTpJddMnhuVcjc1dtep0bOlTid_jsOiV2cTmiARwzDBFU7ybW64dfnCYcepYQmzC6HgjKpNpYbK2hEdpnjyFcO1xaOtBD1tlxPOPATas9d3kPwe_iFtt38dfCSoG6dwDpugZ-32TwSYlwLPgbCYqK4Nn4bK9noWCgehr3w" group-title="Indonesia Channels",CNBC
+#EXTINF:-1 tvg-id="27" tvg-name="CNBC" tvg-logo="https://astatv.pages.dev/api/lg?t=KZJ-XhFG9HeE2yluLNKePmGRt5i65k6HQqEHtZT_DSrSWFhkqXNX8usw54DjPKpbUPnDur7hUIS8GI1-ewGZvpfIQm-BhVH1NrAVGfnVwNRzkTaWxVQXRXSk6ox8zCEo0Zl_4WkdR8GKGeoUgzlH8q08zaiIs2O3-3Pa-p0VKr4CWV1Hf2c38P7M5MffAe5ffdNp4F6LmIA63hhh0Bqj20pzKgxsEPRIYw" group-title="Indonesia Channels",CNBC
 https://astatv.pages.dev/api/s/27.m3u8
 
-#EXTINF:-1 tvg-id="26" tvg-name="CNN" tvg-logo="https://astatv.pages.dev/api/lg?t=j6MyygepIthZo8qMCgb1Z0rAU5ngaMUDulm052C1RBSl91HDnqqOUECa_6tiCvD3vWZrdvDLG1O4Ktu-IADHurKrsCAyHAeWHqRIQir9F1YVQSRSxJbB4tiWZXphXcHFDCL2p2bf_BecJkldfhK76jHv1sOiwEVJ_8Ts70ufCynl0CC90PH-5MB7g_dS-IAs4XuiVg5w_H5ShRSe2rJhUFw3csg8dgEVGQ" group-title="Indonesia Channels",CNN
+#EXTINF:-1 tvg-id="26" tvg-name="CNN" tvg-logo="https://astatv.pages.dev/api/lg?t=qE8A2f8TDY3mjUbYJi0_QfSELQl4aOuSIpzG12DJdRBw-cvdC_oAQNjUCzNQx1hEih8dpW0JHnY16nSuzYPgx40Gl2fPSf7mrtoVGytzUqJeNcZbaRZ-QThUQjcX_lEB3YxprIsAgTcVjFc2iIDXYb9qEB-LKUVvaqtXQ_zEJO3xm7BhVeinPjcRftp8wXDQ5902WD10FmgAVzzFz0VgsoB8FnDTIYq1OQ" group-title="Indonesia Channels",CNN
 https://astatv.pages.dev/api/s/26.m3u8
 
-#EXTINF:-1 tvg-id="17" tvg-name="TVRI Nasional" tvg-logo="https://astatv.pages.dev/api/lg?t=3Twr2aN8isZiZwLnUw8--8vnIdWmYz3wMv0GCQgJZmxpJPWurMBCpmvMl6GOA9_AR9rnEl-_6XbLmu0qdR0EZeZ_ec5osASFcpIszu6KAmjbVRHy9b5zis4FzaUH2iBSxmp21FhI-wQTeS_zrY73z7D2hK7hXd9hUvrOj_2PwcZaHstRjPI0hik1uXhlpy0EeOiIPl2DVMaR0PmrJ1rmb6WqOF-4JpqqzA" group-title="Indonesia Channels",TVRI Nasional
+#EXTINF:-1 tvg-id="17" tvg-name="TVRI Nasional" tvg-logo="https://astatv.pages.dev/api/lg?t=oZvboQ7V2TU3DNAJiS7UpGpMcaAT2-U6GT4rIZqABGrS-cgbu0RU5qlq8HSxUnBCx61HEsUHMyJm5OQl47is5ukpi7aszJae5Uu1a1EkFWRg3wvYgWiBQuJAV66O3sMyjCIdVP93hOwnNgzj2ZDwZaY5YcRBLlWJtw8-q-AwyCrrKbQCfENZrAY4gqSIZNGIuJMziqU0i_tq2mQL78JTCDFcAJNu7mLiyA" group-title="Indonesia Channels",TVRI Nasional
 https://astatv.pages.dev/api/s/17.m3u8
 
-#EXTINF:-1 tvg-id="28" tvg-name="BTV" tvg-logo="https://astatv.pages.dev/api/lg?t=dSCIKtVc5FisM7-vAsu7DnB34hdlHG-6kmMaT89cyYRFsFIdUHS60i9lfMXZf2Q_M5pXbYQ9CMOWQksttloQtugsgVYOarUzOFDlh2luaAytoH-QINkpm1JztG_lVj7nA7o_BWh7tw_x7wJUjygnVYWlKIBakMnCKSpnhKZ1gN-iesAVKKLi6LMqtvcGJwFv09GQ1tW_1FlDzB17-rOyfv_dicAK4aD0uQ" group-title="Indonesia Channels",BTV
+#EXTINF:-1 tvg-id="28" tvg-name="BTV" tvg-logo="https://astatv.pages.dev/api/lg?t=Ks_deAtNEquNDvuZ9pwVAityhRPUHi8fE2GrQ_7pqDY8H2jZrYiKbu4rFFSNspISZKR7gHRJ6mT6Yneh-sgWJwng5Unyc6pu77_W6ngtU6-qN7HXrwKPpmibGD8oQYVhJbM04oNvhz1NuIqtlxVuYXMn_QsgaZzKJWjVhCssiybxk-8nBC9weeEbUufxRSmoRmXnim2VhBbADuMjOMVKht6-vGvRBrk_pA" group-title="Indonesia Channels",BTV
 https://astatv.pages.dev/api/s/28.m3u8
 
-#EXTINF:-1 tvg-id="30" tvg-name="Nusantara TV" tvg-logo="https://astatv.pages.dev/api/lg?t=DoN7LaMPl0JxkvFSIqsjXghiyTyg1nRkLfWw4NGlVEy0s_2i1supKuZNShCpOhC45RQdAkMlO0nqa78vRz_-Xt2DLXBlnBplntTx4qfGvkHGRCVlfiETeIPG8fr3aO-BI4AJLQ3aDdn6uPFdQbUb53V-Lqishe15_duKLkdO1983oJzA7QqZY5tQKSM02r8tcO1P2DJfFj_xvkGcvkVanHDUUFV4BHHTYw" group-title="Indonesia Channels",Nusantara TV
+#EXTINF:-1 tvg-id="30" tvg-name="Nusantara TV" tvg-logo="https://astatv.pages.dev/api/lg?t=REXiCQ30C1b3o7CMMvNQkwKNQCQARgREg51EtSMo-_QkY6KPC8BNVjPv7D5tjMrp5gvrk22VWoPh9wHB6kxeFqut3whFBvgdFEAVAjazm-0BtCYh4cHBweeAsH7WqKelCUfSp3qi-BUCRJLZwedgf-Z1fksT0dvV6tUI2znSCSJNO66cF19KLJH5DmTWcQ2ZNQNcFU_na5_q6C9LsXH2AAZKYBW2tX7Yag" group-title="Indonesia Channels",Nusantara TV
 https://astatv.pages.dev/api/s/30.m3u8
 
-#EXTINF:-1 tvg-id="21" tvg-name="RTV" tvg-logo="https://astatv.pages.dev/api/lg?t=ezNbDbgPSObBdhjOzOxHwhw1lzyl7Jd23j_76bzxwNnYB9ioGs2XXetI8gNbFLhTpTeW_7z_VdnPagWFprDGPDj1yq4jYJlcFIgGN6pMajrvvNXDOtf9dmWnEvBSWc5MxHmCjGleag4AhHvpx9bljo0e0obxNWZe5794UghvCIQRb_n08jKLcvl2d_T4CDAstQw_3Yj0eEImsnqqlbJ8TlWIx2dBmZIDIQ" group-title="Indonesia Channels",RTV
+#EXTINF:-1 tvg-id="21" tvg-name="RTV" tvg-logo="https://astatv.pages.dev/api/lg?t=b8uf0nRTzH_7xogBnFx4QqLPaEga1LfQ003Ez_QjCCiN1Cq0O3-hKEHU9TskZ0zYaJ35jMFn-2XWIWNIRa5FLzFXptc51CoemEDa43sclnlpvo04ekvIwuKDuN_StUr7RnPKLNPZKLTiGS3S33-HsZL-DDQp57c1G7Y6JeX12PplO1gdQPaAHL1LnQUq4NDi5I601M-yF4nUPk63r9SxtfgQj6GMmBX0Wg" group-title="Indonesia Channels",RTV
 https://astatv.pages.dev/api/s/21.m3u8
 
 #EXTINF:-1 tvg-id="i10002" tvg-name="AKTV" tvg-logo="https://astatv.pages.dev/logo/i10002.png" group-title="Indonesia Channels",AKTV
@@ -374,27 +430,6 @@ https://astatv.pages.dev/api/s/i10057.m3u8
 
 #EXTINF:-1 tvg-id="i10059" tvg-name="YOY International" tvg-logo="https://astatv.pages.dev/logo/i10059.png" group-title="Indonesia Channels",YOY International
 https://astatv.pages.dev/api/s/i10059.m3u8
-
-#EXTINF:-1 tvg-id="5474" tvg-name="Berita Satu" tvg-logo="https://astatv.pages.dev/api/lg?t=4xr7IAVwqB7qGpC-NSGw9WzsK7QdH0TRCOwJsdcR48CLr9lrTSbcmHDxg0_YPs2whlLfvWigfGgimUa7-Vh_omRV78RyNyyIyv8UMElds6kd8aj9n_ZHMeJkoEhfS7rBbyV4GE-KuHtlOjeaJhzzxcTbcNy3iRaHqbMcN-UPyESeX3NAp5p2PmTIJphxiM_i_MpcPDRSv-fvDS_RGTZMMu9CX9JPt8K0FQ" group-title="Indonesia Channels",Berita Satu
-https://astatv.pages.dev/api/s/5474.m3u8
-
-#EXTINF:-1 tvg-id="65" tvg-name="Garuda TV" tvg-logo="https://astatv.pages.dev/api/lg?t=FZKGyTX1xMBQ5ddLvHzKFMEHCHZ_NNA2_nKCRHqvSn0TL7zyYnvYq8x9eB8Ih5q3H40Z4IG86oHOs2cMN1b92aOk91GPWAHdwgPicSehKPNM-EWSLGtDp80mzDZLNI9kffyThVQxStcdz8hCESTuFy-VwJ58tJ346WI3fskShdlOOrQf0JO5AnFt_mAVKXdZxPtm00kNqz5G94DZyKdqsXu5M1lt4Cb6iQ" group-title="Indonesia Channels",Garuda TV
-https://astatv.pages.dev/api/s/65.m3u8
-
-#EXTINF:-1 tvg-id="i10012" tvg-name="BRTV" tvg-logo="https://astatv.pages.dev/logo/i10012.png" group-title="Indonesia Channels",BRTV
-https://astatv.pages.dev/api/s/i10012.m3u8
-
-#EXTINF:-1 tvg-id="i10017" tvg-name="Dens Food Channel" tvg-logo="https://astatv.pages.dev/logo/i10017.png" group-title="Indonesia Channels",Dens Food Channel
-https://astatv.pages.dev/api/s/i10017.m3u8
-
-#EXTINF:-1 tvg-id="i10025" tvg-name="Jambi TV" tvg-logo="https://astatv.pages.dev/logo/i10025.png" group-title="Indonesia Channels",Jambi TV
-https://astatv.pages.dev/api/s/i10025.m3u8
-
-#EXTINF:-1 tvg-id="i10039" tvg-name="Radar Tasikmalaya TV" tvg-logo="https://astatv.pages.dev/logo/i10039.png" group-title="Indonesia Channels",Radar Tasikmalaya TV
-https://astatv.pages.dev/api/s/i10039.m3u8
-
-#EXTINF:-1 tvg-id="i10044" tvg-name="Sampit TV" tvg-logo="https://astatv.pages.dev/logo/i10044.png" group-title="Indonesia Channels",Sampit TV
-https://astatv.pages.dev/api/s/i10044.m3u8
 
 #EXTINF:-1 tvg-id="auto.golf.channel" group-title="Sports",Golf Channel
 https://30a-tv.com/feeds/vidaa/golf.m3u8
@@ -504,190 +539,190 @@ https://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/5e9f2c05172a0f0007db4
 #EXTINF:-1 tvg-id="auto.cbs.golazo.network" group-title="Sports" tvg-logo="https://wwwimage-tve.cbsstatic.com/base/files/seo/cbs_seo_1200x627_1.jpg", CBS Golazo Network
 https://stitcher.pluto.tv/stitch/hls/channel/63a0e33a45264d000850ed7e/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=cb5874fc-6948-11ef-b8e3-ea3db3d97a96
 
-#EXTINF:-1 tvg-id="5473" tvg-name="One Fight Channel" tvg-logo="https://astatv.pages.dev/api/lg?t=eczh3B1uILG0kKL94kgl2Nqk_WxxogtnJ0ESCXxhFt1iQVhqAD7uvtkZvWb71qU8R3Qh1red0GReVTETS5aADW-LiKcL1xvyTP9ipRl5S7GQAQq53CttryIPBCS7GYUxqsDRU3eHPle-g1f23EJ34U3uzpLqYWNQtgrZSX-_MYtgDDC0YkX0P3h0-0CLiMVvDFRtGPBlM1gceosm6m3W9_Dvmf7pse2LxQ" group-title="Sports",One Fight Channel
+#EXTINF:-1 tvg-id="5473" tvg-name="One Fight Channel" tvg-logo="https://astatv.pages.dev/api/lg?t=IeMrAsDanF2B43DjgVJeGHorfGblpdNHioravQy99sbT9cfKDqN8RUqQWx85hCVODbgnVSV8616vRIlkRnvSMmsG8cwewg7Q8-94CNhjNMEY5pFbh4rXQMSiYJMEvS_xUrMoFPtrt1JAepF2s7RJcF6-8426dOgqvKdsR1g3Nw9A6GYx72ycGs2M6K_TjHvmZOxx2-xcYS8WYpyRRO5aPONAb0pplsgmEw" group-title="Sports",One Fight Channel
 https://astatv.pages.dev/api/s/5473.m3u8
 
-#EXTINF:-1 tvg-id="5422" tvg-name="Action Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=K5Mjk0ch6pfMr0Nq9GEzsuP5ZWo8UoL2zqPEeHQw_DgaloPFzIU1zU1t2udlZIsZtR5PVqXFk1NjedKElQ8BGp5NKj7lPMIzYasEE8D4tN2gPHOTtGslKY7TX8hflIQd5a8QnZ_KhrHWAcaxEwV1vOpiBf36fANqZ0_uI8lasRaPXOHgbI_WzkfU-7LvYEA9r1qi3bkxBQbQOwWjqbxq2w08WHdeSvIO-w" group-title="Sports",Action Sports 1
+#EXTINF:-1 tvg-id="5422" tvg-name="Action Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=888mvg7unvcGEB4eREvr-vBRyT-LilprkkGZK4HU96O9wk2iUq0cFCas4k0Ql29g1iTgiTFkOP45SbdCh8V8Ua73kRIkDYQpp-Tueap6Mc87vWNoTSvtXzFbYzP4EV9V7b3O0MGwLhuau3XC7joPe0RmPpwn0a2N17yPuYywu7Tfj7WKGtvEkDZxLB0kOLUYeN8Fy15izGLaH7kbKNwh3Hu8g8nHBRYhmg" group-title="Sports",Action Sports 1
 https://astatv.pages.dev/api/s/5422.m3u8
 
-#EXTINF:-1 tvg-id="5435" tvg-name="Action Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=FVjXp9XddjSCC4_dnznAXWHWFC56wHC5QM317bWy12UA5-7uzIjn2jrIpGGTjEQlEbZOqjXlKRlheeiHc550WfE2DYyTRMvjA7qsRsIR_UlQNfLtW4x5rY9H3c3Zmivvehp82T1lbm4Nyhe9Rjpm0FhHfXjBgDNjVJdtS-DPEEGlW_B7npH3TrMxAAQpFmhuM1oJam8j_iIw-cTW4DvfCywTUVFqPKJsmA" group-title="Sports",Action Sports 2
+#EXTINF:-1 tvg-id="5435" tvg-name="Action Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=yB22rn2wBZMEEanILjJkjWnYvBMBKS1Wg2dRHAuy3VxnzVDiJR0DWWU40VF7E74OUYdP_54eiJuxFA13wvngUMIM3eYKg-1Yl3lHqIqs1nJjRqvu0oOzghitPx7QqHnX7TQc0_eDo1RvvXcxcOQVyLMx2pvXw8OXfSnoKRQsl0LyurhErDWTJUlLGVF-g5cMwvS5Lv9j0XdPMKKD-fW7wnZtY4qtCcEOgg" group-title="Sports",Action Sports 2
 https://astatv.pages.dev/api/s/5435.m3u8
 
-#EXTINF:-1 tvg-id="216" tvg-name="Arena Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=WEmDKzQgpsw8fzcP30zsQr208oTo7TkXhru3ncqXZFSX-EIuQEGefeUA1UXBuZqTPglvcbxzfulQh-mIhTYb-chFCYTzfLAC7cZ3yj8UiqS3xCOMvxMzLdBxXimKUMCrOXCCzc2ffgCyaokR9XftCwqjI1JpMJ1g_S27iK9Hg66Po12YyB5u4eWH2VvKirAb3JeGSb48QAFDX5XYNXIaqGitSjkCkUxeig" group-title="Sports",Arena Sports 1
+#EXTINF:-1 tvg-id="216" tvg-name="Arena Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=9UaIrijFycMafqs06iXYdj7W9pd11zKNe3Ce6OxDwMa4iPxTa9ptmtXohgBOtkr9Ws1pPBbhOIS2CMuG46oGepUdbKoP5c5jIbmMAXAFlq1Cny6UfPQPkuiuskZ47uMKvw7gB3yGvt0icLIXEeiEQSGMSSlddXQHKDuhEI-nZCKuRou3riEuEHpU9FPNmGdjtbm_R0neeIqOvH-u74F3oFUxAUWPxm7Z0A" group-title="Sports",Arena Sports 1
 https://astatv.pages.dev/api/s/216.m3u8
 
-#EXTINF:-1 tvg-id="217" tvg-name="Arena Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=UaIhOtfKNf4UuqcqP3Cw5vDSW7TJBjeJRliC3vGZ5jXMVtPmCy7EcHQBrH3GYnKf-EOPKKDAo-6CvjguIJQH5nC6uYcFroKPvW4FAqg_D1vMbwOUd_IusPdwD2IYvPjCz6AtuDbv5QZ6peFxKh-6J-WHq2FIW-QlM4nayXvypwxKeTmBVpd8F43yxC26IoMbc9v8iNbeY_y2a-Jg0HUOXuccdyLVimqaMw" group-title="Sports",Arena Sports 2
+#EXTINF:-1 tvg-id="217" tvg-name="Arena Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=qESBo1hq-X-RSiqe4pMHjNtWOx7eyPyAh3EBKYirolV2-tRaHOFd872LQO5sDih5MiCRzSy0aE8j5u-Dw4so7W6xXq4u3dtx5vjITkA6n5Sdm-T0Qx10JqzxB0GG2Db4JEqCuW2jVZDUrYdMKCQ7_YFlHzBhaIY6jJaEXh9tiIkR_2BmMct37bjuKBBpiqKec7kbollRfiIl8OXlWspZyviuOvYv7uFkjQ" group-title="Sports",Arena Sports 2
 https://astatv.pages.dev/api/s/217.m3u8
 
-#EXTINF:-1 tvg-id="2972" tvg-name="beIN Sports AU 1 A+" tvg-logo="https://astatv.pages.dev/api/lg?t=lXnsRK0V93il5cn8GeG0q-dnSzkIWCznqZjrfpw7VYv9cP7lTyPTUJzQkq8SZr08cHUMF-MxWXEXjgoWJXBRCqUPN5KMCAP4Yl9W7vghtDQLcpZRm9AtArHGMRU7wAWo50ECHx0u6M5I5cRpZBPKllYoOwbOWYvlw30_mmbp0A5a-bImciQwqo_AM02md-N_H8GPjsoYs-qQKb9DKiTz-3IIRRQqat9aUQ" group-title="Sports",beIN Sports AU 1 A+
+#EXTINF:-1 tvg-id="2972" tvg-name="beIN Sports AU 1 A+" tvg-logo="https://astatv.pages.dev/api/lg?t=zAN6Cnr4yBFUFxuY-E5rbMWqOQ0GPspvBEyh0B34_Iy90HiwHIAp23EEIMSyQ06SAW9cZbVXn6eoAbgTVcO9IKhwpHhR4PTl3WkdKaSuYDnJRMrEZxkDQHRWZ2qq5g5CFfvhXG_9zX6Q7-SdIKyyWs5zSddFDBqxOh6un_7ISoCofWYZFdoMGRUJi3iBeb-tgJQnjKBggEm9nzdvMzwTG2WoJZNF7kZyDg" group-title="Sports",beIN Sports AU 1 A+
 https://astatv.pages.dev/api/s/2972.m3u8
 
-#EXTINF:-1 tvg-id="2939" tvg-name="beIN Sports AU 2 A+" tvg-logo="https://astatv.pages.dev/api/lg?t=cXYKSvRasqT_DHZPRlKx9_BoETJIRTcmcRanDQRNqCSM2eMkHPLQCL7BX2NEdyjs5wZbxG_s49soT7RgMhq1boVQxxVIbTerUE61WbG6elJHbQ4noTloYT9185HlvyI37y4IBZWQErn81ojIu2TrFO1aODIvrbFgmG3YMcUEkGJa6_gq320S3xr1p93bWmcysPdT_SNwY3XDJeTQjtS153N1r5RnxkMJEw" group-title="Sports",beIN Sports AU 2 A+
+#EXTINF:-1 tvg-id="2939" tvg-name="beIN Sports AU 2 A+" tvg-logo="https://astatv.pages.dev/api/lg?t=0iSTv6M8XRU2vKJmRSKVVHHJnEHLzOlmyyZX_dxOULXwh06zXJ4kxAyNnISfvuh7KhQYFT6dAKdl469DeAF_sSmanVQBvCIO9mJdX8fUbXNLQuuA8376omrHZeLEoi7a5-3Q5UvoDSrwsV9DjkALShG87C0-AQfWj6LgCuT3BErt4K8ixBJcZxZiE5fX2qaujinAu3sHrsCq4g-hf_a4Tl7AU2AV0Uyzqg" group-title="Sports",beIN Sports AU 2 A+
 https://astatv.pages.dev/api/s/2939.m3u8
 
-#EXTINF:-1 tvg-id="2940" tvg-name="beIN Sports AU 3 A+" tvg-logo="https://astatv.pages.dev/api/lg?t=2cUDBPFC79jTs0vCpejVqWqeSWlGL4PooLOR9xdc68XPx8tRehnH37b8chWJ44P1aRNKv1FICow8pxK859LQdjyW5afxi_Ip2xS0EdTcT6JyQ0RMFW216p7Tt6_uxpTvn6pZpvk3dl8zrAxt1A2uh3xJg8C7qY7lBtOTyrbZadc4EKLylqArdBGW0oeqXb1QmofmKSroV4oYdlK3fcLnYV4Co4EY2RUyIg" group-title="Sports",beIN Sports AU 3 A+
+#EXTINF:-1 tvg-id="2940" tvg-name="beIN Sports AU 3 A+" tvg-logo="https://astatv.pages.dev/api/lg?t=M-23LOlFf61iMcIfad1KYW3p3owMzvCCI3jR4zX_apzUHw4lxVzwpQfBjixmx_dN2OD3bVjxrgIjiZ7TfwcL4NN8uMFrJULpx8gVUFxovhhvMhzplXeK-xmtqDWfMUbGMLoa6-KYBTECydOMagBqet52KJG5hD1mwEbgxalNtYZxNCOEio134j6E752_NlGK89VgMMg91bHogKBTjgwcCRNhRRgkJeVmOg" group-title="Sports",beIN Sports AU 3 A+
 https://astatv.pages.dev/api/s/2940.m3u8
 
-#EXTINF:-1 tvg-id="92" tvg-name="beIN Sports XTRA [CH1]" tvg-logo="https://astatv.pages.dev/api/lg?t=ZP5nnMvgWQMfnInb0PLNWI6KY3q6sHM3HwViT3Vh6mOxzpqGRixsLw4AU_jhPdBfQmCYZEWdekIe868c3dqJfCO_08pRv1vWjszOM-rg8UoA1Ra1NfnOS-rlQADNcR7DUJdp07hQTlYQqZExlAvIKnICphbEjaTljb3LxOxr71Jd1_u1PmVtQpXW0iRbvKTd8LoQLRZ1AEVNyHDI_AS4kBtrZvitHEPdlw" group-title="Sports",beIN Sports XTRA [CH1]
+#EXTINF:-1 tvg-id="92" tvg-name="beIN Sports XTRA [CH1]" tvg-logo="https://astatv.pages.dev/api/lg?t=nAsShYep3X43K5DBMd8l-s86ul-e8pH4u3sDyUtkhzm7dvm-SzeJzI1pXgTLSMsDhgLnQlLxiXB7PuAS_iNh9dWAfPJbdJAiT1JmjzeqZ10-1lETmS0W7X8hX4pOCYx6xRtBCqbTJDHtCn0zaQ2qFn6OS1B4Ffj2-wCmqjsbNUjoKj71E4iFa0lR4Wezj3vawAqCcLjsmB7AtpBdAqdeGGR2B1zA7nCAqA" group-title="Sports",beIN Sports XTRA [CH1]
 https://astatv.pages.dev/api/s/92.m3u8
 
-#EXTINF:-1 tvg-id="5399" tvg-name="beIN Sports XTRA [CH2]" tvg-logo="https://astatv.pages.dev/api/lg?t=CELR53LZ_-en6y50upDYwNagGqP_ng0aOQAUxdgOMSHkE1_9fpiap0bhsDmnkYcSwb92nwB7y79XEfpxF3fgRMjoQvT2AWePjtmkRUNSW36qeUaoltx4lHXO1OGZHMXnE4koDDdUomrOGYlCd9gGSWO72OPL0uM4F6Kzd5O0NQPfxqv5xukAGuCcH0F777fdr_OIbmL1GK1x1NKGePwSR8TOFRMCD75cqw" group-title="Sports",beIN Sports XTRA [CH2]
+#EXTINF:-1 tvg-id="5399" tvg-name="beIN Sports XTRA [CH2]" tvg-logo="https://astatv.pages.dev/api/lg?t=_iiSfK8ATb6dEIEd37kApCvtqXOafJOBzMGw84b4-ihxcFw-7ZtaU39zTvpjczOk0_duFi34FSmjdUtJaPBxH-w3JP20QOAnGPBv2ZQNg8QVUVhh_jvuAYb-dZJC3NHFZliwKb-GDBflRgCg6RXmlaBM9hchuDhiAd5RPji7_0Tk3homcZhYwkGJ5kVNCuZcrVBqCJ-3tUDgfHgO5H8fLLhY4e3tEEN8OQ" group-title="Sports",beIN Sports XTRA [CH2]
 https://astatv.pages.dev/api/s/5399.m3u8
 
-#EXTINF:-1 tvg-id="5428" tvg-name="beIN Sports XTRA [CH3]" tvg-logo="https://astatv.pages.dev/api/lg?t=ZRBI95VIUkIgr2ijg19DJl0B28b22LYYLYpNFEwvXFfHXeKVosQOpqtgV5_Ly-_hqVA4-FxR-wHS8OKoDecJ7TshYPBBWC_JsvmX3DD3VakEuMFjzdEIuR5FOOO5x-lLQzk-SVc26bGejkn1lh6QJk3qLQHMO8ESJd86b6jWOnPZgIsnIJa_rmzT_QTTWvka_CDhF2pARcKIGck120nT9svEvI7Tp2A29w" group-title="Sports",beIN Sports XTRA [CH3]
+#EXTINF:-1 tvg-id="5428" tvg-name="beIN Sports XTRA [CH3]" tvg-logo="https://astatv.pages.dev/api/lg?t=GjJ9i5joQ_T8JolcqtF88YHwgBAlF7OOfx5PgOpfURznVA_pMkxcWKi_BxGLpopwZZnopiDjw81F7nQjuqTzivXrK3_wUxl4Iy2ktPDBOaEdzOwAMJMCGWZoQfnFMPx14s050S6llpdcjFRBvP1u8DXdPCMQL9CsTQLd8DIOf8fSsxW0DcQGbeGZgExJqEEiumkUnQp0wkeBONJ7P3IaPeOeZ3P1iIikOA" group-title="Sports",beIN Sports XTRA [CH3]
 https://astatv.pages.dev/api/s/5428.m3u8
 
-#EXTINF:-1 tvg-id="4433" tvg-name="Caze TV" tvg-logo="https://astatv.pages.dev/api/lg?t=u6_fGLW1cF9AuafYF3wfZfsiphUxIetWRO1DSRFPBC0x0na7aCQ3kUFyHEHk0YQOi1fWwNpKx_ewAayC9ZqDo1oYASwU8LPAIOTsPBCbhwPUysufXpuIDo0cKwfcG2YHevKx-gM2psnXmwXbj0X534wzV0QJlULv06abNFyvSjDJXHAKPk0HJnk9SM3461M-Hu_5EtjsI6VJYsFdUejDGMgYXDYXaFkoBg" group-title="Sports",Caze TV
+#EXTINF:-1 tvg-id="4433" tvg-name="Caze TV" tvg-logo="https://astatv.pages.dev/api/lg?t=kFlwIfIzgybyz-M90AjFr7bZEN--2vt5KqxBd6rnvhLm_jXwOpSUoeHWLR3iphKSRFubOKh8DilgEJN6484_PpoMuXRTWGwRlouVR8mHFhql3kzYOxlAvKKInwxNxazHh_FTeIYnxzPnqa0HAcuy491oEB_PndNUlf5o9rc9Qpq85WG2wLfgrbkMXLaMKoicoPwjBvzd16emkolYV1JJ4ID3hzA_tPtPSQ" group-title="Sports",Caze TV
 https://astatv.pages.dev/api/s/4433.m3u8
 
-#EXTINF:-1 tvg-id="5000" tvg-name="CazeTV2" tvg-logo="https://astatv.pages.dev/api/lg?t=SOIDdi1Y9l-ayjZjXrweS7D9aszLfsyf-mLIrtfXcCypBjGxsBuZepJd_4tzKa8VRhog9Ssm3AqU_3LcNTPE1g3Li1LYPe4ZI9VKv1ViJDjjblA1_7CQ7C1Siu7ixB-U8KCVdd-bdsJWIlzWbcmPofJgMDsTBTtu4jaJe5JWT4mryxW-dDa5iwpH2VejO5w8Na4Ay2F98G_kZKb8MW04lj3vi4NNWjkJvw" group-title="Sports",CazeTV2
+#EXTINF:-1 tvg-id="5000" tvg-name="CazeTV2" tvg-logo="https://astatv.pages.dev/api/lg?t=zFUoeB3uosNrL_r-7dp3em1mxFuNflbvOUj91o2kViOptEK4pQjTd-RLDHxzgCLFRU8Vxj8sZAwwCNhxP0eXtt--GXDBYyD9YmrSdjdXGrzg7dWXyBKi5DTDRnA-Oc1D8YiCO8Zjv0BQIzhSm9btYQ3_xBuoGN94SICkYikC4w70HWOZg7flUV_D8SkOmBzACp_IDLYMWXpPrGtQGrJhBhaSX7DCJ0c0Tg" group-title="Sports",CazeTV2
 https://astatv.pages.dev/api/s/5000.m3u8
 
-#EXTINF:-1 tvg-id="3535" tvg-name="CBS Golazo" tvg-logo="https://astatv.pages.dev/api/lg?t=eXLGKx_46PeVEdYCvYA6Ab9TNZPa_Fg1zgOBE9McIHlzz4vRS2HG2ko5U5vxTVbx_F2aBYk99svBmMue6gfnlDj2WC9L7Hh8h1AI6PJsul49n7hBxHQ8gj_JTfFXNXW6xXtiMprZplBzzIukCGnIBn85OkAZqD4rr5yP4mWJ4nzOKM8vnJHwx9gWwYMUXBDvCluknlukYOjRswc_LYPEpdXSD_De5p_k9Q" group-title="Sports",CBS Golazo
+#EXTINF:-1 tvg-id="3535" tvg-name="CBS Golazo" tvg-logo="https://astatv.pages.dev/api/lg?t=clZaaEUUwJ-H2ldfh32n8RN0tErqWAYZOYZ-2NEGRCziLFV8VSlnrYEYVRIz9aB11TiL4yDJkjVfRiRZEuxx8iFTnyCxKibofWBVzBa0D4q4gjFwUbJhpKxtInXJ3XU9ap8BehVrYYEOHyF1zNMHuYkReMG_Ena7mD-8VuJIR4_hI6QGz_sv1zrVYPwjX1XLVln7tLz1MPubwgwplamsxw9mvuxhGRBf-A" group-title="Sports",CBS Golazo
 https://astatv.pages.dev/api/s/3535.m3u8
 
-#EXTINF:-1 tvg-id="5371" tvg-name="F1 Channel [CH1]" tvg-logo="https://astatv.pages.dev/api/lg?t=fdWCpbPdK5mhomBpCnIucfoVE24fnNQKtAW2WgdkGDlVgm38PRsM5k_PxrED4pKynE9TQ4ErVQ8sWKqwcd_nsMKEr8cUeoDL9PESP-tfWkarGKCm3qFXJmvb8Lxpkn4J83WVxCitRaXfx6n2EGIMzfgj_Ndvs0Z07o3TPszcdXMS_3iIXfYxMIREHPYNpu7uspcDd9EbMisE1OZK-sDd1PC7zA7B3E6-EA" group-title="Sports",F1 Channel [CH1]
+#EXTINF:-1 tvg-id="5371" tvg-name="F1 Channel [CH1]" tvg-logo="https://astatv.pages.dev/api/lg?t=sszikHugFsjv-w1xANvR5IKU88qZ4sNZwO9nkz3MOcKkkEGXQtPmVZZxd9YOJC84Gcylo7mOCGuWbBaA4n8KXOYaNCYtmOzNKq5q6jx-pk3tGs5d-QUxP-JL7-afAhSevcxMBp0xRUM9HHMfo23zccnTQygTWfTA25MiSuIBmqGMq0WnmZN43hg--2nBtcv2JHfiMlDGzJPPfOvgi5EanTJbynllw0bORw" group-title="Sports",F1 Channel [CH1]
 https://astatv.pages.dev/api/s/5371.m3u8
 
-#EXTINF:-1 tvg-id="5433" tvg-name="F1 Channel [CH2]" tvg-logo="https://astatv.pages.dev/api/lg?t=pg8uIcNzHRwomvBOL-800ttUjBaHwpx3N4kT1qt_8EgW1sZa0Y4qvOIo4RsGjXWiGMtxn2EqD6GcxnOLqFz_MlB9xhMmB9aGQSnUxCT8HyAeT4gTmfafXTAzPk0m9D8mYOQn9YqXto9ccTeMshY3upiLxBJwx2K7myQMWLpADwYy5BrW5xpp675lJu-I5lwvyVpP3iu9Ja22wn5pZTb28YR56Oq5mHHrNw" group-title="Sports",F1 Channel [CH2]
+#EXTINF:-1 tvg-id="5433" tvg-name="F1 Channel [CH2]" tvg-logo="https://astatv.pages.dev/api/lg?t=bYsd5R9KrLcHlODSGepkDm04IqtB3Gp5qOU3TCX3Dp8u4Vmhy-vWIMwznzjG1hNAMssZHbjV1VHiqCXJoSgpYIAXi6FYDW-drIFYcuAhAJCv_8qj4NEq9Oeya-sFPBEBoBbcgpIJL_EEpwAFyoubonRf_JkLN46EsqZojyhVUz2YVBRyPyL-eFkBm5XVSZxx366uttTXI0zORb09o2J0_gCDBTGuWaSQYA" group-title="Sports",F1 Channel [CH2]
 https://astatv.pages.dev/api/s/5433.m3u8
 
-#EXTINF:-1 tvg-id="548" tvg-name="FIFA Plus [CH1]" tvg-logo="https://astatv.pages.dev/api/lg?t=hErBBp92yyMd43u0-JZpmU2QbDd55Zqqcq5w4VZKEncq8_fPwI-65Sa38z-lao1NlzwtF4sQHXeQJeckQJ2czuuv2Bv5DTLT1-yodIxc6RDBKVS_eUSDRLtuVJp_74hDcQFrEbuqhjvRkeYgHHL7M5G5RXG0pjVdQc8gnXyFhr9u8bj5ibHymZ4S8VBJqtfL7lcbuUiwGomjlvKZDDWN87_Tw7SuM6We7g" group-title="Sports",FIFA Plus [CH1]
+#EXTINF:-1 tvg-id="548" tvg-name="FIFA Plus [CH1]" tvg-logo="https://astatv.pages.dev/api/lg?t=aBS3SZzpypY6FZPY-q4JH7iR6YrtK4tooLPihuHF4CgXuNxBasG5C_9KlFE_3A0hSzWOFAGopRDRoo-E98Gy-tKMMNfL9X_vh13UiGS3Sy9d9iDSBstHICKmubvHzLXNPHrdCX0DwoWZXwbPPlqwg3U4aLJJ-VjGE-k8RntK6g4dlHNAV9CBd458pkbwcshomy5rXjHKP7En2IdiRPaOqnZRnyW_5l6eCg" group-title="Sports",FIFA Plus [CH1]
 https://astatv.pages.dev/api/s/548.m3u8
 
-#EXTINF:-1 tvg-id="5398" tvg-name="FIFA Plus [CH2]" tvg-logo="https://astatv.pages.dev/api/lg?t=6oJFmBDFBOfvSaGcFrj2X5qSdXqa9UqnHHX5U6sBSE_bbxdzIdAqZO4kPVVoUl2ooKAOKRVF44oa__V56Tkk0unAm2Tg7JYT4mnNXY7TWzHEcNkAqXYqgYZGEmketIwCw9S0hm4XBQYfb_dgbZml_VUlXWnC5AFVwJp0G_q8-Z3Afgep-7qUbFLMwt59x82WMSaJEd8JgJsFdF0JyXvBdPBQXAtEdbtc5A" group-title="Sports",FIFA Plus [CH2]
+#EXTINF:-1 tvg-id="5398" tvg-name="FIFA Plus [CH2]" tvg-logo="https://astatv.pages.dev/api/lg?t=FbgKpPzXrV561VrlBNKLaFK2o_0iOQaFKrqUkpw_5MyQb8dKEq6-1hnuuEioKs9Y7Ps5Edy0a29vwhprs5ZSL1RIIIjV9L7msVAp22mCZmf1ZuvKiT7FePDIEfqOhIFAooPgtIv8rTtdg1gVGxmotW71QnqSZ5szjSMYlBnka_gn8nrukgvgeTtyufDa49qlVD8RTdhICDxxK1BB2acK1R37MfZ-4i49eg" group-title="Sports",FIFA Plus [CH2]
 https://astatv.pages.dev/api/s/5398.m3u8
 
-#EXTINF:-1 tvg-id="4518" tvg-name="FOX One FHD" tvg-logo="https://astatv.pages.dev/api/lg?t=u-sKRrp_-f4qj6LCPDjKCLZ3wh9ef-Fc6T075thmPvUGZAYNEvDYVH3Sa5Cgdpz0e9IhoR1094WDFK5S_FhWbj40vTIhwekl9W7u-hErUILqTHA0cqGAHZlMfaAVDWSLezkZAFgcz236xKOmRtbhqSSVptNvH5idBJaLL3oFBPB2LW9LFvX8osKwq2fvQRPksdhXlSCeaXjUVg-oJQ-5acJxf0KpkxuaPQ" group-title="Sports",FOX One FHD
+#EXTINF:-1 tvg-id="4518" tvg-name="FOX One FHD" tvg-logo="https://astatv.pages.dev/api/lg?t=jBfG8Nfi_RZJpnDmihTp8WQ_P1toVb2JtkuFTi8VrzXkWjn6Ubb3pIVdd7CkGifTirOehos4HKx6b0hK17_ESpumHAOgTYkRG7ArBYzJwE6iXr56MNQEfZVa25DT23UCRFQxGenhvEkZvAEmj1yxG_rWH4b2z5lalv8ISM03jke0p7UEkOJsvOYcM08CCbtLwZDJJj-9EG_g1MMZa4fgURzOBCkmQQghyQ" group-title="Sports",FOX One FHD
 https://astatv.pages.dev/api/s/4518.m3u8
 
-#EXTINF:-1 tvg-id="4191" tvg-name="fubo SPORTS 3" tvg-logo="https://astatv.pages.dev/api/lg?t=9dIoYQRd791gjFgf__DbRiow03n7BbHHkO5-tAR-4Z-lENw08Exyge3GBO8g106OQL1clR_DnybyIY5Esvycj5RbjW0aAMpN34mqGxUJSIzeuAMjvonAOFVo6NkhjYhPRSUeunVQ49cKbejUaTovu7uj1a3z8mvu2eFRirSyb_mwgNnLiy1_g-ih2t03sfTDTo7kI7YL5IZN80D4pfN2gf2t7AuZRSgasQ" group-title="Sports",fubo SPORTS 3
+#EXTINF:-1 tvg-id="4191" tvg-name="fubo SPORTS 3" tvg-logo="https://astatv.pages.dev/api/lg?t=Hn1OWD36i_1CwvHAhMqhbL3YDdlFZvyZoGqh_Yz5XmSzYd3MwuRdIR5YdOHLkq8z-Pe_jTPtZyKrvJm9u9cBKDtcMLVSDh2_7VQ-tkaIMOGcOWliOryZYBQmetVmb8HMgs-r4wIdtCSz316BfizUuwU5eh15muCkf5GrGuwgrXDPdaiUPhWe6x5ZUlf908PKizhxPa11TdlLMnzlCXVR3OvILFhFG2wGlw" group-title="Sports",fubo SPORTS 3
 https://astatv.pages.dev/api/s/4191.m3u8
 
-#EXTINF:-1 tvg-id="5188" tvg-name="fubo SPORTS 4" tvg-logo="https://astatv.pages.dev/api/lg?t=rV-gx7bJwntHKGqyv19EfJ-nk4hZCoMy3LRwI6Y_gcG_7L9LZAo2OLfAgStxW-R83Nclw70qb8XdSqg9gCx0fStqbEzzlfVHdM9jEL6Xd-KE1cArYHVxrYqK6ps13uyZ5WCR62_VAYGV_vrBhAqE3PLZEBfTz7RFuE2uxQAL-CiAdVhTLLygwca3xlpx5Z5MQJop6GbvrojoCUgiYNQN54bFdcHglS-6ew" group-title="Sports",fubo SPORTS 4
+#EXTINF:-1 tvg-id="5188" tvg-name="fubo SPORTS 4" tvg-logo="https://astatv.pages.dev/api/lg?t=t7NgVP5xIKvO2PnQ7Ld2Ctq_yBapq0Y4rUKaNuA3dEtSFLFjpr9nmSM2AzEP2I5nfc_wQOBmk331tl-ZEzmAa1O6ha2T40ToRxs0UBeRRjvIJy0DRcd6FI1jJL0WVs2L61NwgUwzWBgK5pgjUgFQAsPZKE2_wAe0CSOz8Kq-OXNa_aw7VK3h_wsXjwRy4jXTCZWEv6LC_Vu7rkRsZB4Mtu8OVyzS1EsWlQ" group-title="Sports",fubo SPORTS 4
 https://astatv.pages.dev/api/s/5188.m3u8
 
-#EXTINF:-1 tvg-id="5463" tvg-name="fubo SPORTS 5" tvg-logo="https://astatv.pages.dev/api/lg?t=3Tk3cgVKvllRXnAjTeEQKZlgAGYE--r9guGjVGGnhNAqi32qpiMezTv0fjyjyavyMxHh4Sor2vGl__A9-NVXPSVcbRMu34cmCt54Fr-ZtSz3BuLuoc24As-GPqdojflYMOUab0cNIBFZQUIVrQCBvp5KSAJL2FVcTmPjac5QKPqWbJqadjVsySbBhBcLb9QFV2IE0dAzbzuX9nhWkXphuzyWzxIytCXRfA" group-title="Sports",fubo SPORTS 5
+#EXTINF:-1 tvg-id="5463" tvg-name="fubo SPORTS 5" tvg-logo="https://astatv.pages.dev/api/lg?t=wJ3LPMi817eet5CSmbOJ7v9yboSpxH_nzGiOUsm5sSuNhUTn8j3LyfiGEhJgBOuuw-rZMnEnccS055VqIG1bTSLFoTF-DGIwzb3fmPolvJ8f7fO1H5SqOmqagXB909huno3VGSXIWb2z54WD3SOFI7NbRkFuj1okVIQlotD4ttQ7eHJhWY6qdePehG8DE-U3Rn5k3hMDMn1VPQOF4PI6ou6be6sK0Jebrg" group-title="Sports",fubo SPORTS 5
 https://astatv.pages.dev/api/s/5463.m3u8
 
-#EXTINF:-1 tvg-id="5391" tvg-name="HBO Boxing" tvg-logo="https://astatv.pages.dev/api/lg?t=76mP8xe5Q2PNWLGNuns4Jg9vcnRGo5TTj0B8eJ8ocpsswzJLeO7VbK7OEZUxBeJ29mYDtrdCTT9HxyPhRWmpz_FwOIQ-0n5YskxsCRW8hvp9cSFZm-kuQkG50FNIOnQPaT0BSx9qfQabDZg4fJDq9BHli51ZPLP_somKAsbi7DvykHQLtTdEwK6rwPUugsf6ra42jir4kKLEom8oeCKeHELTAEmjP5V2dQ" group-title="Sports",HBO Boxing
+#EXTINF:-1 tvg-id="5391" tvg-name="HBO Boxing" tvg-logo="https://astatv.pages.dev/api/lg?t=poMRylcuvcK9g-YGwAduwBIbTb3xKHLM3EJlyS8GQNnftW3uCohnut3GpNO9Kt-LOyHX92q5fdvTbeDr7iolOQi_jALQIiEd_md3P2sK48gaHHz5gwucvN9b7e-7OXQPV8sSezcJmeF6dlh64tAfP9GMZhNJiu1klLSnyJOZI35a1dsNQuEO9GID65wqaLbjSthMPWQfkX9JlnmlMHH3XFpc59MxNiUHag" group-title="Sports",HBO Boxing
 https://astatv.pages.dev/api/s/5391.m3u8
 
-#EXTINF:-1 tvg-id="477" tvg-name="NBA TV" tvg-logo="https://astatv.pages.dev/api/lg?t=iLgSgiUFldEuwI1hfdk0ws4S6CtXHvCl0H4WVevJ0t3G--TeiLx7N6PcnbJcBql9QIvmZ6TIH_Af-nTJObM0JOBsEWUzxD3TJeGqKyuWI4t3MxUYX5--kVCfikLLHrUbPHAT251HrvJnMw0f4Xh00Fc6rmHPZamuHlUJUgw4XJLtI8PuJGu2sg_wZA-j8Qey-aLviRmUpmPL_4ao9ZFbPu-tELoL3jIeKg" group-title="Sports",NBA TV
+#EXTINF:-1 tvg-id="477" tvg-name="NBA TV" tvg-logo="https://astatv.pages.dev/api/lg?t=e7e-tkP75QoAzBxJt7NyudUBXIQa0YQFMiYwAWVwUQkcQPHzdYxYpc6cJnSNCJp0Xdw44gbaQxUNCL5ByOsgdKH2SCzRwuDJe6UU57UmCXbMGHMtZigLqffiKelQfsjriW8cf__74om8rkWpOBhk0W4JX1lXtDqFwonweC9JZUSN2QnQr9i-3-OhNw4utlY5WzHa_80s8NNR8n2oOkEjRzgVwQXpwzg1Aw" group-title="Sports",NBA TV
 https://astatv.pages.dev/api/s/477.m3u8
 
-#EXTINF:-1 tvg-id="2859" tvg-name="nova SPORT1 HD" tvg-logo="https://astatv.pages.dev/api/lg?t=uJyIJgZwJ5YkY_9WTYtSjAcTxLDqMs2yWuyNcRPPQPvHnN3gQA0NTKrOaOIxFyjcoxUdcbZj6V8CGebXuOeQ5c2Q_1fP2ZdHtX4h8YemndmyuRREhA1nD33YOEM_aEh7SGklfx2ZrGz2VBL2wCwM6iL4CDsOBHC8Q9QcPVYoeW6gC3NXMDH6Svmjp7BGLLSHqsRxHdc78Uh8x7PSrWOwrAqwgS7i2f3F3Q" group-title="Sports",nova SPORT1 HD
+#EXTINF:-1 tvg-id="2859" tvg-name="nova SPORT1 HD" tvg-logo="https://astatv.pages.dev/api/lg?t=El7zmd42LnRsWVMVj5b-9Z5UcbBVbOmoR6_czKH89sQjdhZG-vdWYzSnAPt-Xgmh5TCnPKOK9_d_ckFQDA8ZK0fqnVjCabcyDqLDVgjhO5ykxtwZMda67I6SKYhhUpdoYNr--knLR0XKGzi4VnqpV89o2dR3vBJac1d02gJcrV0mlzoJGdOVMvnynrxDT2yPUU8UKTnkzmMxA_ppb1TEofNIg4fCrB26AQ" group-title="Sports",nova SPORT1 HD
 https://astatv.pages.dev/api/s/2859.m3u8
 
-#EXTINF:-1 tvg-id="2860" tvg-name="nova SPORT2 HD" tvg-logo="https://astatv.pages.dev/api/lg?t=6_vXFFmuA_EPSebSemwRTJYYeV5gQbjVxHAADVA9r8ph8IsjRlmZ2Iawa2Cm0t0uY21KvYcaDJIf9ODW4FyDftqnudq8nIdd_9Hi1LnaYIsMJyEbUnrl1EQQHsnhD-dbJ5uwGcoxky-U1l0qGp6mFsq2HSqHZ5JQuK_s0Q7YBwGMVZJpRy7wy5BrYgzlj1T1W06i-mbKQBpVCAZMU7btx-TFZ3OPozMqGg" group-title="Sports",nova SPORT2 HD
+#EXTINF:-1 tvg-id="2860" tvg-name="nova SPORT2 HD" tvg-logo="https://astatv.pages.dev/api/lg?t=c6kS1OPOO8FOZZUrICNRTkXiG9e_XkNqBuTJ--OJHfbCjlpvBFSLrkvXJ_FJs41zv4UqZWvYuNdfobizaFICX4J5ZT6Bqg2DPGmehgUp9b0gnoCrXLMQuYqd1BZjV4x3vla2R2jMCn3Uz43xa3fuLIsiRSEwo6sQfhtD7cHz6nm2qPTdyGC9THunIBe0Tr76YJnvpltqpyTgDsY684OBUdBBhan12nwzmw" group-title="Sports",nova SPORT2 HD
 https://astatv.pages.dev/api/s/2860.m3u8
 
-#EXTINF:-1 tvg-id="5420" tvg-name="Pickleball TV" tvg-logo="https://astatv.pages.dev/api/lg?t=ePN22HCYaVG8xhOiaCVWqx8trQPlXJnhS4Vu9s1JkpM_Icuw0zl1gTpJxOygWXliiL2qgvBP0zTmCZIOLQ5v1weZ_wZO1kUxz3E9BXMdtqHNB57r2zltkMDP7xHqiQYNRKCB6lImRFSUd798uQE00_v-B0PqFn-CQVbAp5ootCwd3SgYv9C-IftDmhekpLQuGEb8ZhcPu9sWOSOhg4MwKt9QvKoDJg4_jw" group-title="Sports",Pickleball TV
+#EXTINF:-1 tvg-id="5420" tvg-name="Pickleball TV" tvg-logo="https://astatv.pages.dev/api/lg?t=jAskPJJ9_BYnmEbkvD3WrL0b9dBm9Ie17FMRR3i32MwJzZBhRxX6C7RPOfK9GZvr23RUP_cfAYi4vR4IXobcnT4wkATPr5AejtPTdZRys2xl3xL5jcrLarbTAUtpv0ZVZd-Nv9l_IINJYzElqmMeEpTOUVAdYPhW0ZICM1Pi4MEle6V6ejjJVuNqQLd0bDcOlMj0fODKp4GiXqOm_cjIJy_-1nvqnKSYgQ" group-title="Sports",Pickleball TV
 https://astatv.pages.dev/api/s/5420.m3u8
 
-#EXTINF:-1 tvg-id="461" tvg-name="Premier Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=FhCBPgZmuj5dKCJt_NX-QkdZ2fqsfgKwNElsbxONrSnFbqXQJlk0vGsTqcDlB2fYCAjUwVjwHRDf8cM2Fd7QH8HBihyoneCduApNCrURAARtLY7ORl8eSRtoePbb8OUvkT821fyoRpvTUOr8vv0WL21UxEUWFIpwWi0BegtCD9ri4EU8VVv3C17CBAYTOw-k09b-YoAQgzX2ZZ2Tt9AAsyDaNc4RbA7qcg" group-title="Sports",Premier Sports 1
+#EXTINF:-1 tvg-id="461" tvg-name="Premier Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=1ymY_zUsrrVevlLeWoG158cYWVlhwNZ6KgOYGe5ApjDr1t0NcTQUoBWI_tjwk4l3TMUzRA_3ZCdK6NwI4WVCc3r7_f3nBhIlme-2g7X9AIQE-JDGScgdQeWmYD7SxMDlxG1ANBwyLXCt0FMdBB-YSYZrmmwXDlJ7gmI-1llh9TFEqTF5w9ksgDim82j41N0VyEkKe5r7Zg-lsaCc3fYE7BXLxuhPZH98vQ" group-title="Sports",Premier Sports 1
 https://astatv.pages.dev/api/s/461.m3u8
 
-#EXTINF:-1 tvg-id="462" tvg-name="Premier Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=oDsuxtgfjzhUKRxxQIYyd8O8lF_1SEkQwYLl0pgUQbSvN7ZwCuS4s_X8QolBfmUfoGY1WnZUV9ZmaykVUfUaU5cz4zCYgO5u6eKzOS0bRc3XuJkgr27m2AykkT7VjLDPtvU8GUQY87hqZ7u3-7Am19QkKJqsVnWGrKWssj9ucGTfqEU6hWHnwXzw7KOaqLsD7dXwBVUdXlOFxg-4PQhbnFq5Kdu8rQRyMg" group-title="Sports",Premier Sports 2
+#EXTINF:-1 tvg-id="462" tvg-name="Premier Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=fJLiEBz1JC7yt2MiaFnQBKVektA6HoUtqFlGvoRmYBqwMHU-npegEqDaAuJZw-J4i3j5VNUnmKIC4YvoGcFjoCDz79GPHZuZKoo5jflcmN4Yml2FUvxOkw_xs76VLUDCpEMiwW3XiVXNlnFY25xW2WclApEbPuXmoidrUREau7UqAVY8ANfvHcV_2m8i6nGBBKhFW8q67HRiZIyOrE-_8OOtL2YwvskosA" group-title="Sports",Premier Sports 2
 https://astatv.pages.dev/api/s/462.m3u8
 
-#EXTINF:-1 tvg-id="5200" tvg-name="Premier Sports UK 1" tvg-logo="https://astatv.pages.dev/api/lg?t=Ewl1lrf4VIYbD-QIbQ-kUQKI4YxQNpu2g_3t1Fda08F6rOz-260QwOE-WJNX3k0Evs4KwPXgZY7Bs_Gry5uRI1gnSGcP0isaoYGkklXkIjbIOQ9qJLzMPcpvG2_sHk8ZWCaMraQ_CoJvvxG6APTU_HDz3HW9rX_faIWAUb72BSK4xXW3Fqp2RrVidkNejXHWlvwVTph_COXrGa7D3TpDPghshQ93LJbBiQ" group-title="Sports",Premier Sports UK 1
+#EXTINF:-1 tvg-id="5200" tvg-name="Premier Sports UK 1" tvg-logo="https://astatv.pages.dev/api/lg?t=9Ps-6uBOCU4xGZWcwj0Uyt6FuexEHn7s9PYrDME5DWr9-2xjH8l0fO4vvFnCwRdsQeGypnaPn1ztdvPaObVhOm8KXsBtseCBhXIubZgdelGMLc0z-1TOC6H3h3znhreoUKH7JGtYMMaAgV5SlQbJBJEBODiLVP3igicj77cppOADWRUkmYR_FDLsHWl70pSkrjdkZwtB-mlpTAo5XIP5ia9Vo8APWC-Q3g" group-title="Sports",Premier Sports UK 1
 https://astatv.pages.dev/api/s/5200.m3u8
 
-#EXTINF:-1 tvg-id="5201" tvg-name="Premier Sports UK 2" tvg-logo="https://astatv.pages.dev/api/lg?t=IJq_dN0aU7Pl806h-bVKF4QJXAl4tHcTEbGwHSxDODA6xO0RG9jEnyD0K2AfOh0hPeSjyqKTMgIk2oCqnX2BET-QsFKO1-S3ilw8CvHZ7cIAFeczBiUeZSKScqlKSP0XF5fFUO6ubnMs7uqyC1wIVHfrTnLw8gmsMETP_VcZBt7QUdS_mscc9drFf7nLMKJB-xSyyC-38GU5zCqBFcGpUX9ubKskRRErnw" group-title="Sports",Premier Sports UK 2
+#EXTINF:-1 tvg-id="5201" tvg-name="Premier Sports UK 2" tvg-logo="https://astatv.pages.dev/api/lg?t=ieIarNAPfK8nbC7rHSYB0onRh_F8f7J7OkFw6n2lxYWAY7wlqONXfiAvdaIc5jAmNTwOGOWRYhjhZAaAVCExJkhiK1Pt42a6l9xQmRaIn3vTDR6oHACSuvzB-PeZRRRekzID1r-wrijUZU8YywmACeWG43wcwwuqu5WjhthLYmDib7ttjBooQjZpoUlbIFAUKS6GUM3TUcj7MwiaJGpeNXf1in0_pUMYKQ" group-title="Sports",Premier Sports UK 2
 https://astatv.pages.dev/api/s/5201.m3u8
 
-#EXTINF:-1 tvg-id="712" tvg-name="Sky Sports EPL" tvg-logo="https://astatv.pages.dev/api/lg?t=lvBIBNbAzBdzp26tOgHeoKpfiQfD7VeyYjmckujEgVYJW1bQfle2t7IRq14IXEGPjI7jBYITkFSF4AmhHhMN4CB9ORLVkKJdMS_FnutBYvTfy_AlePPXSPP4Tj7YN4ZkCkmSeGNKwsmvATUkCJ3h-6f5_uhd2_9KLmN1nEGtkGhrZaeb61pD0S-Rbcn5rtiMnE8TA7xB0_G816xu_dD3efIQDJIzhrd6RQ" group-title="Sports",Sky Sports EPL
+#EXTINF:-1 tvg-id="712" tvg-name="Sky Sports EPL" tvg-logo="https://astatv.pages.dev/api/lg?t=oroVarfLuVQTuIaE42VeapkWXrpEquhsh6t8pMezq3K1-GeKAec8OvnoxxupSk-d4JEvJAKa9iAmUazQSAHfFLiZA93xtmCF541iYCnRiPYsPsXK4fNtz_TNMdrzqH0DHolbC0agflHL7El5OZL5idrW7zFOc8IgiecMGy7DmCvKgyupUnLg5hHmg-IhXAKw6z7Om5m5X7qHkOYBLOH3HHdxBK7foOA4zQ" group-title="Sports",Sky Sports EPL
 https://astatv.pages.dev/api/s/712.m3u8
 
-#EXTINF:-1 tvg-id="247" tvg-name="Sky Sports Mix" tvg-logo="https://astatv.pages.dev/api/lg?t=kJBg9_RnJy5A-vh4--JI78juE1qPdmd5KvGbBZSg4ydcSgcyVpq6Xsy8X2rZt95k9b_dTCncKqLiAWqbQf75t_kCwmhXjyMaWdoUhnTnozHb5fTpEvnq_mMRJexj8sMS3iXU_Czp5BAxmCP01Dv8pJkP5FqE90n8HIJv_dtmvDHcGkyQrDYDaATdIeVM2kDlbRtC6nM_qSDFKIdi9dIYfyOvGMbg981LdQ" group-title="Sports",Sky Sports Mix
+#EXTINF:-1 tvg-id="247" tvg-name="Sky Sports Mix" tvg-logo="https://astatv.pages.dev/api/lg?t=-s1UMI6qkKCF_m6QF2-WupNzAr9L2XZg3-YVw5XXNkcWEWDsFwsgjIpCS_cA8JVjMInHtLK-fvHHhN4CLL459j34EecSZnsb48yBYkl9HnNadidAMaLB8X2y9hnBva4bqHtLpWq4DeXrsOgqeBz__lKiaBBlkAadFA-7xQ55j2MEfI8XFUqXttwZcGy22Rfg82yGQlSgi58ZRAM70_7WXM0-0hYXjg0KsQ" group-title="Sports",Sky Sports Mix
 https://astatv.pages.dev/api/s/247.m3u8
 
-#EXTINF:-1 tvg-id="239" tvg-name="Sportdigital Fussball" tvg-logo="https://astatv.pages.dev/api/lg?t=-jNl4pDIw_Gxk_LtUcxciweliBVS95XnxzNcE84iihrUSvhS8PUGb9azRp8vqsrH_sbXofVR0jSn3ZGJI1EB3nm9VMTuR-0jHB3gDopOVLcodXyGjeGZGib75RgOkK1jUlFo636ubC8LtNdeCUAr6vkQGaEsl0AW_IL3yhN6MdUi6bA7MyFPq6pJ01JE-ti_rqYSRtFjE3pH9j29mIHqjtMlVBlyWzbJMw" group-title="Sports",Sportdigital Fussball
+#EXTINF:-1 tvg-id="239" tvg-name="Sportdigital Fussball" tvg-logo="https://astatv.pages.dev/api/lg?t=_ok9JR8w-0tQMKLgRhoQVI5ApHwDBruWfHSPktN0qWAGKEtMjxtkyXg9QnhQKw5ovBNXVXcQZT1533xO4h6AOPZk22EQBJ7r5e54S1j39JoOjiehBmqq8MusOfX3tvmVYCa2pF1u2dYb3LdKL95Of1ZpdolADYaBFt_yzrvKgnMXI07Ke7y-49PxE7ZJ8C9Mk_11A6WFRjSi9bpqvCLYh_sfmnAe-dh5dQ" group-title="Sports",Sportdigital Fussball
 https://astatv.pages.dev/api/s/239.m3u8
 
-#EXTINF:-1 tvg-id="5388" tvg-name="Sportdigital Fussball 2" tvg-logo="https://astatv.pages.dev/api/lg?t=7DoyR5jWGbiLCrRUfIre-G21t_4yCzP1_K4Ayq-iW1BmyOQM9TYUS4dADvJwDgn5FtCVVVvSFeFsBoKTH9F6GDgz5ccBLZQAtlxKRMp8q6SZ-sozf8reooTf_F5KUOq1Avp8EB4QfZ7k2yteuO33RhPq-MdhITrbixLlrxeD46a36PsHHUVdX7GmtnI3M8lPbuFhcB4B0C5Vny6MRnnX9WRHAVKniaI4Ig" group-title="Sports",Sportdigital Fussball 2
+#EXTINF:-1 tvg-id="5388" tvg-name="Sportdigital Fussball 2" tvg-logo="https://astatv.pages.dev/api/lg?t=6DYlm0Hg03slbAdAwv95ApfONM5euC6hiex4ZS-w4C-OsHv9cm-xz7Akxg_JVl1L4X1dBUMdzdXE6NTU5JG9Jz1XGX7wM_PXpDBaopIbMUkJFLm8ILhqbkXpmjX052GGiZ_DYpY9YO8OOjbl6yXuG5u41YOTMGDQswRIJD2PWmFyVtP-mxLlmgFDM387gUwuaLfFMcwXJdlrY-i4jETliBieVphn5C3_kw" group-title="Sports",Sportdigital Fussball 2
 https://astatv.pages.dev/api/s/5388.m3u8
 
-#EXTINF:-1 tvg-id="5193" tvg-name="SPORTS3 TV" tvg-logo="https://astatv.pages.dev/api/lg?t=6WoyGhLz4_ySAx2VIq60njd4zAxf2Sg7niTghLrEwgHNftT0vTaK9PyYvVcKKrPZbpSKeB1cBHmjmdG5o6__9lH_A2rc-uCRRk62oJDRUSJNYZE4-wXO_VqvD6FOUGP7kOtK6PSRNI_cq4z2EAxvpdwqRkvVn6WX8KFIV9rQpO0kDR6Hho6jzXauavmAwmHSrALS0xKQ42Wg9YZSuAXpB9MvksmqazjJVg" group-title="Sports",SPORTS3 TV
+#EXTINF:-1 tvg-id="5193" tvg-name="SPORTS3 TV" tvg-logo="https://astatv.pages.dev/api/lg?t=a3gfw8NsmqRwnkPVk1fIAxAv4J6oKwGXmLRfFAtk4YFU7v_jZoBTxDa0sahkvWtJukOImaiwkW0OyyxXzT64brF7e-auAP-RSRx_jyOvdzNWcwDnNuqsNa_7LBYmgEoepD2eIWnkNEnjKUI2aosWSb-Yre8lam7kp9o1JWYqiJLJ-Uz_induLBH5aGL0xKTJvNtwWhpDMm5I4LIA1wCrpc4LBa4bo2_AFw" group-title="Sports",SPORTS3 TV
 https://astatv.pages.dev/api/s/5193.m3u8
 
-#EXTINF:-1 tvg-id="2878" tvg-name="SporTV BR 1" tvg-logo="https://astatv.pages.dev/api/lg?t=ue9gqu3rSJylTXIwJ_a1lLjOWw9omsSqVsrxUucfBQgsoXw4vsZcjobDez9ZQ1wJb2_1DNqVRwl5-3YQ4H0mE0KPDklxidFIUcd3q4QW6SiEX3EyNvpkwK6cfpe1dJZw98Df2rVwi3-KUexaSf-HvUlfnlQauD9ptD51Nu_rU-FJXoWjxZHKPambJLL9WCmGFTBdbzYCjCyxZLtfoaZNJ9HHnhNUw9EFdA" group-title="Sports",SporTV BR 1
+#EXTINF:-1 tvg-id="2878" tvg-name="SporTV BR 1" tvg-logo="https://astatv.pages.dev/api/lg?t=IX29RJcFiuTmcr-l9CwhM1rqDMVXZegQtpRxp8C3dPJjAwE9vo8Yx1WtH-wGLfE9iKGaWrq8l4OVECTV9Lfb_INJfk5hAjS_zPtYEk8PPEabYVuKg1eUFexlL2bnorW15dx2m0d_fCd5j9Rc4pY3YUz1bJpaHBCn6Hv4KXA2-4gpzTQgphfjHvL1wobUq0Gf1C-_7aV1jHJs9_xJt7nqXm0PXS_2htAYqA" group-title="Sports",SporTV BR 1
 https://astatv.pages.dev/api/s/2878.m3u8
 
-#EXTINF:-1 tvg-id="2879" tvg-name="SporTV BR 2" tvg-logo="https://astatv.pages.dev/api/lg?t=GX0uc9GBE3Kr2rRFf6CoLh9L9VubfANxwLNr6CQph_eTuM37IN3cBrLYg58KNFjodglABgOgTl2zE1apIJr4gL1gpnM_18Z4teUqlvXZDlx-JqsDPznju4m08Jb5lQazXCk43HwezYwffEWpfVJnQHVq9c6UIwM90Pjg8Oexg4kwSYVSfHb9r96PCfQxJBlMo_6aFTD4LtcVm9nNdD5cTZ8PaTO0iFcGCg" group-title="Sports",SporTV BR 2
+#EXTINF:-1 tvg-id="2879" tvg-name="SporTV BR 2" tvg-logo="https://astatv.pages.dev/api/lg?t=6YljaERj-fwQXJkLa6bMIJtEP6grMyKTB2pdSB4xDak5DsGlEH1pBX_4wX9fLJA_Y2ZnwJxAbJrzJvHNJwgvI1lJYNHeWMwNdqFxG1bt5fj1XU5ZiqvpXez99G0_8LVUuqXgTxcOYk6go7d8qW8brXpWcV4Zf1uEo2tbtR0I-RevmRQRf3r3a9XYMC__VgjgpscB6eYnpU5cv6wWc_mFBwtZvNghMLRJJw" group-title="Sports",SporTV BR 2
 https://astatv.pages.dev/api/s/2879.m3u8
 
-#EXTINF:-1 tvg-id="2880" tvg-name="SporTV BR 3" tvg-logo="https://astatv.pages.dev/api/lg?t=tz793v3Vr1Av0F8MIIvOHqpG-N54lqeXHYHhb38tgQoXkzT4r_2vZztQ07K3KIRswckIZNJPM0sroAwX7fSXiRCDJu4qBkruFxSGkvpq1S0zNAncK-F2zprQBKDrm5yP9LPYx2go5CrV3ZiufR5ToMB56MVIucmluioqtm2kRAAhtxc5BICBH2tn267opCmMtj2ij2Ln17e5njlPbMZbNElrNBFCnu_Tqg" group-title="Sports",SporTV BR 3
+#EXTINF:-1 tvg-id="2880" tvg-name="SporTV BR 3" tvg-logo="https://astatv.pages.dev/api/lg?t=r7gnLpp7aBciosIzzEiBsSOSJZ7nZE9JnKCp7Hw3JHhm1M4em4ojp2QbcL-VM735CNxTTsdGRZkj1lLYlMNepze3NLyXljGzkyCMrYUmMsNKRZh3vLx8q-TgfSJvp0oetHRV7-yAXQattjqZ-igBcichCNmyN1OvQDumQfQ_BnY_loDkqPpnS7Knwnb0uTjweO3wr3JTlgw5rN8qa266lihfghG1oXaVKA" group-title="Sports",SporTV BR 3
 https://astatv.pages.dev/api/s/2880.m3u8
 
-#EXTINF:-1 tvg-id="5426" tvg-name="T-Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=F1aqd206zwPnKNfvCtK03RjjN893xpe_rmmZAnYo7KjeWs2dsRjCtwK7axlIaP_vrLSOT5b2FCcNLvWKV9rZHrEeOyTq6A1baSC74mvizuswXhq0znJ1xmKVxiaTu3WpK3lvj0F-ZcdsGMeSUVCEzRSQn5nm6BLnw9BrGr6w8NFfHsf6zfZHmC5CCXeu-ReEoGz-gS8LAYrKIYUbaxLgYIBAJbS61sgEtw" group-title="Sports",T-Sports
+#EXTINF:-1 tvg-id="5426" tvg-name="T-Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=5Y_jcoeah9QkeJyJslgZDrlzD7LBDvfAwDDYtSjmYREvb1_8NWdWp7e7P1_TRrV-Qzk3oRxXFfphXb_6XT1JEmWxfPdy6BBAy6lF7r7-TEnpbrIZxw9ZlmMEcKKJVFQpIgfYRPJesfe9nno86fOnpZFNJFVn8cPRqCv3K9aDulWrnew8kPXJM83_1hnp_-nX2QpxndPcpMY4xZB4ZkNLPHchEzywnNZlJQ" group-title="Sports",T-Sports
 https://astatv.pages.dev/api/s/5426.m3u8
 
-#EXTINF:-1 tvg-id="3288" tvg-name="Telemundo" tvg-logo="https://astatv.pages.dev/api/lg?t=ceHahR_TR2wRCr5qVf505voNY5MarafAS699h4puIGb6zHhvnBbNOTUjHdTrphAHe9bWR8aRo3WJ6xe1FUJzgOyTgsQh7v3pVVfU721zOBP0SrrAPQI8abODgHhjXFv9JVsEnIDjBcGTDPNrq85ryOXuMdDfJmiTPItWVJNbvNDiKonbh8E47jsBdCsjw9z0B10oLcT10zBXYSUhhoynjNFCyp8QhXotMg" group-title="Sports",Telemundo
+#EXTINF:-1 tvg-id="3288" tvg-name="Telemundo" tvg-logo="https://astatv.pages.dev/api/lg?t=eFYWAPZLXme2IVIfj8oEKvokGGTGUGMSuPMWhRQBPlg4BYWF-TuC3cfU3omMUGrUU7jOZSpD-oL7TY0PBN7VtOfym0z-U6KrASiyx_e9QCRXa3dkj89aWkKQZRH4L8Q4fFNfISkk6T8Fb5eT0N0tPmLgnp_fZLxxSrZNMPpKpSEMhbqyYR3Q0jgdFroBhBpiZNMfCoqcsAYu8SNYTaukE1LzMPBrmGspkA" group-title="Sports",Telemundo
 https://astatv.pages.dev/api/s/3288.m3u8
 
-#EXTINF:-1 tvg-id="5392" tvg-name="Tennis Channel" tvg-logo="https://astatv.pages.dev/api/lg?t=rVhhONX37C1FvLem9xeY1rshgyl7C-HrU6YaiesAtHFWlPDnV3Lh29v9vOyecJ1MAoeumKZKfzuT-1zZ1X1nctKTbJNZHTDts8ySxDxJYQ4pJoHEjaeLjCl7mGHfIrMa0IxKnN-FDOiLcNOzjg-M4AZrVinpG9avU5tC5ZOwWcaiyzbPvVfk-5Q4CCX67FTWNQa3mkcTlQsTYCYPH9dtW2Vd14iRwbd_NA" group-title="Sports",Tennis Channel
+#EXTINF:-1 tvg-id="5392" tvg-name="Tennis Channel" tvg-logo="https://astatv.pages.dev/api/lg?t=ep0aqIGrQvf81x9paEM6KBW5cteVYUSpmUfYj5ovhSK395z57WIV4k7K3e9Cblgf6oRHi5kwR_u2Ifs6Yyl9i1a2pe3dh1aPksuY5YOPSR9tARyJqmohjuBDiDhUq0HN2Bf8V3EJR3s5Gy_vc5G3ijv6m6Toay1hBbQGP6cnTRIGs467vPCsN4TlxiGmaRMAAWTkhQy_vy8aaf-9-EbSEF4G22nsleM3HQ" group-title="Sports",Tennis Channel
 https://astatv.pages.dev/api/s/5392.m3u8
 
-#EXTINF:-1 tvg-id="5321" tvg-name="UFCTV" tvg-logo="https://astatv.pages.dev/api/lg?t=5E2DsjJU_deD5W1LtSsjKA_YFxrNLMTVbEU_yUDmeKFDAvJH8bFCNNVP1sRZCxzs9As1jMIQItCmrlTbEBB8_ZFI02g-g5KEBVQhvVcU35e3BR_amwNnSSH8ouk1aUg6_qCuONozEUvwHD5VVbFb0CgP_AuYYsMzDj5RFzFCDvDMZpV1phKw8IhF73v39j7YcQoAO8usdHZj9CWaBoz-nUFbPlHsg68q8Q" group-title="Sports",UFCTV
+#EXTINF:-1 tvg-id="5321" tvg-name="UFCTV" tvg-logo="https://astatv.pages.dev/api/lg?t=_4YQUk_XzlcXJZOV_ptfKhZ1JbwS7a1cK2aGzIhz5dtmaPXb7yntsUf8HxSZx2wWYLzK5Qq1WOTbgGOgNykcV_04w_yeSJLqTxkbagZwBMYdi3OcsvEIKcF-MN72bJE784Zu8LtHyR5Vg43GPqEHGACHW7P4KS6VoaSwiexCbW0dFVXCK34jpiGTwjiEmtGAt41f3YydeUeOjlT1YRKbXzvZNJfVPhcZ3w" group-title="Sports",UFCTV
 https://astatv.pages.dev/api/s/5321.m3u8
 
-#EXTINF:-1 tvg-id="5421" tvg-name="Unbeaten TV" tvg-logo="https://astatv.pages.dev/api/lg?t=Te_5CciF-7MS5CRom0jx4_t0Hwkf7YPzsH8twA_Lgc86SA7P8ymvYkdEDVx9PjBRKAZ32XdW6OqEfo7zbfLgef-K-RXNuzo6O5uNjwU5lW4Zz4qxUGVrNdWO9sHmW4Ch2_g_4kk6_tev8P8wiDDa80LSuDKRPj7zQhJi8H-8UR06YmmpqkpjEosF1Cdg9qvpcyeJVsyNUeUfm6Wz2blNnyV2iVGF48bGGA" group-title="Sports",Unbeaten TV
+#EXTINF:-1 tvg-id="5421" tvg-name="Unbeaten TV" tvg-logo="https://astatv.pages.dev/api/lg?t=icgRqv32Rzqbnas5w-87r454lms1AZXDOJKU3H0yzByWvWQMxGRNnqlPZEKqkgsotiT1TYDfEtmCjY4tVQwe4CPCMhQjAX5KqENahdbGvBbfGGQOeZGaN_cdQ9a_sJXHGvPfsnZK5x3qzxpP7HbSEU916Xp0SpbliCOaOsSawnmh4NkYubxa582NNNDnDreX9S3EDr-6tx3140bEHdPIQ8P4Bp1PJMz3zA" group-title="Sports",Unbeaten TV
 https://astatv.pages.dev/api/s/5421.m3u8
 
-#EXTINF:-1 tvg-id="5427" tvg-name="UNITE8-Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=PUU7ytlFPCcFZggBP388a9n6mpP4rLfXsra0pcEuFn3Xb6CXelvaTk5vIEc_ODEGj2OJw3ym46sxAQTSF9b3eXdyeCRWxR2URzQQRtn--z2Mt3ARm7YizElmu8h6v-1Cg9vqEZQJOZBdFZh4FDtDaVstULvr-1uVJ8BtIqVWQd2JCmMZrroNdcyMAqKVh7TgU68ScWkmJdgmMftmRD7KOSZxMWkS2doDvQ" group-title="Sports",UNITE8-Sports
+#EXTINF:-1 tvg-id="5427" tvg-name="UNITE8-Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=IKNKwWyx2u0TonbN5XhDahN6wd3g_s-eo-kEs7Ta7k7crqmvnrtY7bodbrEpipY9zNo6SQjkdGPY3gOGja4O9uo8idnhW-bQMZpDnfIBe6J7EMVpqnpm_bhPr5ahsnkW8_FLduN5vgjjAAJ5Obhy5bnYaoYLG9e1vfYol4-QjJYDY-s8WEM_yhr303-k3fM_0yXoF7WE8mkr2Okb8iMrzHVxMH5Er4KVsQ" group-title="Sports",UNITE8-Sports
 https://astatv.pages.dev/api/s/5427.m3u8
 
-#EXTINF:-1 tvg-id="3589" tvg-name="Willow Sports HD" tvg-logo="https://astatv.pages.dev/api/lg?t=uamrFSdHJNyYassD2SDxFqetqQapezrRvnAdlfn2Rpqh7Umg-031tj8f8o1bOVrW5_F5Jdr3lmlTdwNPwrBAsASOI754IzmQ6mAV-ZQTo4qTQge5L08S7OoeItPaOnOfhH0PstslS3-M5J7dzc02mucWtk-XdHdtB4Rrjm47FZxD1mjHgVnK8jdNwZj-IlxFMqvnUnk21F0jmikMsCHrebyksLwrj0l_CQ" group-title="Sports",Willow Sports HD
+#EXTINF:-1 tvg-id="3589" tvg-name="Willow Sports HD" tvg-logo="https://astatv.pages.dev/api/lg?t=XkfMQw7--tG0BIpmuC5Y0rOWOvtg9oc11x6L8ZrVITME2584ZSqFrrRlL8SaKOSpxqj5Ec40AaoX0S5z6Sc43S2Srris2bFhaAGiDEauQUlaK5FdDMUIa8iSpuI-7BWX_GygpjmRcOAqyjbztaNY3Fw0W69kYo08zZxPAF8_-QNlEXoR6l-Pbq4jSZmLEF4Ms_mHQOrks1dDHkFUR4oW7_c-XAWaC7mw9Q" group-title="Sports",Willow Sports HD
 https://astatv.pages.dev/api/s/3589.m3u8
 
-#EXTINF:-1 tvg-id="1129" tvg-name="Bahrain Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=_b58ucfb7o2crNtT89kDfbL7t_i43zYBC4qGv5ScX_3W1MUy1YFxdi3yPpGKjqnx0gToWXUqqCbV3fOQVeV2ZL822Tb1omrOfMxZkMmPJk9dm4fXGs-ckTnh1gbSAFSUtgpcRnerzZt8UXyz8eOoGGK5lI3a8YpXVxH2jsodi3JAOYGkJvrZ4wEsyeA971F7BvwKQqiGEYpVUO6bOll5yzfm-A_z2M0KBA" group-title="Sports",Bahrain Sports 1
+#EXTINF:-1 tvg-id="1129" tvg-name="Bahrain Sports 1" tvg-logo="https://astatv.pages.dev/api/lg?t=bBMk1EllulJ1ZV93djca5zbdQ3nxyV0DPLi1EscR3fPGM8D8ZMnFQACiNVnm3xtVCu8CkSpNr7Gg1Gs-luq-fWRyGk0nXCy9Q-xyWxFGA9CCtkCVqzQC4U88IUuyOBSA3dDz4TYv8_n1trqDWQev-TiiwaYJr_0OjkqvvdtpBPhEq8MDhJxG3x8DWFpFr1rWwY6hZi13PbvZbKlCULe5zgIyDJbkjGbb-Q" group-title="Sports",Bahrain Sports 1
 https://astatv.pages.dev/api/s/1129.m3u8
 
-#EXTINF:-1 tvg-id="1130" tvg-name="Bahrain Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=ClhnUyc6cugtei40gSIuEUZJEjSVjYb9kIe2ZMcpnTwykx0kHlsmG5PWMYf0nCoi1iSNJudbzsWmRCm7YH4VzktZGCKKtVLuvuEZ4G8Z4zcUhSh6KE7oVTaUxn4Obw3jOeV1PpUqaxPbTrQXjmA4OXZF2ZtxCgEof9nMZcU9iYbMIPYKQ-Et4RbD_hHQqeNf-TrAuphb2DzbTYjBdTJAMRRdSAcQUEoi5g" group-title="Sports",Bahrain Sports 2
+#EXTINF:-1 tvg-id="1130" tvg-name="Bahrain Sports 2" tvg-logo="https://astatv.pages.dev/api/lg?t=kg4YEC_QKTo8d_HL5esayU6q4um0s-cCNw8JsRiRW7mUQ0zWFbF1W9BrGHY013wKrstItKdJlmrAV0j1KmnuODS3HFwimDkbYvddbVGYbV95x2y5UvPlR1w_XdEdJiJOoszW9EHBLsfvA1wLrEr51DyDQD6ZPpmgKyTdBE0evFKJDtP1W4FzJNuBUvt-vk-an7DwUpHZd1EMrePslET_gA9l_y746tiMvQ" group-title="Sports",Bahrain Sports 2
 https://astatv.pages.dev/api/s/1130.m3u8
 
-#EXTINF:-1 tvg-id="5429" tvg-name="Barca TV" tvg-logo="https://astatv.pages.dev/api/lg?t=1nWPL_HBs_iN0F4j0UR-uaH8CrNJRw8JvJu4U_oYserE980JlvEvzdfcAZ9w7x1kEgqrny7TpK1Qd_dwyagD40EeCs4mg3ZTFfu85IyVIcyjcyi21rDI5l05RvgFA4s5g1KT8AEWT-y1CI0aViepcRWsY18QyliLlSuKiUtdxzFDWZPGhVFdEPeppXdm8I9yQMrQdQJvjatY5ir4MZ2Vw2BerUpgpjITJw" group-title="Sports",Barca TV
+#EXTINF:-1 tvg-id="5429" tvg-name="Barca TV" tvg-logo="https://astatv.pages.dev/api/lg?t=9DD36lGCht9QxctxBr_DqBLfMnr5xleW7IwqtnsOCmymJrmFEtsp6_42sYt4mo2NWd0n0-JOoD5IJBifvJdLDenb5Y97w4Hrgj_-dzyf4cGgWKxXAgGGae7K8J1iCtLh1OhJCl79STzaHzlebNzWdpNZkpS6bfpobcfUXEifu8QZkYR0riucHS_VqCgsxl23sJLmZAv1cxF5ih_ua0Sk5ZIyeKvE88ga8g" group-title="Sports",Barca TV
 https://astatv.pages.dev/api/s/5429.m3u8
 
-#EXTINF:-1 tvg-id="910" tvg-name="FS1" tvg-logo="https://astatv.pages.dev/api/lg?t=wQVfo8xXOsRB8hIIWFyj0qFMWF2RtleIiLhNXqaMYYa7wj1U55aMeqPNyi0cQciChFXvoOYuNSDLTr5Vf97LkFjUT93mEo3KDvvyO0HYBR16mJc4cH21xK2P8x0ONiHBGR5lEEp35Olgj9YWBqm3qZXdQzkc1XMZDtrFcSYCpMKZOcmUYr3XtQisj3cUtXa54kBzzdI_5UJ7s-XVsYDLb0WDbsAAJ4Dvkw" group-title="Sports",FS1
+#EXTINF:-1 tvg-id="910" tvg-name="FS1" tvg-logo="https://astatv.pages.dev/api/lg?t=4kQ7jGZNu3Wo5UJ97SK3lLza_mFd0hWGlEawFpSt48ha2KlQEVh3mP-lWhTaLi2PVHzeBpEBQj7es9i0SKJ3VThToYMO2vi2gkgwgTTJFL2v0MMh74UDQ6W5plXe78OsAhB5oQxL2IUZg2AIbn0Fz2XN4xJbja8Ffw3AOpHzoa3UgIAlmsM-AXbodobT_S7DuBUjyukwpFljm0t6CjSkazrpugZCbSbCPg" group-title="Sports",FS1
 https://astatv.pages.dev/api/s/910.m3u8
 
-#EXTINF:-1 tvg-id="250" tvg-name="MUTV" tvg-logo="https://astatv.pages.dev/api/lg?t=DHdq8dGFXhEJ9lNHT9iUtzfcwLKrlTmGh-pq1MGB14-FNxrr7lyoPNgm670KyEgJLaxTJUtuZZjbdj-B_jO4EPAHnITS277ZEMjLqJjK6eKOV-2_xGIkf-hknXKw3DYkf-3hxoHBOoGRcR_JlgkehpFa9W5ntjJyIemyEunX-ONVUnEsCpY093IfqknfGg-DN96CY9sjdi_A-Afppek1LrbK6TOLDA8WyQ" group-title="Sports",MUTV
+#EXTINF:-1 tvg-id="250" tvg-name="MUTV" tvg-logo="https://astatv.pages.dev/api/lg?t=iok3z0ipVOOXJ0O7FOwLBdm2cZa1ALcmPogSUY9Y30n-3lCyPqVgtInjlB-iYSApIGdjd-_BBJ7RWxS2cMwKv5aWziPcSFelufZznHqXcb0n8SRDe_e2tjQCHUYLRyDP_IiTsr39R7ShtqYUcy8G2TTdsHQaicmeOjYwt0lNnOulFvEJh9Eo2Q1AtBynT3qJLwB54J33yeuwyZy7KvgkNeRqD6nBxn0QqA" group-title="Sports",MUTV
 https://astatv.pages.dev/api/s/250.m3u8
 
-#EXTINF:-1 tvg-id="653" tvg-name="Oman Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=Rg8p6fx8wVdf61Tve0MuU1QD4XKkud--unIpmE46O211z4dKtqjiGX8JL7A9ttJKctcbP7fDbs2WPiBQUEHua5wXfS7wDqU11FVGi6Yfgn9XKWfeEL_VLsZw1xBw1cvVu1MI-myOOos9Ozs4RVI-iMQQuCpo6UPGIFeUXv1qmx7iA9Q7ZxfJLtEuG0CU1Ufrywaivi0aVDbX-jR7TIQYmWFLCLvTAn_hlg" group-title="Sports",Oman Sports
+#EXTINF:-1 tvg-id="653" tvg-name="Oman Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=hKD00LCoooMoPkDzeFeP_Sm2-81UlVZN4XzYTIRQCSFFYYjN6sN5k5VQC4NFishK04Yi806cD5FiWeFoypl1s8wy0ATkaMgccdzOaE6LNna0RR4rMuOF3rylJbxUiQuX8F2O5ozOQVJYIfogW1lBUZGrj-rNfNRagKJzyDRVbnGfgGK5kEp4aFhQPai2DgpK6q7zkFUwmpmpj7Hy6zjduW-dvG0v34xpxQ" group-title="Sports",Oman Sports
 https://astatv.pages.dev/api/s/653.m3u8
 
-#EXTINF:-1 tvg-id="2870" tvg-name="Premiere Brazil 1" tvg-logo="https://astatv.pages.dev/api/lg?t=A2zSJYEay9bq7moZxLp30b5zUOxOES_1vFfV5LdUKg9_R7fvl9eNbstdg4bkjY1aCNslfy_nl4kfrmZhnZZc--b1icWuLAaOf1m_aObC_vSAtfplNR-KIbcSE6VRIxu9XW_M0fK3oJs6Bl25BeYei0Jr8kHiJBzsQjg7r79lIqisN5XccRt-RW0c7X884VYdCfP_VAP7rG8MQHdJHjVJSU9w82qgqaxz7w" group-title="Sports",Premiere Brazil 1
+#EXTINF:-1 tvg-id="2870" tvg-name="Premiere Brazil 1" tvg-logo="https://astatv.pages.dev/api/lg?t=iyOn8BP8ROaq0My4Gg0hfG_ZxXAGtnEra36jZ5JhJBcJs7sC2WJtulQmxDkot7w72nOx1p7AMmUdV-8Egh4vli5ZG5sgRcjLLiPXmF8rje2co6JZvZd4VXpCb98sW1GqBRHL3gap91f8nyQVqAOqU0lVxfQ8fqNFe59ttjFz8DAh3EeDsdEHAcJa39ffbrgaqn7mgJEMa4L0HDDo2PlEfMksQ_WZ-_P1bw" group-title="Sports",Premiere Brazil 1
 https://astatv.pages.dev/api/s/2870.m3u8
 
-#EXTINF:-1 tvg-id="2871" tvg-name="Premiere Brazil 2" tvg-logo="https://astatv.pages.dev/api/lg?t=9XkTt0J5CJmydxDKj0-HUbJEO4Lf3wFPqrGECjpKmb0ZlXzxbkUnWHfc7cp_7_D14oA3NiEPGMnkaFy36PdQQTXnwzKu4SJCWZ85A9DINjqWBDhv0iyhEvHM-qf_irGvV0NNNa3PyeJ0uPZBpDNhTfkrhoJ5774EtAImbL1yOZ8c5CKb9IjVdteG9uutevw5Sz1mL9GfJurRcgGFUpQTm6KqaxDSiujNbA" group-title="Sports",Premiere Brazil 2
+#EXTINF:-1 tvg-id="2871" tvg-name="Premiere Brazil 2" tvg-logo="https://astatv.pages.dev/api/lg?t=xORrfnU9qhnTWFYOw-pUSCgBMBNDa4R-thNHiKNAnDsuAxcZoMQHf3c7Inlrp_qDKu5TckeXzrvODnF4NZCzUD6tZL1RilC2XfUXMgGkPTYx_5oOafgZK7xZ1hA8nj7AV2i51p-Dnre0pkSBxeYh1b1LS7wtfkW1o62Xgn4rbQjA0Zz9i1Qe7q9Jd3TS2pwf3C9Lyj_PkWUHqy6P4Gm0mVp2WXY2V4RHrQ" group-title="Sports",Premiere Brazil 2
 https://astatv.pages.dev/api/s/2871.m3u8
 
-#EXTINF:-1 tvg-id="2872" tvg-name="Premiere Brazil 3" tvg-logo="https://astatv.pages.dev/api/lg?t=JE50_WmS0eYqA2T7Yei7FGhcgkW84yYJz6aXNS4SBw13srbTvqiDNP2fVwp3Xy-CFnSm-N6p4FCVYdP6rBtl52CAM36_C0lbimci3xdqqSupwigY4MQfs_0fh4mCWkkheJPQ5s9n6U2m1K-4X-kcu8PFlE7ZmH2At-xmQkTF-5igt9gi-eOWA_2NrUiYwJZl1f-GA_ZZggi7Ih4CIFBVc6cYGuNwKVkR9w" group-title="Sports",Premiere Brazil 3
+#EXTINF:-1 tvg-id="2872" tvg-name="Premiere Brazil 3" tvg-logo="https://astatv.pages.dev/api/lg?t=KGVBld2wmEz96KLo7SGvd0Uq8uQdObnATqn-yJKApVPkoZF7tvvYdtgOKlMQ7a3hpSnrY_Z1JcP__hMPjemL1Mie57kOhRCS9-ep5B2diD-jZzHSDv9N_cBEy18nqaxn_f4qB-NRzO7jV9GDm04SPcwv_cKtMgTxppobOA2TebSc-_GBN994iy-KW2TiwG_Ls8QliJvLVJOlgogn8yO96RtFAvAnIlSvwg" group-title="Sports",Premiere Brazil 3
 https://astatv.pages.dev/api/s/2872.m3u8
 
-#EXTINF:-1 tvg-id="2873" tvg-name="Premiere Brazil 4" tvg-logo="https://astatv.pages.dev/api/lg?t=LmKvaJQS_RGenV_Cr26cHgTqsLvv1Up_VFzGH3HKATMOW3eyijZwFx1wiDBUcTo0hUjZVY2umrJGEfDV3SKxvWTTkVTOfQ0RIBG1qYudPhHF8LA5cfirj6mjaBzP3FNG7slNt51-3QMxb6SHHlvPvTEaRdVsz_zRFphaRYZVS8t_XdC6L4qEi50za-V5li1MavwsAlFV1Edy-caV-UnBWTGst6uUKlizvw" group-title="Sports",Premiere Brazil 4
+#EXTINF:-1 tvg-id="2873" tvg-name="Premiere Brazil 4" tvg-logo="https://astatv.pages.dev/api/lg?t=0LkkyTjQzoN9Z8PqMvt7i5OmlqaG-48t4_Ab-enK0Tk1FyJ1xIX-kkivLSDts7C0T5okCFkqG37RjaaF6ZoaBCaIWhfNmpBRPZanyaeig2JgJoK4rS5fngmOGHRAitNmsaOA6DOWvt0RzLvTpbGf4QPJnTSgQ3mBhmT7KzxgP50Ju_Wix4jLvCNQrgOVnQF_nfxU7QQdSCTbNFUlUJ04Yg4VtSjpn94OPg" group-title="Sports",Premiere Brazil 4
 https://astatv.pages.dev/api/s/2873.m3u8
 
-#EXTINF:-1 tvg-id="2874" tvg-name="Premiere Brazil 5" tvg-logo="https://astatv.pages.dev/api/lg?t=a_F-qyEezptgCSmqmvlaXO5x6fhrXSwYyzpU3UB-4Uf_3a3BsRyigAFEuKQomywQqwbfr8aNfXNPmNSi3QA9ZkbiNQyb0XlH8k7mNCwrzm7rhKGAcUW1S_PWRlD85iK65aZWbknuC-TkWzkG0pkbS__XAKp2ls5p_XhLBtsYb0dlnUceKVaOE6AvGjWVkVxrM2vQbmwknvtzthyXM6CpAvZdb_ZPLvBqqQ" group-title="Sports",Premiere Brazil 5
+#EXTINF:-1 tvg-id="2874" tvg-name="Premiere Brazil 5" tvg-logo="https://astatv.pages.dev/api/lg?t=tbI0DShGTIhez1fvyK4Rwh7Tp8bOpg5uZFQ-6NVc96leK0MD2ytiPQAGeDsh7yBzWctWUMU4AYarYb9xL4UmWeLLaEwFODHdI9pDkRiYdRVw7Ype0VSfQCh6WhWS9kuTj90FrwGe7RqCq9o-6xNUe4XwDzP_9BlGWXKP7FOLKfGZnPnrPu3xKF4_KOtKvi8dlNfSAKdoF2JLCFUezxq1wIMTPfDfnxe26Q" group-title="Sports",Premiere Brazil 5
 https://astatv.pages.dev/api/s/2874.m3u8
 
-#EXTINF:-1 tvg-id="39" tvg-name="RedBull" tvg-logo="https://astatv.pages.dev/api/lg?t=S_YFQmuie48Qrgz1mvvbWQpqyDGHpXKm1otswaEJJW-Y14fcXVaqdkSz9G0SIhXUKvODllARHVfO6AHVXZUzmEqm5VGH_awiz9fbp_4Tvk-nHa-VsUZlYon7xnc72XaW1eWhJmt3269NKKt1xT2FxFhZ4QW8cni1LODbUhx8Jry_ilcyOcgIfQc90oMcR8Y7lrnxQ37aHObxfp9koch5NHfhOyCOCTc5mQ" group-title="Sports",RedBull
+#EXTINF:-1 tvg-id="39" tvg-name="RedBull" tvg-logo="https://astatv.pages.dev/api/lg?t=_pDUMBK3DtGJqT5-D4-aL74IS5vycZeSpOhMeF-h-4SwZBjX37BdeTluLkwxCsLvN9X9H42oVKIBINnECg-iXE65U2Qdpe-sE6WFRX6x7dIpYjxAj0IfQbJy6pEIPqFCYNtV0_RMLrrVS7R1cyBlFmJhhm5opYlOh0zDLGOOjjHgg6AU7Ap_zAlVu1kP5d3SXo8747yCkqSzxWMax0qwgMRyQgEACI2tWg" group-title="Sports",RedBull
 https://astatv.pages.dev/api/s/39.m3u8
 
-#EXTINF:-1 tvg-id="584" tvg-name="TUDN Cambiale 5" tvg-logo="https://astatv.pages.dev/api/lg?t=rHc_GP0HFqw0Ol5rtzAimEw9lO0uSb6tmdNTREcYQmoK_ouX5kVQrcN297GqMaZfW0oWyyb7WyNWHuv9iwSh3iRp4rkZvCln5hTYNboFS4qU1gHIKB6kFXfWflOxDLRyE_fNC5TRgDXwX0P9xhahkSb8xpBJnD6ynOPA7lxIFEihoElo-lBo4q8O1xzmEUHZESliEi0k7lke3uY9ILzuSd12foejrZ19XQ" group-title="Sports",TUDN Cambiale 5
+#EXTINF:-1 tvg-id="584" tvg-name="TUDN Cambiale 5" tvg-logo="https://astatv.pages.dev/api/lg?t=LwlAJjgRVynKd9EZ2KlseakzpP6nMeaDBa79QLwJ-XbScY-AoXxGUheamn2q90rQli16yMaWiQWAOM6vg3G6t2yGkEo430NE6P796_dfC-YX4gnhd5JppdktLZqwlUq4DW41_T7UUndHlH483af1otIFzzOWTVK7N3PlHmrxLo2BNxFp77rgPVoK3bUToz5deUVoSQ3dKcyqE6QVcjtusAyYG_P7-X7UYw" group-title="Sports",TUDN Cambiale 5
 https://astatv.pages.dev/api/s/584.m3u8
 
-#EXTINF:-1 tvg-id="775" tvg-name="TUDN Deportes" tvg-logo="https://astatv.pages.dev/api/lg?t=JEUwX54pZWO8c5jMSAdMbOxr17O0BRf08sPxsjidybHQMqyilffzQD0GzlEnzoZqHBLQRLsZCXfs4jfzO1FXAXKlzDWqIRFTiPjVftawlDvhNKragBV0ybRFDIKGGf7GT8EPypk_D5EyeN97_5OOk3wcQR0LX2QQ8ol2o9y_p0M8TqXJzgxIU4iUo5t9k4fONUqGUBJlSO5YyuMh1K0OJOmcCjj0NoPkVw" group-title="Sports",TUDN Deportes
+#EXTINF:-1 tvg-id="775" tvg-name="TUDN Deportes" tvg-logo="https://astatv.pages.dev/api/lg?t=IZB0iVc5ZW3WsQ5-AveNnFsi3Ge7uvgHupc7NZAh61XstZ83dmWb0dHToP3ZRo66xkImu1KyFB9ufFG_ssWSFDkdOqZszgiApU5HrN70hjJtzQAv0DsrVWiyBSaOZyd5NIj2bTbHIgr3YSOWUP5J7rtcCvnGj9KOZV_Wr2CimRAbE6OSqvZABDl105U7YC-NKpjpPckfC7ak8LH2nLbK2ylUInr_wyxEvQ" group-title="Sports",TUDN Deportes
 https://astatv.pages.dev/api/s/775.m3u8
 
-#EXTINF:-1 tvg-id="5400" tvg-name="TV Real Madrid EN" tvg-logo="https://astatv.pages.dev/api/lg?t=ZXxnrmaqXUeyneh2LjEC1OFAztuHEyMqaI627nTab7yw9pVSt9NU0y5qNXJPP3lqEJc3FBdvTTX1ni5ObZ4jrWqLweK3oj6Za6Io-Z9ZeXTUi4O9qqfeTkS3joIEPIhHlXl4_MMKftne3TG7k7wl8y_xVje0L3oy83QOcS1EW6rIZLDN6DDE1b8YfvOJVp-pcaakzRy-WDLFQthQJgwgg7GmLynaBN53jg" group-title="Sports",TV Real Madrid EN
+#EXTINF:-1 tvg-id="5400" tvg-name="TV Real Madrid EN" tvg-logo="https://astatv.pages.dev/api/lg?t=nopz7IjVB1DAw6oG_QXi3RP0Ea25WNHkdHRdf2at7LLwpyrPWx_ESV0Uyc9zkySRujMfFkk8MUiprj-BqWyPJOx_uTvLv1ilYIhOFsUrQgEu4JQQECwqEBQXUMM5Nb21PRWicmrH9xZYE0Ce7_fadl3r8jSlJr9O8QXScKPS_lyTYzSUdVKA9PXPFM6jy27tDrwHrhUSvArFgp06psM9ylMIvf0OtBQh3w" group-title="Sports",TV Real Madrid EN
 https://astatv.pages.dev/api/s/5400.m3u8
 
-#EXTINF:-1 tvg-id="59" tvg-name="TV Real Madrid ES" tvg-logo="https://astatv.pages.dev/api/lg?t=zEPAL6lq4Zg26x2JkEM7He1nXl6czPoVHP4183gX2ChZcKO-iFynlW36gg1tn2KDpDQsrb1fXEQNGx7hDD2Ck-FKAsqPisy_0h15qcMqb91z72T8D185hUkRJaE8zIS8hKU6HhUADhoImwXmtJ7aO1T5BTou2fl7CJfitI9PTGzdAoPT_6ZbD04py8dE0BLTPQEZRQ8rYJP_Xhjs64cvIaeMcMGeHEeUIQ" group-title="Sports",TV Real Madrid ES
+#EXTINF:-1 tvg-id="59" tvg-name="TV Real Madrid ES" tvg-logo="https://astatv.pages.dev/api/lg?t=DKpgxL0H7r-4MumMPa_UwBi4Mvu47D6FXCI7_avUaUIOLsIUx0g8KZLxWWhvEHdubulEbnvvI7mPwYJR0ExG_nbG1vzy3ioQ8KUO-ROq6njB71Jzxjoal7x2jbjuQQ_o_y5e6sMuht-LSvBqjlniaQkmJc2HeX7p3HTQjI0je_4cYAkPkASisvotVGzdx96KXQP5nex9g_apj951-gzaBz_txmLAa11wYA" group-title="Sports",TV Real Madrid ES
 https://astatv.pages.dev/api/s/59.m3u8
 
 #EXTINF:-1 tvg-id="Animax.id" group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_animax.png",Animax (Vision+)
@@ -786,6 +821,15 @@ https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8
 #EXTINF:-1 tvg-id="timor.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Local Channels",Timor TV
 http://122.248.43.242:1935/TIMORTV/_definst_/myStream/playlist.m3u8
 
+#EXTINF:-1 tvg-id="radar.tasikmalaya.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Local Channels",Radar Tasikmalaya TV
+https://astatv.pages.dev/api/s/i10039.m3u8
+
+#EXTINF:-1 tvg-id="sampit.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Local Channels",Sampit TV
+https://astatv.pages.dev/api/s/i10044.m3u8
+
+#EXTINF:-1 tvg-id="tv.tabalong" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Local Channels",TV Tabalong
+https://astatv.pages.dev/api/s/2649.m3u8
+
 #EXTINF:-1 tvg-id="jek.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Local Channels",JEK TV
 http://27.124.81.245:1935/jektv/myStream/playlist.m3u8
 
@@ -824,6 +868,64 @@ http://122.248.43.242:1935/PONTV/_definst_/myStream/playlist.m3u8
 
 #EXTINF:-1 tvg-id="auto.hanacaraka.tv" tvg-logo="https://file.garden/aN9J-XbDsxz3RbSu/nasional/hanacaraka.jpg?raw=true" group-title="Local Channels",HANACARAKA TV
 https://d1vckova5fh9mt.cloudfront.net/out/v1/17c724036c5f4615bd0b8093126b5c44/index.mpd
+
+# <============================================== Indonesia Channels (HLS multi-source) ===========================================================>
+
+# <============================================== WorldCup 2026 ===========================================================>
+
+# <============================================== OSINT New Channels (verified working 2026-08-27) ==============================================>
+
+# <============================================== Channel Tambahan dari iptv-org (2026-08-28) ===========================================================>
+
+# <----- Indonesia (lokal & regional) (39 channel) ----->
+
+# <----- Italia (TV regional) (44 channel) ----->
+
+# <----- Saudi Arabia (23 channel) ----->
+
+# <----- Lain-lain (3 channel) ----->
+
+# <============================================== Channel Tambahan dari iptv-org categories (2026-08-28) ===========================================================>
+
+# <----- Sports (6 channel) ----->
+
+# <----- Auto / Motor / Otomotif (11 channel) ----->
+
+# <----- Entertainment (11 channel) ----->
+
+# <----- Music (14 channel) ----->
+
+# <----- News (18 channel) ----->
+
+# <----- Animation / Anime (11 channel) ----->
+
+# <----- Kids (14 channel) ----->
+
+# <----- Family (15 channel) ----->
+
+# <----- Documentary (16 channel) ----->
+
+# <----- General (15 channel) ----->
+
+# <----- Religious (15 channel) ----->
+
+# <----- Comedy (3 channel) ----->
+
+# <----- Series (7 channel) ----->
+
+# <----- Movies (7 channel) ----->
+
+# <============================================== Channel Tambahan dari playlist nav67 (SFILE.MOBI) ===========================================================>
+
+# <----- Indonesia (8 channel) ----->
+
+# <----- Indonesia (Lokal/Regional) (11 channel) ----->
+
+# <----- Sports (1 channel) ----->
+
+# <----- Entertainment & LifeStyle (2 channel) ----->
+
+# <----- Premium Movies (1 channel) ----->
 
 #EXTINF:-1 tvg-id="auto.dw.english" group-title="News",DW English
 https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8
@@ -1502,6 +1604,9 @@ http://88.212.15.19/live/amc_hun/index.m3u8
 
 #EXTINF:-1 tvg-id="alien.nation.by.dust" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Movies Channels",Alien Nation by DUST (1080p)
 https://dqi7ayt2o24fn.cloudfront.net/playlist.m3u8
+
+#EXTINF:-1 tvg-id="dens.food.channel" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Entertainment & LifeStyle",Dens Food Channel (DensTV)
+https://astatv.pages.dev/api/s/i10017.m3u8
 
 #EXTINF:-1 tvg-id="401" tvg-logo="https://iili.io/Ju79f8g.png" group-title="HBO Group",HBO
 https://astatv.pages.dev/api/s/956.m3u8
@@ -3138,341 +3243,338 @@ http://178.134.1.158:8081/red/index.m3u8
 #EXTINF:-1 tvg-id="scifi.ru@SD" tvg-logo="https://i.imgur.com/nSSUHcg.png" group-title="Russia",.sci-fi (576p)
 http://stream.mcquack.net/180/index.m3u8
 
-#EXTINF:-1 tvg-id="4641" tvg-name="VIVO D-Sports 1 AR" tvg-logo="https://astatv.pages.dev/api/lg?t=_J1vEOTLbLR6y_bjE-QxWMHSGVMwwYPd4cCkjwi66REa1NT3GCgn9cPe2yUqDE7kBzEki-aUbWnD6I4HwwkoqC7zVu2Rrb1WVE23iOf0UjbJCVurVOKn7MYcOEEtl65KvKAZZ3pLEN9Tqrsy8yAnBVGCld8amIl4bScjeU1by25oJYuIdC5lHoThY2jNDzh9HxDLFMYjK3LJQbORVOqTNMpO36TPqIz3vA" group-title="Sports Channels",VIVO D-Sports 1 AR
+#EXTINF:-1 tvg-id="4641" tvg-name="VIVO D-Sports 1 AR" tvg-logo="https://astatv.pages.dev/api/lg?t=fufzTpd-M-hz4aLKZ5mlSASHVy0850H63CRDHbVhyGLjs3w69-ajKhCVcNpZq8HnzO2LoNNVOkWWEIkv0UvxK-EYmp4_lZH68IbbOy0rczj_dTbCR5rlm_Bls4ZRShVNeWGlBb3xIkvu6rZ5Z7HvcSYlQ3u61yJqk4_KrAwBl2zANRPzYpVu2ZUC8p9qfEe9YQCLSXrPvNZa7nIdPK6sVNrOa581y0CVsA" group-title="Sports Channels",VIVO D-Sports 1 AR
 https://astatv.pages.dev/api/s/4641.m3u8
 
-#EXTINF:-1 tvg-id="4640" tvg-name="VIVO D-Sports 2 AR" tvg-logo="https://astatv.pages.dev/api/lg?t=HHnO4_8jYDRRLV6Eio9bsL7G3nGQHUuy_q1hZqemcyeQ5dtlWuJteDK5S8-I2_yg_pcIGWh4MNzgxTpzV7WCeG75_p83THYEXHF5OYawQp00meAuM_MaQGXXNxTDWHs9-v8XsHMNowx654l2El58Gy6_gC9HCJcY63hHQmKF6L50sq3IB9WvRCuEok5lMcnu1RTnd-84kMWhDyDmMArcGM9aduaDlOarOw" group-title="Sports Channels",VIVO D-Sports 2 AR
+#EXTINF:-1 tvg-id="4640" tvg-name="VIVO D-Sports 2 AR" tvg-logo="https://astatv.pages.dev/api/lg?t=lGoSsIdZxiOW1dBuFdxHwLw84a3cTpaGtK4ehVzo9pAe3EBPPNvwrBXEaSU5ogjV0YnsNEWpLBcvSlgqgDfjk3YGtYpp4cv5GZh8SvnR_pWFkweem9NnHIPudCQK9XfUT4yko2T3oR_Jf119lmEXoDxBHlACpRBIS77sEruQwmG5rCDK5S2GaIq1umB_p0q1zqg_jBLIdnOnF1X1hhV6lfenRiKteRFcOg" group-title="Sports Channels",VIVO D-Sports 2 AR
 https://astatv.pages.dev/api/s/4640.m3u8
 
-#EXTINF:-1 tvg-id="5406" tvg-name="VIVO D-Sports+ 1" tvg-logo="https://astatv.pages.dev/api/lg?t=kpkmgX-OWT93-Rg0AoPd1rorJTN5cbEKqLgPu8O3we1Xp6ao8fTOxWSjceZxRV3y_rX2MMulXEhF0JLD7HFxC3g07VkE8ObwfIdotaOM565ZMHjcTVbpR8l25bHYaiSJNdX803SFJeIgTOdwvJMgXQUJVAivWzqZ8EGhdir4Kj8Y799w2BU7AjXm29lMV2IdL7l0NbZHdrtYgNWP8CmdPX9kCPzM2msLYA" group-title="Sports Channels",VIVO D-Sports+ 1
+#EXTINF:-1 tvg-id="5406" tvg-name="VIVO D-Sports+ 1" tvg-logo="https://astatv.pages.dev/api/lg?t=fRdJR_NehfaFUlW-ore0ymfZNDbpqNHiB4DXAl9DDM6OkdAh7f5Zwc2RHW51E9P31zUfGcUIbrrx359xWb5xXiBhqgmvGV-3JVCgWHdvGucuujj5_xM2qQbZadAnnsiCxyIgJvyyycNsqbp0yVjAgkyMGGMvdpBjpE3287E_Wm4LYOaLZIwonmGruYzoH-pvr592Nto5Wns7n76OiK6JxD9T2upFSknSLg" group-title="Sports Channels",VIVO D-Sports+ 1
 https://astatv.pages.dev/api/s/5406.m3u8
 
-#EXTINF:-1 tvg-id="5134" tvg-name="VIVO D-Sports+ 2" tvg-logo="https://astatv.pages.dev/api/lg?t=bp4bS5ZFdmUGIBoqGydQRFCoIb3BN4Ltv-3He3gL8Ww4PZZrN_PKJMhXousz0HUIk66ldLmj_HW0PzVhgLGF5Px2gDTvPwMD2rALwRC-iwDVaPpMyxW80Jo2SEC1WIcBq2lwcWSeAjYBBQu6Dhj9w6pRTD6_LLTgRLHkeQZoHbjUVVtmQE-2OiChCg3L21OYvchuFdZc1elZxLA7V9giWleKOtlICbqVQg" group-title="Sports Channels",VIVO D-Sports+ 2
+#EXTINF:-1 tvg-id="5134" tvg-name="VIVO D-Sports+ 2" tvg-logo="https://astatv.pages.dev/api/lg?t=wNspG-Hh0brTwGB-_CSfyn5ASdicwu-Dxv8ibyj61kCxA_2sA3jbvq5tF4O3uaM8L_1CX4EHzxZ4aT8_EX9EViM5yU8kOiP4OpBe4MweRQGqHFIWn4YTi6-pX80FglRC75BF5yqJm3Vqq0IYB2kQ5C2BUrVncNK8TOdoT2UpW4sGDC3paIyLkIX_pQcycAPEeyj_VaRPG6C6NeIHnYOd_yjpkmShmE60lg" group-title="Sports Channels",VIVO D-Sports+ 2
 https://astatv.pages.dev/api/s/5134.m3u8
 
-#EXTINF:-1 tvg-id="5198" tvg-name="Discovery Channel Asia" tvg-logo="https://astatv.pages.dev/api/lg?t=XFKY1SmST7-w-YOSLLLU9KgItbM5a9F5sdtIPZtxq5a8V8DcinGuZNu9T1g8Mf3kNyYBK7EgzGznlX7ddNsTLkaUq3Xdz4pNYKinBDaT6dY26xK5n7fcmW1MHzLVd-bx8hmd1dJxFMa7m55L3oA2yXdqsSwKs0CgahsvFnk7ALh8JnXxXqhSGv69L0BGQe_8Gg-Ps8pdlx2LDbNfC2mTYgCdfpTLkoDy-A" group-title="Australia",Discovery Channel Asia
+#EXTINF:-1 tvg-id="5198" tvg-name="Discovery Channel Asia" tvg-logo="https://astatv.pages.dev/api/lg?t=RQ-g9AVukDy4uDFuIkMu8VoqgluRGpIwT8petOmAY5BJtTReK6lFifs4VUQDBo8ERYO7ZhyYJEFLBTdX14tbV_q3H622qiygAiEyl8S8DK2QLFcsKlHrfIDUrEP5gEab59JCWWbIvqOID7jyy_mngDgkikZ0KPGBPhpvtdIz-_z0q8H9ehsdC5980EjfbJNRiFPNy9XnprTqo01BoNGPXSgQ7UQdpchr1w" group-title="Australia",Discovery Channel Asia
 https://astatv.pages.dev/api/s/5198.m3u8
 
-#EXTINF:-1 tvg-id="3008" tvg-name="10 Bold Adelaide" tvg-logo="https://astatv.pages.dev/api/lg?t=fe8NOQYeNJu4WFnN8oZoHaV3Kmk-7_i8q3_u-igtgGy7fQyHo6hweI0j6NMRlyHJOFa18Xar8WJdYV9iMZ_UYASNP9WrcSuObMy2z0t2Dz_wHng3Ed4sQafzc3lOb1vIZieMKARa1gH_H_FDsAVq0kXPu87P1E-hhi8GErXWlGQCSRwD7ZH8Ro4fiopw44Eiah8Y9IMzxVvHm7uMqWxVNmIhUZN22veEww" group-title="Australia",10 Bold Adelaide
+#EXTINF:-1 tvg-id="3008" tvg-name="10 Bold Adelaide" tvg-logo="https://astatv.pages.dev/api/lg?t=RTddY3xt_1gklVO9n0UvTtmVkGQO7VRGlddqzygTVJeU1PNM8eFmp-Z_5R8vlrZvh_k_ixjs6DvCkTYIhshJm6gxbdj3xTAvXrEgoLWBWQ1g0cKNKBMx8StZP9D6rI0WwcvkQ58d13HYmkhqiw67899I1R3LyMgjZxG5q6yGkfABH_Q4kOSGTcRGX-91QS5rhWkbtoQpOOlmYWtMdqPcCXZV6eXl0K93MQ" group-title="Australia",10 Bold Adelaide
 https://astatv.pages.dev/api/s/3008.m3u8
 
-#EXTINF:-1 tvg-id="3016" tvg-name="Sky News Extra 1" tvg-logo="https://astatv.pages.dev/api/lg?t=XF3zWIaCJ_Fj2iFQa20ZLSu6lWlLqk7_cCoHhDQn5c2jKEDZEcBeZg-O2Hjo6BwdmbESE6v-KI_YA3DnlZVFBotQH1fpSTifr6xCIwU-cX0uKDf9PJo3WIU99eUQr-p_rudW-pk_E5Hom9oBR9XCiLHaC9ew94Bo8qC708LrccXIJ4tnz7oKR9eBsPYLoGovsz9HqzX408S00v5QxUa-dny2Qh1Qh5kCMg" group-title="Australia",Sky News Extra 1
+#EXTINF:-1 tvg-id="3016" tvg-name="Sky News Extra 1" tvg-logo="https://astatv.pages.dev/api/lg?t=sbv6eIuVQhDmZUW5kqHFLRGEg0Hhw9o0lw_BkUHN_ulpajyye4DvjSWmv6p-dA5ll23hQkSWMoaDZkkzDw38aBpliVN7N1MTNpJTYOwVbxflaKtpHlD-VOb963Ns0eP_KzzY2M3UOvzIH1hGYtBqgiXq0khRznvf9a5yLRBYl9YcF9I1WwsSKpFa3k5hi4WajTOX7GoPEdOMmncgXAx5pCKFSwyFUYl8kw" group-title="Australia",Sky News Extra 1
 https://astatv.pages.dev/api/s/3016.m3u8
 
-#EXTINF:-1 tvg-id="3017" tvg-name="Sky News Extra 2" tvg-logo="https://astatv.pages.dev/api/lg?t=oSk6A5-sMnb8TDrLEVjr3jcqclG2OfcDeAImu6QCKuZqW8C9ea0GlbVh83w3mw147i8UtkmlcF9AVRH-jjwDYwy53EbC8oDimsz9agy_JkRPjITPvBAe05oXz8njAAHNSRsxJOVx1DLNXeqHBjsTpW5TalVE3yetXQaPnVfvyU0MOMjzjN7srTj6DfHObL-5J2JE8rBAQC36OHlk4aOtw1YlbpoC_5XXAA" group-title="Australia",Sky News Extra 2
+#EXTINF:-1 tvg-id="3017" tvg-name="Sky News Extra 2" tvg-logo="https://astatv.pages.dev/api/lg?t=yoNSyZoN1eyN61bxLV2oN71qegf_T70og3VQrngVM0tDWKchAZxme_xQ5ihLfLtguhwe8rfqUxgHZ4F_FXJrkmysBnFhomRkHRbtG6RNOD_k0O6E9dwJAGKKsHWMZFQObgGO0SVT8k19w16fT3BbtU9yqe79rgCK5He1WN29Yc2BKjum6PWEfcmrAAzB7U92FxaWlDa-vU9rocceWjwzRa9_eaN7M42VaQ" group-title="Australia",Sky News Extra 2
 https://astatv.pages.dev/api/s/3017.m3u8
 
-#EXTINF:-1 tvg-id="3018" tvg-name="Sky News Extra 3" tvg-logo="https://astatv.pages.dev/api/lg?t=ep4qhqVrhbcXDpjY89B20gOjqojei37k6IKcPmAe6zILcPtiUtTard8a5D4oyOuMgguAw28ZR2GWm4SGZIvcnbO5B6n_HM66_FTW80UoUrpFlqs116hB1rU9bf2oBMAqFMTJU9-Y6lxk4-0_NcBU9dpl35OmxGxtTyd_Hgk6di5TpP2uJ4BALJClm8D5OjYqTgTUm4dkRgeT-rw3lxNRhlpHXqdbyeokMg" group-title="Australia",Sky News Extra 3
+#EXTINF:-1 tvg-id="3018" tvg-name="Sky News Extra 3" tvg-logo="https://astatv.pages.dev/api/lg?t=ib3p0OYCYo5_l_ABpM21edw0VY0Rse7JnHdRxZMISHXd7mKPin9VJOP1_EnJAgdHlrCovZBOCsedutkxRUUy2F9cuaFqyyxzTKnFchI6TRs7_GwDXzDd5qRukOBi2G9SlXZTKYlAjRUJ9cVoN0V7xGZsU3keoRe-Q3y46oHTjqsIqbsbPkwXm1weNG4diSYxOI8NQjp56iFMrHkSBYhDsvM4YWpODHygAg" group-title="Australia",Sky News Extra 3
 https://astatv.pages.dev/api/s/3018.m3u8
 
-#EXTINF:-1 tvg-id="298" tvg-name="Adesso TV" tvg-logo="https://astatv.pages.dev/api/lg?t=FKGaXHCLxHHGRjqZYtDLPtyCy6Gg5saV0tdk87GjRgQky9q-zL7TBRrAVGjYoJ8sLVMkPeoiZIwdqJfZ3hGGp2EJBnCwF36MUDY2Qf1_lSupJ6gxmvDuqZJqXgdRyx0V0Sm7zlMO_uGsMulSiVNl_JXDCucH4RnkvakjgR2BjY5j7iV1HMUIUkqqHP9zWKUtvNHmlefrdhlpyPCRC7vGXkzIGPUa94zftg" group-title="Brazil",Adesso TV
+#EXTINF:-1 tvg-id="298" tvg-name="Adesso TV" tvg-logo="https://astatv.pages.dev/api/lg?t=_oEs1QVqueFd8OFIXI3FD7KiMCjUtO9xo4pvBwvouQ3RKjA68xNzmIQyVS1_7JxF5SRrrrhsmvtbEqjQnNOxdU2x8CCKPykUN5vm_h5SpGrTx1SSet6ylLSETSkCZFJjA-16cdnMhDDBWkep8VkBSrpll24TOzbZPEgrZwe8rf8F34UGr0SSDek0bUS-Nn7orSM61nGIFBrQag3DpUPdZgsxPGjEDKEFaQ" group-title="Brazil",Adesso TV
 https://astatv.pages.dev/api/s/298.m3u8
 
-#EXTINF:-1 tvg-id="304" tvg-name="Canal 38" tvg-logo="https://astatv.pages.dev/api/lg?t=1ZAuKnbnl5xev5nEg-RCVPq4a6r7iO808ohUnq1AWfEE5Yl_nO2ZmCMK9vKkA6vFaS9XSOuBkxxI8knhvdR5cMJkBRDiH28dovC5z7BM5r5xt7yAD8KuPLmy8KxJkICzL8VdmxcxKIroeNNwKFEaOIEtkdOiFEbbHv6PxXzMrEgy3D3rqSuUOSe42s4ErOTZeb2NGYYrP-U5JgWEojmiA6pZyJ5Gs23reg" group-title="Brazil",Canal 38
+#EXTINF:-1 tvg-id="304" tvg-name="Canal 38" tvg-logo="https://astatv.pages.dev/api/lg?t=lyvAPa5RYfFJ4VgmAD3GY5NcyYRVdi-EGj-uBzkLFTY0odnEu-Y4OGUYjDDoUW8Di34VWv4k66rzi8Wto7C4NAJxEHBt6jQ_B6jxkoq-TVpMjif_xqd8Ra2-drv51rOzs1YHHK00-AoqKdC5MEJFWn6_vJZmjrRs7RrHz7JYc2sVx6R4aDb6ReB4Zr0NTHpuL9ED9bU_jTuzcwOY2JLvjiHReH3aIvmiVA" group-title="Brazil",Canal 38
 https://astatv.pages.dev/api/s/304.m3u8
 
-#EXTINF:-1 tvg-id="305" tvg-name="Canal Educação" tvg-logo="https://astatv.pages.dev/api/lg?t=s_jmqMDXrtHYQOTCysz7XDAsuXbDM2eYYPRgUPjQxv6ch6UUoXMpfPHsT5Wg1o08CmeU011vtqfT9mk7JHi5BwaEypseNJs1F8mvUNNCQcWvHYxobA2fnz6gDsfxP_SZOPUKeeqElEjObL6X760RcHMNJ1_hD0CQ4YbIa1x-nC0-YWOmilCh6hK5dH11NhyeQ1jq5hOpYNMaEAiHBHI3wfex3ST9B1ndJA" group-title="Brazil",Canal Educação
+#EXTINF:-1 tvg-id="305" tvg-name="Canal Educação" tvg-logo="https://astatv.pages.dev/api/lg?t=ho_EP5MbVweep4OBwzOy4r8HBkbP0T6ZiDmJRGxSuM_TFoAFQ8-KZFZ_dl8apUBSy3uQOINj4k4pV5W4yl0a4NKqw_g9MutwfpdCKZNA730qFUgmMKMnplxbHkg2LGhfHEObDXTQeQLykmupADwaJsXXLnwsptlKhRgypCyTlTiKguOajvaYx-aRtCZPluu2VXKNOs8EbULps8hcc8gDf_km55BPBdE53w" group-title="Brazil",Canal Educação
 https://astatv.pages.dev/api/s/305.m3u8
 
-#EXTINF:-1 tvg-id="306" tvg-name="Canal Gov" tvg-logo="https://astatv.pages.dev/api/lg?t=SyBdslZdxQWXoyCLwzJwu5St9owQQZVugnVo-Usp5AdTrggssaH-dn_UTL5NwDnaMACg6lOiOV3NopAKgnvJgsRY9Hty0Bxblibuy32Z7vbP-9hUdjI7ZNxsUeaG0LyXRb6SfYKtl__ueMhjrQcfzV4fGFjfHZS_YXHqJzjbGgE553_1rWtPyO1lUWbtgjVekiRYflCqXUYHFb4bLcahnZ9tYzTwjUAeQg" group-title="Brazil",Canal Gov
+#EXTINF:-1 tvg-id="306" tvg-name="Canal Gov" tvg-logo="https://astatv.pages.dev/api/lg?t=45tBASDPd94BqPdDdFCwR_pwjh_WsyikOmBHO5H-ILgaCMWjNQRl-VLq8d-SQOB6aHL8WKxsYRv-40MRVv36VJIQa4dSqqBze7ErFU5rlla5cPogXSRrb7N1DaH7QHbvRxhB_FmiTal1mHHmWXBLx18bO9lj2AVvaKNhxH8FPQ9istlJ8CyW9WFjzaPNm0j5nTANJrAjSaGp2bURL4jraT8ArTwpegVLMQ" group-title="Brazil",Canal Gov
 https://astatv.pages.dev/api/s/306.m3u8
 
-#EXTINF:-1 tvg-id="312" tvg-name="Chroma TV" tvg-logo="https://astatv.pages.dev/api/lg?t=NoKZJjbrNp8E6-gRei5trCPHGmJUPKMDv_OVbelkaO6jqPy-Qs3eV9snJ6u6zWJbEX4U3okTuScyFGZ5HZszFHKNGis5XYKCC0j4L-8bewBISBLnEgFPrDAqsysNrghfRpp9Jgz93TNpVc0jC2vkfsk0SPU4uHHciTnZEtUFgAKQE9Q4tGmqJ-xpCspEgImCw-zRqOwGVVLGwMj65woHTg6XqpZECNkfZA" group-title="Brazil",Chroma TV
+#EXTINF:-1 tvg-id="312" tvg-name="Chroma TV" tvg-logo="https://astatv.pages.dev/api/lg?t=3vSdYxIwOVa0RhffUNYlMMakKeW1m4f4as3PCwAaZgQQdnpt9MHtvM0Y94zNBJ1rZly6LqUKEx0KsUx6N8-tOglhkF2c7ZzpcfGXKTGjbuCmh5LbN3513jyreyIAhdMnsD5ntsRTP2wXTuJsGCQYq-qOKJCnHXmIwU-tf7vnNFLtbzfcuASfSkvWz1sDeZ0PRELxNHl8yw0rITa70Y8lKKBHmq8km6tYBw" group-title="Brazil",Chroma TV
 https://astatv.pages.dev/api/s/312.m3u8
 
-#EXTINF:-1 tvg-id="302" tvg-name="COM Brasil" tvg-logo="https://astatv.pages.dev/api/lg?t=zbcAN5A38R0EwsQfetVVBVcbTIn_ZeFWDkQ1qtPDbxwrdJ7O5ogEqRWD4G49ansF34kNrzMwgJxAmBVFjHP6up4p5Qqdp3JpCBvRlTAbsCxb6W_eVUnVp0wYuMrhIvmjFcGJU3wAlm2Lby0UzH3E0Etmzo_rsIA1A6dFnLXrDxNDr9Uwfjk5vxGcszd4MBSaznlRuj-9-PdWky3Q44jZ54cAQcsAENAr7Q" group-title="Brazil",COM Brasil
+#EXTINF:-1 tvg-id="302" tvg-name="COM Brasil" tvg-logo="https://astatv.pages.dev/api/lg?t=H9gkV4igMNiLKs4iHGwMW-f8ONNNQGmk1ZQxTEem4MllTKFe0FFhtDO-UqhbRsntYqGJXwR4-NIUyhu2_0Ai4nARzlhjKuGI5gfvz1gBemfKq6NsgJ22mWhn8D9_hDP-5RnWV86eEvv6YlnduXCVgEANWWdreYPo9qOFFibk2ElveKkuenPwDITdTf4_ZKE6j4L5TH4Sf3d0e-HKz3jIlR9ocgxQwOdF2A" group-title="Brazil",COM Brasil
 https://astatv.pages.dev/api/s/302.m3u8
 
-#EXTINF:-1 tvg-id="314" tvg-name="Demais TV" tvg-logo="https://astatv.pages.dev/api/lg?t=zyCAst2PskGy56uo06QhVlckZBFGV-6dQD1KIMs-XuWwCNnRRQ0dtbRNYKgChaR9tIGOMvT0AP0aFsr_Cy4NQ2gcGL3kLgh3hdp0pU4qg1cxgqTVkKnZB3-5v9Vei1g9U2w3Hfixaa4lGLMOR4xwvafI20lBZjFOlaepmeiIUcBW6ZVC819lMbLsmcMKT1K9sdYNeUbw12EXbngEy6AvdAzGxIEIVH_2VA" group-title="Brazil",Demais TV
+#EXTINF:-1 tvg-id="314" tvg-name="Demais TV" tvg-logo="https://astatv.pages.dev/api/lg?t=cTF5hW0-tVAGOwGHQsGkT34ebR6PoS9mXt5hf9gnQ75mrsz88SRo_RLtwvneMTYMVbPZV9ivSlktOFLsXGQLIWKZlP7Bclz_lceLUOBy6XZoWG7iMlGAjl4hWBA84DTIjMaGhBLEHccoULxLaPZvOwDcws-pf7FI2wOEZ9rfMHtO5jwiBo91VtAlG2-NqQknR7jwgFXMWtM9aLns4u4ach945g7PSCOtJQ" group-title="Brazil",Demais TV
 https://astatv.pages.dev/api/s/314.m3u8
 
-#EXTINF:-1 tvg-id="315" tvg-name="ElyTV" tvg-logo="https://astatv.pages.dev/api/lg?t=J3McXHB8fvE9zAVESxl4S31AvPFntcii9elKDLXrPSanREZH4r4NNLfr7RckEneldsFPukJvDA-DorS2TA4jCHnwJvtnTDCfSXujyGy9IWTFGh1hkIppkhSmuQ92Y8nf_GQqY_0GVnHaYe9ca0iaOi3cL7wgCgJDQuUVPjR447qiPWkaP_NeuhwBmeiOwz6OPaiN54MRWXOqNjBkCsM5chrdMjLFeNE5rw" group-title="Brazil",ElyTV
+#EXTINF:-1 tvg-id="315" tvg-name="ElyTV" tvg-logo="https://astatv.pages.dev/api/lg?t=XquATR30poRCq1E0gcD_5pDIAna1sQhkF4BAi_OKuxVRPvtO1cfQuD0fkfjckRfAsQuW43CTTQF3TFknp81eM18ouMDxJ7s7d-zyc3ysKrQ5QtDiOiJQxTERLT07HWvsmyMePAJAVqJy0DjZhA7XMgYcR4Uj6noZebPrakdTc4oUlWjG220vLEXN0ZpB_B_AXPw5K2mX44Aaa2nJVBHvZgIgk_BLUAV9ng" group-title="Brazil",ElyTV
 https://astatv.pages.dev/api/s/315.m3u8
 
-#EXTINF:-1 tvg-id="316" tvg-name="Fala Litoral" tvg-logo="https://astatv.pages.dev/api/lg?t=WxUfH41Ru2C4p-2FKABUDaQppfOL4A6y-BwJD6G0ZsNomrB2-rMl9mEdCsFKVK4JmuZr2z8dGOzVhqUb9ShHqEpDu0ukmTvKRVgEcFcyeoA7_1BjhFp6Ftxu3kP_C-gnCTDnDyJ0lj70pakAxMC2icHD6ShPnEYD4wTFQ13GCJB6-6Nl7pU7f3EfCiUlgIbBqFEGx-v_6OSx66ofZFRxrgHhofpVoiQs-Q" group-title="Brazil",Fala Litoral
+#EXTINF:-1 tvg-id="316" tvg-name="Fala Litoral" tvg-logo="https://astatv.pages.dev/api/lg?t=F1y_64AvIGFbijCj15XBbbE3DXwChjj8gu_R162kIq9D1GGHtwKnJXW0yZLF1xpQ_mFX4twx2KkpMMu5gQwfqT2ywh-o4UCfL3heejiJRcP0yBCmeUkEXXV1z8ovuwePFBfuwMYrqoudC5m3h51yJ02-vmauvPtPHBuXqrDGGChOSib8Q--xZcQEDKJ8SoZvVw3Ffaep4ORYB8hFYFgHbes_vTJGEeXYGQ" group-title="Brazil",Fala Litoral
 https://astatv.pages.dev/api/s/316.m3u8
 
-#EXTINF:-1 tvg-id="317" tvg-name="ISTV" tvg-logo="https://astatv.pages.dev/api/lg?t=uXaDMmBFmuafxzL2dtkYDWG6ZNhXurYA54v7--qZQ5xA0JxZlFl0Rn0cNhJnMzqQflQ5kzGFtpdLcweDxov6CmuR_-TaE7hhb9h6VF6WE1XiKi2-1Ckd53Dd-WSWU5GjcwBFARg-aqah-w7ekxfHtgIOS5jVu5c9kL3cTaz7rfyIUpxUitMWsX7CJHhTbND--aWN5IEu07yquBob8xWLgzzRnhSOgxwkXw" group-title="Brazil",ISTV
+#EXTINF:-1 tvg-id="317" tvg-name="ISTV" tvg-logo="https://astatv.pages.dev/api/lg?t=IPWwfltjk3OnhEkVMp9Nw_ufEn0mSnMVlHuo32LD18Pp4iL7E2X_oIkLwFzvP5dDUpiu_6VYlrP1hfZ9HTc62frKKFsHM0Iu8mXgve6iZ9nec1l2568uzBNzZX6cqFw1yclMrZlMevK6gnO5vYWrbmufvVppX_U-fcBxCXxNSvGXg3-fgJaiiyqJ6_4aC2t0E6KvPsGGk0GO7mQmopgom2khmQOf4HusFA" group-title="Brazil",ISTV
 https://astatv.pages.dev/api/s/317.m3u8
 
-#EXTINF:-1 tvg-id="323" tvg-name="Nova Era TV" tvg-logo="https://astatv.pages.dev/api/lg?t=NaDJNthRSldTs15xZrtcObR10z2Y6oV0jnr64Hg2_doE0B7eYjMaqG9d7K6C7Tcsu8ofcgxJnVapX63qeurk_KPcjpaqizPaMNIqbLgz0XvTTvoUiZhSKqsfnx3tWN0nIc-epbE29bGzly2W_wp_kvmSu2f0sCn2ghwHHSoF3K7uvEfi4bVYBskWvvZ_5l70ZQjpt5LJ9Bxdu9ffUik04D9rpooxt7rdHg" group-title="Brazil",Nova Era TV
+#EXTINF:-1 tvg-id="323" tvg-name="Nova Era TV" tvg-logo="https://astatv.pages.dev/api/lg?t=uCB9FvlJbq_pOE8WtMbaBJDMijKyEj0mZk8Vb0jhjzaYxZKuUnFDcOp2ZD6f4PlYNe4U8eh1LaTkl862XPuaZuLBI2YgIg1jLK1_Y8OMv4sKiAqo8su0gvAFiQTtPC6D8hRK4x7QBUSppITk5gEFCPO48l25WWoDjRmQf_5Pv1wU7lnjoolsIw69Xc52_C9m2iukLiIbrZb_ZqEA2OLT20uq_hKLkliW1w" group-title="Brazil",Nova Era TV
 https://astatv.pages.dev/api/s/323.m3u8
 
-#EXTINF:-1 tvg-id="331" tvg-name="RecordTV" tvg-logo="https://astatv.pages.dev/api/lg?t=a048K5x01CJ3tz4BJYf0W9tFPvyhIS3_riel85dCrRFLqZQ4Hkg4xP6eJl2nVYxawN2CQc646GZcsUNKgOCIzybopDh22nMZKBTzKdX5YkMuFQ5BznvjsLydre0_jq4695YcmIH6OHwdHZpf_ESC1uPfZf-K87R-gecKz8LnvcJjUtqKP9yQ3kXiOewvC0Hv58riEHH1Um2Wne5I-b1CfZQrUpx5uqdTkQ" group-title="Brazil",RecordTV
+#EXTINF:-1 tvg-id="331" tvg-name="RecordTV" tvg-logo="https://astatv.pages.dev/api/lg?t=31Z1CLa21r8VmYGvDZsHX2RY4KCXjFABicPeyaN1W0ug2gV0MTSIwdRE6GSeMpixwqgtt9YDlEvYRpz3ldrOWH4GYV0DeOE0abMDubaFKMLp2csG3e4IWrO0l8-1JL8inkQeZ07mnzRT7VEeb5wulDzgd3GVlSH2avrVVgc8UiFMDyqV2i0YAl6bpJBUerPKDulO7gSpPSATe5LmlZK2xRdvFjf-NMuw6w" group-title="Brazil",RecordTV
 https://astatv.pages.dev/api/s/331.m3u8
 
-#EXTINF:-1 tvg-id="337" tvg-name="Rede SPTV" tvg-logo="https://astatv.pages.dev/api/lg?t=1X3dCqfWPVr8ZrtklKgSRO65ZZf5v9QD_B4vKDMIHopKbYvKFPow6AeoPaCJKCL7d7BOL4Az1pv9fE4KU_KaHUrb3m9tw4MXF1wrY4uOcRv9bEBwv18WsuF_h9n81fpgEzDd-KX5Vepr-BNewRjvKi9TBg6ywP54MvVeOBUFcm5YNK4jZD4XWu0AU4tyMD6SL-p2_VBxq1c6cyTxwblLBmroIdgQ4vNxjQ" group-title="Brazil",Rede SPTV
+#EXTINF:-1 tvg-id="337" tvg-name="Rede SPTV" tvg-logo="https://astatv.pages.dev/api/lg?t=R62988APBf4ub1kIu-qkZGEGJ1TzC8BsuAEQuFu_Yr1brBDENyWd8XqE7b4ow3SxaEJVQh26fxydNmUfi7Jnzn51OSpSZZHZTcJ_t7DiCDJoM32t6OOAmJMif0tUdutKIbr9NON5L4CPMLKGf9_6ZhBr3Ep7b85VAotnB7rhIhRVG9Uao8YgP3LHl27LGJ74yIdHuCtTq7mFtSwsqWNIK-Y8BZ_UXxJTfw" group-title="Brazil",Rede SPTV
 https://astatv.pages.dev/api/s/337.m3u8
 
-#EXTINF:-1 tvg-id="340" tvg-name="SBT Interior" tvg-logo="https://astatv.pages.dev/api/lg?t=_NaW_IRXia6IT0NrkZyQcEb75IQURU0OSlUKenL7N01vJMxhG9VnoTgnTFmxZ31P84ycWYZpMqGx5JOtQal7CKfAYtBkfIwwX_aRoymmqW__YB8Pc2hNFzluKfRJfp7jvAfGcvVhQpUpYu5UOl-rdNo9-gx2SueFMDsY0Zzg4FA7WS7ZtImVls9aI39RamnnzCKG8TOHeHh-sQSENwf9VWysEwVYbjQL0A" group-title="Brazil",SBT Interior
+#EXTINF:-1 tvg-id="340" tvg-name="SBT Interior" tvg-logo="https://astatv.pages.dev/api/lg?t=igWUaDPBZeHnCQKP6Bh8_5MHxl_Z5v4hswvWGWkdDTDcmHpqdR-dSls6f7rpndsbfglhf7YusvI3hUSHfItuSGeU5alj8Ym7xOPAn-e-N44EQsaD8j2GKy1MIC5dFuyKSTZrLKcU9XuYB1g6Di23ppP6MeMvSimhns8ODKKS3P5KbV1z5Vsa9Ec5mPRyH3iFHAWaSKmGt4UWzy4UClYteniAjOkm4KsM6w" group-title="Brazil",SBT Interior
 https://astatv.pages.dev/api/s/340.m3u8
 
-#EXTINF:-1 tvg-id="341" tvg-name="SIC TV" tvg-logo="https://astatv.pages.dev/api/lg?t=TdBqBYeCoR4V2EpR0PBqutPWNpT_Kgf1RElw_rDYLqra6tWGTSuPufJO5zWeW4aWtl-q7FUTvVotuWmvIy3owvskptTEJMlNJk9JCyIY46x5w35fcmb1r95p3EGZ5hN9_hlm3w2GqqriR1BOu_b_4wotZA6YlTKMqB6HsdaufiWoJbLQfUZpxzblwIDlrmXh24p_sNKopSdjdXINWXBM8BWKFlCm0Qe9IQ" group-title="Brazil",SIC TV
+#EXTINF:-1 tvg-id="341" tvg-name="SIC TV" tvg-logo="https://astatv.pages.dev/api/lg?t=5g_Zzhgt84vcuw99g9gC3sK8q7JCWMGWhQJvt5HYGP4ce1tcNoHExer94yk2VQ7YZd5Y5Oqf6tGUkBvLZzFShsxSliwO_WPFCC8gOG2d0n2MmBgwXgwtQsv6OL8UsgpQ5oO1XTapytMID5GecDdiM7Tk8hrRbqjZ86KPdYobnaal9if3CoCxEc3QRJMiOGP9GIYLEed_xoQ5i_5O6mZ6tYSJN88Em4I04g" group-title="Brazil",SIC TV
 https://astatv.pages.dev/api/s/341.m3u8
 
-#EXTINF:-1 tvg-id="398" tvg-name="TCM 10 HD" tvg-logo="https://astatv.pages.dev/api/lg?t=Sv76-ywtpFEIsKdsg7TXFD7s2-Iu9fARZMqFbTh9di-SYA2tguxiPIX-NTbUKaU2CqkjuPTF6SJGeH3iG6NeGxKoNRKn6HW2ARz84afqxAohkFiotbAqqaQ2a27u3VKqTQe6l-LLPmNaZDdcGNDv3DTsbz1ueWKEk6QdeQngPWpnwbdyRevk6mFur31F-v0wH26JhvAmuNgTU7plEzcPQ2kQJsAZp95sEg" group-title="Brazil",TCM 10 HD
+#EXTINF:-1 tvg-id="398" tvg-name="TCM 10 HD" tvg-logo="https://astatv.pages.dev/api/lg?t=mIJSkhnt3OXizp_6Ru_VhrpnnTfK9Zb1ym9pusImz_UEzBIL20LFQSQOCvBoErhgzKxbWKmv2DJ3MWEiHRmY7ELAvIluhE3gR-zAbRhXhzdrsqF6fan3NhawPJ87fTrm9eS0jShLAChbFjCOnDy25ttLb5_6V9Nuei3YkZIkmErEIH58m29qZ0mIc_zSiEWaPdw7bGRwiKi4efXfgfGCY_gs-rwdtRZdJg" group-title="Brazil",TCM 10 HD
 https://astatv.pages.dev/api/s/398.m3u8
 
-#EXTINF:-1 tvg-id="402" tvg-name="TV Boqueirão" tvg-logo="https://astatv.pages.dev/api/lg?t=nxbA1kjxvMCx5aEE3iC68Jy23nlPHRxxAzVF3kMKFGU62b68CpcMeiMbTPRx0LTjb9GXbkiYAuLhiKU5cPGjs5CMRjzOSEkYoQIflmUkp22Fo50xE15WN2OY5xGtseEdTL3x2HVoZ7QlJgV36-bN-Oc4i29wGLNRQSC2ta99_711BKgPyFCMEjEbMMjTvyGvjf8xPd-_02gariDjijyMujLnSxej4SDpMg" group-title="Brazil",TV Boqueirão
+#EXTINF:-1 tvg-id="402" tvg-name="TV Boqueirão" tvg-logo="https://astatv.pages.dev/api/lg?t=Dm9FPmSPQ-zbSQB_XaoLdkPD2oM9MR0YFmUR6cVIcbYsq_-B-hsTRd1glkngQ1GDTrobw3LPGKDBk-BxZoRQ40ymXojh60XPWi-Mez80I46Qx8HiyzY9yUGeaix55HVVXEkdhNxX9lZppRshljsFvZxkNTKRvKRuNpaLvMYNIkCt_5NUZQIlMX-rh4ZEspzoP7uuiAkwJZpTp0Z9es8CoG0cjfHuONHvUg" group-title="Brazil",TV Boqueirão
 https://astatv.pages.dev/api/s/402.m3u8
 
-#EXTINF:-1 tvg-id="403" tvg-name="TV Brasil Oeste" tvg-logo="https://astatv.pages.dev/api/lg?t=VRZbmMJIqZdIWp1FsSGT-JUaR7gOGJS7qhawxVQfYl1anKOAEcGgaYo7exYP6R50Jl7yerqKqy724Sfw_j3bPb6i8Y-VPT6b_YpLRDoCvLZc9gi8L6DSZjFZNcfsZvo5IhK3SSpZqUpE8uZQXmmDqZSIu2aJnpoW_mGYPw3DSWRD51KK0ff8G6H3lhfAMACQUVC3H444pyWqIYfSne2MpdBkz3enB6QyyA" group-title="Brazil",TV Brasil Oeste
+#EXTINF:-1 tvg-id="403" tvg-name="TV Brasil Oeste" tvg-logo="https://astatv.pages.dev/api/lg?t=erUqt-YU1MMWXfnbBoufvQrfiks9SYfimeGBGhT4CttkkW5DQnNotr8lDvz6YzU9vpkFkj8Dh0IeUpKHoJWKOpumRmLZ6zRLGGETsbKrI0rxPvFCfft7iFvFIL8qCM_LfrAK0RP68nqHlAEJTEupV5wn4VKNqp-WZc_JzxLjCmFoow5gpDmJtfjB5I8wnGmJ1VTqeur2M4z4NVTcVkNEIyTU6NaYlsvQ7g" group-title="Brazil",TV Brasil Oeste
 https://astatv.pages.dev/api/s/403.m3u8
 
-#EXTINF:-1 tvg-id="407" tvg-name="TV Cidade Verde" tvg-logo="https://astatv.pages.dev/api/lg?t=h-v6Jb0AReK5KcMIYQRcbwBHtLlL1qSB3ePyt1HuZ_QzG1aK55wQ1LBqskm1mweiIoqfEThW-Df7rC7VbiVHwC2qAANNvabV0EgBo-z9TUqHTXoYnCzspZ86I0azZTqCFNm_fE7RlRQtj4NXEK_608E5nxkpTjoO7Hmf55x-SJ3n2vaYmZ_xmwG7xf9tMAcpwbTyXBF17J1jbgIoNcu65SyNYn3m-Q_ZIg" group-title="Brazil",TV Cidade Verde
+#EXTINF:-1 tvg-id="407" tvg-name="TV Cidade Verde" tvg-logo="https://astatv.pages.dev/api/lg?t=5Ze4lqKHTES15LFJfTnl63Lovxs9OA8C7P6Air3VHlEbUKRcRVuKQwiq0iAdUgZUs1LFZ42xa2bEds50WDWDz3D1_MAdd9gHdCSe_9TQZ3_jYRemCx4-o91VVf5mel8JmKX7rmURfSVr78gOpvJwZQc1W6oHeFXTjuornSVZGJV19pP2VyFkKND7YEMsSGV9PdklNf2J0oGtQlXdanqWKsvyUz96zyjj3Q" group-title="Brazil",TV Cidade Verde
 https://astatv.pages.dev/api/s/407.m3u8
 
-#EXTINF:-1 tvg-id="422" tvg-name="TV Clube" tvg-logo="https://astatv.pages.dev/api/lg?t=_s6yN2ItQPOgCNZR3M9DPwpJuCaMH84PC8qF2QawnqLK1WkIVYXFYLzPe2UF5PErk74DOgl-_RASC8J6O17c64MXo3j6_OKgXilDcM-aAd2Z_5H5sZBJw4jDV_1ndEnxMtYwj___Bqx93LxXtYJfk7kVcBhSG1RJi4lScxMvYFlRP6sfMmz_Pm61NWjMsttO56YkU1MdikqXPhgJG-41t5WldKTEH0Gx-A" group-title="Brazil",TV Clube
+#EXTINF:-1 tvg-id="422" tvg-name="TV Clube" tvg-logo="https://astatv.pages.dev/api/lg?t=LmQP_a4W7dzPx5oHWg6T0fxg16-62yUVkS94J_RjmZuOexTLawhLL3KVM46dG9p4wp3qbc4jA0QAcretx6AAC2VMhpWRFN0dJWTFWjWAEObkCPZLt9G7Z8fkYNkOV-dXrKFay2FWw1SI1YMBmGbA9u2qQaJUJH89fUB0uo-rowPD2J1ryZ3uApmg7Wcg7E2vuVi04xgRAwm2kuhpp0xrINT3cbnTM-7TFw" group-title="Brazil",TV Clube
 https://astatv.pages.dev/api/s/422.m3u8
 
-#EXTINF:-1 tvg-id="417" tvg-name="TV Guaraparí" tvg-logo="https://astatv.pages.dev/api/lg?t=EZ70XerBT9ULxt-uTYuLgZhDkAS4hzGJrmZTZWOe_6TkCJI7r8PdhOLLKVwHM1I-2glPJUDBJqMI87GMM0ypTZdunzhIwiR-LHa8ux05cNXUgrskSmsXL8MfaLV8eyHJEU-WLz_G8Abu5iw_OGx5iZ6zDAuOEWAoICqsEcU3_ILGAnre0ggrS87CtsRJhGdBqjasGbWXoTx8aSR9As012nznjZO_WRJFOQ" group-title="Brazil",TV Guaraparí
+#EXTINF:-1 tvg-id="417" tvg-name="TV Guaraparí" tvg-logo="https://astatv.pages.dev/api/lg?t=wZF1vOuKhhPSuQp-BKg9RPyJA_zTdmnq_N68c--8Jl-fnY612OMmAx32ZgBKVieIde60APJJf3p0sM06pXOZmK-WHEheo1pZm6sB-g7ULsgNePQ0CN5y9heEIK9Ij2vqZH8iouUDRuRD6QyzHABLl6Kr5lynaFddrIOliLziz1ydYBk_YbolEV-cufT26tir9w5rVXfhxM5beaFSg_rI9APvRc9zWaEklw" group-title="Brazil",TV Guaraparí
 https://astatv.pages.dev/api/s/417.m3u8
 
-#EXTINF:-1 tvg-id="414" tvg-name="TV Mais Maricá" tvg-logo="https://astatv.pages.dev/api/lg?t=8S9Ov8on1Kh2cUParxa4eTOyHhrViDRZ8oPrhtrcowvZwOLnQTSx7iGXX3XlOrOFyzwoxUlaWaZiyZLCSS6ulNPq-awf3XG4HjeLrTriRlfIuuf3n_smPFu36nqyzeU4aj7yXfLgqwbIlPsQKcPyrxDcVo_O43zqD3cfg5cbFCq1XyG5vs90qe0uz4nIlTsJ4mH5dJI0GxmE5Q66-sG2mgOKLFjnR5LIhA" group-title="Brazil",TV Mais Maricá
+#EXTINF:-1 tvg-id="414" tvg-name="TV Mais Maricá" tvg-logo="https://astatv.pages.dev/api/lg?t=Goe8oDaTkT3ZHcDpdqnfyff4c4F2h5vIqrVRGFlMSkxgw59C_o6H9pkjw0jiSRLlaiehDMjdDpqHaAWYSEQvDUhMs3RaY5j4aF7fcnOoSJQkGpRPrnEcbAOIswhLbXSNQPKBWD-Bc8zY_gg3_zjYyUxKFiKOWKqcAN6BzpJGMrqSFVnZfepU5xAD3sWpaga8aKMgk6-HvPqSM4UtSnR-76N-b0DmBmOQ1Q" group-title="Brazil",TV Mais Maricá
 https://astatv.pages.dev/api/s/414.m3u8
 
-#EXTINF:-1 tvg-id="413" tvg-name="TV Marajoara" tvg-logo="https://astatv.pages.dev/api/lg?t=BejXZ7fsyS9N3Sxf7jPbG5wlbHedzA4SX3x4Lb8_Vj7DaXDch0kGHvcvMaGVwdJ8GY1nHQmsc7zmMJxMnGYafv2tFOR3RsXqswSZSCSYByOUngO-i8qAo5grrFmDQ-h_mV-YVLwKX-qCWxDlxYDMqsjJJt5PUn2NRkwJ6CKSeJ534me_CLdqDcFhoGge2ey1rNxOBijLEOAA4kJEtw7h1Coc-3U87WGu-Q" group-title="Brazil",TV Marajoara
+#EXTINF:-1 tvg-id="413" tvg-name="TV Marajoara" tvg-logo="https://astatv.pages.dev/api/lg?t=A4yiL8B26w2n9r3my1lu08hYn_XbsWlnetJqxe7MrPRVnvKlMULKsIs5_YHbA2C9lH8yZNwXi3X-Dn_7A-lxKCOybjEtqL5_kMepHy0QNVLQ7qYfuxqugDbLqpRBvwr4HZK38QIoFEYFAKrsgSG5Ab6nZr58UMG4YRau-eXIwgzqjx8oybHgpQazFlD3del2BQXwHINAt9EBpAggBNi3r5BYJyXQAFQUXg" group-title="Brazil",TV Marajoara
 https://astatv.pages.dev/api/s/413.m3u8
 
-#EXTINF:-1 tvg-id="424" tvg-name="TV Passo Fundo" tvg-logo="https://astatv.pages.dev/api/lg?t=4gjPc9MMHSZIvkpV-bDI5xYm05Z9yj1gDLrB1zsZFoOgJ0yE3_b707j6IMQHINpQC7n0LeruqmJPviXLs6uJjrRb2DnfZe3RGcxjoIr82X4Z7xa2OCODkyq6-DYvtkxiKAK5foFAvmhpfuPELj0kTZwIdgNWiwbGaw4AtaZ2Ey3yk6oT0CNRBARuxq_e3uCiEMvuTwzZlHbN3wnJczuo5672IDAvC2CLtg" group-title="Brazil",TV Passo Fundo
+#EXTINF:-1 tvg-id="424" tvg-name="TV Passo Fundo" tvg-logo="https://astatv.pages.dev/api/lg?t=imOHTER861Mx-WprkhF32UGl_MhezCt4YWi0P34yKaZHvs2OaQmuul85-a2MjJsfQRSsX-poPO9xyeeSU2qOWo4cUWNO4kdf19IsZD0chie_BqH8xuboGVBMNeHChI3n0BVbQ-zY6W-bV2ilCPijpCZhJOcgUxFVfM3RuyD0hhg1Z6aKOyBAg9BSwU6TRm3v7phEr-PxCAfuyit9GeV7xieJ3ZQVYOvU1g" group-title="Brazil",TV Passo Fundo
 https://astatv.pages.dev/api/s/424.m3u8
 
-#EXTINF:-1 tvg-id="425" tvg-name="TV Rio Preto" tvg-logo="https://astatv.pages.dev/api/lg?t=_LaVkmkmxayfdnvz9D9TBLtQTbneFZfFd15DAYHe0tfZoILz9xTNsAUf5GUOBe83P0YSLM23CziGtmGOW_wEHB4KrFTZI22392GzDE-u3VX-pRowARJE4G9MGmxsxTWFaqpmwDwcm0UBLzsajz6QpObC2JSACkgwdpez35c4BkOwjD87iZ0w_ihFZ2lxfie1g9iaPUNkLFJImN7knO6-ZRR_6tE5SlFmxA" group-title="Brazil",TV Rio Preto
+#EXTINF:-1 tvg-id="425" tvg-name="TV Rio Preto" tvg-logo="https://astatv.pages.dev/api/lg?t=6lofPNYRGf4kL1QA2riAtytjNR_iAA-eDFD5Vwyd66UO9ROwBERSdF3KzwMSsoyAieB8AH-VajEWYH_cJupPhQPfBk9FV9ZKBLkfS4V6Uwv-nveAfiUsLi-LJdg8k932uKr7qFkBp1yTLc36ofnhVuRmdBGI3EX1roxKSH-kIGf5FrLRQmwSPnScnxDg0XCKdoYUC_hrhFjffTvpc5lgMkbovhRnELXtyQ" group-title="Brazil",TV Rio Preto
 https://astatv.pages.dev/api/s/425.m3u8
 
-#EXTINF:-1 tvg-id="427" tvg-name="TV Sim Cachoeiro" tvg-logo="https://astatv.pages.dev/api/lg?t=ttl_0K-u5JdzyTM6KYNO0k0iU4F5J2mx9wrVZpk2hoW7y6DJweLAANxcnJgAbTMgeR6kmKKgVoJ1E2WmNSP-9DR330VwHjVhoK-GNyU8Z7J31-hSLXJ1JLQCv6Ry9O42hlYjJUWAfCOJJ9aKhLmegRMtuUf_0c0dHWg8tygu6Ie1DkcRCYIOriyAr7SFMQzwjs5dRSj6SB0C0mijD4EZDlgcCEb8ak-hjw" group-title="Brazil",TV Sim Cachoeiro
+#EXTINF:-1 tvg-id="427" tvg-name="TV Sim Cachoeiro" tvg-logo="https://astatv.pages.dev/api/lg?t=6gxwwe4y0xMlUioCe6BLvwWSynWzuL79xgwaXiYAccP3mpN5ldp1WZR0-TDeYLuSL66R3R3cId3dR7bWPNd_qpExsy5QPeuLsQ63v8J0z2cqZlG0qkglyatKov7YuH-QiDLuGjj7CryjGGYgQXs63MD-yn0ynto_xg_AX0aSYZDSYDVSUUvZvELfnu72P6CdlV7J00BOVjXX2vezQZ8FiMq2kZt4LZZqhg" group-title="Brazil",TV Sim Cachoeiro
 https://astatv.pages.dev/api/s/427.m3u8
 
-#EXTINF:-1 tvg-id="430" tvg-name="TVídeoNews" tvg-logo="https://astatv.pages.dev/api/lg?t=25Inv3SJE8q7axZxz7YglpEsGfLLLAM_Z30JpvoFNFAOYGuQtoh545cTkwLcRBfTRDryELOclSUzWo5y5C3xMfGwrmfMNr7-V4YNR8sa1Tu-DiR0Ge681qAB-kvsHjmdOBMnPytNkT_9vWzvKnrz-DqIfAAOgRMMbpKFP2pHPUEORr0p-1DaUnF-vBqezUGLx_ewdFZpWhlFMdB0vWy3cx8AX2d9wteOVA" group-title="Brazil",TVídeoNews
+#EXTINF:-1 tvg-id="430" tvg-name="TVídeoNews" tvg-logo="https://astatv.pages.dev/api/lg?t=FCqQF2PcxF4WNqEHWSf8kTI3opmbSkCAQZwYqXHMg88cMhXK-9Ddr1s9XYdPySjQatN9hPQgbE_6V-it7pBn4Y9Ne-2D5cKO8zNjgf2SNMUbfE72rRZ5pP3zz9Stq2dobqjcNG0KB6xh-0jbb-23JDKOQj9_W--Rlg6PzHOc1JSySGrp43e5EQ_93g20mieah483y79QOlO2jCtIU-x7iT693gHLqCQTig" group-title="Brazil",TVídeoNews
 https://astatv.pages.dev/api/s/430.m3u8
 
-#EXTINF:-1 tvg-id="429" tvg-name="TVNBN" tvg-logo="https://astatv.pages.dev/api/lg?t=30Ym1IaNxBAVeZ14EFATDEWXf8XP1CdDrMXZA668TO1vYEAfK8GcFUERABVndsjjjTU_eR2-GmZZDDdzxoZRMVWWsF3OqmsnMy2-iRsmWY_WzsNbsiydbbHNhhY-IGca-CBF1tqVDlH_32rdMyhvMAoKuPDos213nB9rTL2HbS6Ri9Vn-LKrW84XFG1_-gLW61o26-1AzfLd7W9U7jGdgH7L2i9pXgqDdQ" group-title="Brazil",TVNBN
+#EXTINF:-1 tvg-id="429" tvg-name="TVNBN" tvg-logo="https://astatv.pages.dev/api/lg?t=-r__v9_Pg64m4P-XPaSMs0OQv1SD5GimL4qUPTjXepKl6hwkkk70lyO3rB1y-EqDp4HieqsBd-RC1ilhG0DNiaMuDcOzKNqvJFROkYp4ky_jSZ4yhto6abqSQ4YsTQt0KfW6XLYDMXHKxvWgFeNLGk-bE0K4kWC3W4gz90194Xzl1chJhbBJKdB8tSIF5w7btBhCXXKlotK-Dm77A-WAkwlulMxr8UPOSQ" group-title="Brazil",TVNBN
 https://astatv.pages.dev/api/s/429.m3u8
 
-#EXTINF:-1 tvg-id="4444" tvg-name="CTV Sport" tvg-logo="https://astatv.pages.dev/api/lg?t=fTlP0ngX-J7YQJBrW6xiO3xA2INgvgGq1Dc_chL2_kEScNqIGNFMcpGkSkZb90_H5R-HK3sWmxriVH2raldpiGN3tY4hL-NmfMJyquxklnf6esoo8VEM2cyrt0a-OgQv1fL68AMUpFjOHgQB0OdhY_49zVdNSlfZyEC5YozvaE0p3PtccrGa77KJy7OuPREJl5nD-ZbIpZrjwpQzeMahuyd8PB8xDfD7pw" group-title="Sports Channels",CTV Sport
+#EXTINF:-1 tvg-id="4444" tvg-name="CTV Sport" tvg-logo="https://astatv.pages.dev/api/lg?t=1St3oiD-cnxoP1bHblBpcqT2zLnaXCn5jj4MiUAw9TzTRsczZeXLG_Ve_GMNCmAjZvoaqPBHdIwjtSRxbMvV06Jnds-0o1ljbVBfgxX7Ax67NktHN6Q0DkiJZgr09txG5ib5e8j1o-JfXCqi5q9RZC58xNG-5Uba8n1xylnqM73LfyufJH-tVat4Zu-mnSMfT7qeAcFlrsBgpPfY_GFsTSk5hgkJTe1KPw" group-title="Sports Channels",CTV Sport
 https://astatv.pages.dev/api/s/4444.m3u8
 
-#EXTINF:-1 tvg-id="211" tvg-name="TNT Sports 3" tvg-logo="https://astatv.pages.dev/api/lg?t=FT1sBJc-fz3QZaSERBYNJTfOSEVDpFpfYAyWC43sZ4S5EDFNQLrwqyE_8Ngoy0QcKRSQ_Z2NWXztgMRQsrkh80LexsCYCEA_sK6-z89sNqqhIt8xeFt9-HzgZfj2rPqAgrzumK8b-XM-oKCJ5KS2hrgsg2NfMh7nqk7Grr93DgvRmXd757UUcVeIe9QScQez7cwd75_uJ-PiJJvDsSC1GbGBy6gWyArn3w" group-title="Sports Channels",TNT Sports 3
+#EXTINF:-1 tvg-id="211" tvg-name="TNT Sports 3" tvg-logo="https://astatv.pages.dev/api/lg?t=A2TFTax9tRLMVHjeh2Q_wZ7aLfaRbhxIX0OxPUJjOyyAGyeLz6k6lUBzuJ4xn4MR2tTSgwaeI3oIxeXMfySLhx3s75xMb4GIj4h2bpFUS03NB-bipgXzanOJ3-39CohIEXsT9usiyWBhjmZUNorHKUWjFjjEVCQOEPGJLVcUNBgFgQY2cOFGzTYiQJM8XtQhdWpRTkbMafkRpmkBdyy8C00p8MtGxmu7nw" group-title="Sports Channels",TNT Sports 3
 https://astatv.pages.dev/api/s/211.m3u8
 
-#EXTINF:-1 tvg-id="212" tvg-name="TNT Sports 4" tvg-logo="https://astatv.pages.dev/api/lg?t=WwrZObEM4WpXswLX2XCcicNLrPBd3ZyQn9gxVtruk2aecjwJvm4nCoEbbYb_zQ67aLXAD4dn8ShdBnhTS49JYXO6Ngp1NbSQE8LMU98daWmzjKqpXXMAN7bcYDRVpe3sF0X_5doXwZYSzYVyAd8mprIyIsgPjIw5_h2mtm4pDrTVUFZGPNGhKtGN0vAWCw9BeCpz-_hH0A6w-HEp4l0dzoC-Kc0iB8Rvxw" group-title="Sports Channels",TNT Sports 4
+#EXTINF:-1 tvg-id="212" tvg-name="TNT Sports 4" tvg-logo="https://astatv.pages.dev/api/lg?t=Em3jXvBRdTyb6XOPKK8zNa29U1f7sMCrZV8bnzksMw5ma8mlHEZ-_aRo6PRkly-kHtGDgUM6Hlc5MsXrFPVQ7Zly0ZYwtcCY72yfNl_5vIiIhPFuTMRkj0X6yFnEE0fl-yMSGFvdD9m8f5VXl5_hC_61saLtJiLxVGgbiqaDQJEGyjoOk1EevlPRb0uEgxMZx_wnm3h8BcThm-NBv_exbWNSs0fbkB-B8A" group-title="Sports Channels",TNT Sports 4
 https://astatv.pages.dev/api/s/212.m3u8
 
-#EXTINF:-1 tvg-id="619" tvg-name="360 TV HD" tvg-logo="https://astatv.pages.dev/api/lg?t=FaOPDIXp3PilqxyzY8AQrtdCGWBjC0S1rXDT8OWTVbom9LXnS3DPP-RW6vxnvv46DgWwoiC_mMzJeJsT2NkT2wccEpqXw2-drTkxdRfUsctCbp-IVxaf_ypobNrKBSL9O-UYZjqK7ELajRJREAMZZqbWZ4V5FOPalF-22KZFsGW7mzESAMM46DzeJbNDGmA25to7RNvyPPmpvEQ6mYgJ3GeTlipFFcJJ5g" group-title="United Kingdom",360 TV HD
+#EXTINF:-1 tvg-id="619" tvg-name="360 TV HD" tvg-logo="https://astatv.pages.dev/api/lg?t=g3eOVHyXfih8KaMUp4AT6PpO9IIt3oxNR_slnk_t2xMHl_jKMJzCR8qKpTO36COtkkDu_WoUmXMxDl8bvKdddnY6eNTfAr-vJQ0q7CrX-OtJOEPZA87eTOU1uSJLAw0QdkOPeV4_Ph4sZLHoAKhYldefWijYtPsk1298yNqIPlsAFX6uIvJzWLJu5eTTFSmyf1ouAUxK-beVpRFsKyNbEfyyguAuGCu1Bw" group-title="United Kingdom",360 TV HD
 https://astatv.pages.dev/api/s/619.m3u8
 
-#EXTINF:-1 tvg-id="625" tvg-name="iLol Funny" tvg-logo="https://astatv.pages.dev/api/lg?t=oWj--MvJn3HQXOnBcHjtkiq7VhtRyWiY79RFHt4oP2u_4IzrdLPgz2puPzE-nW8_l3j-khchYV-XJy2XfPyAA1xSmcp9l8eENPdXBq1cAmi6cSdOs5y2eCi4GIVCzhLr4rvUEaPNkVikxhTanf1cT8zVOSPSm9QX-rzY4dma6tqYjqHuHCSyoiBKmNuMYs81XBBioheMFCP46FE0ScGdaNiVMai9JM_V0g" group-title="United Kingdom",iLol Funny
+#EXTINF:-1 tvg-id="625" tvg-name="iLol Funny" tvg-logo="https://astatv.pages.dev/api/lg?t=6ouvUWTTVsOUaPiluxNUAi6H1qm5sZGROm02PMrOn2vPcxZ9PRU-cZSWl3j7ohgv90LiLwn9caq0drhNwxjwrCb5ofr67ZIbItdlrtUqsaQ1fVfzYCFh7wd-ghQLYPTi9-asz_OycLSSXFXcJd_xzoeNdld7lMSX9A39ts8X_Z9mOVhermkLHVQ-uJOfDJ7zM5yExPvTVuwq-_5IFNNPCetwNacPm9iwDw" group-title="United Kingdom",iLol Funny
 https://astatv.pages.dev/api/s/625.m3u8
 
-#EXTINF:-1 tvg-id="620" tvg-name="Sky News Arabia" tvg-logo="https://astatv.pages.dev/api/lg?t=usJxI9uN4LV7MF2b-veHCqFoqOoqU0-h0V6cr1dq9Fzx8DLLfx--oPWr4YnKtiEly0HQCshfAmnIZnS1zNWs4hMvtFzuZTIVGVXovJdYKDUoUTozsnhGkxK5-RloSvtU75gMSv-4pq-JYvz1jsRaV3W5DIiT1PIeJ9O4FDFr2tXZbvgrqf0f38npqzRE8srVjlUuj6R2VDXJRN9m3a5OyEojCetxA2D5VQ" group-title="United Kingdom",Sky News Arabia
+#EXTINF:-1 tvg-id="620" tvg-name="Sky News Arabia" tvg-logo="https://astatv.pages.dev/api/lg?t=CiJcZOR7RDiq1XBgYfvRJatkKU71VzCzGWtOfiSqfpb_CWocr8l8jNphsAgtCXEImHoi9_VWW7XhUdA5Y0yDq9xrdcmRqh-wKEpjqMksDZiq8ruem9_ktjzJA-tIntuiB89onRhjxl4J3cJ-rgnbXG3oYVYlem3gZRas8AKg8YjM0nyNz-6Z1gD-e1sE3YTxxlwxpez3dZpuYowYSAm3m4QKj8S4dR2GIw" group-title="United Kingdom",Sky News Arabia
 https://astatv.pages.dev/api/s/620.m3u8
 
-#EXTINF:-1 tvg-id="3523" tvg-name="Fancode 1" tvg-logo="https://astatv.pages.dev/api/lg?t=uKO5TU8S3u5S1yiKCn__LaayLlo0rRxPC-47R-RdM42B-KhzbUmhZQFIoyeWEV_77VUxVMxbRK5hNlaxFJQSW5m0OCxSUol68z5KMWUzSk422MJzptZid8bL0Lcc5_Cn6ZlENHTHX-5ZEJQ4rQ1s0-kTRneK9Lg-Cko0_Ju1gJdY_TC04BiTIf8HaVC0TPShqjTEeFz8euq8q-xsTuQsrgrQaH9vk8gTTw" group-title="Sports Channels",Fancode 1
+#EXTINF:-1 tvg-id="3523" tvg-name="Fancode 1" tvg-logo="https://astatv.pages.dev/api/lg?t=hPXqV4FLNpcAZd5s7hpDAIhjelI2e4STRb_nsxyskTr1CcifXh3vmTQQFtm4D_ymzWaFj3ArHlz8m88QuonJ6oCADgpk1hml3kTGbWivlJnuP531ux3xinWsj309COnmxOpLXwbs9SoQv3epIlfQCbChvNEk0XsesTYlOKpgnhIAgpN856wi8kRyDzezEoOBwilkL49qj8SqQSyEi9uM18D22aWf8Z7hnQ" group-title="Sports Channels",Fancode 1
 https://astatv.pages.dev/api/s/3523.m3u8
 
-#EXTINF:-1 tvg-id="3524" tvg-name="Fancode 2" tvg-logo="https://astatv.pages.dev/api/lg?t=AhJapa2dGlJYXVSRyRyq0WsPrYLQxHgChQ3qKlpIY_9HOGk0fnRjYKedqJejkmYDFToqr7SdRnHP4kXR9TolWj8Zy3IvmbOoRWAG42Gn_cCaKubNcjfmjJ7dor6k0I6DlkSMIjOYbYQPEN5LIrVJZX2mkxFVMQ3xfeyV5Afw_YIJzHMIKpi3UQhYnJdebxI7GYe2_u_kbQGNNiqU9DbWLua-TySIACBVGQ" group-title="Sports Channels",Fancode 2
+#EXTINF:-1 tvg-id="3524" tvg-name="Fancode 2" tvg-logo="https://astatv.pages.dev/api/lg?t=VkC-65T8-92gFjYcuGkLwC6mKIcaug3OZgzfaH8dqLI_gS9yEkgskdStQ3ucpx9b7h_O07R9todcdmxRfcpopM8WvgfvHUWFUIxrJfpJEEvh3pWUMhdTfAR2HuAu6qM-_o9nq7AMqRqrjygeK5P-AOfLukIMsXsobPcWGju5Hd7w5NSsQVv6Wq4ufQ1FXcMlxXl-xJlFzFBXQbql3SOoEg7KanH1QuyciQ" group-title="Sports Channels",Fancode 2
 https://astatv.pages.dev/api/s/3524.m3u8
 
-#EXTINF:-1 tvg-id="2705" tvg-name="CGNTV Japan" tvg-logo="https://astatv.pages.dev/api/lg?t=m0xK3esaNJBWoIm7gxHji2qSF00nEL8DtkCNeqapmG1KvYVSwKh-cZOcDBbNekX1UxxhVsIqxoeWvmNT9bbp9IP1Lq0mwl-nG_aQbxZFLajNfTw_nxYgotSxwzRpiRVXnCPP9FWc6JR0vDZGar0qvWlIKFCo7jYvbb32aHwdU-JCVVmxKTiuiaEu0KWxeh3b-7i7G5N65wcojjbr3rtL0wyoZqvc2XWGTA" group-title="Japan",CGNTV Japan
+#EXTINF:-1 tvg-id="2705" tvg-name="CGNTV Japan" tvg-logo="https://astatv.pages.dev/api/lg?t=Es9nnIRpoxkvMmkp2TpuNJ-LEcmqUuGQktj4MmLHS2bLlg5xK8cotRNGjR4VDSWMziemwhWOCXis5FYqmm1EsJr5SEiaZ78EqXrCj9TSqtLlQVsIVr0ekvMkTN_S9-QuMrJRdSYLvJO35FHENBrwcnxF8fcWn6E4I3fCWejzrOdCzhETEPsihPkY9qnry7EcTZ4xhbOg-WUgSE8EJqZRFyubSH0P_hxi7Q" group-title="Japan",CGNTV Japan
 https://astatv.pages.dev/api/s/2705.m3u8
 
-#EXTINF:-1 tvg-id="451" tvg-name="Arirang Radio" tvg-logo="https://astatv.pages.dev/api/lg?t=gy2CNsS3ln9_h5eOswAAQNrbhBl8AlhZMjtN0FmL_-n7iTKbprc0cMj3YzqkJHmGpMXDV0oNe4c9gQqnEG1MHMQMH-7DF2N4vD_x-0psUVghgl-AYWCHW0vyAofqOQCvIeXUJ824_mR4fH5sarAf56JLu8ZimhjF_YPxAjqn8Bfj2pelECFD7k_LYdl-ymo4xezamVdoZwD2_n5JfP5Y_3RYsqIXuaAXVQ" group-title="South Korea",Arirang Radio
+#EXTINF:-1 tvg-id="451" tvg-name="Arirang Radio" tvg-logo="https://astatv.pages.dev/api/lg?t=hn86tdFn6WOvvkwA_iB9q_RwGUjm3HW0nRDp9qLsQkSYpa_ql7DpJGavvJG4zAGgiNe4K15C8XeP2sJMaN-f7H9MpvkWOWpsTL32oqSWuDvMlVRGRvzUCzQ98wsb1VCVhHu79rBZen7zKz5aivIvB7BC5Vo567rwrY9yPo7MpfCB9K49H7CGCEw5g00eKPrscEsVkAkj3CoWsiPWcaPm7q0WQPLhozgRrw" group-title="South Korea",Arirang Radio
 https://astatv.pages.dev/api/s/451.m3u8
 
-#EXTINF:-1 tvg-id="116" tvg-name="EBS+ 1" tvg-logo="https://astatv.pages.dev/api/lg?t=xkPuVTUkmpRitt3FOgQzJPr6T1fQHh6zxTOVJhrGbXrc_oLX6sDhGi_y-JGnV42Gp85YGidsibESqz9kN18u7g-BRqjgHUsu-X46Z26r4zyOELMrMz8qKgYGqvtyDcs6KNn8qH2v_jtigU86vMieaP_c90ooHpzQs5-WU7iN39Kiav6v9GqEjVgF2pCm43JuYqJLvSTfXLQfUEDM8GRTFReuKSkX9cS6_Q" group-title="South Korea",EBS+ 1
+#EXTINF:-1 tvg-id="116" tvg-name="EBS+ 1" tvg-logo="https://astatv.pages.dev/api/lg?t=YXr_aFQgFNsRZ2c-iXjqswlrU4OGI1vL2vaiFK0dvqY-BPNDk5g9hb0kiZdAXQtGvSY7ogzgR5Y2nMpLzIyjeeZ80m2ZogZj9lubbi9YYX_qoo-J8FdR-gprxLctKQTydRb_UTQSesvhsHWZaihzAvak62QzXcgVHg1Nnb3HzcGj82G9W-8Y4b42RCE2jTHIH_vn2Z9X-x8Z5cdTQVRm5RyDrZX6vcWD6Q" group-title="South Korea",EBS+ 1
 https://astatv.pages.dev/api/s/116.m3u8
 
-#EXTINF:-1 tvg-id="117" tvg-name="EBS+ 2" tvg-logo="https://astatv.pages.dev/api/lg?t=iqdQ7cjoexPQ8p6cv4dMOw72S3_lRbdSeF33TxN3pJ8TRJcU31baW3N8ByRnMEtV7TQa6Dig0AqzDBdrb6CUkKO6wXcI0J9P3lmTHFr06t5-v7Kn-4W9OagZrtHoKq5AXHUZ4YeDGJzGUCOTgA7z45Uf_zxng49PheioC1GqB_1lshTnOBj3NRErpU5CuJoOiOwuxv3vjaO1mqCt0ruzugnSZYZKzZyeMw" group-title="South Korea",EBS+ 2
+#EXTINF:-1 tvg-id="117" tvg-name="EBS+ 2" tvg-logo="https://astatv.pages.dev/api/lg?t=Vtmjpi7LFWIJS8WIo5hj2MtGqwF6zLQdIUt4l9YNjUHWMxXYQGCzkEqjNiAG0PuhjXgtY9LbJErP-s2LR6xfiGsf4w3nu1wiVMY8PqzrDzwMiOT_99TA9NuhYzSEXeJK04KpdGCQW-9a_ykZqm8Q5Dfz5bZL73AVKBK_wZYr2DcqUW90aqdsf6nT6XN_vrPh8qeyCUQVsDh-R3R5SOVARvfB9W9qbil9LQ" group-title="South Korea",EBS+ 2
 https://astatv.pages.dev/api/s/117.m3u8
 
-#EXTINF:-1 tvg-id="119" tvg-name="MBC" tvg-logo="https://astatv.pages.dev/api/lg?t=ciGsJGs8gNQeqqRBOlQfj7vWs4NDKwK5lz-SDP2qJrNxas6TRuvk5h1cYlHuW0clbTol65c0IujWXY8nNS5_UelrIiKQClY3o4lqrRfa6fIo5q5odFMXZ3VuMbSqwW40_oK8hEm-g_twGN38R_A_vBhKl6GcwDrVy8lmiLXm7w-h7w42kV_bJvbYlJY9lHxV5Ju0OvAsnciZLS8GD5WVX8C4bAdAm6s9AA" group-title="South Korea",MBC
+#EXTINF:-1 tvg-id="119" tvg-name="MBC" tvg-logo="https://astatv.pages.dev/api/lg?t=e75lXp9DdWj8rpdRWa3QlyMU0NteNGttlvzir0zrCvZvihpOPIub-h_TBZ6SyVrGyatc39hKl4FPcDRRT6S8n3rn3-EPxbr9LVeWPpPLbBZJawF_Jf8JKM54sWkHHSajrcdEyFvC2mnk3AA1YLZe7xutkZm-v2GgAciHz4qNTUwpjbMitv6OTPtO3eVfrsT_Yo1DXmXN8B521lFoKUj9tFd_1rlfm7uIVA" group-title="South Korea",MBC
 https://astatv.pages.dev/api/s/119.m3u8
 
-#EXTINF:-1 tvg-id="120" tvg-name="NBS" tvg-logo="https://astatv.pages.dev/api/lg?t=ejRlpCWTz3Qx53KSmNhQt26TGjegZCTVyHCX7FJVOjH3DeMqrfpn002rb6bS6WDIT6sID_coBDN4siDLnsfsdZM4r9qyQM_nkEn39z9iReIaw_UfTn726ThWbuJWkvdf9huCXEcviGkcDuIckdKgcwhMrjCVv7x2SmaKfZY41pnLfiJ-kITKykoGtrEvOYY6mQB0ysPAZjEWJLu45Owmw9X6wzL3Ex9E8w" group-title="South Korea",NBS
+#EXTINF:-1 tvg-id="120" tvg-name="NBS" tvg-logo="https://astatv.pages.dev/api/lg?t=XRzXnsE01Y53Msr7UxeP9TdcsiD4xo9phq1KHKWFi5JvioCwKyZxfBloLOntBMUgfROp1bsEkDpYzIMiD4ljymXZoDZh6fRiqMsCa9P4Wnq2saVqUuJRc03Wl6Obpz0MPMUCquidwSBnRtVAM6QL4KmDBRj1f9SVo9bfuAKgS6eC6_j3jHnvlN0rvQC7mveWpoXuGSAD_xcgqgUjcuXhkYjxx61MhXANkA" group-title="South Korea",NBS
 https://astatv.pages.dev/api/s/120.m3u8
 
-#EXTINF:-1 tvg-id="5470" tvg-name="Stara TV Bandung" tvg-logo="https://astatv.pages.dev/api/lg?t=SDiqVqs87hrPLnCPiLAqVuUwZjp5q3LvywBijyzS4zzF7SFoALszOPf5ebFPSTfvfc0132_8aMSGrFcG206EVGKmTPZT2vpchmclKCPwW7SvK2mmi5_SYEeObUa3SjQP3s1UwMd73zWZXvB40hOLjyLN-6hH35_3TeNFFTUobHjL-UJLboT6IhqNFkVlUtkHW6jEy6Chz7aFajvCoImAEK7elYwUd8LJUA" group-title="TV Lokal",Stara TV Bandung
+#EXTINF:-1 tvg-id="5470" tvg-name="Stara TV Bandung" tvg-logo="https://astatv.pages.dev/api/lg?t=7pquqztZsD8WxJGa-TPuvurUmdUP52ky-wLzFdmkQkNzdWxGf60SMj3L6L9gP2AH0y7a_5e77eOQBKb9wjej_VjPRMEFRNVNeh68QHnB-Wz0xensVElyXNqcgeo6wPTJBnQelbMBzh5LKFUnsxwFGrWyo-pI3NDQ7vJq0pUNLETka7P9bphnnXLlzWKUnMZTfIZ5pe69yVoLcYqdUjlUk_jMuzS9Yy_9pw" group-title="TV Lokal",Stara TV Bandung
 https://astatv.pages.dev/api/s/5470.m3u8
 
-#EXTINF:-1 tvg-id="5471" tvg-name="Stara TV Banyumas" tvg-logo="https://astatv.pages.dev/api/lg?t=whx2uroETZWJFKPBmKIHkE1O0MV5vzgKhXj151SQHbMmANzld0wYTlAKdWtDwqmANVBbLOSdwaAN-P7O7-l-rU3pNsvhTfO_umV3U7ew3Fx-bEfO-rsJVmmWZSCeA12RQ8y8OCT7jRimUJudGrKidYfNdI_Ovcp7qPp-rtVk33qe7AOzuuagumjSYpvktHo-d3zrHABsh7hZ6_WRvXeYe6xvf9krRgrTRw" group-title="TV Lokal",Stara TV Banyumas
+#EXTINF:-1 tvg-id="5471" tvg-name="Stara TV Banyumas" tvg-logo="https://astatv.pages.dev/api/lg?t=YmlPXrnIum5A9vAEeOEFW-arY2TPEdKi22ib3x6D62AF5-HYTEYjBIFi4gt-mdNfOMI50mQ8bW0eBOUHudqcmfwQDrtsxH1AaSGAdoee3gx_ZgDK-vto1qSFHq6Uns_ktSqgWL2khjNyeSqOqTpNgSpsJRZdJsvrH4xSHOBbBJ9JhPXbkhExQQyz88C5KO-BjVT-5uWMPTt8WzPkfw4j_3Me3oTaXvPGhw" group-title="TV Lokal",Stara TV Banyumas
 https://astatv.pages.dev/api/s/5471.m3u8
 
-#EXTINF:-1 tvg-id="2669" tvg-name="Jowo Channel" tvg-logo="https://astatv.pages.dev/api/lg?t=AUOpNhUC9dca4BpX_fF1XIPDKGcAGRqhYBubL-UK3UR7l1Hewsp6XEkPvK9Y3L1aIyobd2_bmjUgZdlWFGPXjeQSWvVYgrIcREb7rmTFxtSu4Lxa0ITLkgDlUPcc_P_Q9URpgGSvEKK9ztRl5lovnJCixcrzYwAn7GUfQqKYcejid_1MIVZ1OBPw7rdnf4XzzviD_X9EiB5vfYEKX9v1zcBTIJpXGZ0Fzw" group-title="TV Lokal",Jowo Channel
+#EXTINF:-1 tvg-id="2669" tvg-name="Jowo Channel" tvg-logo="https://astatv.pages.dev/api/lg?t=gC_lT-hNj7LXXHLdDhrLLtEkIXQ3pvdRvA0tnTg1wtAau56Xio4MEdIkngay2qsVpYlmeXE3G6YEvG3qnOdgkLhatNcBW6zKzK2sAhVbnJT4oXtgzDEeuRzaWtdLrotSLoSp5meYILSj2g0qSlJTMI89XU7zCnkKfMiDU9DrhJ0k5h9AQJI2VN8zxl3TO_TYX4mS5_jUpenpo2r6E_e4qX1ymXjD_3j3Xg" group-title="TV Lokal",Jowo Channel
 https://astatv.pages.dev/api/s/2669.m3u8
 
-#EXTINF:-1 tvg-id="2642" tvg-name="Kilisuci TV Kediri" tvg-logo="https://astatv.pages.dev/api/lg?t=Z7aKvcaE1uk3FMOmmQ3IcyrN5CuRzfanStl8865YcRBsb4f2Ne8xVOaKfw1MDxx15btJMIS78qjpYbE1h46bJH4noCxa50AGgZNTlbqSRdM1dy4sS1aTiCKXMbdfjXzZ_e2oRLfJ89VrYF4T9OT9iwKZJqzMSIVvaM0q8d8O2uMjpTJTZbghFQRvvJyf9oHoazW9P5Q7jpcsxM2LPO1jNCZm1JsIJFVF5A" group-title="TV Lokal",Kilisuci TV Kediri
+#EXTINF:-1 tvg-id="2642" tvg-name="Kilisuci TV Kediri" tvg-logo="https://astatv.pages.dev/api/lg?t=vxiu797N9AeaUX6chtzH9Co6swljYn-s5pIZi-lkIIfVPyGJDqSmgumFS-mnpb-J3osqeOW7h9kZQNbifnyILbobg6v7QyUFQ8o87nyTU_nOrdQaTarXelLTXiWlcYDVpkZo1jC3IKXbMykZT9WiKP2rJD9wQOHB8lBWJ31IPSq1Yo1j9pZEL-cPyxZUJ0NMt2C9i6pzr2WsyY7WRuxiOk-KLz02QPgG-g" group-title="TV Lokal",Kilisuci TV Kediri
 https://astatv.pages.dev/api/s/2642.m3u8
 
-#EXTINF:-1 tvg-id="158" tvg-name="RCTV (Radar Cirebon)" tvg-logo="https://astatv.pages.dev/api/lg?t=wE7Hu-2mvS_IGbsqpMhVMUKkDgBArWmykQw3sAQ7soA1y0mF9PwuR1N3Q1SEo7aNgpjEfduwkXiiN_-8pUru15SRetjEwQhao9E6OtD-UYqjObWHUlmtI6OFnei_N7T79pyOuxhTAiDayN_D9rXEA-oykf8io6gC4diEgb1zdGExzc2_M9wRHecy6xSX_OH5woNuJGAYMFrszOEVxSHYwXWgVlzm_SWZDw" group-title="TV Lokal",RCTV (Radar Cirebon)
+#EXTINF:-1 tvg-id="158" tvg-name="RCTV (Radar Cirebon)" tvg-logo="https://astatv.pages.dev/api/lg?t=Ue1sDGPbO04nBDvPYtHNMlBvG6tQUAZLgU1M14oZ6yfRKCq29gULmqXpUR1yB8fD35IOo_Lwu7tLERamgjDKcgPYJVhcAO5_FqyeCiQ6R0wSSMYkYPWDqaw1VE9MdLLVq7x00QeT0QS65EkcF0qFt8xK6KgFMxH15BKGx8ruWum56G99ez3Ub1fvxkj_5UjUrCzVuc8sTG-vZJ0ca2ngF7X_1Y6fvE3W4g" group-title="TV Lokal",RCTV (Radar Cirebon)
 https://astatv.pages.dev/api/s/158.m3u8
 
-#EXTINF:-1 tvg-id="3489" tvg-name="FOX Deportes" tvg-logo="https://astatv.pages.dev/api/lg?t=owH4Nf-JNUoQQfPDYZbzDYtHykMCZ8clobH-eEiu8_LZlNS2W2hCa88hkpAML9ea6FYLyr3-AkiDM3wc-B1YEcRza9AoH4hgilkIB-M-xYg3TIlPZHD6Q_1FYRsWHBjxN5XAEAtUmF0vzthwIpaGXYCCjgTk9_k9dIAaP_eXo5nJcDfYT4_xiDBQzaxKm02LiSNxUGuIXyzxsntcdLonVjS6Pcxjed4KxQ" group-title="Sports Channels",FOX Deportes
+#EXTINF:-1 tvg-id="3489" tvg-name="FOX Deportes" tvg-logo="https://astatv.pages.dev/api/lg?t=RbjNbCaHLVjOsMRtYOeSzChk0dAXbckGwx1poRU8nf02W75KFRXW8Ne2P4N-ClLlgbUQSPWt6W72_EwCsKEZQDrAwKTg9KB2VQ2i-Whj1-auqvwU0JcZ6IkjjhzCkQds2I7M3lTtqrkHqI1ASTXbjI5OyPE_hj3EMinvB6zkqZwtM7g5PRROcKkRNNtbeXOQMBvwhoduMv_F2uXPB5vo3BclfUGyl3Wrxg" group-title="Sports Channels",FOX Deportes
 https://astatv.pages.dev/api/s/3489.m3u8
 
-#EXTINF:-1 tvg-id="5434" tvg-name="FOX Plus" tvg-logo="https://astatv.pages.dev/api/lg?t=Tmgk2ged8v1lz9qPjgtOBOS6Nd2WcgbMGzQXPznh8M4I0C6G56oZvU5vi8R4N2zpGFkzK-thocFA2QteA5bDhDbB62OAAuGZygWHxvWooIrnMtcusYWzER2n0vWn_PzlpN1NHEHaOCH8cPQ6kzyIhWwt94uh0R1pBCTJq6R528IpiuynX0cX_e4gp_w031zpUM5TP6FYuVNRqgi36dw2fMaUhzYnbE1zTA" group-title="Sports Channels",FOX Plus
+#EXTINF:-1 tvg-id="5434" tvg-name="FOX Plus" tvg-logo="https://astatv.pages.dev/api/lg?t=XU30j3q9iqilF39F8UAYNpltpYQ001mJSdsSW8p14sXgUOvY9H2np3WwZOtNvGfsm23Z4-eKefjxgjUPj9ngjvp8Kh0u7LvZxQBG0SM7tKngGaM8E2PDYI4NYV__QqTtnvDDj0Tb0XlnBtEcyECXM0kPbYFSEPAAYzx5l9t3iVyo-v6Afog0Iv_TfFEzPqaNV1jyDpzTPWN83RLsOgT4YguxjoxzLwRrew" group-title="Sports Channels",FOX Plus
 https://astatv.pages.dev/api/s/5434.m3u8
 
-#EXTINF:-1 tvg-id="3020" tvg-name="Maah TV" tvg-logo="https://astatv.pages.dev/api/lg?t=WlYEyTNKyCo4RM1AozdJw1IZ05IWW_IpVEsCSQXJwzSXPjaIF7HA_zD-yJQ-x6ucPmAI8ANulc9pj_N_5pElE2CY-QMSVAhKgDo7ysjim72XsnzO9bKiXqLV5s4AZRABkjsoSznrdwuXcjF-DjzuRx1j2YzDY_z6pe7wszOyCTIhzg1RBIlmNFlVxTX34fhnp02RXr1xri2411RNNQBGWmw_CktC6g6gnw" group-title="Malaysia",Maah TV
+#EXTINF:-1 tvg-id="3020" tvg-name="Maah TV" tvg-logo="https://astatv.pages.dev/api/lg?t=gV1d9RkpgN44_JuFL0t19u5EPkvRgGrO6zFu8q4SLUi-Qa_j4EYdRyVwrjjo5JioXmcDYsp072yGuSJ9CbHwnVm0nPGrOK0gVVzM9sWBhEbSEYSGo8HbHysBaxqaUsh8K8BevbtynsZCy7K_Hzp-2HwU6i5IsgiHkFHhjn4jLYd5uoMUcyJPj1gZKCTf9dzHzKnfIJsJZEivF2pA1uhKEW1i6DRZo0Lsug" group-title="Malaysia",Maah TV
 https://astatv.pages.dev/api/s/3020.m3u8
 
-#EXTINF:-1 tvg-id="605" tvg-name="TVRI Aceh" tvg-logo="https://astatv.pages.dev/api/lg?t=H-fctWds_BvBHqUbdA63f6dKkZIV4qt9ijDK21AtutIt6pvrhUy4YQZrlagDMsZMQfvqXXbzIOKYbJZkfxb3ig39Yv1Fq_ofsFh0W1fxtnvDPO_mScWNaXvRH7HKuJ3rcTDLv1MtdNzDL04mQmM8UAX86zFVVpFG1n7OH-9JczlivRRBfIGFFrA0Tt9ZDUscIyJ9dtI3XDCHpyKwnQKK_QQWfgZiFyBa_Q" group-title="TVRI",TVRI Aceh
+#EXTINF:-1 tvg-id="605" tvg-name="TVRI Aceh" tvg-logo="https://astatv.pages.dev/api/lg?t=YZYW1Bd-75nMj2_iZtSfB-W-dE17VMKnpqF__JrWJ-1xJUcAWlIaxZOmoss_gqLEu-guwj_7yDk4z6uj8BbaLwR_JhkvSkvIhRuMqYgDi9CAtSU1m1Df-LlEDj2SqouZLAh5nMFUa0bk9h9v8fuYUBuwgBdEt-DTqsL0D7FT7HFGhDf2OdlyAQpPz4gHGAag3hhYzi8LEHdIG5bI3o_Qpzqp-cY4b4-36w" group-title="TVRI",TVRI Aceh
 https://astatv.pages.dev/api/s/605.m3u8
 
-#EXTINF:-1 tvg-id="591" tvg-name="TVRI Ambon" tvg-logo="https://astatv.pages.dev/api/lg?t=t_h_-6Z_XdBcargFuureKhRzlFCwjseCyJvD1qZTHR9wHNol-9bsJjsKW-q4P7hJiWS6RvHakrFMxpmsNDh1vrJjRgkOpKEQe6MQ-XY3OannVHicvcDzEHZReP7cgOs2PjXJSOY_2SWQtGBiVEMOq_TaucA9_zxQrLM5eHth7-eEgYy7Up0KWd7cCXSDGEFPzVXEUNGtre7TzCa48KSROLz7NAmc0Nn-BQ" group-title="TVRI",TVRI Ambon
+#EXTINF:-1 tvg-id="591" tvg-name="TVRI Ambon" tvg-logo="https://astatv.pages.dev/api/lg?t=rm1gZ0I72FeGiHJiRE2tDmaGbpq5uqmRsvzD42QooXkwdHCgZdN66Ls2pHHDdr_zTH8yQAC4u7kJgN0inm94kPK7xpj-k-beTWiod9lLtC0uE4XcXwntVsA3lEGPmDRKbQU9H4Ew_USemdGOWfU_at-c7yOo2Ng4izaaE8mEOz_50NTdNRce8-fFR3kdUpUcsYAHgK4DVrM3okl80zurGr2afSdjyI-8VQ" group-title="TVRI",TVRI Ambon
 https://astatv.pages.dev/api/s/591.m3u8
 
-#EXTINF:-1 tvg-id="593" tvg-name="TVRI Babel" tvg-logo="https://astatv.pages.dev/api/lg?t=nm0V302fBG8kc_lGI6X1xacUFhO2Lr7hcTgNEemvO911pncsSkXp-ebD7IPwm1csvpOstquOVHB6jmLmMWwtxNoAzEDd3ML76pNaVKemFVA1FpRlxVDrB5MrYkecrnEWYxzt-8-zkLIvU5t9kvcANdYwLucmFJ6QbHwiiC6Iykc4Md8PX_lMpnSMBfOE7550ZUMU_wozGb94DgUSp6t09V4_W9WWiGcXCw" group-title="TVRI",TVRI Babel
+#EXTINF:-1 tvg-id="593" tvg-name="TVRI Babel" tvg-logo="https://astatv.pages.dev/api/lg?t=xxqSbFEVBFiptTQFqwqN8lrc_Uc11cB42Yeu8EBRfSwvDVdatScrVYhKQYXv5EDiXCdHTtT8NgzY81f8ZzJ2oysoOUX10sebQ4AesyIKjv0w6ye9-WKiLwFU0jxK46lM5spSimNCFMp8ExvFupQvtkLMXLoRHTkAtQAMufDcA7VSA6vLHHJjL1vZRMhr8i0hC8l2mg8XmzTwU7N4-hs4cMCOBmPRRl_pCw" group-title="TVRI",TVRI Babel
 https://astatv.pages.dev/api/s/593.m3u8
 
-#EXTINF:-1 tvg-id="592" tvg-name="TVRI Bali" tvg-logo="https://astatv.pages.dev/api/lg?t=-7GAs_OvwHOojEVpSAuMOP0tI630HMPTR0xXYfhDoYjwQn7VXKpT1wFP8mO0xQtVJCDr1s6saqcEfvexKXoyJq5cLhkI9eJP4f7C0T9sV4RnfAkkcZGI-kgsqmPy-wf1ix5_sO-Ij4deUuIwhwVnDVtGmrTY0uwfTSXB6IYWM5rcOdKrS6A4fgPE8LOuILjwoffxiqtvqvAlzWdDWbRDW7ld_z_0WxFZ8Q" group-title="TVRI",TVRI Bali
+#EXTINF:-1 tvg-id="592" tvg-name="TVRI Bali" tvg-logo="https://astatv.pages.dev/api/lg?t=ivrs2QrAwo3T16JhprZbRUL30gTdRcWyS9DH71cfm_zGBgSfL80hln1-YTHLgRiVV7QgP99cFVJhTfCDYpcBc8R1rgUYLCjGfT-7HIiHBApeP14829J-LV3ORNz41Oif3ZzwO6LGebMubIimKie4-7vh5BpUDEXtfeZEntipsfFMp2gTkM9MVnomBi9yD4cJASiIcBJQHStN-PnjJgOnU3zvStHXORNcwA" group-title="TVRI",TVRI Bali
 https://astatv.pages.dev/api/s/592.m3u8
 
-#EXTINF:-1 tvg-id="594" tvg-name="TVRI Bengkulu" tvg-logo="https://astatv.pages.dev/api/lg?t=Oojcez4o832EOEVSNv676cuVeynzrM-sqkMvxYtMVz9Px2sxY3H7gCTJa1cn_6w5Z2UYWkGgLZL7Jda3FQzTVhNyFZMBRJvZQYQR8Xij4TdJ-p3bMqPLvxTv5yTs48Rkh4ZwAG51QCtypY2ae7rDppVC-LSKr0i0QsMfJAVCFt-NSYdOVHbvNP30B0GX8hJaDh_tGlhJIv01UKYaUtpKgR7D-08CjQCYKw" group-title="TVRI",TVRI Bengkulu
+#EXTINF:-1 tvg-id="594" tvg-name="TVRI Bengkulu" tvg-logo="https://astatv.pages.dev/api/lg?t=nEtoakldG3XXvsbKKgnKzwYjo_nvJtNGXhWVrhh23hfhaRH8KNvCvS_qurBUAOQ6l9F4fonXbCoVCFKjizzEsVltPUhfqjyDXDxRjWAZLKkM4c9Op3D5OblEMzSLcWP8cgp8SrQwmZ34ipN2T-8l1tLRKNU6R4x9IcET9KEYNdG1dbSBuBMXCA2Sy1fg9j4iqH2bX37qanPNCqGXAd-unukuZ3tLZkoi1A" group-title="TVRI",TVRI Bengkulu
 https://astatv.pages.dev/api/s/594.m3u8
 
-#EXTINF:-1 tvg-id="589" tvg-name="TVRI DKI" tvg-logo="https://astatv.pages.dev/api/lg?t=9Dx6q5nE3xsLFcI2yOeYf_xccBHw2u-CCRl8x4nVsuyV8vLFmOdYYcJMDbFM14gXgPKGb7xM072RUDMDc8faHUAHT9BpvSDXoKl7zsgdTylGUnE99much56R0sZp0M3_BG47invZprVH7o7RnR_jMvrkuFeexmSQCHmZc8KcX4Js5gI_p5Ep3ZP_QwVzlszvpkchUZlS2iF55zlJoyuO8M3bBAESWy5Xig" group-title="TVRI",TVRI DKI
+#EXTINF:-1 tvg-id="589" tvg-name="TVRI DKI" tvg-logo="https://astatv.pages.dev/api/lg?t=OpS_4fZDumKsJGVzYC7wFBoqRF5Ig_6NbFdbfVLH8ThZp0fAevK9kMMQIP_CicK-CJiW3NHW6jZHOop9Snkbms5kHFijrg0Lumlv7eXFj4xpkuADN_CpY3Zf4mLa8DScDClSqi227pOo7p518hBlsKJxujNyumOzJrv_-S9LYYHhzmJZ-JcgfJWVs3fnhawqoEhUmilugrdzjkp6zRhJH-UCEVwIjHZfpQ" group-title="TVRI",TVRI DKI
 https://astatv.pages.dev/api/s/589.m3u8
 
-#EXTINF:-1 tvg-id="595" tvg-name="TVRI Gorontalo" tvg-logo="https://astatv.pages.dev/api/lg?t=hxlwHweozZ7kSwcTrxg-G0KeI5yuoXeg1dkOsqNdywuzf10M-VCQ_w06XEQZxjQm4mY9t-vczdIG-nWPv8e5w3nGwfy9GUnEjdaEwZS8Gm7_GEaSyj1Q3Q6TDuMy6cyrUOTPssQ1yECl3tza8CY_95a26c3Ddu-GKtFYUuDWpCoFDUrmyzqg3GZdBbDtiRX3IxEkq2cXMv_cJjQIH1mFImk05xw5jGkrZA" group-title="TVRI",TVRI Gorontalo
+#EXTINF:-1 tvg-id="595" tvg-name="TVRI Gorontalo" tvg-logo="https://astatv.pages.dev/api/lg?t=kZqKy3X7SjP6GKib3TfxgQ3vvejg_u5RyyiNHyisU-rdKfwUVqJOophDmB_GpYxbYjo6M7Zxmx6dFllySTpxlY8evw8zOyQ_c9f2rGdsUn_CdjspFpWW-uJnQW_HhiGwz-pddtuvt28K8p5swZNx7YiqFsyHpDPvVMqPk9o4zPoY_qWySMDdr1kDBSacM6BXdJUiTujeVHoOP1wkseLk6M73jj4QNNJMzQ" group-title="TVRI",TVRI Gorontalo
 https://astatv.pages.dev/api/s/595.m3u8
 
-#EXTINF:-1 tvg-id="596" tvg-name="TVRI Jabar" tvg-logo="https://astatv.pages.dev/api/lg?t=EuwmUAURcsiFLECDBkx-4l10zhCvYecycGXSPglGpVE0BZs3lK931Z6hpRKxd41wivyeVK1NUtfnj-C5m6sTvp2uVlUtEXDeebkce_p0JGUunATp3KoSRtcDLaFuFUPALF2MFb6oGtfd0MOXL4IQ-n1_hNz9N4gLy4-uNFE_KSIbOegrD1EYeJPhH4GFzHlUO6bp0Ia7C696D0YTcXvCQYUuQ9IL9wt_gA" group-title="TVRI",TVRI Jabar
+#EXTINF:-1 tvg-id="596" tvg-name="TVRI Jabar" tvg-logo="https://astatv.pages.dev/api/lg?t=aTXhn3h1oAj6drK6V9O5_HTLFbJp9XEMEGHfzpkSIF-2UlWz39NQoWww2SYLkc-yIxs_DV61Pi3-weYAhW5UiWkMSNSsfokA9RCciq0KOL6TxLx5PbtAMRB6RH3t_fyHIGglCrCXDdf9uLo-puZa1UvSLkykpAVtTCDVbCEXzx21pGY1mrRVgsAat11eKLhwL00Nt75is40sdy6mWRfeVZr-GWpBwEiZRw" group-title="TVRI",TVRI Jabar
 https://astatv.pages.dev/api/s/596.m3u8
 
-#EXTINF:-1 tvg-id="597" tvg-name="TVRI Jambi" tvg-logo="https://astatv.pages.dev/api/lg?t=WjNzd6png49GlCZwdfH9XjwMnIm3_Z-lLnhT_kO2Bnx8uQ8Rb11dOAtYs6r8lfGa_JTQjvIyGMBMC_zX7SdwRuzZ0cA-Alz_UMejLL5mW_xYyQpjOIPnMFUDrcinKyo7-qHY0VFAM_-vhLl3ufVHPoWu3wTYjC3YCgGeHfcLjMKVBbSxPleA8TRJ3oQlbdYUdBcIEwgFraY7U2bxoCCCpDdIjAnwZQytJw" group-title="TVRI",TVRI Jambi
+#EXTINF:-1 tvg-id="597" tvg-name="TVRI Jambi" tvg-logo="https://astatv.pages.dev/api/lg?t=QZpvOW-OiW6f2D972FKmtxc2b4x5L76FTajT3tyxR2oimG6qeZ6Y1vC9PSoCCxB35EcwWugAeCw4nlwVu_lwH5e0jLzwWPnR3SVdsMiQkmdUXH62QSM0jTwnQrXZSOeQ8gLEGs855M2AuC8Mgf0fpHUCgWL22ctvkDATqogsOxl4nUzzWUClpGNRZaU9HO4V-dypMNwvNhDf7BXIpoyNZeRDE2MNyDTfvw" group-title="TVRI",TVRI Jambi
 https://astatv.pages.dev/api/s/597.m3u8
 
-#EXTINF:-1 tvg-id="598" tvg-name="TVRI Jateng" tvg-logo="https://astatv.pages.dev/api/lg?t=bDYA2rqBKq-kZx7stJfXio9sIId7tDGwxCh0i0A4gTx8UBjyRkCv4RMbj2bvaD02iYyvM9bBLqYyZAmmzsZnZxJJmZJYP-6T-R8_RSZKWf8kF3XcV07ZgjO5qBgYrNa4lG9DXPIzohH4J8HdPWNlNfDQ6xaA5WR3GJmx-L0PeGbc74ZgOtcMtJllak_kZpH_3KdrHgMR6eglAbKLc-EbBoW55ImI08g8-w" group-title="TVRI",TVRI Jateng
+#EXTINF:-1 tvg-id="598" tvg-name="TVRI Jateng" tvg-logo="https://astatv.pages.dev/api/lg?t=bKxNuu6tjZ3QckEXpy_K_7FV2bDE5XL4pSQvf52re9vIM6NWktleNsdHZpfi_ypD2IG6vLgOcZibw1CyFloVB-nFQeo-sssBubUx_ecF2vqnLVCZpNyeLqKF7s0zqLojjADMBCOOmY3O69uQ8YDqqsLm2lRKVByfNE-Ngf_hXL3-kWLMr4zRQ4GHG-6NgAdt_BUEOfZXAnO3Eu2oScOdMp_QSbpp01G0vA" group-title="TVRI",TVRI Jateng
 https://astatv.pages.dev/api/s/598.m3u8
 
-#EXTINF:-1 tvg-id="599" tvg-name="TVRI Jatim" tvg-logo="https://astatv.pages.dev/api/lg?t=t34pZJkzBlQys5tyINE1hoFQNnB7qBHqi8HxOgFkJRM_S0PPKN2Qb1zwNXvsTUgDFwjukhohNp9XFimzmQ1BTjuilU8xRFxhaQ2-GsZ-006Pe8VtKxDBY6tK1q8RXxU366VKxufFmCYCb7kryph742v2R0iL6B8xPAtHE0q31wvAZoko490jahbhF36HPFv1Vx7DA7JFyPPwdiGljM5sbjtG1XyU2aQztw" group-title="TVRI",TVRI Jatim
+#EXTINF:-1 tvg-id="599" tvg-name="TVRI Jatim" tvg-logo="https://astatv.pages.dev/api/lg?t=oyFBReXOOSQWvf16Cddjm-lBX7vUCMpRd6mrmCuaNBXbP14WbZKuQ9tT9WYFkjfEW4yEcheuUssWWn2xeYKsIYucJYx_CmWJR-TBjQLgvHXCji4RQ8ltuf_KVXPA7hF5-J_y6XfWJY7w-tcSWPHbvSEuOdyuJSn0KTjqkF-XoVvc4xbrM61esImRt_ZnbPS__Hicy8AvjQIjnmkoAUbQzWUMdUPWddVfog" group-title="TVRI",TVRI Jatim
 https://astatv.pages.dev/api/s/599.m3u8
 
-#EXTINF:-1 tvg-id="617" tvg-name="TVRI Jogja" tvg-logo="https://astatv.pages.dev/api/lg?t=CAQtMQq5kvT0yrB70nMWDy5DxbYhrzAqqRUSF7RcjM54umKnDiUlmWDtKadYIWl6a_Dql0PLXurKa5wDd31oI8Tm5KqzKcRt_41mN1VeXi4PelcKGfHLjjMbnJ5cAhTSE36P24g_7CUGMYO8GYn3al1uYg6gqaN94uDnH2Wxcoqbdst4sh30fn2-TOQFDjWGKQsz7NVoYpaBOO9QdJ3kDs1syWogDx6PZw" group-title="TVRI",TVRI Jogja
+#EXTINF:-1 tvg-id="617" tvg-name="TVRI Jogja" tvg-logo="https://astatv.pages.dev/api/lg?t=IqKRKTWCeNqPd2ZICNumOGLxvy3A6s5qfC1eIp9tEOlEEsK6ESxVztUjX4E2XqXT_LgmWgpFK07nwb6ymxq1S5jhPdJJde_57RRWbeuBt91Ju4vgrMMhmfFxCPALZHtE8oW8lqbP2qnrKNvHzf0mvqzwe86BnJHB6h0FC-j3kUC2UD29sGp8Lh4PkB9wtZm6t1S6la2fbFx-mx7WprAFxKAm8npgWZTuZA" group-title="TVRI",TVRI Jogja
 https://astatv.pages.dev/api/s/617.m3u8
 
-#EXTINF:-1 tvg-id="600" tvg-name="TVRI Kalbar" tvg-logo="https://astatv.pages.dev/api/lg?t=8DkCgigt-NPzvwkUnZfvKHbiyNZY4GbikWbZclQ4zM91CIjrDFCKaBTS9jiVzgW_yL_VYD9iqiJcgn0MFMilarVu79X6e_OjkIFTHsmI6EF8xCPiMbO400GUdyg2aS5Ar8V5RTyarVx6Ba6LRKrH-znlpJXRruEII1bhza8s7xvcPEl_x9A2mfqjS3OIJU2dARuPY89awQNDXDsB7B5aK61FZpLoY-IbyQ" group-title="TVRI",TVRI Kalbar
+#EXTINF:-1 tvg-id="600" tvg-name="TVRI Kalbar" tvg-logo="https://astatv.pages.dev/api/lg?t=nYEuCs2-ZXhmvvmHrGDW0RrimGPxm4Rl9sJlkPaIcK930GCfTZQGeQ059PvEikVMoVqEOEwsvJ97vdoIKMHuWVKKY3Iz6R4PBcz8K_EL91D6_KZrzo6BGOliWjd2p9mP86Zk0gSj65ZipIKd2QeJVv09gP7uNSBRIMzKUaKGTAEXur5rgnBe9yYIHISQCYI0BMLdOditl5j9enLDcvb3xqS6qPdPgrVNhQ" group-title="TVRI",TVRI Kalbar
 https://astatv.pages.dev/api/s/600.m3u8
 
-#EXTINF:-1 tvg-id="601" tvg-name="TVRI Kalsel" tvg-logo="https://astatv.pages.dev/api/lg?t=jpWtqrjg0Y9ZC816pZAj7SYqi43mk-amDWLEc5b_XDx8QMm683YSM4MvxtS5FUi3eBlwmMIQgfrugqv_30wS6maAPoccQUwx7bqT-P-E5hlL0K0GR0KSvOr7Fzumcsn3n-8dHeYjNmh5rKt-SRiA5qm97-gaN43y2x0ge92ThGBMMv-L_SgT5AHHPRWpB2sbdsA5W6WAXu65fzsBHsg25HrfegF-KU_5pA" group-title="TVRI",TVRI Kalsel
+#EXTINF:-1 tvg-id="601" tvg-name="TVRI Kalsel" tvg-logo="https://astatv.pages.dev/api/lg?t=SoUA_48N5aWl6pREc4Jw-gKR2LMgsjDBqSppd4UtrIymPMHlJ9ov5w19o6V4L6k6gOCIsjYZiDwjOiFIBKm9o9cr9fJWKTU45HoMnpO_MadgzsFblYc_JQLLOGsgAOC2OXO4PSeKhZex9rP3sZVs5KHRwhPNAufeFszVSoi-gwhkDT5sMc_zkpPImZFEv1Mpct_DLgjaMMn5AIJvUywov7cuWU5UYVcFug" group-title="TVRI",TVRI Kalsel
 https://astatv.pages.dev/api/s/601.m3u8
 
-#EXTINF:-1 tvg-id="602" tvg-name="TVRI Kalteng" tvg-logo="https://astatv.pages.dev/api/lg?t=qifZMWHvnBfyJaXp0VJ_6I7r6TU3AT_E6uDJ23y-CLsJ9R845oUib1aVI58XeDS3xwhFZR0wVmHSgLMtvf2pKOvptInno2MSxxKZW5JvYfj3EbcFdPNN7sPHQCjFMm7MBU32qw4mXALZ88GieI8c4qy0zJ8YFN6Fhdr5Pw6-uZkXcJM9YMlJOfC7feBSLtmdg_DbVl893znfgTUE06UrqviA-erYXkTkxQ" group-title="TVRI",TVRI Kalteng
+#EXTINF:-1 tvg-id="602" tvg-name="TVRI Kalteng" tvg-logo="https://astatv.pages.dev/api/lg?t=Q9MF0ZVEqrw9d4nvtU29txZxR3d1BXXsTsHJlNoyVFlLWo2OKUjE9Vjjb3P2FtmCJ_LI1DUKaECmCKIOiM1c7BiAKkxG24eL0-stHKE9VQE4-wkcpkCRE7iaOYbbcGpNioyFvJuKLXJaXaACE-4rM60mlYGOP5W3SHedPHaqdLi-wvfBuI0wLy7WtYU1EFejeBpu5S9ZcPODgu66rI6zxjy19CHU4mdQwQ" group-title="TVRI",TVRI Kalteng
 https://astatv.pages.dev/api/s/602.m3u8
 
-#EXTINF:-1 tvg-id="603" tvg-name="TVRI Kaltim" tvg-logo="https://astatv.pages.dev/api/lg?t=LwfWzUqJfB06ZnOPSpm8cdhiBLjE1oX-hrSFC1zNNRL8SttcLNmB7z_3vRT3yVduBsjPRwjC2WshzHQZXmD-j9PzrvvBiXvLh1R7ecVhJ8zC3pX9zilV7aflQBJxzpEwv8lPTqgWm79u3mglIEmMlR-fiS0qI2ghmCnURVXLoBIyODku5_9LJui3tvryavROwNyYYgFD_SbZTlQiA4pXThQdhSbO0aHWbA" group-title="TVRI",TVRI Kaltim
+#EXTINF:-1 tvg-id="603" tvg-name="TVRI Kaltim" tvg-logo="https://astatv.pages.dev/api/lg?t=aCiFz4t4x4bpyV7xZnRks41cVwAwZD0vs8wRlah44kr0ofMyReQB-n1pmvuZ6HPqkKS_8FCCdl348hMW7qUHZF9PIZVM8IBF4URcETpbNj4WeQQdKIusQ5JRJG9ujem4lax6XGUJS0yR3H0U9tdQZCOMDG9UxDm8YlPVI-9cZPr7pLZE3kK557yl2K9gOIZ_6OdSpaXZfys52Zr9rQKZQr5rLbYdDRGimA" group-title="TVRI",TVRI Kaltim
 https://astatv.pages.dev/api/s/603.m3u8
 
-#EXTINF:-1 tvg-id="604" tvg-name="TVRI Lampung" tvg-logo="https://astatv.pages.dev/api/lg?t=6z4MbeUZERfiEqIlpcUk3cvdlUbzv48wWyUJZSHlrmIiF2rdmjCZNinlP414SGtoVfhinZ7IoT8UZOdeYhuQLMMuA-W_jjhcKc4ZXA3mBsAjWfUupEsUBsZK2MtSo-XyfHJtfhY_mSCpA05n7WrTkljXR_IvkL7sekxit5X7xU28Xg8AaQLwtpUPhic8qApl-lUWXUcfaGah-ZUh41V9OVSeZOFGBpKhwQ" group-title="TVRI",TVRI Lampung
+#EXTINF:-1 tvg-id="604" tvg-name="TVRI Lampung" tvg-logo="https://astatv.pages.dev/api/lg?t=vNqjAJYGBqMzWis76j2LhhjN1Da5DnU-ApLSNqZ_ZL9B6rQBaAvCG3y-TPh-3dCXcIlBD-spuoXOBmbZOnRKRscP-vRBrGBGNCb3E9QeyfQFEuRKJf6N1VyZEeZfOWCkOH5zdH99gbd_GzW1q7Eu-Rlf5EHnif4-HayFv7uG9ODesyMoDVysb9gLhoCnPOhnZpyecIVQuvTgrtkP8EYFfSn7eB0E9CPP5A" group-title="TVRI",TVRI Lampung
 https://astatv.pages.dev/api/s/604.m3u8
 
-#EXTINF:-1 tvg-id="606" tvg-name="TVRI NTB" tvg-logo="https://astatv.pages.dev/api/lg?t=HvKLV-MS8MuMiV4OSpRIuNZQgy8n2nqRybftwgtNCH2NFZoXESfrWaoS3KBVtsOlYvepnvHliAIOhwWewfNQF9IaxpiH2TkTF0NVUbEgrO9VQGF6wNAlzo5Euz0XRUQMp_Ikxg88Bf-_B_IcbcnekJQg6bDB5FdynC3WM_lSF8HbkC7JNjpGuLVQNQbs05xTKBd4hOP-tZU97VSHJ3m8g_66zZe7ENwMNg" group-title="TVRI",TVRI NTB
+#EXTINF:-1 tvg-id="606" tvg-name="TVRI NTB" tvg-logo="https://astatv.pages.dev/api/lg?t=BBERB0DIO6vYecLF36TqaRNIDZSy3apmdCOIrDu2ebSK3HOtQcnkSQhoHJrPpV1OEykUOWUvh-QjwBKydVF8Q-ErPOhDpPuVr7LZPERPXujRquY037dHLqWM92FpTw5HdxCd02E6DeODEqzCBaj5u0ELwCYFyMqd11iEmHaiAACsHgDx5JLiiePOkCAPa9j_EAlUc9hsykhodVV4bixCWMGLj1tEvSM0Jw" group-title="TVRI",TVRI NTB
 https://astatv.pages.dev/api/s/606.m3u8
 
-#EXTINF:-1 tvg-id="607" tvg-name="TVRI NTT" tvg-logo="https://astatv.pages.dev/api/lg?t=p8g_D2CTEqre_q_OqdnZTBMbvMctRZ_lm-OymIsG0GcUizfXtP9BGbi0yjPQ4crHHsgvOewne-Io3unqfb_IoAHPFtnlIz_dMqwOthodjBlx11Kr1P7h7nvzz7onWnZys4KjOLKFORrAXhgtrI4_0CMHIzaiMqFNqxs98RJ1OvzVb6J16ZR3pS14N0zli_SHUQXwfkylHvP3g4beNqO9fEVKfJ2MlFUwTg" group-title="TVRI",TVRI NTT
+#EXTINF:-1 tvg-id="607" tvg-name="TVRI NTT" tvg-logo="https://astatv.pages.dev/api/lg?t=JOU-Le8P8XJyS-Fz0PqO6OR7zsZ4jKQoAyJKufBydJ6AvMV1o4wA7B2apLVrlKM5CdAcDNVKIAd2XgDfmKFKO3Xa0QKy3op0BJrr5wCIUF-2144jtRqMSwYSordzM1zbJ4XI5veJ9D70wfAwkKoZptPrbBFaaOCpU8BFmJNrQ-mgXTEOaKd_4poMCIAU_mtjZEhCs54uFRdrvH9BH3Pg4T5uLC07K1xkXw" group-title="TVRI",TVRI NTT
 https://astatv.pages.dev/api/s/607.m3u8
 
-#EXTINF:-1 tvg-id="608" tvg-name="TVRI Papua" tvg-logo="https://astatv.pages.dev/api/lg?t=5mC5lfNVYdd9BWnVnDf30_DBrEb5gdj7WJg5hw8eEPNMLiD0xNrzwoenICTjpwL4cwcIJdSadOJJhrMrNDvLmIJZhx5b_Ef2aO8YcB9geAaFVKw7m7kEYiRQGku1RXGqvbTxOSmBiYgWJ7rAhB0AdaMRFFm86a3c8_nzS3sDKMD7PcEJc11_UbF5FudmbhpU59UROmDid2UaXwL24xZkKEv7ZLGIlEJUvA" group-title="TVRI",TVRI Papua
+#EXTINF:-1 tvg-id="608" tvg-name="TVRI Papua" tvg-logo="https://astatv.pages.dev/api/lg?t=9r9YMeimLw-pIFCpB9KFeIAmUBTHOeGxWNSWbPrRZKp2knkV8z1AAm56zWjjgZ-U64jcBH0j1iLqfzw05DsMTnVhMaUgbFt6-K5N1CglIWtsAsiJed9ANtUhzBrkx_xWH1sLcqMsLj-Oo-N9cOVyBhJZx77yuBP-AAsfzpsR8Tr-aYfDLRxLkoRGKAsktGUeRsfmt4_IOLmSl3O9WENXPuyWQ5rUD6rq_w" group-title="TVRI",TVRI Papua
 https://astatv.pages.dev/api/s/608.m3u8
 
-#EXTINF:-1 tvg-id="618" tvg-name="TVRI Papua barat" tvg-logo="https://astatv.pages.dev/api/lg?t=PF2Rfg3-O3ZRpNbch7b3h0IEhhqvZSmOUQtGNYJdEz07DGzQgsVvTDL506Vd0zTfqj0bEdnWJm4uamqorRelBHBKSPT_syxBngF8vvmZ1nNISDn6lDHIKsrrNIwJxcgQmoGnuIFTAtO7zsZWh1xdOykFKOB25Nk2e_XpeVdDvsSQCpF58T5pcojT8_ttYnIpfEKRcin52r4SBcSqqaaLoRmb4_nlS9LEzQ" group-title="TVRI",TVRI Papua barat
+#EXTINF:-1 tvg-id="618" tvg-name="TVRI Papua barat" tvg-logo="https://astatv.pages.dev/api/lg?t=bDucAeKWEYbrZS5dXR25QPhEN_DAArqwR8UapJ5SSzd5V9dO5sdpTmiOpjeLeqOfWcg_jOWEkMJ2F7kYVQ-NXorLyoj373WiCEGb3s-kxPQpcJCQ1-H10-V1OvgOL7lm2W8D34438fbgyTlVL_wR_dstbwzhIs3RnEM6BFxvNV2VHsKJrL23Evxi8pLoByBCvmbVqaLwzBgbZe79RJcAPJYmBBO5mHCF4Q" group-title="TVRI",TVRI Papua barat
 https://astatv.pages.dev/api/s/618.m3u8
 
-#EXTINF:-1 tvg-id="609" tvg-name="TVRI Riau" tvg-logo="https://astatv.pages.dev/api/lg?t=-WpYMHh4JEHFLWm8wuXKeYvfyyw_TskuE990cik2y8KVu1stt7dLF5qYnT5V5sIMcDEpncWVwULpLSjpdDuUlOaPl7d_o91f_nG5rCIWTqwtobaU7_86-r1W8jw6NDzdc2SP9z6891OU00vtArOYmu5cpr_ENW1IZ9vX1c7ziDzRLgXaoaAuhjmdiSFQALQJwMGWWlrWm7kpcB-R3RODbJF7fw0ubONZ3g" group-title="TVRI",TVRI Riau
+#EXTINF:-1 tvg-id="609" tvg-name="TVRI Riau" tvg-logo="https://astatv.pages.dev/api/lg?t=djTxGcQAMDjxIpTe20vIcehti_TZbF3bS5-2BrfNoQCi3gkhiZ5CSbrXgjbL2ERXTjxWgnqG4dh2H74V1sm39NpXA58qyRzSAEsWE5G8B6TSbD_J-OJYFGNKaiUiZHxXdJdlh49i6omFLGN2OsbomvUopzx_8OOOxeDNZz2szwaZaGJxKyBGz8T3r_8Dd9Q4gVh5yye_QzdQmJlKa_2zoLsltTthC3TDKg" group-title="TVRI",TVRI Riau
 https://astatv.pages.dev/api/s/609.m3u8
 
-#EXTINF:-1 tvg-id="610" tvg-name="TVRI Sulbar" tvg-logo="https://astatv.pages.dev/api/lg?t=5ftruyPxjjWjyQYQQPL-2mX42YGd_7trsHejEi7v5iTy4JPHXj7ugVEycOw6xc3LNbFfSPKc2mQR9xH3puuJfgpB4HkfHUhUUhn7tK9TaSgy4ou8WatHzzv34dRazSzhq_HRWrGOqpvRNhDx3xGCZI5pBnUT6vSubbI5bjU1BLGc9uuM2dSqYZbDwDrPwqeXqP4ALQbdBuuh1dSj_tLM3Hg0UBOkauJSUg" group-title="TVRI",TVRI Sulbar
+#EXTINF:-1 tvg-id="610" tvg-name="TVRI Sulbar" tvg-logo="https://astatv.pages.dev/api/lg?t=f1jf3ZsKBkisQukutRK-5AMgStbiDGA18-wU4S4P4Fklzn09hlNLqO4Q4Ier9mX7gMGD9C3N2pKKvjq28Tq_2yD3pQok4Ww_OrJBaGc1xhNTa8nHjfW3BrEmzRazOR480mbUDmF47yNi9W1YPnpKhCBgJLIL5lcx4mKmPsJIWqpBKYM2n-ydtR6tg-grOJ77ta1DZefkbAUUwUh1xa-eXJef6wBOCNB-zA" group-title="TVRI",TVRI Sulbar
 https://astatv.pages.dev/api/s/610.m3u8
 
-#EXTINF:-1 tvg-id="588" tvg-name="TVRI Sulsel" tvg-logo="https://astatv.pages.dev/api/lg?t=o_8yjzrWILYvgrIBTrCka6mFnZkl7950cUPfbKxKokVD0I-VH8DxgrMJWxi9ojZEfmhm1nNl_Bb5APAnzVlnbHTkGkaoTBjR4eMncedNYDfBDhh0tbfphm9PxHq8CjE5QDMoAjOfKlZBikLxEPSxcfHtfdlJzM600mkKjPlD8M7Qjo7t_D3l5L1mdt2OtB0wgtiEFItQJhxfN36XGUfPoy0kpjgyu652hQ" group-title="TVRI",TVRI Sulsel
+#EXTINF:-1 tvg-id="588" tvg-name="TVRI Sulsel" tvg-logo="https://astatv.pages.dev/api/lg?t=m_0EtzJybEXIZDas67bXAm4MrjuO4sEQQ6p_3Zj0RRY23atcJSSKdk-64aAR3HPiA0jZnV_iCEGEpgPBqkSoxuqEohLWyRKrTE8c-b1r_e2lakAsqAhM8sSlK-9VlP9naVmrGCgPw1I5_ia07lYmlGZkO2OVzWZXHq1nTk_tCo6NBBPquMj3JY_hDzZIsB2QC7YTIShsuy9UFdUgDCyVW2IUWsUDvYm69Q" group-title="TVRI",TVRI Sulsel
 https://astatv.pages.dev/api/s/588.m3u8
 
-#EXTINF:-1 tvg-id="611" tvg-name="TVRI Sulteng" tvg-logo="https://astatv.pages.dev/api/lg?t=Zji3Ec1Zdi1NvZgLbT-hRVoqADl_AQyD-XY_fg7kn2zHkYY9zVjNUYO3AO-t0GKhXT7Hb_amyQJqy8cmp7nLje09-SXZQfZDKtsT9SiJd8w2NAyDYa4QwH_jM3WwUKIB0B9QSypWf6QxEefwA83llMou6CsdYbIq8ZMVx_FL63M4zP7N0xol4fKFANRUh5tX4RcyyS6cBg4QwSsAIUSdkR1XGeNz7oqTmw" group-title="TVRI",TVRI Sulteng
+#EXTINF:-1 tvg-id="611" tvg-name="TVRI Sulteng" tvg-logo="https://astatv.pages.dev/api/lg?t=uw9lhWFjkFHQ55NrvjLbwIv4Qk1KDQvXvaNm-yht3fuYPPsZSIISEOSz9gkxjypr17Xi6L6ln6ikE2NxjnkxaXIhYohVYj2MMs7j3dInYW203Chul6nl3qTBxAXzMxvN2FG9XjMZR_mL0bpXRLOMf259DQj2L-NOBxe7SqDn_QUoulLlXcGq00dAOjOjdYHEc-_0fLBwnC-VxOWTzMs3iiwD5bjP5aV3Rw" group-title="TVRI",TVRI Sulteng
 https://astatv.pages.dev/api/s/611.m3u8
 
-#EXTINF:-1 tvg-id="612" tvg-name="TVRI Sultra" tvg-logo="https://astatv.pages.dev/api/lg?t=VQ_nKlFki3nV21sx-vuItrUf7vvn6ZplNp_zSrLOpDslNKk96nPMYPJmsUe9hUoqN7jNlhFSv_x9o7CaKae7yvYwLPVvf021E7I3I3o51H6Xbh0kHgWCNn3f6JZKUqQvYWVUUb1yX-2lmMeyaDMMrEqo90OE0aiMno_GmsxN08J7EILhyxiFvkB9pY6AbjBEKskjtwwdYcYeZpARBxKi-izBWPbgREmDhg" group-title="TVRI",TVRI Sultra
+#EXTINF:-1 tvg-id="612" tvg-name="TVRI Sultra" tvg-logo="https://astatv.pages.dev/api/lg?t=Y9HzqQCFeOYZ8dnnriViw2kfCgQpyjm8oQpuF0n7vW0ZILH3iq-JaMFr_q1PifXaza8oRnpFfvW4o0-DSsCa2OCe7mq_408cQKEx0OvVKBiOiEWc82XTXI6MRg-CsGaK9_IYLfY5kzXGQ2JD8hrOakjufSn81LKOo3VD9vugkL_dZTwedkkI8gdQC_3n7jU68BNmVLLFqFUuBzaiNxURvQygJjJC9lTaGA" group-title="TVRI",TVRI Sultra
 https://astatv.pages.dev/api/s/612.m3u8
 
-#EXTINF:-1 tvg-id="613" tvg-name="TVRI Sulut" tvg-logo="https://astatv.pages.dev/api/lg?t=5vJMAIkpkBYiTKXgtCDnH5FGHl2Lpxo5Zc4HxoCDt1Jh9ZQdKF8vz6wqd52TojMdbnw0m9gxaXFgqf4VSppfmsR6hgYtyn5kVwUcTvzjUMnzv8XkTubD3ll3v2M-QwLj-8Plj7rEwv0GxnnIMCKmXI3FPwDfJQ9hVTsamym8jOjl5vRqdUiR9xEFsqj3zjGkzc_UZRVa1nfUO-XBXxTMQ8P6pVV1xj4ZEw" group-title="TVRI",TVRI Sulut
+#EXTINF:-1 tvg-id="613" tvg-name="TVRI Sulut" tvg-logo="https://astatv.pages.dev/api/lg?t=gxW26w4S2Of_tzafWumfrHi6FQe7he47MKi5zPuSmjxcdMgelDCmGlRhDsducJFdSBO7jR44akT3gSi02GsFDrf8Ji2bgpylqK3VUVlTGz6saXFHN7_BkBPfWOZ0usxV0x8cB1GsTZ46EEfZDvbW4N-RYiJ8d8yRwPpovsR2EAoPPSKawZaTVHVvnD0hZQtFd0RfjdNvaDC_lH6Xo-Xr4r95QietMF_tPw" group-title="TVRI",TVRI Sulut
 https://astatv.pages.dev/api/s/613.m3u8
 
-#EXTINF:-1 tvg-id="614" tvg-name="TVRI Sumbar" tvg-logo="https://astatv.pages.dev/api/lg?t=P9S1B_YBS3VTDDPX4RWv2hMhQaVzDlNB5x9jJnNX1gJ6I5Zcm0skneITpV2WWICPWAHtQ4MZRXJdA4BJBv8YnhMAWF-Rz5avYfUOs7_oeO9XTACZScZibdx7bORqcagjRvOcqTREi5lwAl9Hxfc9jXWGi4MvRS-PHwiGh5fD7LVZpOj9bYB3q0rxC4ebciqJDOHPPPJQRE_m-yVbqJHd0d2i6d5l8gvA3A" group-title="TVRI",TVRI Sumbar
+#EXTINF:-1 tvg-id="614" tvg-name="TVRI Sumbar" tvg-logo="https://astatv.pages.dev/api/lg?t=CsGSBokTae9CtJbitnz9saza0oppftXuzCHRRii0MV1SsRZu8CrFQ6lxyDywDzObSCxwAfuheONOpaHsnkhZRqjolidllKjRThpVF5qz_-dY4W0Ony45iIZdoqZ6pVkL8guEM3CdM2TG8AgvPOmlUlTjcSuzO0E6DLA8fdrqfm8wz4evyuc1W8jM0jBs4hAnyo5KOPpyoPf7f7-mw611Yi0Pat3JtTb4bA" group-title="TVRI",TVRI Sumbar
 https://astatv.pages.dev/api/s/614.m3u8
 
-#EXTINF:-1 tvg-id="615" tvg-name="TVRI Sumsel" tvg-logo="https://astatv.pages.dev/api/lg?t=H6yB_crQY2B_a5aZMARt9aw4S5romia-LqrgL-I8zCvfB4dykFSn2E2rta5-icHIzlA3nBaM08bfYBVtyn7BdLO1Khevr3oHdPFv4A7fL4kOPPcsPczMU7AdaPhhwMxQbq0kUQNweon1FmCzJt8wWWd-EvbBEUclFSgjt0VEhWX4_IBkxf1UJMHATDYszQ8o0E16eLClYcp6DfK5udTcP0SH9QwA1ROFqQ" group-title="TVRI",TVRI Sumsel
+#EXTINF:-1 tvg-id="615" tvg-name="TVRI Sumsel" tvg-logo="https://astatv.pages.dev/api/lg?t=rWGwAel7iRyAvKzTZ3qiUjdExynfuMN2GnmDSlfv1_35nE2iSgqKe0tCDhf9sHqFyHyfcEYWYf8dAVVwh5U9EJwhDzBYzc2fyi0ISPqXR5sjBuSJ5C9jXetOhnxllC1MBt1u19IhwEJGyWIR-CF1WQHb473NoHEMxUaZLFiXvUTMLta58wIELG83yJeZpzi6onOjgh_neMY3Bl6gOi0WIh1vA7zTItMj6A" group-title="TVRI",TVRI Sumsel
 https://astatv.pages.dev/api/s/615.m3u8
 
-#EXTINF:-1 tvg-id="616" tvg-name="TVRI Sumut" tvg-logo="https://astatv.pages.dev/api/lg?t=wjmD-0pibZUChf11Tpn2kJfbOk3pF4b3T34tP8KPCO2f6qSCC7AZ8R_GN9wi0NMC9mzfMSGJ4V61ordiIY-L3ElRwLbbqu-Ifyw6_hK_aT9tTJ-JectLiBOuQZ9hhgs_rWCE7u1QrXTR-20_2H9hXxrFaC_bmG92aVzI4II1PEcoQR5sgoyZbFU0NLTzTuDNXfwyyTQsrhiN_SaEaRQTg0OffwmvnFW3mQ" group-title="TVRI",TVRI Sumut
+#EXTINF:-1 tvg-id="616" tvg-name="TVRI Sumut" tvg-logo="https://astatv.pages.dev/api/lg?t=3QPAfmfrEqAcYtv3CIz0mK1XD9cxVzexUEmKYk9bo8mr2dd7RntoxkfEBNHkpNCiBKaaMLE-knGQQCFiLIlueeWMwJNf7QczyzGjthP8c-jQsoRBP6zOzjgLzhHDvRappGZ2SuxwxhfhhrCm3dYOd_rl5Lb5EHuPUM3VG-js3L2Sqi3ylufGGJsaPOKguz00yJoTPFjnpewdCZdeAc6Wo9G0_Hz6lf78MQ" group-title="TVRI",TVRI Sumut
 https://astatv.pages.dev/api/s/616.m3u8
 
-#EXTINF:-1 tvg-id="2709" tvg-name="Al Arabiya Al Hadath" tvg-logo="https://astatv.pages.dev/api/lg?t=AYHSOJ5Q9vi6wCCBg9HLSKInjaPTqtKdUAbQxCnJH0a_ZdHIpJi0GaBoJM4lyF3M6U7UHR4NKzKChEGobvrI-INt7R5JoujaTrdtYGQ7A1A3yHggv9i-CQminUmoE4cxYgV1fypCZxMU9BqYc3OhmCKYXWZgfQO210b1gR3UAtIWBPE6UPJytX5R4vZBM4SxJegeCl-5mawTRJV8reU2ikWXbzR_etlh8w" group-title="Saudi Arabia",Al Arabiya Al Hadath
+#EXTINF:-1 tvg-id="2709" tvg-name="Al Arabiya Al Hadath" tvg-logo="https://astatv.pages.dev/api/lg?t=0sJyBo3xURoAAAdDGLfuBx2J8oBVvJK7EINkQDoK1B3SyFZXpFgiwLlwdrItaNbRajV-ZDB_zmLUJIqO84QzR5cHC_yPpR8fLNUmMvZkZVw6L1PKEvt7lXjuFi58lMWuqT41AtqEZr4_QDupb8xmk14jcVfm36LeFGDd_Yp_BpyCc-FMopbgK4AoMU8yaXhsTO_m89uQMINpEjFTdzHnMc26GmDkqL4jhA" group-title="Saudi Arabia",Al Arabiya Al Hadath
 https://astatv.pages.dev/api/s/2709.m3u8
 
-#EXTINF:-1 tvg-id="2710" tvg-name="Al Ekhbariya" tvg-logo="https://astatv.pages.dev/api/lg?t=4wXeWb7ap8l0aFnNSziy3_l-_4tPcX8AZOSM1cdIxkf0zTn79AghcEPl6M2SBUNRXVODJtnjsBc3GpPr0pTHcMqZqY67sDmkVgkXxkrGY5n2JwC5D5tv1Q8fcDCXNNHhjJ29__5_u_pqBdEyAFmFI7-qelTAlTj1HqlynLcyUcFr4-W5alsGseyZrtj9aFGqUsJdkUS8yCrVGRR9DPZJlb15ycBQLCCIxw" group-title="Saudi Arabia",Al Ekhbariya
+#EXTINF:-1 tvg-id="2710" tvg-name="Al Ekhbariya" tvg-logo="https://astatv.pages.dev/api/lg?t=Da10PTv5y6hc6pw8rHXvsZlYAtUWjuQVDYe7b84FFwcYybniLFembOmVel_J-uc71x33ptXVIl0oLEOo1Jde-ByMZUZAUfnk0HirJf2EjqRsoPAiVdoDzPxq5uF00jvvIwVnyrz_Fi0z0qo1-dmWMgRr1308-6HTW-1H3K1DT7DDoSv-MI8asHy1ShDFeEZyDr-DbNVz2wHlAEv6lUlpCQAmswaMFA79dQ" group-title="Saudi Arabia",Al Ekhbariya
 https://astatv.pages.dev/api/s/2710.m3u8
 
-#EXTINF:-1 tvg-id="2711" tvg-name="Al Khalij" tvg-logo="https://astatv.pages.dev/api/lg?t=NNYbhZDPmvkZPdUNNFk3s1Qp7EMe9voiqm0xv7E3wkGIjV5zTmNm4PFBI0vorPjobww9t5pB54jsyGr5ja0D58uEPgTVyBh3qE82et9KVBdZeyCXLpQtuCmD_tvXoqRN6yWnxj3jugKD2YPcU-fZWuE8kPNlZxo7fiSij9LHEtRXilZXbCa9aMWm4_5t8EZWNmNBj89Rbf1sG6hEFTbeCqgec6J8l7GFEg" group-title="Saudi Arabia",Al Khalij
+#EXTINF:-1 tvg-id="2711" tvg-name="Al Khalij" tvg-logo="https://astatv.pages.dev/api/lg?t=AZOH6o0SsE34gGLsT2lmr8JUxaGPce1d70LyikZI4DZgd6yFv4tSsY74-oMPDtj4l45QuU6h4UdSe-qUM-2xbGqcWt45CYZjJkFJCjqyucuGjq0ScQ2fLR23aau4tTyctNmwHltXFt9liQwAnOMRhLs0IQ61krzHYB29fhEP-PuGlUxDciZJMHjz0njeonbAlGk65uzaZm5g9Zay7VXvIaLZ8Uwss3gzPw" group-title="Saudi Arabia",Al Khalij
 https://astatv.pages.dev/api/s/2711.m3u8
 
-#EXTINF:-1 tvg-id="2715" tvg-name="Asharq Discovery" tvg-logo="https://astatv.pages.dev/api/lg?t=10HAFCBlVLNSYRrh8aWs_Qeb7AYOrmxQy5jUYrKhSmtIWGBGdV7hYQgSBgoNuTuAv4HMPznXOqvwWS9hZCqbcrDg74j2ZjRYiTbsgBzZ5P9jXMXTWPSZz6EAaxJbET2B7GhRWLUVS3sophPGCKiv1yIoPIJ2IGDioqw1KQHueXYx_5d2rXWjn8MonXaKdGQ-aQeAwjANEEFKP8iqpbCqxgq_WL40BzIFFA" group-title="Saudi Arabia",Asharq Discovery
+#EXTINF:-1 tvg-id="2715" tvg-name="Asharq Discovery" tvg-logo="https://astatv.pages.dev/api/lg?t=SNVDWBUEW6z99yHwbUu1iHT5QK7yQRZ8gTHkiS0Vatod4ifpNJDpG12Gf-6N2Y1rov5mUkd4Rr4NojRYTcwq9RYds31nsnFD_jGvBCN-XSVLUdBiN9ia5DZdgHY1z565fs7FyG6yJayJtrnmzFsr7rKIHve5PjT7GwbWwNXy3mhvbVMZTPm3AohvtkgY5QRmszc_2eRT1ffBf3dZpCHTrR3ckIg6ARe4HA" group-title="Saudi Arabia",Asharq Discovery
 https://astatv.pages.dev/api/s/2715.m3u8
 
-#EXTINF:-1 tvg-id="2716" tvg-name="Asharq Documentary" tvg-logo="https://astatv.pages.dev/api/lg?t=BhaYYcCNdBph688vYpaeR30fZeZU8TVws40SsRZbqdWTTyBLK29WEZPYiIHjelbqeKXf0aNu_6Yayr1XhdPi_TA2L4RKvLM-3h6Qd9_snmQXvg1Oa7CYbGymRLH6pb-8AjGYKqwbPUqPHvMcpCC90vF8KfvCsQ9XSfS6ATXtOHIv9PqHa_NFB2a7mQQaFzjVJExD1OqXIAkDquEm6ClGNyzoKfKCqbx-Eg" group-title="Saudi Arabia",Asharq Documentary
+#EXTINF:-1 tvg-id="2716" tvg-name="Asharq Documentary" tvg-logo="https://astatv.pages.dev/api/lg?t=_MHm37l6UCDCLUPXrbNfonTPXUSUpuq6uOefCX5sFAM8nKf32SbDaYJKeURSf5aULvPh9hq2rsAqB0TE4OAO4Pxz2bV9Ye8qsoY8hJyW_3a-qOaBvr6r7ED--R1JlrBdSWYHoqdUfZzwFngQZyQuGhZpa3NuxSuKRaQ8Fwf8pjzzIHnq030weMl6UnuVlk7ymCt-fIc63eedKF-oc9PdflReph0VqvHJ9g" group-title="Saudi Arabia",Asharq Documentary
 https://astatv.pages.dev/api/s/2716.m3u8
 
-#EXTINF:-1 tvg-id="2718" tvg-name="Asharq Radio" tvg-logo="https://astatv.pages.dev/api/lg?t=M-E60z3qJCo_cFSp8VgeMw7oPB2YqsyLlYZXZdE0PyRFrcL3Om7P0kHRucYDQ7cbiKCDtdXahzkFyMWapBDAdkPapYJXeWRaZzTMmOQWbCjGbXeFqTYSpfUUTCF4BCCpf2pKYPk2-Tslj1C5jK63IR8YUJe0iBEnUBS2VFpv-DscTelkw-mgvdZm47ZktdovTbSzfXQPuakurTTOwTzSf6I6tSDQb3BbRg" group-title="Saudi Arabia",Asharq Radio
+#EXTINF:-1 tvg-id="2718" tvg-name="Asharq Radio" tvg-logo="https://astatv.pages.dev/api/lg?t=SBq3OJYgfFclngSsAvXiTmghrIIuhMDORq-B84tPZ63kTIQhTdMf2bX_Oay_tsDF_VyayDZofeU7meieNcleGb4ro1Hqgui_ZnZs_lq2vnzhHg_2Lc5zr7ewcJezPcjp_kTEgq9frLlA4okhOToJp4fM3EODBGbn_ef97d8nT6Y03YpVcbu_az41k2NXKu3OoAX0pmmoOJmhvMKKoWBxKdxSckyqYt-KIg" group-title="Saudi Arabia",Asharq Radio
 https://astatv.pages.dev/api/s/2718.m3u8
 
-#EXTINF:-1 tvg-id="2719" tvg-name="Atfal &amp; Mawaheb TV" tvg-logo="https://astatv.pages.dev/api/lg?t=nMiGX4LOoAAypBh_Gm8c-_QJTjAMuVmddCy4ior0pF3C2ponMoGBFmQiEHoI_bYXozs2ogZTgXLlHpHMVQNVGKcQtTT62CJbbNpqsvlIHxAqucbm-8PLJXZ_I8P5b_Wutu5KFw-dUT_jceoxAXDjRc1QktjiJ_FSMJ74K5ycwFOBbQOmyqNxVGDuKgZA2XGnCX9TpCUgR6qgIuwEym4U5cOB95PrsZbl1w" group-title="Saudi Arabia",Atfal &amp; Mawaheb TV
+#EXTINF:-1 tvg-id="2719" tvg-name="Atfal &amp; Mawaheb TV" tvg-logo="https://astatv.pages.dev/api/lg?t=B_EWiIivjyqw0IOZ8x5MhroLrEt_lkj6kwH7e2U6sYMZJbEBoagCDKzq1WTJJ8IdcMlcM7uS8wfg0eNeQZ5hHS2WtqF0w2WRYJMSffE_HAVTIN3nvXJKoesyatxZW2V_EmdN2T2M_SJqRUuBeHUInaK6B9MH56MIn26HxDOg37gnsO8GkK6XVED-0QzTqSb39y_Y4jQ7ZUDnu9rzG6EvjoHq_r3lMWa33w" group-title="Saudi Arabia",Atfal &amp; Mawaheb TV
 https://astatv.pages.dev/api/s/2719.m3u8
 
-#EXTINF:-1 tvg-id="3670" tvg-name="M-Live 8" tvg-logo="https://astatv.pages.dev/api/lg?t=dpLxeVOPUgQcEhQg1HxkZugbv9FLUVlhf0h4cv7n59cQ2NEaphrt27ORn-NNmLCFjI8oy5cANfZv-tPnXV2-e9CaCgj8634MgqQQwg0QJ4irLSXXr7KeFgTE2wnYuT6Z5QWQnypxfrHs24bOyZJvPkP3Bw9_vIe5Hp8g-61stZYMSdIKJCzc73NbBy5F3wYZpk182IZIxYz0MRPLGAIH2XJikZvwbYL3og" group-title="Singapore",M-Live 8
+#EXTINF:-1 tvg-id="3670" tvg-name="M-Live 8" tvg-logo="https://astatv.pages.dev/api/lg?t=t0mSMWPeEzn39deXcG4ywgBh2L8x7lIcNvejp1I4LhGaIaarWUDfkJsJlLjDtecHmwgHvYEz3NUGgei7E9D1AnrUwmQTjybgPpUwmwanwgS7ONKcOgDA_ypH0gHVBE24DCpHK6Ql1U5yuWNsCm6LOcrUWA6RSSS0hP-SpM2VRWme_7PIhw-Cq9o7PCRReXqbNSJEXU_1t-bBlzBDaNG8_l6z-doWK2BC1g" group-title="Singapore",M-Live 8
 https://astatv.pages.dev/api/s/3670.m3u8
 
-#EXTINF:-1 tvg-id="3446" tvg-name="M-Live 1" tvg-logo="https://astatv.pages.dev/api/lg?t=-Jvw5dl5CaIhV1syI9RTz4sKt5KE4tPCaalGCQ1-485PDZBoUeT7xj5YRKc7CkPMVWyT5MAu7LIRnP04ZdooD3vGHBpOppY_SkGr7kUVjcfLLHOripc7yd2pyrgE8EzwqJx9VbgSAZBjiuN2Nmp3UiG5TCbhFHSnrc4M8yG-qM9gPAdv22TKwccMVDwYnNqeatuCuroLbzQbulpVU4snoGMFSFj5V3o7HA" group-title="Singapore",M-Live 1
+#EXTINF:-1 tvg-id="3446" tvg-name="M-Live 1" tvg-logo="https://astatv.pages.dev/api/lg?t=-fErbTQL7hKeoljClgwaL4rEDV09TZCtoXTgKFoccPPht9OeFIx6X6OeRheJyPAwDIPr3jYw0Ke1In7szZYzv8YzmBSdmJasmRWB3Pic2ru-yHrkSn-VZw_2wdO0bipky2KikG5dLbvePrmNlU7ah2xtyCyaTU77gSzrI1B6bDF7YYPgSXBorzBQU55KEmjtSgPgXdzRuj_5CtayRofk90YtaNSNj8o8kg" group-title="Singapore",M-Live 1
 https://astatv.pages.dev/api/s/3446.m3u8
 
-#EXTINF:-1 tvg-id="3447" tvg-name="M-Live 2" tvg-logo="https://astatv.pages.dev/api/lg?t=Cok9aP5khY-c2N47TjkZl5Z0wkhwNPfWNfVt3-ixBGxdHFgg_sAMdAvVmJx5RuhWaXsgziVxKjXNXdblVnm37LMHWa1cmShR2vy2O2KnOukHkNeF7y2qwDEABDyDbm-rPaucYVp02-oEVmQLPvtus1ATDy4nh_hvYHaJpFGJF3Q_N90XUgMD3mWK991IP3903leKX2TachzbKFLnCV3S6miuy9Do3yxeGQ" group-title="Singapore",M-Live 2
+#EXTINF:-1 tvg-id="3447" tvg-name="M-Live 2" tvg-logo="https://astatv.pages.dev/api/lg?t=UdT9kHY9Xy2l3oA_shj9N-bofffj0qbEvE8yzuWREcn7zLEmPxpgcq6Ob_PKwg6_UxVZMFRR5Bp0heSmixZdTAFW4Jr2GYjnIiiK6wreG08DSa__0r-mlil2kVLE1M9HHNwRyhLYR-6t3JG0DDqvhPZeZmiCjATyhzV507Hov0dS_2cNgQNbMJRgqM3o66hW1wCuhuQMx7P0y5U2ShzexFmlNse1zCLswg" group-title="Singapore",M-Live 2
 https://astatv.pages.dev/api/s/3447.m3u8
 
-#EXTINF:-1 tvg-id="1412" tvg-name="M-Live 6" tvg-logo="https://astatv.pages.dev/api/lg?t=AKOOeh-DVEz2q8P3lWFFd1pW3XrZq6OQyLBZ7xcJ8VfGHr_B5NoI1mJvWOntMCBNfOGxl13vFo5UqfUE-DNgxhit-rxDac5dtvxFuzo7mZTbb8VId86lxoval0oWz9jrUG7COTm7tta_nd4k6uC-TiNzIgZaqH1IfxA6JbZx2DLEISkfJK-FNQ_DMVhURsUhp-wir0NtpOH89HB2kUqns-SaI372KE9IXQ" group-title="Singapore",M-Live 6
+#EXTINF:-1 tvg-id="1412" tvg-name="M-Live 6" tvg-logo="https://astatv.pages.dev/api/lg?t=6tptX2Cx72otubGIEYYcSvhq3Dd6p6M-p7NJ3Eb6PTu7QMjqDPMhi5Wli3DLI_Y59WjSp8S6ZVQKTDacXbcUV2T4YugjzPxMwDbHWuI6FeXG6h66ZvShqC-2s1bq7j30gOEIoYxlelYxdQHzq91Fgj16LNtxiE2kF5mc5RcSSV3ykxzH_BPSuvhWAvQsmP0ZNtZf8ll-7jHNvKuk6C7vIbELocvdazj09g" group-title="Singapore",M-Live 6
 https://astatv.pages.dev/api/s/1412.m3u8
 
-#EXTINF:-1 tvg-id="4396" tvg-name="JOJ-Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=1ccmA5ikKA6fW8n5r8by_7u6SDjlC6DHmjLpivzSUveC8DBNd-qLTcTM12crmfhyy3ZTLChuzxI38pXnyz9LEPDcnuNov72WQtbwwYIE9kJxtf3bx1tRMqDD0geC32NiEu44adHi4LpPGV24koko9maOJWCNcF-zxjETvRqKI1nWFY5g0O9849VZt2Zwqqhgw8suLm0y7gXKGdOA0tXp7A76S4bww3Il6A" group-title="Sports Channels",JOJ-Sports
+#EXTINF:-1 tvg-id="4396" tvg-name="JOJ-Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=82ZU4hdMsCyc-A_OyHkk_7V38cvQ03Vt4DhJVZb3_MVpgticiGZz6onJQfpXEM9993cgBt-s7mvRTIjjy8p4HH5G3HS4wewil0r3GxVjtuPwws8zMMxPYqaC5bT8NyUMYtV8YSW0k8HodjfxQ5rplaG3erTM2oSi6PGWUdJ4ap7tcRtWQehw5V4YE6o76tlVbzVX-FPdoAi2SD5I7bYBWWFBcuSRNckU3A" group-title="Sports Channels",JOJ-Sports
 https://astatv.pages.dev/api/s/4396.m3u8
 
-#EXTINF:-1 tvg-id="2803" tvg-name="Sports 1 SK" tvg-logo="https://astatv.pages.dev/api/lg?t=-IZioM1wMp8VVn2BuYojVpO5cZXc6dA0j-PxxJRn5J5JJDS9au4X6oviKQqqeOM1Rq-MplYKqt8e-s64Ryqja_O0zCsiC0GHv1vu1eHDdK8HFwDlg7i4DJOzRFgSwaUwepaISLtMYmBlniXWvy-3RkEOG18nD2tq-kZRRUbaGm8P_48ja41675jAXiXMJYje17SGt2jwdg0e0L-sFdIWo0sSTd4CDvkjhA" group-title="Sports Channels",Sports 1 SK
+#EXTINF:-1 tvg-id="2803" tvg-name="Sports 1 SK" tvg-logo="https://astatv.pages.dev/api/lg?t=gDvf3uMtm7Jw-2tDpx1EeerIAXQIsu-Zc3FJvhqJdISkfhkOJqkO6zLd6SFJ0nP8nfJ-fhLdFNP9Tz7FJ7OeG3BQTDLKzit16pIxfnWLhkHrUgmPrJFNDDXm5iiZtkMQROrCq2zJ4PjgzbO7URG7MHlOjidJHOuc3VBvlAQPG057UKB3AmpkCcfjUQBZ-vL77PFPR0_0pe34i4werD2N7Q0uBaVL48qjDw" group-title="Sports Channels",Sports 1 SK
 https://astatv.pages.dev/api/s/2803.m3u8
 
-#EXTINF:-1 tvg-id="2801" tvg-name="Sports 2 SK" tvg-logo="https://astatv.pages.dev/api/lg?t=kORu7S6XyKCtvRpuFE9SdVIQVJcVTOM-hHek52r_d1hZTX4msLFNPNcM0vHrr74JAUQEG8c3DykXLthL8wj_w-99FGGwivKWKF_h7SItKzUoXTL_a_TIzcfGScQI73LdrpUDPRspffd8KJNe817azc5vmsdFr_3Ne9hljsX7OsocSjmp8MluisrAh1TEsmIRfFp7ujCyUqYEtww5qPuo7dEKg8WzyURKzg" group-title="Sports Channels",Sports 2 SK
+#EXTINF:-1 tvg-id="2801" tvg-name="Sports 2 SK" tvg-logo="https://astatv.pages.dev/api/lg?t=mLKG_2TF5lufiu9YE2WGK_WVoIwFfhxwUaGUzJx1SvcPDevphcQSBKfYrfsA-RC7BsgzSSzHaaisOFS7Mw4_jbarZz-mCYLKKYaNuK5c0nld_BSW-uxRTNiX_oYu1Ahf2taSbLxnzw7C9_ahu0WFlkbIGVqLAZSrSqniht6b-Fql_FUG15ltlDnEHEbwpnSBfvmUfxA_XvCId-ejALGWXouxMi3qfD_iDA" group-title="Sports Channels",Sports 2 SK
 https://astatv.pages.dev/api/s/2801.m3u8
 
-#EXTINF:-1 tvg-id="5066" tvg-name="GMM-tv" tvg-logo="https://astatv.pages.dev/api/lg?t=QjYQQI2hplwFKPii-AVS8JY-9Y-uurmU65ULTceoQQyEJhYvljebLuEynmfE0a68yaCRO2lucZSQg-90GOLEIqCMgpMtf6nop8EaG0dVnFQfrnHSMyGTf62kT_tPn0PCo-mI-laCC-K4j7v7GZmJQIe6v7h2vnuZTWv-ZCeHiajQpn4Ydj5bu1E_vQWpQJ8K0quVZLJ-LZURgZXZI1Yh_5CkydW_L3j6CA" group-title="Sports Channels",GMM-tv
+#EXTINF:-1 tvg-id="5066" tvg-name="GMM-tv" tvg-logo="https://astatv.pages.dev/api/lg?t=BCKm6NdTJV7xv3NbGMJBNFRcckGq9oiqgBP1rk4EicCrLfx_kHZjN5RxdlIxdGk0OBHr1ubk_aCpviruFjrcOkvob0rgzaGHxorJgFvlOTeX-xWE0mNy0ppkcGeh-HefjElDe8vYhUpJK-SboNkvwXctOsS4aRd3P43PUu-xl8AQclUt0I6HVgLe-6sV2tmLzZL39fn8sqpefpupASjMreSjgKchFpu5kw" group-title="Sports Channels",GMM-tv
 https://astatv.pages.dev/api/s/5066.m3u8
 
-#EXTINF:-1 tvg-id="5112" tvg-name="GMM-tv 2" tvg-logo="https://astatv.pages.dev/api/lg?t=FZJ4qw8AV073D5g3ac5hFeM8HTcYtfIcjIVkJa3MNjQAPQIFYtz0TknUBWkvGQlB5QOwsnev_guF6wW0No0mHk_GfuhT0vELonMlbYFXd3NnQwZJLOPSIPsDYP22xsMo9QmFROFUa0FUG1WNLvsd-c1rHylK-W5Qh0DP4nnIlwbgIQivYsNfpvwIaB8q6JJUHKrETQG5Ls9o3W1vTce7g9gvz2pcAFXZ_A" group-title="Sports Channels",GMM-tv 2
+#EXTINF:-1 tvg-id="5112" tvg-name="GMM-tv 2" tvg-logo="https://astatv.pages.dev/api/lg?t=nnpc3fei02ZCb71Ep-Xa0QOFGMy0rCefwHNyY5LUk9-KqsBcVbuk478NFW2d3X7LsLyWOiSts0sWHXZP1qaf2GSuMk3xCnb8ADF9p3DtTZHpvCW7rBnKSVLHNPDvHg0NjdB5AwbDSxAX3tNL6ne1_exdnWkkRSFB2xgdYJxaHxHveV-xEnMv4w1Wo3BXdpXwBWUqXh8CnRyZA9WnEfMVhWnNBL6GYOg7JA" group-title="Sports Channels",GMM-tv 2
 https://astatv.pages.dev/api/s/5112.m3u8
 
-#EXTINF:-1 tvg-id="5197" tvg-name="Monomax Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=eteQSX5M5RZPjsJ8LTka33hUsMYq3urf_TyZ8M7P9yd7Bd0IGWE6wgHBPTN_L3_0N3bYqXVZQbwlFA7PFsxFBxMrvBVh_MyT_4uW--7WA07kjtUyQKVh2rzoHbO2nQSROZHCDIg9Z6kkMnl0hA6gQPHmOLH6BzDOss8qqSkJ1yvSnxf9naQIuqd58WptAoi3WYMnVVAF27XTU34rqTbPFX-vHPy1ZLzEcQ" group-title="Sports Channels",Monomax Sports
+#EXTINF:-1 tvg-id="5197" tvg-name="Monomax Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=1lYV1O4UjakbDs59ZicA3DU0teUckoo_M0MKutS2vPcQkmAY-YoaT-ekTXq6n-m4pr6VqAAp15h_-FoXFEiniVJuH6FtYOaq9BjybY07v6KRCbXy2r1ILHIbrDoAKgY8uZQaZ72WcmFKPtTge1dbEVnJswlvs1HjvBklp3zappj1d0NwX3QwSu4lbPZw3tURrKAKqgspQ8NhelFx9LwC4CVjhPuJoz7klA" group-title="Sports Channels",Monomax Sports
 https://astatv.pages.dev/api/s/5197.m3u8
 
-#EXTINF:-1 tvg-id="5207" tvg-name="T-Sports 7" tvg-logo="https://astatv.pages.dev/api/lg?t=3Vx5bm5FEzy829vmYCvCspz3NDSiv4sCE2seFEaMc1232kfCU3N6ivs7IYI3RKM6gS8PaUvp-Gnw2iN5fnWZ4b3XVPVxoGvIFuN1X7E1z5NdPC0Xz58HzfHAyu4U80Ku0JLEpEii-atoZf1YOtP1OMsx3qbIL65mIhXT4ixET5ExkrAAdYynjP7HYoUY3r6Km6RZ6_1HBwJeGEv4C2O5PuInDHaepSutpw" group-title="Sports Channels",T-Sports 7
+#EXTINF:-1 tvg-id="5207" tvg-name="T-Sports 7" tvg-logo="https://astatv.pages.dev/api/lg?t=Id0KxOa0L0BIaILqBmS8rPnrizldJq2nM8xrIGn0WgicccwqsHS4OtkgeC2MVj1fcsYLohEU4y6jEzXsooEiSailHN_4XLQ45ACk054JLmMvj0d5IgX28my45-TQvQgqmYoIUyQoXFgvGewt33Q6dE1VHVgrFllUKcnLkACeKJy4TLkoGdnBg6jrrC6rJ7KMqvybJBoTkar5TbyeiQvA7F-tIsuLZG4c7w" group-title="Sports Channels",T-Sports 7
 https://astatv.pages.dev/api/s/5207.m3u8
 
-#EXTINF:-1 tvg-id="652" tvg-name="Thairath Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=5nM1mLPvBIueDeM-Z6v-7uwhu9mislRuSgCucjuNGp59TcSU7PmJrLRyrXWvCNFJyWjVYMG2v2wDU4CbahTxoWabAlD2PiROtxtTD-R4SUgvg5ZRVZAzdFkoP1psjOfvMSonFK3PcnGMvCNDnFBDq_gYfKBM_QHc3zZD8Vh_mQc7LpzgN6r-8jIkbjfjfv-BY8kc93tn_y4RoawFGPqxQYfUe1GHjQF8og" group-title="Sports Channels",Thairath Sports
+#EXTINF:-1 tvg-id="652" tvg-name="Thairath Sports" tvg-logo="https://astatv.pages.dev/api/lg?t=v8uFBpx4VN89MsOU3--H55ELuT3k7gFbJ81Mwelh0lHylSUBOzkLxe_xBN_w4odxk3bvgm5Fd-x8NjzKely0qMJ1wawo3nNA-_VnnDsXMgV-srPZXxEqshjHLmqlAQWNtTqeE3cPF8Qqbaq_yG1jvgIEddMa0AgtwvOhsuSiBgyoBEisTAzSeqzwwcADya8g6KRw0aZu92L0y4xKe-xpByUgE0p52ia64g" group-title="Sports Channels",Thairath Sports
 https://astatv.pages.dev/api/s/652.m3u8
 
-#EXTINF:-1 tvg-id="5431" tvg-name="HOLLYWOOD MOVIES" tvg-logo="https://astatv.pages.dev/api/lg?t=mIneyccNq-Zg2dnISBOWYMijHgw51uvHuTEp-BbUPsufx2pRuWf-wAIaqHyuQtJBTq4DFFVNj4dkc35NQ5rQT-qsbDWIszTnxms8D8Bh-BAYEJsU7hOQ2mqW6KPFxmwARBz7D2mgU6SR_x8axUMmV95qRM-ERsyjLmQtp1tci-GvQDrW4KNv6Tq97Q-3V4wN5-KS8mfeglP4IveXTQrXTyhZ0fnIWCc7yQ" group-title="United States",HOLLYWOOD MOVIES
+#EXTINF:-1 tvg-id="5431" tvg-name="HOLLYWOOD MOVIES" tvg-logo="https://astatv.pages.dev/api/lg?t=qPkpcxnIBVeV69pvhFdlBm0eW27aA6YmwgC-Bcp8G_M9e114gf5RRe-12XA9L-x8CXVZ_MUcWd9KuvBn_6Enkfq4z_Qla7egq5r2nK9u7nJh2CDICD8deHX8WmROlI_ds6JzYszx1ILJmHJG-MflKXfypcj6ZV5SlaOFhmo2uUmy3F2X_EPyspm4HnkUP_4HI4D9JC5CY--3fyy8QkIGQlrt7ZhrkrPkqQ" group-title="United States",HOLLYWOOD MOVIES
 https://astatv.pages.dev/api/s/5431.m3u8
 
-#EXTINF:-1 tvg-id="5369" tvg-name="NBC 4 New York" tvg-logo="https://astatv.pages.dev/api/lg?t=gxqjK00teBjbw_mlPOpxocTeUsMbJ5JcBuvSAjxYhTwwAlbPeh7wB9J1ioHJhxZjmYfA3vT7_f9RdJUqDcVdgFyqYFGfB7hxDukzEkhgMpLZegOAcUsmJfZ9JnH1Y6J22-c4TvZVEtYE0lCWIySdZIDpFpx7K0_XmHBQXEzsDA8iYuMGGWcuKz-gJWbTojTMhH2WyE6g9DHYQCt-tWUgSru2HhL3jV4wuw" group-title="United States",NBC 4 New York
+#EXTINF:-1 tvg-id="5369" tvg-name="NBC 4 New York" tvg-logo="https://astatv.pages.dev/api/lg?t=hRINjXEjoOniqpKzHfbmedAG9yhFcZxDLZIelWKY8UTcSQmouO1Nyml4xgtojavzk15AauIhJ4Mbz19pmixAItSqg8I81cNF0bsq1fHCtqCs-DA2jXNgL73JpoBuQSP4MWhOD4WBTorczvyXscO8h1yr2rcBZ4R1bhMGhlIUqyknXhrwCqUYS0FeUpxoOE1EtY_7_89G6lVkcmZ5vfX9xV4nKWaBbGPrWA" group-title="United States",NBC 4 New York
 https://astatv.pages.dev/api/s/5369.m3u8
 
-#EXTINF:-1 tvg-id="4394" tvg-name="VIVO D-Sports 1 UR" tvg-logo="https://astatv.pages.dev/api/lg?t=F4yzryBbo4Yd0ZbHdSh9vLv2ZR_zKKuWjz_ihAyzPVAT91TrdyiRHc2BrH43-OXGxNZVloJpd6PfGsT2nBbonzde-99W5GoilCzTLbNcTx2E9tjaM55La-x2xZ-BthKu_CNATUr2rXzLPoTyia38BbYDFYFBuaenWNbrxtQj7Vr1ty90BJCoXqJ4ZoH8TfQIfk39x2k8yvTwkIcMOjy-cTsLEaSr07UjXg" group-title="Sports Channels",VIVO D-Sports 1 UR
+#EXTINF:-1 tvg-id="4394" tvg-name="VIVO D-Sports 1 UR" tvg-logo="https://astatv.pages.dev/api/lg?t=_frf-fpN74UX4f7lzG3nEKhJulADwZTqxvhRPTm2GB4c0OvE5XyacKsp5p3xQYfoRYgJCjs_EjBe8NW_P48fDII1BU_R2zVGpXCdK8zfZ8yYCkxlGeBYI_7gV5sQoHOFyf9r78e-6F9bb_cyvDrUK54dPaKLTVLq3Hbplp50nv-5ZeI9jYDiIO-mfsdqOf9f3Xi0flYAbzqc-5HARPlhrOG6F-FdaG137w" group-title="Sports Channels",VIVO D-Sports 1 UR
 https://astatv.pages.dev/api/s/4394.m3u8
 
-#EXTINF:-1 tvg-id="4643" tvg-name="VIVO D-Sports 2 UR" tvg-logo="https://astatv.pages.dev/api/lg?t=5U_wKfP7wA1VjCNe5eqOrCssSgJqSFXnWwXzyg_3a_ljmz7haUF8CkztQDhTy3ymEugGCJ_O6n2hEfvQg1_1xnWIEX80nk30t2zE1ubZUFDG-IjSwjXK5Dol2RD0BfS0v1N3kPMPQ8xRCO_OcNkaDdw8Qf7ltppYOfXPPA_wSO5jTKPdqnBP3iAQ4fvV74FrFCDUW_IRMXb-7iKT3XQegBwBMFbNX_qrWg" group-title="Sports Channels",VIVO D-Sports 2 UR
+#EXTINF:-1 tvg-id="4643" tvg-name="VIVO D-Sports 2 UR" tvg-logo="https://astatv.pages.dev/api/lg?t=KdXLTF9v0vanlKrNX603yNjIhhGOkzRzudonCpztOlrt7DyRNS_zdWB1I_lmo5fnakYAGRMwmhsjzfvbyh7pO_EuKnczqaryZPLsRQx_rjRoehNHlWVtOm_7VgSvVwd8uTrR7ccpJ1ZXZ4pmntpKPytf70C3KqixHXm03k8rMFHHs4v4whVup8nHzQo8Qr-bZV6lblMG_jBxjHGaWIjfzg0k4N6k8SU_Og" group-title="Sports Channels",VIVO D-Sports 2 UR
 https://astatv.pages.dev/api/s/4643.m3u8
-
-#EXTINF:-1 tvg-id="2649" tvg-name="TV Tabalong" tvg-logo="https://astatv.pages.dev/api/lg?t=zSf0F3TuijAbKnx_Q1mtYvTZ6FqbRZSNgwESazIZuKBrh5C-zxVU7SFqRnnOIEH6_zAIER8SkuYjo4PHTsMIv3N2WEYEiixKpjGBBmLpZKolzRV0Vw_8FSJDNOoTULZcJU0wI_HVV300Qx00_Dwu11MEAEMudjwmepm3ChAT924tThpeimy9-PXX3YRBdZyBLur3Mz1F9ymoQzIbwfUFA5kH9EIhzOJcfA" group-title="TV Lokal",TV Tabalong
-https://astatv.pages.dev/api/s/2649.m3u8
