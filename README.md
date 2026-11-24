@@ -233,6 +233,14 @@ Mau menambah channel atau lapor channel mati? Lihat **[CONTRIBUTING.md](CONTRIBU
 
 Channel manual (yang tidak ada di source) ditambahkan di **`update-script/extra_channels.m3u`** — itu satu-satunya tempat yang dijamin tidak terhapus saat auto-update harian.
 
+### 🌟 Kontributor
+
+Terima kasih untuk yang sudah bantu bikin playlist ini tetap hidup:
+
+- **[Tesjiwa](https://github.com/Tesjiwa)** — menemukan relay ANTV (Vidio 782) yang bisa dipakai publik, plus laporan channel mati yang detail di [#44](https://github.com/dhasap/dhanytv/issues/44). ANTV HD sekarang aktif di playlist berkat ini.
+
+Mau namamu di sini? Kirim PR atau laporan channel mati yang jelas — kontribusi yang kepakai akan dicatat.
+
 ---
 
 ## ❓ FAQ
