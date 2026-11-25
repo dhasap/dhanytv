@@ -153,6 +153,11 @@ jobs:
           echo "=== Rapikan nama grup (gabung duplikat, buang grup sampah) ==="
           python3 update-script/normalize_groups.py dhanytv.m3u --write
 
+      - name: Tag DASH entries served as .m3u8
+        run: |
+          echo "=== Tandai entri DASH (astatv menyajikan MPD di path .m3u8) ==="
+          python3 update-script/tag_dash.py dhanytv.m3u --write || echo "WARN: tag dash dilewati"
+
       - name: Fix ClearKey license keys
         env:
           FIX_CLEARKEY_URLS: "${{ secrets.PLAYLIST_SOURCE_2 }}"

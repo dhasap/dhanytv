@@ -230,7 +230,9 @@ class Entry:
             # IPTV players use to embed DRM query params (e.g. `index.mpd|license_type=clearkey`).
             url_base = self.url.split("|", 1)[0] if "|" in self.url else self.url
             path = urlparse(url_base).path.lower()
-            self._dash = path.endswith(".mpd")
+            props_lower = "\n".join(getattr(self, "props", []) or []).lower()
+            declared_mpd = "manifest_type=mpd" in props_lower or "manifest_type=dash" in props_lower
+            self._dash = path.endswith(".mpd") or declared_mpd
         return self._dash
 
     @property

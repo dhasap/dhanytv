@@ -9,6 +9,7 @@ https://vidio123.mikrofast.web.id/vidio/782/index.mpd
 #EXTINF:-1 tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/wSfbef0k6V3fn7rnZa4azgVrLcM=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/728/eb7747.png" group-title="Indonesia Channels",iNews HD
 https://astatv.pages.dev/api/s/5106.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="Indosiar.id" tvg-logo="https://thumbor.prod.vidiocdn.com/0plBZ7Gso7gNBJxid9ksA8HMGxc=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/205/54ab19.png" group-title="Indonesia Channels",Indosiar HD
 https://astatv.pages.dev/api/s/1053.m3u8
 
@@ -348,9 +349,11 @@ https://raycom-accdn-firetv.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="ado.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Sports",ADO TV (720p)
 https://strhls.streamakaci.tv/ortb/ortb2-multi/playlist.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.fubo.sports.1.2" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/8f/Fubo_Sports.png/revision/latest?cb=20250117221217" group-title="Sports", FUBO SPORTS 1
 https://astatv.pages.dev/api/s/3393.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.fubo.sports.2.2" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/8f/Fubo_Sports.png/revision/latest?cb=20250117221217" group-title="Sports", FUBO SPORTS 2
 https://astatv.pages.dev/api/s/2777.m3u8
 
@@ -378,15 +381,19 @@ https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/irtfdsri14/
 #EXTINF:-1 tvg-id="TSN 3" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/TSN5.svg/1200px-TSN5.svg.png" group-title="Sports",TSN 5
 https://otte.live.fly.ww.aiv-cdn.net/dub-nitro/live/clients/dash/enc/mttgh1c4ei/out/v1/9cc664b146744e2ba23066aa048efbc5/cenc.mpd?token=gH6favjoMIy0Ci5tFBoo8AuyzMvw1EMQ
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="FOX SPORTS.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fox_Sports_1_logo.svg/2560px-Fox_Sports_1_logo.svg.png" group-title="Sports", FOX SPORTS 1
 https://astatv.pages.dev/api/s/185.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="FOX SPORTS 2.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Fox_sports_2_logo.svg/2560px-Fox_sports_2_logo.svg.png" group-title="Sports", FOX SPORTS 2
 https://astatv.pages.dev/api/s/460.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="FOX SPORTS 3.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Fox_sports_3_logo.svg/2560px-Fox_sports_3_logo.svg.png" group-title="Sports", FOX SPORTS 3
 https://astatv.pages.dev/api/s/476.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="FOX SPORTS PREMIUM.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f2/Fox_Sports_Premium_%28Argentina%29_-_2018_logo.png" group-title="Sports", FOX SPORTS PREMIUM
 https://astatv.pages.dev/api/s/1258.m3u8
 
@@ -465,30 +472,38 @@ https://dsgtq5sngxkde.cloudfront.net/fightsports/index.m3u8
 #EXTINF:-1 tvg-id="plex.tv.F1.Channel.plex" tvg-logo="https://logodownload.org/wp-content/uploads/2024/05/f1-tv-logo.png" group-title="Sports",F1 TV
 https://a184aivottlinear-a.akamaihd.net/OTTB/iad-nitro/live/clients/dash/enc/5fjow0mrvw/out/v1/f870533ee24b4f3bb98d2afe4b1e1bac/cenc.mpd
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="plex.tv.MotoGP.Channel.plex" tvg-name="" tvg-logo="https://cdn.motorsport.com/images/mgl/YN1RZ4b2/s1000/motogp-logo.jpg" group-title="Sports",MotoGP Channel
 https://astatv.pages.dev/api/s/5370.m3u8
 
 #EXTINF:-1 tvg-id="auto.tennis.2.fhd" tvg-logo="https://image-resizer-cloud-cdn.api.cms.amdvids.com/image/7382296F-97F6-4450-B77B-8FE331FC04F6/3-1x1.png" group-title="Sports",TENNIS 2 FHD
 https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/bfigtl960n/out/v1/5ba5484550e84681bff2e8ca994266c1/cenc.mpd
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.tnt.sports.1" tvg-name="" tvg-logo="https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/01/TNT-Sports-Logo.png" group-title="Sports",TNT SPORTS 1
 https://astatv.pages.dev/api/s/209.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.tnt.sports.2" tvg-name="" tvg-logo="https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/01/TNT-Sports-Logo.png" group-title="Sports",TNT SPORTS 2
 https://astatv.pages.dev/api/s/210.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.tsn.sports.1" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 1
 https://astatv.pages.dev/api/s/234.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.tsn.sports.2" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 2
 https://astatv.pages.dev/api/s/4385.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.tsn.sports.3" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 3
 https://astatv.pages.dev/api/s/236.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.tsn.sports.4" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 4
 https://astatv.pages.dev/api/s/237.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.tsn.sports.5" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 5
 https://astatv.pages.dev/api/s/238.m3u8
 
@@ -825,6 +840,7 @@ https://1nyaler.streamhostingcdn.top/stream/106/index.m3u8
 #EXTINF:-1 tvg-id="auto.tudn.sports" tvg-logo="https://png.pngtree.com/png-clipart/20250628/original/pngtree-golden-fifa-2026-trophy-isolated-on-clean-white-background-png-image_21215061.png" group-title="WorldCup 2026",Tudn Sports
 https://1nyaler.streamhostingcdn.top/stream/52/index.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="auto.fs2" tvg-logo="https://i.imgur.com/LHtxKI8.png" group-title="WorldCup 2026",FS2
 https://astatv.pages.dev/api/s/911.m3u8
 
@@ -1401,6 +1417,7 @@ https://dqi7ayt2o24fn.cloudfront.net/playlist.m3u8
 #EXTINF:-1 tvg-id="dens.food.channel" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Entertainment",Dens Food Channel (DensTV)
 https://astatv.pages.dev/api/s/i10017.m3u8
 
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
 #EXTINF:-1 tvg-id="401" tvg-logo="https://iili.io/Ju79f8g.png" group-title="HBO Group",HBO
 https://astatv.pages.dev/api/s/956.m3u8
 
