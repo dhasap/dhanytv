@@ -27,6 +27,11 @@ DEAD = {
     "server 503", "server 504", "rate 429", "http 401", "http 405", "http 406",
 }
 
+SAFE_ONLY_DEAD = {
+    "404", "empty", "seg-kecil", "http 414", "http 400", "http 302", "http 200",
+    "server 500", "server 502", "server 503", "server 504", "http 405", "http 406",
+}
+
 ATTR_RE = re.compile(r'([a-zA-Z0-9_-]+)="([^"]*)"')
 
 
@@ -79,6 +84,9 @@ def main() -> int:
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--out", default=None)
     ap.add_argument("--report", default=None, help="ringkasan aksi ke JSON")
+    ap.add_argument("--safe-only", action="store_true",
+                    help="hanya buang status yang pasti mati (404/empty/4xx/5xx); "
+                         "timeout & DNS dibiarkan (bisa transient)")
     args = ap.parse_args()
 
     text = open(args.playlist, encoding="utf-8", errors="replace").read()
@@ -112,8 +120,9 @@ def main() -> int:
         if st in KEEP_OK:
             kept.append(block)
             continue
-        if st not in DEAD:
-            kept.append(block)          # status tak dikenal -> aman dibiarkan
+        dead_set = SAFE_ONLY_DEAD if args.safe_only else DEAD
+        if st not in dead_set:
+            kept.append(block)          # status tak dikenal / transient -> dibiarkan
             continue
 
         attrs = block_attrs(block)
