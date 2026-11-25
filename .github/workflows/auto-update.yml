@@ -128,6 +128,21 @@ jobs:
           AFTER=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
           echo "astatv: total channel sekarang $AFTER (sebelum $BEFORE)"
 
+      - name: Prune dead astatv rows
+        run: |
+          echo "=== Buang baris astatv yang manifest-nya kosong/mati ==="
+          python3 update-script/check_playlist.py dhanytv.m3u --only astatv.pages.dev \
+            --workers 32 --out /tmp/astatv_check.json || true
+          if [ -f /tmp/astatv_check.json ]; then
+            python3 update-script/repair_playlist.py dhanytv.m3u /tmp/astatv_check.json --write \
+              --report /tmp/astatv_repair.json || echo "WARN: repair astatv dilewati"
+          fi
+
+      - name: Normalize channel groups
+        run: |
+          echo "=== Rapikan nama grup (gabung duplikat, buang grup sampah) ==="
+          python3 update-script/normalize_groups.py dhanytv.m3u --write
+
       - name: Fix ClearKey license keys
         env:
           FIX_CLEARKEY_URLS: "${{ secrets.PLAYLIST_SOURCE_2 }}"

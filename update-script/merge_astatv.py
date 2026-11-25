@@ -93,6 +93,8 @@ def main():
                     help='region astatv yang boleh DITAMBAH (koma) atau * untuk semua')
     ap.add_argument('--add-cats', default='*',
                     help='kategori astatv yang boleh DITAMBAH (koma) atau * untuk semua')
+    ap.add_argument('--min-status', default='verified', choices=['verified', 'alive', 'all'],
+                    help='kualitas minimum channel astatv yang dipakai (default: verified)')
     a = ap.parse_args()
 
     text = open(a.playlist, encoding='utf-8', errors='replace').read()
@@ -107,7 +109,12 @@ def main():
     for c in chans:
         if not c.get('stream'):
             c['stream'] = f"{a.base}/api/s/{c['id']}.m3u8"
-    ast = [c for c in chans if c.get('verified')]
+    if a.min_status == 'all':
+        ast = list(chans)
+    elif a.min_status == 'alive':
+        ast = [c for c in chans if c.get('verified') or c.get('alive')]
+    else:
+        ast = [c for c in chans if c.get('verified')]
     by_key = {}
     for c in ast:
         by_key.setdefault(norm(c['name']), c)
