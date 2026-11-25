@@ -291,7 +291,7 @@ def probe(entry: Entry) -> dict:
         "name": entry.name, "group": entry.group, "tvg_id": entry.tvg_id,
         "url": entry.url, "host": entry.host, "kind": entry.kind,
         "status": status, "detail": detail, "ms": int((time.time() - t0) * 1000),
-        "astatv": "astatv.pages.dev" in entry.url,
+        "astatv": "astatv-api.pages.dev" in entry.url,
     }
 
 

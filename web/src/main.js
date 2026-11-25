@@ -449,7 +449,7 @@ async function getAstatvTwin(ch) {
       const list = parseM3U(text);
       astatvIndex = new Map();
       for (const x of list) {
-        if (!x.url || !/astatv\.pages\.dev/.test(x.url)) continue;
+        if (!x.url || !/astatv(?:-api)?\.pages\.dev/.test(x.url)) continue;
         if (x.tvgId && !astatvIndex.has(x.tvgId)) astatvIndex.set(x.tvgId, x);
         const nk = 'n:' + normName(x.name);
         if (nk !== 'n:' && !astatvIndex.has(nk)) astatvIndex.set(nk, x);

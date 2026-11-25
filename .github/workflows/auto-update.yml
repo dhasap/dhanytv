@@ -116,10 +116,10 @@ jobs:
 
       - name: Merge astatv Channels (extra source)
         run: |
-          echo "=== Merging channels from astatv API (astatv.pages.dev) ==="
+          echo "=== Merging channels from astatv API (astatv-api.pages.dev) ==="
           BEFORE=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
           python3 update-script/merge_astatv.py dhanytv.m3u \
-            --base "https://astatv.pages.dev" \
+            --base "https://astatv-api.pages.dev" \
             --prefer-astatv \
             --replace-hosts "mncmedia.malingtv.workers.dev,proxy-v.rctiplus.id" \
             --report astatv_report.json || {
@@ -131,7 +131,7 @@ jobs:
       - name: Prune dead astatv rows
         run: |
           echo "=== Buang baris astatv yang manifest-nya kosong/mati ==="
-          python3 update-script/check_playlist.py dhanytv.m3u --only astatv.pages.dev \
+          python3 update-script/check_playlist.py dhanytv.m3u --only astatv-api.pages.dev \
             --workers 32 --out /tmp/astatv_check.json || true
           if [ -f /tmp/astatv_check.json ]; then
             python3 update-script/repair_playlist.py dhanytv.m3u /tmp/astatv_check.json --write \

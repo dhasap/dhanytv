@@ -16,7 +16,7 @@ export function setProxyBase(url) {
 export function hasProxy() { return !!getProxyBase(); }
 
 // Host yang sudah mengirim CORS terbuka — header tak diperlukan (dan tak bisa dipakai browser).
-const CORS_OK = /(^|\.)astatv\.pages\.dev$/i;
+const CORS_OK = /(^|\.)astatv(?:-api)?\.pages\.dev$/i;
 
 export function isCorsOpen(url) {
   try { return CORS_OK.test(new URL(url).host); } catch { return false; }

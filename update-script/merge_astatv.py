@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Merge channel dari astatv (astatv.pages.dev) ke playlist dhanytv.
+"""Merge channel dari astatv (astatv-api.pages.dev) ke playlist dhanytv.
 
 Dipakai di CI sebagai sumber tambahan. Aman: tidak menghapus channel,
 hanya menambah yang belum ada dan (opsional) mengganti URL mati.
@@ -80,7 +80,7 @@ def esc(s):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('playlist')
-    ap.add_argument('--base', default='https://astatv.pages.dev')
+    ap.add_argument('--base', default='https://astatv-api.pages.dev')
     ap.add_argument('--dead-json', help='hasil tes: [{id,name,st,url}] — ganti yang mati')
     ap.add_argument('--replace-hosts', default='mncmedia.malingtv.workers.dev,proxy-v.rctiplus.id')
     ap.add_argument('--report', help='tulis ringkasan ke file json')
@@ -155,7 +155,7 @@ def main():
         is_dead = (e['url'] in dead_urls or e['id'] in dead_keys or k_name in dead_keys
                    or any(h in e['url'] for h in replace_hosts))
         want = (a.prefer_astatv or is_dead)
-        if cand and want and cand.get('stream') and 'astatv.pages.dev' not in e['url']:
+        if cand and want and cand.get('stream') and 'astatv-api.pages.dev' not in e['url']:
             old = e['url']
             e['url'] = cand['stream']
             replaced += 1
@@ -184,7 +184,7 @@ def main():
             k = norm(e['name'])
             if k in seen_n:
                 prev = seen_n[k]
-                if 'astatv.pages.dev' in e['url'] and 'astatv.pages.dev' not in prev['url']:
+                if 'astatv-api.pages.dev' in e['url'] and 'astatv-api.pages.dev' not in prev['url']:
                     keep[keep.index(prev)] = e
                     seen_n[k] = e
                 continue

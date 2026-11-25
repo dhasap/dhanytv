@@ -33,6 +33,7 @@ SAFE_ONLY_DEAD = {
 }
 
 ATTR_RE = re.compile(r'([a-zA-Z0-9_-]+)="([^"]*)"')
+AST_RE = re.compile(r'astatv(?:-api)?\.pages\.dev', re.I)
 
 
 def norm(name: str) -> str:
@@ -99,7 +100,7 @@ def main() -> int:
     # indeks kembaran astatv yang sehat
     astatv_ok: dict[str, str] = {}
     for r in results:
-        if "astatv.pages.dev" not in r["url"]:
+        if not AST_RE.search(r["url"]):
             continue
         if r["status"] != "ok":
             continue
