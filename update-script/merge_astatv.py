@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Merge channel dari astatv (astatv-api.pages.dev) ke playlist dhanytv.
+"""Merge channel dari astatv ke playlist dhanytv.
+
+Sumber utama: https://astatv.karaa.web.id (host lama astatv-api.pages.dev
+sudah mati — /api/channels & /api/s balas 404, jadi jangan dipakai lagi).
 
 Dipakai di CI sebagai sumber tambahan. Aman: tidak menghapus channel,
 hanya menambah yang belum ada dan (opsional) mengganti URL mati.
@@ -12,6 +15,15 @@ import urllib.request
 
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/122.0 Safari/537.36')
+
+# Host astatv yang dikenal. Yang pertama = sumber aktif, sisanya host lama
+# yang baris-barisnya di playlist masih harus dianggap "sudah dari astatv".
+AST_HOSTS = ('astatv.karaa.web.id', 'astatv-api.pages.dev', 'astatv.pages.dev')
+AST_DEFAULT_BASE = 'https://' + AST_HOSTS[0]
+
+
+def is_astatv_url(url: str) -> bool:
+    return any(h in (url or '') for h in AST_HOSTS)
 
 GROUP_BY_CAT = {
     'Sports': 'Sports Channels',
@@ -80,7 +92,7 @@ def esc(s):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('playlist')
-    ap.add_argument('--base', default='https://astatv-api.pages.dev')
+    ap.add_argument('--base', default=AST_DEFAULT_BASE)
     ap.add_argument('--dead-json', help='hasil tes: [{id,name,st,url}] — ganti yang mati')
     ap.add_argument('--replace-hosts', default='mncmedia.malingtv.workers.dev,proxy-v.rctiplus.id')
     ap.add_argument('--report', help='tulis ringkasan ke file json')
@@ -155,7 +167,7 @@ def main():
         is_dead = (e['url'] in dead_urls or e['id'] in dead_keys or k_name in dead_keys
                    or any(h in e['url'] for h in replace_hosts))
         want = (a.prefer_astatv or is_dead)
-        if cand and want and cand.get('stream') and 'astatv-api.pages.dev' not in e['url']:
+        if cand and want and cand.get('stream') and not is_astatv_url(e['url']):
             old = e['url']
             e['url'] = cand['stream']
             replaced += 1
@@ -184,7 +196,7 @@ def main():
             k = norm(e['name'])
             if k in seen_n:
                 prev = seen_n[k]
-                if 'astatv-api.pages.dev' in e['url'] and 'astatv-api.pages.dev' not in prev['url']:
+                if is_astatv_url(e['url']) and not is_astatv_url(prev['url']):
                     keep[keep.index(prev)] = e
                     seen_n[k] = e
                 continue

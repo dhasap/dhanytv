@@ -68,7 +68,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("playlist")
     ap.add_argument("--write", action="store_true")
-    ap.add_argument("--host", default="astatv-api.pages.dev", help="hanya proses host ini")
+    ap.add_argument("--host", default="astatv.karaa.web.id", help="hanya proses host ini")
     ap.add_argument("--workers", type=int, default=32)
     args = ap.parse_args()
 

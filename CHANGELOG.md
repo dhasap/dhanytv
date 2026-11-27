@@ -5,6 +5,29 @@ Format mengikuti [Keep a Changelog](https://keepachangelog.com/), dan project in
 memakai penamaan tanggal (rolling release, bukan versi semantik) karena playlist
 diperbarui otomatis.
 
+## [2026-11-27]
+
+### Fixed
+- **Sumber astatv di auto-update dipindah ke `astatv.karaa.web.id`.** Workflow
+  masih menunjuk `astatv-api.pages.dev`, yang sekarang balas **404** untuk
+  `/api/channels` dan `/api/s/<id>` — artinya langkah "Merge astatv" dan
+  "Prune dead astatv rows" tidak pernah benar-benar jalan sejak host lama mati.
+  Yang diubah: `merge_astatv.py` (default `--base` + konstanta `AST_HOSTS`),
+  `check_playlist.py` (deteksi host astatv), `tag_dash.py` (`--host` default),
+  dan `auto-update.yml` (`--base` + `--only`).
+- Host lama (`astatv-api.pages.dev`, `astatv.pages.dev`) tetap dikenali sebagai
+  "sudah dari astatv" supaya baris lama tidak dobel saat merge/dedupe.
+- `astatv_report.json` digenerate ulang (39 penggantian URL, 195 penambahan).
+
+### Verified
+- Simulasi rantai CI penuh di lokal (`merge_source` → cleanup → `merge_extra` →
+  `merge_international` → `merge_astatv` → `normalize_groups` → `tag_dash` →
+  `fix_clearkeys` → cleanup+OTT+`--check`): semua langkah exit 0, `DASH_IN_OTT=0`,
+  hasil 1181 channel / 1020 OTT.
+- `py_compile update-script/*.py` bersih, YAML workflow valid, `check_playlist
+  --only astatv.karaa.web.id` menandai entri dengan benar, `verify_keys` dan
+  `validate_clearkeys` exit 0.
+
 ## [Unreleased] — 2026-08-28
 
 ### Added
