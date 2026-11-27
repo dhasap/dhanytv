@@ -64,7 +64,12 @@ def main() -> int:
         url = lines[j] if j < len(lines) else ''
         if p and url.startswith('http'):
             for k, v in (p.get('headers') or {}).items():
-                block.append(f'#EXTVLCOPT:http-{k}={v}')
+                key = k.lower().replace('_', '-')
+                if key in ('referer', 'referrer', 'http-referrer'):
+                    key = 'referrer'
+                elif key in ('user-agent', 'http-user-agent'):
+                    key = 'user-agent'
+                block.append(f'#EXTVLCOPT:http-{key}={v}')
             out.extend(block)
             out.append(p['url'])
             used.add(p['tvg_id'])

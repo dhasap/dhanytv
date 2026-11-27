@@ -217,6 +217,12 @@ jobs:
           fi
           echo "OTT validation: OK (0 DASH channels)"
 
+      - name: Apply protected sources (final pass)
+        run: |
+          echo "=== Apply protected sources (final, setelah cleanup) ==="
+          python3 update-script/apply_protected.py dhanytv.m3u --report protected_report_final.json
+          cat protected_report_final.json
+
       - name: Lint kompatibilitas M3U (laporan)
         run: |
           echo "=== Lint kompatibilitas ==="
