@@ -1,3 +1,11 @@
+## 2026-11-27 — Harvest pengganti kanal mati
+
+- 10 kanal dipindah ke sumber baru yang lolos dekode ffmpeg: RTV, Indosiar, MDTV, KompasTV, MetroTV, TVOne, JTV, JAKTV, AXN
+- Kanal baru: Nickelodeon (Kids) — permintaan issue #46/#49
+- `check_playlist`: retry status transien sebelum memutuskan mati
+- `repair_playlist`: kenali host `astatv.karaa.web.id`
+- Workers CI 40/32 → 12
+
 # 📝 Changelog
 
 Semua perubahan penting pada project ini dicatat di sini.
