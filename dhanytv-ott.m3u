@@ -246,9 +246,6 @@ http://103.165.207.108:8000/play/a00b/index.m3u8
 #EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
 https://op-flashcon-digdayahd-1.dens.tv/h/h223/02.m3u8
 
-#EXTINF:-1 tvg-id="MDTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/LCZH_yEBnTYEQzrU1pB7w7ev-Bw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/875/325605.png" group-title="Indonesia Channels",MDTV (DensTV)
-https://dsgtq5sngxkde.cloudfront.net/antv/index.m3u8
-
 #EXTINF:-1 tvg-id="SindoNewsTV.id" tvg-logo="https://nabelsakha.com/wp-content/uploads/2023/10/Sindonews.png" group-title="Indonesia Channels",SindoNews (Vision+)
 https://dsgtq5sngxkde.cloudfront.net/sindonews/index.m3u8
 
@@ -296,8 +293,9 @@ https://astatv.karaa.web.id/api/s/1082.m3u8
 #EXTINF:-1 tvg-id="110" tvg-name="Rodja.tv" tvg-logo="https://astatv.karaa.web.id/api/lg?t=-APD1xPuoTAgOhtw75PEBLEjY60GmAJgwbm36bryiQnN905wxV2oUEqgtg7XykILpbQEGAvzev1qbNRP9VV_RedanWfa5aTzewJCPagXGpm3_5ZN9ONZAcw6rWZNmgFSAK2Dm8qgL-j2TGH96Wcisulm3zbI-KTzhaXP1YqbTOvf_ZvJ2Mho1rV1W_3FR3_hE9cehXrAL-kZK5IrBsOaLsmd-NeJYJClMw" group-title="Indonesia Channels",Rodja.tv
 https://rodjatv.com/rodjatv/live.m3u8
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="957" tvg-name="HBO Cinemax" tvg-logo="https://astatv.karaa.web.id/api/lg?t=eXo2FO_XR-5i8N1RbZo8yV_4jFMIq7Gnsvtnd9XK35dTkEurgKax0RxAoOsx9cFt3czu5ZP1lgg75CpmMVaXB5rr_nQJZNfsdBPchRX_iZG8R5xoZHh0hEztrFdvgm1bsZeDvM2ENSB_0dFYAHXHT2PngArIkYqh46OmPxSvhmKv6DPme9Dv8-ZuKRoby03XKohkpLmqL-ToZ-S7ia9VsNHom2T82JdKoQ" group-title="Indonesia Channels",HBO Cinemax
-https://astatv.karaa.web.id/api/s/957.m3u8
+http://125.227.210.55:1001/VideoInput/play.ts
 
 #EXTINF:-1 tvg-id="287" tvg-name="tVN Movies" tvg-logo="https://astatv.karaa.web.id/api/lg?t=q8pyMoqHiciEqYI4y2QU5p54qhPGerV6u8bW4q_k5Ga_Tu7IFb0mmmk3djn8CdlhQ6LcL0l8ff9ZXbL7gRIvVt0lWETH4t4yuoCZqeQhVblAnVZvtEEutPZH7HQHRuuKSo5kIr9rx994zNwh3UOUkIAtamazinBIoLE0acE_0IccQKDrOC3IkEUxRlJFYtK5Qx_49ySHmTrvUVprXrqRFC6qfP3DppcV7A" group-title="Indonesia Channels",tVN Movies
 https://astatv.karaa.web.id/api/s/287.m3u8
@@ -770,8 +768,9 @@ http://45.190.28.50/BOX_KIDS_HD/index.m3u8
 #EXTINF:-1 tvg-id="brat.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Kids",Brat TV (1080p)
 https://streams2.sofast.tv/v1/master/611d79b11b77e2f571934fd80ca1413453772ac7/04072b68-dc6a-4d5e-98af-f356ba8d5063/playlist.m3u8
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="Animax.id" group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_animax.png",Animax (Vision+)
-https://dsgtq5sngxkde.cloudfront.net/animax/index.m3u8
+http://125.227.210.55:3056/VideoInput/play.ts
 
 #EXTINF:-1 tvg-id="auto.baby.shark.tv" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSk5u8qnZekBJlt1mpK1p4WqtmDfhTyPfABfWm7cN1BQ&s=10" group-title="Kids",Baby Shark TV
 https://newidco-babysharktv-1-eu.rakuten.wurl.tv/playlist.m3u8
@@ -1358,14 +1357,16 @@ https://dqi7ayt2o24fn.cloudfront.net/playlist.m3u8
 #EXTINF:-1 tvg-id="dens.food.channel" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Entertainment",Dens Food Channel (DensTV)
 https://astatv.karaa.web.id/api/s/i10017.m3u8
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="401" tvg-logo="https://iili.io/Ju79f8g.png" group-title="HBO Group",HBO
-https://astatv.karaa.web.id/api/s/956.m3u8
+http://125.227.210.55:1003/VideoInput/play.ts
 
 #EXTINF:-1 tvg-id="402" tvg-logo="https://iili.io/Ju79nwv.png" group-title="HBO Group",HBO Hits
 https://astatv.karaa.web.id/api/s/179.m3u8
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="403" tvg-logo="https://iili.io/Ju79otR.png" group-title="HBO Group",HBO Family
-https://astatv.karaa.web.id/api/s/955.m3u8
+http://45.171.64.30:6060/play/a00k
 
 #EXTINF:-1 tvg-id="401" tvg-logo="https://iili.io/Ju79IMN.png" group-title="HBO Group",HBO Signature
 https://astatv.karaa.web.id/api/s/958.m3u8
@@ -2560,8 +2561,9 @@ https://astatv.karaa.web.id/api/s/5431.m3u8
 #EXTINF:-1 tvg-id="5369" tvg-name="NBC 4 New York" tvg-logo="https://astatv.karaa.web.id/api/lg?t=33sbtZEuLZLSo8VR2iBT5vBSOVyZFyOOiTaEb7PBRDGsSx0g0_8y1WMBTnDzodLALag3gwFsLCcgQ9GJEQgNjTsCJEw1tuebICGD8y8Y4-qYimOoPfyoW7RvQkBxjRYuCO3jcmN7Casb_Dr1Yw3YYxoJRPTv8Wym4-b-MJ9yBcU5LN9-aEktm2yeDY31niAPnB92DbYZr0TSu9LRClileuNeCEESBEWdwA" group-title="United States",NBC 4 New York
 https://astatv.karaa.web.id/api/s/5369.m3u8
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
 #EXTINF:-1 tvg-id="BBCWorldNews.id" tvg-name="BBC World News" group-title="News",BBC World News
-http://103.165.207.108:8000/play/a01d/index.m3u8
+https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/bbc_news/live.livx/playlist.m3u8
 
 #EXTVLCOPT:http-Referer=https://mgstv.co.id/live-streaming/
 #EXTINF:-1 tvg-id="MGSTV.id" tvg-name="MGSTV" group-title="Religious",MGSTV

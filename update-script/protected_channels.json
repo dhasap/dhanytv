@@ -176,8 +176,10 @@
   "name": "BBC World News",
   "tvg_id": "BBCWorldNews.id",
   "group": "News",
-  "url": "http://103.165.207.108:8000/play/a01d/index.m3u8",
-  "headers": {}
+  "url": "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/bbc_news/live.livx/playlist.m3u8",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
  },
  {
   "name": "MGSTV",
@@ -250,5 +252,41 @@
   "group": "Local Channels",
   "url": "https://5bf7b725107e5.streamlock.net/tv9/tv9/playlist.m3u8",
   "headers": {}
+ },
+ {
+  "name": "Animax",
+  "tvg_id": "Animax.id",
+  "group": "Entertainment",
+  "url": "http://125.227.210.55:3056/VideoInput/play.ts",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
+ },
+ {
+  "name": "HBO",
+  "tvg_id": "HBO.id",
+  "group": "HBO Group",
+  "url": "http://125.227.210.55:1003/VideoInput/play.ts",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
+ },
+ {
+  "name": "HBO Family",
+  "tvg_id": "HBOFamily.id",
+  "group": "HBO Group",
+  "url": "http://45.171.64.30:6060/play/a00k",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
+ },
+ {
+  "name": "HBO Cinemax",
+  "tvg_id": "HBOCinemax.id",
+  "group": "HBO Group",
+  "url": "http://125.227.210.55:1001/VideoInput/play.ts",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
  }
 ]
