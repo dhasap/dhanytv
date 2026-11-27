@@ -626,3 +626,5 @@ re:^https://astatv(-api)?\.pages\.dev/api/s/(101|102|1020|104|105|106|107|108|10
 dsgtq5sngxkde.cloudfront.net/bein1/
 dsgtq5sngxkde.cloudfront.net/bein2/
 dsgtq5sngxkde.cloudfront.net/bein3/
+# beIN Sports AU (astatv) - video kosong/blank, terverifikasi frame
+re:^https://astatv(\.karaa\.web\.id|-api\.pages\.dev)/api/s/(2939|2940|2972)\.m3u8(\?|$)
