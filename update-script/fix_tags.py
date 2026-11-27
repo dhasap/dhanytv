@@ -41,6 +41,57 @@ def split_extinf(line):
     return line[:c], line[c + 1:].strip()
 
 
+def hoist_orphan_tags(text):
+    """Pindahkan tag yang berdiri SEBELUM #EXTINF ke sesudahnya.
+
+    Kodi/VLC menempelkan #KODIPROP/#EXTVLCOPT ke entri berikutnya hanya kalau
+    tag itu berada setelah #EXTINF dan sebelum URL; kalau di atas #EXTINF ia
+    menempel ke entri sebelumnya (atau diabaikan).
+    """
+    lines = text.split("\n")
+    out, pending = [], []
+    for line in lines:
+        s = line.strip()
+        if s.startswith("#") and not s.startswith("#EXTINF") and not s.startswith("#EXTM3U"):
+            pending.append(s)
+            continue
+        if s.startswith("#EXTINF"):
+            out.append(line)
+            out.extend(pending)
+            pending = []
+            continue
+        if pending:
+            out.extend(pending)
+            pending = []
+        out.append(line)
+    out.extend(pending)
+    return "\n".join(out)
+
+
+
+
+def dedupe_tvg_ids(text):
+    """Buang tvg-id duplikat (kanal kedua dst) supaya EPG tidak tertukar.
+
+    Dua entri dengan tvg-id sama membuat pemain menempelkan jadwal yang sama
+    ke dua kanal berbeda. Yang pertama dipertahankan; sisanya jatuh ke
+    pencocokan nama (tvg-name).
+    """
+    seen = set()
+    out = []
+    for line in text.split("\n"):
+        if line.startswith("#EXTINF"):
+            m = re.search(r'tvg-id="([^"]*)"', line)
+            if m:
+                tid = m.group(1)
+                if tid and tid in seen:
+                    line = re.sub(r'\s*tvg-id="[^"]*"', "", line, count=1)
+                elif tid:
+                    seen.add(tid)
+        out.append(line)
+    return "\n".join(out)
+
+
 def patch(path, drop_dead=False, add_inputstream=False):
     text = pathlib.Path(path).read_text(encoding="utf-8")
     lines = text.split("\n")
@@ -185,6 +236,8 @@ def main():
     a = ap.parse_args()
 
     new, stats, log = patch(a.src, a.drop_dead, a.add_inputstream)
+    new = hoist_orphan_tags(new)
+    new = dedupe_tvg_ids(new)
     for l in log[:200]:
         print(l)
     if len(log) > 200:

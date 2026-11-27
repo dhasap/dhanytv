@@ -217,6 +217,11 @@ jobs:
           fi
           echo "OTT validation: OK (0 DASH channels)"
 
+      - name: Lint kompatibilitas M3U (laporan)
+        run: |
+          echo "=== Lint kompatibilitas ==="
+          python3 update-script/compat_check.py dhanytv.m3u --epg epg.xml || true
+
       - name: Re-fix ClearKeys after cleanup
         run: |
           echo "=== Re-fixing ClearKeys after cleanup ==="
