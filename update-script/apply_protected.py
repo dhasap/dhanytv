@@ -92,6 +92,19 @@ def main() -> int:
             out.append(f'#EXTVLCOPT:http-{k}={v}')
         out.append(p['url'])
 
+    # dedupe tvg-id: entri kedua dst kehilangan id agar EPG tidak tertukar
+    seen, deduped = set(), []
+    for line in out:
+        if line.startswith('#EXTINF'):
+            m = re.search(r'tvg-id="([^"]*)"', line)
+            if m and m.group(1):
+                if m.group(1) in seen:
+                    line = re.sub(r'\s*tvg-id="[^"]*"', '', line, count=1)
+                else:
+                    seen.add(m.group(1))
+        deduped.append(line)
+    out = deduped
+
     open(args.playlist, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
     if args.report:
         json.dump({'patched': sorted(used), 'added': [p['tvg_id'] for p in missing]},
