@@ -1,15 +1,36 @@
-#EXTM3U
+#EXTM3U url-tvg="https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml" x-tvg-url="https://raw.githubusercontent.com/dhasap/dhanytv/main/epg.xml"
 
 #EXTINF:-1 tvg-id="iNews.id" tvg-logo="https://thumbor.prod.vidiocdn.com/wSfbef0k6V3fn7rnZa4azgVrLcM=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/728/eb7747.png" group-title="Indonesia Channels",iNews HD
 https://cdn.pishow.tv/ott/live/411/master.m3u8
+
+#EXTINF:-1 tvg-id="Indosiar.id" tvg-logo="https://thumbor.prod.vidiocdn.com/0plBZ7Gso7gNBJxid9ksA8HMGxc=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/205/54ab19.png" group-title="Indonesia Channels",Indosiar HD
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstream.adaptive.stream_headers=Referer=https://www.dens.tv/|referrer=https://www.dens.tv/|Origin=https://www.dens.tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36|user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+https://op-flashcon-digdayahd-1.dens.tv/h/h207/01.m3u8
 
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
 #EXTVLCOPT:http-referrer=https://www.cnnindonesia.com/
 #EXTINF:-1 tvg-id="TransTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/__j35q7LPpcS2EgkR7v8GpE4USQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/733/ecaa60.png" group-title="Indonesia Channels",TransTV HD
 https://live.cnnindonesia.com/transtv/smil:transtv/chunklist_w2685575259_b744100_sleng.m3u8
 
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+#EXTVLCOPT:http-referrer=https://www.cnnindonesia.com/
+#EXTINF:-1 tvg-id="Trans7.id" tvg-logo="https://thumbor.prod.vidiocdn.com/-MEB2a6J4sB6SvBDimCb7JYP6WY=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/734/131514.png" group-title="Indonesia Channels",Trans7 HD
+https://live.cnnindonesia.com/trans7/smil:trans7/chunklist_w2685575259_b744100_sleng.m3u8
+
 #EXTINF:-1 tvg-id="MetroTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/u0aa_S_rQeujrp5eR6LwXdertrI=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/777/ea8483.png" group-title="Indonesia Channels",Metro TV HD
 http://103.165.207.108:8000/play/a00a/index.m3u8
+
+#EXTINF:-1 tvg-id="tvOne.id" tvg-logo="https://thumbor.prod.vidiocdn.com/APQ6a9vXvN6lU1zjeyL15IV_AJQ=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/783/07750c.png" group-title="Indonesia Channels",TVOne HD
+#EXTVLCOPT:http-referrer=https://www.dens.tv/
+#EXTVLCOPT:http-origin=https://www.dens.tv
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#KODIPROP:inputstream.adaptive.stream_headers=Referer=https://www.dens.tv/|referrer=https://www.dens.tv/|Origin=https://www.dens.tv|User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36|user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36
+#EXTHTTP:{"Referer":"https://www.dens.tv/","referrer":"https://www.dens.tv/","Origin":"https://www.dens.tv","User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"}
+https://op-group1-densxvisionhd-1.dens.tv/h/h40/01.m3u8
 
 #EXTINF:-1 tvg-id="KompasTV.id" tvg-logo="https://thumbor.prod.vidiocdn.com/Pf8yLSfHEUZeRI9tUzLDR2U8Zow=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/874/042ca3.png" group-title="Indonesia Channels",Kompas TV HD (Alt 2)
 #EXTVLCOPT:http-referrer=https://www.dens.tv/
@@ -191,6 +212,12 @@ https://astatv.karaa.web.id/api/s/110.m3u8
 #EXTINF:-1 tvg-id="155" tvg-name="TV9 Nusantara" tvg-logo="https://astatv.karaa.web.id/api/lg?t=2xjMEtH3tdec_bvR58zpnF7tI9JGIvA2nLtkCeueVGkpvaSHCSGeLoRGunh1aY4QXc-X5iFmS0iv45Y22e5GrhRzvbu6pMhhSonH-vLOGBLnEuXPIfUmov_tS2KBcgTF15dc1PYt1EMvKVdVMtWh9wXyhD-XmJSALwXZAS2Sz0NpoHm08bXN_vvzRKbiC2X6-IArnYK-51TDk_CiDm9Ir_uJBVA3lhPU7A" group-title="Indonesia Channels",TV9 Nusantara
 https://astatv.karaa.web.id/api/s/155.m3u8
 
+#EXTINF:-1 tvg-id="957" tvg-name="HBO Cinemax" tvg-logo="https://astatv.karaa.web.id/api/lg?t=in6WMaqYAEGaOE2MH3XDyMwpiXKp1t9OZqe3185Gw2RBWWcDFvlnHxyocuNtb68b7ER35wqHKpAnr3CmP1VY-l9fvIh_ifNCNYLSnktFqRXrrlALSqq7fvNmZMhWyH35qKlkAcZZe5JgXKDt1siGdDHeCLJXems4siqVcxIA4hSDoyojAnJKCVqdjFSJCioFJIGzkEsbl5rfBXZX8t9QoPLcrfE3-TkfJg" group-title="Indonesia Channels",HBO Cinemax
+https://astatv.karaa.web.id/api/s/957.m3u8
+
+#EXTINF:-1 tvg-id="287" tvg-name="tVN Movies" tvg-logo="https://astatv.karaa.web.id/api/lg?t=gY_6NaI8M01r6Ui2wruS1SQ32DkOBWed5bLmlm5Rk7JgOsUY4OL23MafR4ZGnoTKlmfcITOUsHXUfkdVKiUEZppI8tnhIXWZHlqObJHjZtZVBgzJORj-yoDPoGyvleJZNyL4Y-oVtfUOeaut1wGTPdkDQhVvqmcfZinMJqznlO3ieeu5DnR02eYmE28BktrLmciCUyEzhLR1g1nt5oVVmb_xQ3j_uI99iw" group-title="Indonesia Channels",tVN Movies
+https://astatv.karaa.web.id/api/s/287.m3u8
+
 #EXTINF:-1 tvg-id="724" tvg-name="Music TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=lhPqiBljLbzMoffwrJYUe7NbpAVwjLKVEmWfNHUNotup2dvKOa6KSj1GdhR9aLlQfXxGUjo0eJLzrB9eXXfF9-gdAQaJa--3haEyG9TEkeB6evX_5H0NScgbWgkwXu14MjeaUlMuwWMcTb_Wsex-QG2z6nXREJgKVL8L_9QLya3lLNhwqwTD-T_pZWsUWZryK_XBU_TjVdTcMqbl3T0nN61YXTsPBUDDzg" group-title="Indonesia Channels",Music TV
 https://astatv.karaa.web.id/api/s/724.m3u8
 
@@ -326,11 +353,23 @@ https://raycom-accdn-firetv.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-id="ado.tv" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Sports",ADO TV (720p)
 https://strhls.streamakaci.tv/ortb/ortb2-multi/playlist.m3u8
 
+#EXTINF:-1 tvg-id="auto.fubo.sports.1.2" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/8f/Fubo_Sports.png/revision/latest?cb=20250117221217" group-title="Sports", FUBO SPORTS 1
+https://astatv.karaa.web.id/api/s/3393.m3u8
+
+#EXTINF:-1 tvg-id="auto.fubo.sports.2.2" tvg-logo="https://static.wikia.nocookie.net/logopedia/images/8/8f/Fubo_Sports.png/revision/latest?cb=20250117221217" group-title="Sports", FUBO SPORTS 2
+https://astatv.karaa.web.id/api/s/2777.m3u8
+
 #EXTINF:-1 tvg-id="FOX SPORTS.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Fox_Sports_1_logo.svg/2560px-Fox_Sports_1_logo.svg.png" group-title="Sports", FOX SPORTS 1
 https://astatv.karaa.web.id/api/s/185.m3u8
 
+#EXTINF:-1 tvg-id="FOX SPORTS 2.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Fox_sports_2_logo.svg/2560px-Fox_sports_2_logo.svg.png" group-title="Sports", FOX SPORTS 2
+https://astatv.karaa.web.id/api/s/460.m3u8
+
 #EXTINF:-1 tvg-id="FOX SPORTS 3.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Fox_sports_3_logo.svg/2560px-Fox_sports_3_logo.svg.png" group-title="Sports", FOX SPORTS 3
 https://astatv.karaa.web.id/api/s/476.m3u8
+
+#EXTINF:-1 tvg-id="FOX SPORTS PREMIUM.mx" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/f2/Fox_Sports_Premium_%28Argentina%29_-_2018_logo.png" group-title="Sports", FOX SPORTS PREMIUM
+https://astatv.karaa.web.id/api/s/1258.m3u8
 
 #EXTINF:-1 tvg-id="auto.dazn.ringside" group-title="Sports" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKVJVdXD6NTy8nMOIOb_mqewV8NZMUjHdPog&s", DAZN RINGSIDE
 https://astatv.karaa.web.id/api/s/5396.m3u8
@@ -362,8 +401,95 @@ https://dsgtq5sngxkde.cloudfront.net/ss2/index.m3u8
 #EXTINF:-1 tvg-id="FightSports.id" group-title="Sports" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_fightsport.png",Fight Sports (Vision+)
 https://dsgtq5sngxkde.cloudfront.net/fightsports/index.m3u8
 
+#EXTINF:-1 tvg-id="plex.tv.MotoGP.Channel.plex" tvg-name="" tvg-logo="https://cdn.motorsport.com/images/mgl/YN1RZ4b2/s1000/motogp-logo.jpg" group-title="Sports",MotoGP Channel
+https://astatv.karaa.web.id/api/s/5370.m3u8
+
+#EXTINF:-1 tvg-id="auto.tnt.sports.1" tvg-name="" tvg-logo="https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/01/TNT-Sports-Logo.png" group-title="Sports",TNT SPORTS 1
+https://astatv.karaa.web.id/api/s/209.m3u8
+
+#EXTINF:-1 tvg-id="auto.tnt.sports.2" tvg-name="" tvg-logo="https://static-wbd-cdn.wbd.com/s3_assets/wp-content/uploads/2024/01/TNT-Sports-Logo.png" group-title="Sports",TNT SPORTS 2
+https://astatv.karaa.web.id/api/s/210.m3u8
+
+#EXTINF:-1 tvg-id="auto.tsn.sports.1" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 1
+https://astatv.karaa.web.id/api/s/234.m3u8
+
+#EXTINF:-1 tvg-id="auto.tsn.sports.2" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 2
+https://astatv.karaa.web.id/api/s/4385.m3u8
+
+#EXTINF:-1 tvg-id="auto.tsn.sports.3" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 3
+https://astatv.karaa.web.id/api/s/236.m3u8
+
+#EXTINF:-1 tvg-id="auto.tsn.sports.4" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 4
+https://astatv.karaa.web.id/api/s/237.m3u8
+
+#EXTINF:-1 tvg-id="auto.tsn.sports.5" tvg-logo="https://www.bellmedia.ca/lede/wp-content/uploads/2024/09/18581592_10155403529061055_8240563011649656197_n.jpg" group-title="Sports",TSN SPORTS 5
+https://astatv.karaa.web.id/api/s/238.m3u8
+
+#EXTINF:-1 tvg-id="4641" tvg-name="VIVO D-Sports 1 AR" tvg-logo="https://astatv.karaa.web.id/api/lg?t=NkG9D0z_P31os2LfZgpQ5OeMjezVZPrfUvQ4FjeaTsCcc5gJit6xoXA4AiY0m5E9oe7yb8z0lBsPWUJmjtQNnwIBHfxo5KfAJM0zCaEHnDZ9lNIjP5oqwLaVbp9XCVl7C0o2_N-c9BLvLITo0dMwMraOVozmG1nqmE0LETjOyZ5iDXR7w-fPMLlCRMXpLOnPrb0OneULeXs8p6Ngc12W0bxxBKTlW2crGA" group-title="Sports",VIVO D-Sports 1 AR
+https://astatv.karaa.web.id/api/s/4641.m3u8
+
+#EXTINF:-1 tvg-id="4640" tvg-name="VIVO D-Sports 2 AR" tvg-logo="https://astatv.karaa.web.id/api/lg?t=NU5jpvCi0_e5WBnlSwqpkEVIBWGPYBkfjBcBmIWVc5PQefWGQmOcLHd8yq7fi-6v1PPSOklVgqRWS_sohHbCuHrcWefEAgZZszGID773X5xG4gV5pDsh_MClx0bTEzr8oYnhVEtsg71LuABvE-IGJXnV7FlDeszIuuQ892QJ2yfrxEK6hLALr4BZ_O5chS-kGUJ7HwPe5FTvje84Yw9SnxJROLkePhF9xw" group-title="Sports",VIVO D-Sports 2 AR
+https://astatv.karaa.web.id/api/s/4640.m3u8
+
+#EXTINF:-1 tvg-id="5406" tvg-name="VIVO D-Sports+ 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=SsvZYNqfgOa0On7vznWeA7rkUwkyuHNoQQaeqNZdXTcUDIl8smafLvwM_peS9OuHMKp4g7s5CQ5iLVVa17QK0MRsCeHr9mzwAPyGAiqoVwoZvDjQrvGn4hzbtkbuEWvrbUb8EWtiLhzSJqo2QSKInnb4qG_EeolECKrIQBj7tl0pLa77MbDYVGjh8AjOGSy0jRIVgcDq8mJ20egrRnfq7p9rh38qRQIPEw" group-title="Sports",VIVO D-Sports+ 1
+https://astatv.karaa.web.id/api/s/5406.m3u8
+
+#EXTINF:-1 tvg-id="5134" tvg-name="VIVO D-Sports+ 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=D7Hn3Ixq8qJBLb4a3i_2gEo-GE5Okbu1lWT-EvYJX_KYgSbHcjjF4MQS_GyG8AJZ4sfS9DdhTkgqvKVl6PGPJiMPwndNN1Y2X6_XTSDxM2xNv-tSeWsqrlp6ntApzT-LEqJYKp9udJ_cU95BIfl0khM9lYHUpDX_Bnw06AeH-Go5LOe3pK_JDqc6p768xWx6SpVmkTO2wku7A-jQA_xbFJ6nNzzZSZyo5g" group-title="Sports",VIVO D-Sports+ 2
+https://astatv.karaa.web.id/api/s/5134.m3u8
+
 #EXTINF:-1 tvg-id="4444" tvg-name="CTV Sport" tvg-logo="https://astatv.karaa.web.id/api/lg?t=wbR6jNmMBiwfVNXzGTVzx9_PWSNZrGbJlTTkM0BLhrQGxngFsE_rZbgd7zm46lUvDES1kW-W_bmM65TFk4s-dg31cbQeNi8l5OlFxkowx3TnrBZqKZO5PMHnT4uKTJlcDfKhVX1juidgB_KghuSr7CTf72OGlYryH7ackldTt1ste5QDWnUHIEYrYl_qmRS8ylGJ9nrg1CO6aL4hC5tvwEz-NCIPSy9YMQ" group-title="Sports",CTV Sport
 https://astatv.karaa.web.id/api/s/4444.m3u8
+
+#EXTINF:-1 tvg-id="211" tvg-name="TNT Sports 3" tvg-logo="https://astatv.karaa.web.id/api/lg?t=fa9DiD24dxh54oygy0o6wIxj6scOzdiSosYfF9WlimwhEQro_ifNABazNuUmzsw0bVwkpsRAxlvAWDUDg_WgGZIAjk_J8IlY9BIdHMiPXzTLino8NZutyKd1aOGg1Ic25g3f8af-H2kt4FtkfoqBQoZDgPOCc0OW9H5rSe2ANdvkfQyenvaSjFK2cEhAK0r7RoC7ddt73nhAya6RHA1Jvy6MXgCUg6dbag" group-title="Sports",TNT Sports 3
+https://astatv.karaa.web.id/api/s/211.m3u8
+
+#EXTINF:-1 tvg-id="212" tvg-name="TNT Sports 4" tvg-logo="https://astatv.karaa.web.id/api/lg?t=SUVi8Bap9rkjhFoQIkE7jsFLm90R6Rk5mmlMmkSXHQqeYA31_DPrRsDWjoWCECtVWkbsMHG4niBW3mdjO00i_4y3TW-5FBeAcOdP3vIAdzjqdODyPDzQory3LjTQFD36TFxOodG4Q_JOmGdb7fyWz6Sj3Mg_t1NmB0dL5rRfqOlGk5kRbr8hH7S1m_G-OkmH4bQ1cNBUEDH9tUnklzb3EaeFYHvzQ85SJg" group-title="Sports",TNT Sports 4
+https://astatv.karaa.web.id/api/s/212.m3u8
+
+#EXTINF:-1 tvg-id="3523" tvg-name="Fancode 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=ZdRrCJrK9RRncZ2sNn5U1cULxNcSMmA3bWPhUbBVc3x78YG7OqKvZDXj7SCXVhDK4fwTczonhQ8URGF4QdzldFOi8M7XKeLX2ISTp8JvlafnxTRL893YwruogTw-TJihKXgCexrTju0KCZaxE814WyxH3z0f1swuq2zz0Z9v_gC3lpQkNmyZ2LNLT_fF4iTLei9Y9gYaeGdPLimmcRV5YJbC5xpn1EKPmA" group-title="Sports",Fancode 1
+https://astatv.karaa.web.id/api/s/3523.m3u8
+
+#EXTINF:-1 tvg-id="3524" tvg-name="Fancode 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=LCJIUVfbLnEMpkBCcpUoYftWM5H7UwkBvRnnXdjfj-l6SCulgk53ZSjsU54OQC5jUMG2A0ZITQD0jLjwuQ4oKC7b_u0FfgZ0fW7ceQEs5f39OxFFtQXtcyeT4-4YKailZUCo0IIspMOMfZXRB-2WMxIs0_LVbUi0AgpBMlhGN7G4LKNkLWpa3Ob_DouBOuLA93efmAgKzfr74YghLNts6MczWOvE2sw7EQ" group-title="Sports",Fancode 2
+https://astatv.karaa.web.id/api/s/3524.m3u8
+
+#EXTINF:-1 tvg-id="3489" tvg-name="FOX Deportes" tvg-logo="https://astatv.karaa.web.id/api/lg?t=WcN6NfkSoDu1ahuAaLvubgNzbTSm9q7K9LZNuj_2xvEfSvRcwtzdfQAn9FN8PPw9kgHrGL3GNGHshZ4RL48aWaAnXJP3XqbOcsi0q2DxC7xRBCC4zsCT8zLHueZHM45LfW60iKzq5YAc0gTWfEGwZQChIS1K2Bdzw6kz5NcGxU-KJPztaD694Xy_5If6SyqS8fJtlM6CJBd65yB9DSzvKaK6oOh1YoVueQ" group-title="Sports",FOX Deportes
+https://astatv.karaa.web.id/api/s/3489.m3u8
+
+#EXTINF:-1 tvg-id="5434" tvg-name="FOX Plus" tvg-logo="https://astatv.karaa.web.id/api/lg?t=MPrqC53Hb7rSyQyth7cE_UEPR6z9w-cu54dQAcTs5FcO-2dyilGxUla80YDhibv8zvTSm9tZB2qr2gdxTPOVkErrzEh-K2hWJz9Swu6MewpLVzldAATQzhzzexFAFF0txiMRMkvuMAAB3plAt8tTXgzQ5ATQMa2Bo4-kE55KC-kSrgU2eD9D3IyC1SOLG99ykoMvmOKUowL5ToD7rUXJMuexle-jfj_wmw" group-title="Sports",FOX Plus
+https://astatv.karaa.web.id/api/s/5434.m3u8
+
+#EXTINF:-1 tvg-id="4396" tvg-name="JOJ-Sports" tvg-logo="https://astatv.karaa.web.id/api/lg?t=LuG1wasK4avD5m6XnytRsl_Mz7J3kZX2YArYsBYE8K4MB_o4djuagFvBW_26pz0ZpDI4d9eoCIlfYYQFZvu4iq9NfIYGSkebPuA5wEPsqFrLeiZmsCp5jxJk8ABCgqTgNHqAE86nbJhawE4BMnP3xXLkFOHo41xkCBluCO4eMZ_y1NMQXg8_-PJvt1-v-x8qk4ZVUSp7M3jKKzH8a6M0UaJ7cclyuCI8Rg" group-title="Sports",JOJ-Sports
+https://astatv.karaa.web.id/api/s/4396.m3u8
+
+#EXTINF:-1 tvg-id="2803" tvg-name="Sports 1 SK" tvg-logo="https://astatv.karaa.web.id/api/lg?t=jsqLLEhY515_I95BWtoWrTWp4BpYU_KeuDEe8ni5f-MRhbaytNXs1XptP0lfnxvyzu-NX0cotF0tsEr6mQg9ZmstoXHi34oaAj-PtK5DcBl1w5Dwddx0e2YhbFAQxPAm5_jIsvOwYul6e-XPfmZOWaLJxQK9tu_LiWOd0IwVQNJ7ytOo3e0lcqPUGKq4m_NJOASa_pei3AEd5y3bwEMgSbM_acbXFEgm8g" group-title="Sports",Sports 1 SK
+https://astatv.karaa.web.id/api/s/2803.m3u8
+
+#EXTINF:-1 tvg-id="2801" tvg-name="Sports 2 SK" tvg-logo="https://astatv.karaa.web.id/api/lg?t=CmgxwaHcAuwE0TqSuyFMjFVtD8cUUzuu-n7rlM9sUPLUiiHPFkMsgZspIRUg1XRy9pbouDvJQ_ei7K8ZpP0ILjEY4MQnh3Ot3TLFRPQilTFfU13-lpvH-RS9aYIpH5scJeWRsJsy4u0-xQDy0scaG5tMAT-HyRSEvPCb1HABGAY8CAqGboF9vZwPops_upumLyK_1lyiNVXWcXXLYK7M_t6G_ooF1gQsIA" group-title="Sports",Sports 2 SK
+https://astatv.karaa.web.id/api/s/2801.m3u8
+
+#EXTINF:-1 tvg-id="5473" tvg-name="One Fight Channel" tvg-logo="https://astatv.karaa.web.id/api/lg?t=1_fZ2IBP4DbLGbaom9K19ggy2p24HLNLH1Y4WrSGpUJPUCYfmhvTwG2dbOLA6G_FEe0mLrMm81TgLTYBgZ2ic8iTKkgX7PfDPw3w6kBl5wM-XlouG0c8RyJc_xZxbqQe0wblNKG6JzN9NAAbtu5KCZWrKQB3OZuGDKWoCIVFojpXAAax7KKHgQZyseMpwQ2xiAQDmluX1ATYMPv2cpFMLiqxiX2DJu2l_Q" group-title="Sports",One Fight Channel
+https://astatv.karaa.web.id/api/s/5473.m3u8
+
+#EXTINF:-1 tvg-id="5422" tvg-name="Action Sports 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=eOXtdzwdkLFO82ejiXsLZV7myWV4GJBbf74Jg42TWJGlFrKzCRKcxKzt5MVwbSsmmBdgRQDNYVN1ewMB3ty9VKZppzjBrshYgR3tSX1K8zPVKfS0Esw7JYU_ePDfV1N-KtOrUG9XX7ELM4hCwvHI56Dvh4wHQ5pKPbay3_aY26ZLFQbscXqblIL_H_RAbuL3Qj8Hlt-PCqw5RTiHGCm6yd1oX4baeH8T1Q" group-title="Sports",Action Sports 1
+https://astatv.karaa.web.id/api/s/5422.m3u8
+
+#EXTINF:-1 tvg-id="5435" tvg-name="Action Sports 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=3zOCrKOVCMvV42zJw3I1mYFy4Fe1_pGI_PSrgWgsv-gdbWYW989s2S1M5LKnFHbNnHCgPdsFTBd8k6gxWhQCV3jZlbcOpoz_gCedaaFCKSGlN_f5gx7bn3cd-mgvVPara9amNA1fRoIhEwys9lpRQBq_R_BXPqXN5MKinpyotjjl_ZEo9ahUJ4M5Mum2vKm0oxNsVvNyS96u8xHu0X9RwSqqvRG6DwIkaA" group-title="Sports",Action Sports 2
+https://astatv.karaa.web.id/api/s/5435.m3u8
+
+#EXTINF:-1 tvg-id="216" tvg-name="Arena Sports 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=RsQJaxMURlbWBJ2VRS_qDuETxEbF-hQ9ORwoAr2KtCindoke0dXArF1pk1-laSmzgS-VOe4-1cGxvEpTYClahAMdzTN1uiWOlJN1yPqWDQUST8h3e9e9332tBYZGOhY_Tws0jKK1rhmONgHPDdEQugFWeYose_csFMr8FJcwSe9kvOu2QnM7uzsdH1bnvItQB4DBqOzLh8N-k7__Dd81Cu2fdNcWmv4tPw" group-title="Sports",Arena Sports 1
+https://astatv.karaa.web.id/api/s/216.m3u8
+
+#EXTINF:-1 tvg-id="217" tvg-name="Arena Sports 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=vU5SSIixBbITCwpVSH3JSB4dA8FeHrnL_lvOlV1ZRmi4uox8PHB16OzzAO12Wv3_fABjtRa3_RIrL3PvAFgThsIKu-v_ZxHzx9ATMEpj3CnMJXDzHKczpgsOqVXpEPchjoHdZvjvmtBRIO2vVye4bl_frC1K1_5XBQ13fAIIcd0U6GEaQTz8LFUW-jsWj0ij2v_FHop1pPSY-5M2zrZdH2g1C26qV12CLg" group-title="Sports",Arena Sports 2
+https://astatv.karaa.web.id/api/s/217.m3u8
+
+#EXTINF:-1 tvg-id="2972" tvg-name="beIN Sports AU 1 A+" tvg-logo="https://astatv.karaa.web.id/api/lg?t=gbry9GjFMtSYfQuTunNmBXAfHLt9iyBMXM8Ozj6ULco9z_Ub-TxE-AKxMdnWItdIAjJdSX8kA5V9OxNeX8q2OBRjWDG9AOStDQZCQ5dcRjcha8agPFbP4AdUcvjkH1MoVS881aqv_zwkeWcLE4ih1DaA2pA5f3U1ih50MyI_l0keQ8q3pzRzKk2iondGYjgRN_sW6IbvhsKOhPr0MYc7KYd7HCtN-hEtXA" group-title="Sports",beIN Sports AU 1 A+
+https://astatv.karaa.web.id/api/s/2972.m3u8
+
+#EXTINF:-1 tvg-id="2939" tvg-name="beIN Sports AU 2 A+" tvg-logo="https://astatv.karaa.web.id/api/lg?t=SNkjR0DMie9aBetbFZkEwob2gtYSuBRBqH6CJ55746lPznOjUOy-QyT0UQU1xvBX50bkEuBAY0ayFILPiwgTXNkkmkooOUZxDYQzdi66UuhIKoQRsGHICgFuDFzEAURp_X_I60mU578IrDOdDAgbeD6mNSO76NGeNo_ZcbHYCABWCdvyT-ETwxo6EoagIgpMv7IliabWLcnj-96heLmyIRYCDqS_aXO0GQ" group-title="Sports",beIN Sports AU 2 A+
+https://astatv.karaa.web.id/api/s/2939.m3u8
+
+#EXTINF:-1 tvg-id="2940" tvg-name="beIN Sports AU 3 A+" tvg-logo="https://astatv.karaa.web.id/api/lg?t=1VByhPmlqpKtGzA8gP4T37hg_xgljgYTosugnrWWICjaTMtZWJlFHLyqR3qVvcqrF4kZ6I_e0bmNAvYUkW5hJmufyd1JrkgYNoTHOF3B0vSpZEt-pjrA36EgooQi7tqfhYb5d9FVWMswJU3KgYh15u8uZlHmJ-e54otibVGEDrJQQ4GrUG4Y0tBYyn6VrOCP10JkxYHGJpcXFiAuYR9SuOwS-oH_AXlObQ" group-title="Sports",beIN Sports AU 3 A+
+https://astatv.karaa.web.id/api/s/2940.m3u8
 
 #EXTINF:-1 tvg-id="92" tvg-name="beIN Sports XTRA [CH1]" tvg-logo="https://astatv.karaa.web.id/api/lg?t=thorpg3qBGSpx0BM6lLFGLRRzgmTxVGPAoqvmYLS2Vtju95be4WzIYBeLJBOIHMOxi4MFmwMEEQDnYwgVfwRUxNIFP20wtjhuyrFRgqgVVV8G3m4h0THMTS5JshzssOk8g42ztRzBujBmnkNrYEMY_YGQqQ0orim61DRVAP311p7JSR2vbUluiRj4QRUki5QhmpetWU7KqLC4akYFiIWJfxC7jFtB6rx5w" group-title="Sports",beIN Sports XTRA [CH1]
 https://astatv.karaa.web.id/api/s/92.m3u8
@@ -374,14 +500,89 @@ https://astatv.karaa.web.id/api/s/5399.m3u8
 #EXTINF:-1 tvg-id="5428" tvg-name="beIN Sports XTRA [CH3]" tvg-logo="https://astatv.karaa.web.id/api/lg?t=6quUnsIctqfcn9K4LedUZf-C0zKT0Gp79lXPvW-nBvYeLbg4vHl5sAvbYSzCO8whgyf_eSjUnktlmvjEtKsEB6Dngcbq8nGcc8_N4FOKIh1ZKYDW7PxvRKjPX5KsHW3P_ZlqFpdZOaWatN4N7vhQDVeBnt1LKFvrZtl18rTIlT_eQkIokXDTR3SZbPDx_w7LUQ4BNCZ8XiVpvlBh_BfC_RqQeQpwW613gg" group-title="Sports",beIN Sports XTRA [CH3]
 https://astatv.karaa.web.id/api/s/5428.m3u8
 
+#EXTINF:-1 tvg-id="4433" tvg-name="Caze TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=QpsfFSIK3Tp_7NZcXSEd9VHZP07-Asw3W3YaR_QoBZdky__TZviieybwh8KnxDthtem9EBMQ2SNZzXG6u8gQfsKrBj1NwqM3GNzseI0-1D4Jhw2p27-4xreT2VvzBNgu0CjJvS5uvTxnWC-S0v_2ESYk_jqIvJ9D4cNbrGjBBxzBysCPKydSr380V4iTW4iV4Q8CctsoxJ_f2Tz_X9yZx1PcSfygCMBGKA" group-title="Sports",Caze TV
+https://astatv.karaa.web.id/api/s/4433.m3u8
+
+#EXTINF:-1 tvg-id="5000" tvg-name="CazeTV2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=4zzGuMFaSL81UMEZHWeIMo4E8mfXjyzERwUjl_kJ3PM5xUH1ew7oXEiB8MURb3F6-j4sO4NFYWiqywkFDa20wKsaMNtjqGRDjUJxsheBmfQb91oGfl5kPOC_X6JdCsW-rEpDSfMXmVXLxl5m5lgNI8UXnjO3Y6vTBt2RaPG-Kolt0DssnnNjcO5YMHelKvGYUHc6m3Ti9AhAcMAhX52n9eq6-vgLMCa-4A" group-title="Sports",CazeTV2
+https://astatv.karaa.web.id/api/s/5000.m3u8
+
+#EXTINF:-1 tvg-id="3535" tvg-name="CBS Golazo" tvg-logo="https://astatv.karaa.web.id/api/lg?t=WaJc-lJtDJsFAlqGexXYqtT-gwl0-rD5ApwNxd5mFivh66r1d3EgGx8K_Z6nAp1F03Iy_f5VmeSAD1kzL-CSrRmIoagbKoOKlJUmYBkSC3mls0WAfCXWZ_V7Hgm7fIK4sIYuJ4It612QHPqxJCYHXUg8blpZRSaUQuAY2_Bywmjmx_TWwi2CCcrX0v2XsM_R2325Plfwr4XxdEJXYvq06z4YcF9-p66i4g" group-title="Sports",CBS Golazo
+https://astatv.karaa.web.id/api/s/3535.m3u8
+
+#EXTINF:-1 tvg-id="5371" tvg-name="F1 Channel [CH1]" tvg-logo="https://astatv.karaa.web.id/api/lg?t=EpgwOhenI7JT87SwWyct2rWQqY5o-R-MK8YYze1flh1SmPKDmIsqRcoUt5lkQ_gcln-Glb1fEw-OxbeQHDW1kDrpTlcGYn5wTeGrbHTD4Xgklc-646RXcjzcBhV5MJU7j7yXD0ObxL2kzGeJaGgI8Xov8ImRvzLkQnMJVKZ4NYmEm2-LLjU0sglk9bgLCohXGkcZB2rmqHkvHfwarbEsX7nd9sdfGdCSIg" group-title="Sports",F1 Channel [CH1]
+https://astatv.karaa.web.id/api/s/5371.m3u8
+
+#EXTINF:-1 tvg-id="5433" tvg-name="F1 Channel [CH2]" tvg-logo="https://astatv.karaa.web.id/api/lg?t=7WKH2NcvzPR4Vwkrzt8EKzUuqoUeX16A_UU67fYFak4hAeelrs9R7v0_A69L6e3O7oWD--yBFcQuDMzhplH9kKSa5W3FJckWFKwlcTdOhgsW5WWTe8Okgv0Kb-MLmlRHgIsIoMS6MApExiYUgkoQwputVU3agS9BWRk54oakg1T9slxqRHtYrnVaJJ4ujfeAV0DDVpMUcB1K-9jmeOhCBrfmBY2sa8e1BA" group-title="Sports",F1 Channel [CH2]
+https://astatv.karaa.web.id/api/s/5433.m3u8
+
 #EXTINF:-1 tvg-id="548" tvg-name="FIFA Plus [CH1]" tvg-logo="https://astatv.karaa.web.id/api/lg?t=ssSPYSt51ARe-LE62qGPJRuvTIQpX4ze2-FfW3Zx_kVv2ydjwgBZLdY2wq7FrkNS01PJwOwb4fXueXISZpHgY9_JSTBcyvicwYNNJQYCMtlTs3tlmyhGkShPSCL4OYBuBMdSZc5fA6bgfgjY1phwgi_Z8zQlGByUCE43eQrzsUpUyhyXO3CXalKe2t89OyJ4IP6RGYnhz5lofXNbzayyyyexZIUNRNvXtw" group-title="Sports",FIFA Plus [CH1]
 https://astatv.karaa.web.id/api/s/548.m3u8
 
 #EXTINF:-1 tvg-id="5398" tvg-name="FIFA Plus [CH2]" tvg-logo="https://astatv.karaa.web.id/api/lg?t=QZkDWXRk8MzhWmIIXmTwvzU6C4ree9Y9OwplPWoKO3lP6Fb5KFTrhWqARTDoD8KP3MvN8608zf7Vkhzlg1nCmfpdrYnBVCvgjb52kdLBysBs-n1rLFT8j0NGMrEjAvEDjXfVS9Jqkcg0r1JUR4d9uslOnfM-nAHy9_WCM00YMuFjVu3AnSQs3d-PumBGNv24m32ZzKbV7V8UFXGij2IlHQXbyS8u1AxB_A" group-title="Sports",FIFA Plus [CH2]
 https://astatv.karaa.web.id/api/s/5398.m3u8
 
+#EXTINF:-1 tvg-id="4518" tvg-name="FOX One FHD" tvg-logo="https://astatv.karaa.web.id/api/lg?t=KCEtvZhqJ0WKza-hKtF2EtQe-s2wX8DzXq6dVv49dwz984VunD5G2ivLI-Bz3mIXLxzs3n8YrFvHxbira3xUueqBR-DuVa6D2WAgIrZ4stuIcKnhuZkyJinmzU7BIKggKNvO6AfKC5z9vPbew4ArMEZFRoTnWuoxpWXo03ffV7Pf_F9P1UPxm3yuHchWwotUJXuVvhBg50nDBFbu5TDrd04nbqA_zwBqQg" group-title="Sports",FOX One FHD
+https://astatv.karaa.web.id/api/s/4518.m3u8
+
+#EXTINF:-1 tvg-id="4191" tvg-name="fubo SPORTS 3" tvg-logo="https://astatv.karaa.web.id/api/lg?t=xhwN2SykHlg8njADZHXoLakJlJajOfx1lrkNj8-4qJv0O9pKRmp4NNUr80QRPHn7TH1AU8JHMdpoWqqOoKH3P792uUOvHHFxxpySHHCpnCik1-iFZZm-2EQN6KjktsvCQ391TEET7EJmpoDJTaQxvfWa8X2clsl4q-GnQDBlBZ4YSL7FttZPXba6XLERMeM6SbcF-zG4IHrbQd2gARbRN0JKfSVnM6ZsQA" group-title="Sports",fubo SPORTS 3
+https://astatv.karaa.web.id/api/s/4191.m3u8
+
+#EXTINF:-1 tvg-id="5188" tvg-name="fubo SPORTS 4" tvg-logo="https://astatv.karaa.web.id/api/lg?t=b4m5wao2QoSbjJQ2_N9kLGpT-_wtPJ1bWCxXJF07Nkruai5UYhajz5kHg1bHnukoDA8ugKE4xDxw983-z9pNo3QKTpUYAS2bBd2xemgHVA8ODxi4ttndrE2IzKy02oUm-sNgR15IYPm13rfP6pDZ4JhhXm89zeGGygDzmW6KwoZxLAtEXWUOH9Q84Oig0Rg9z0gBgnSP4yQYou1bfLIca01UhikuIHxg6g" group-title="Sports",fubo SPORTS 4
+https://astatv.karaa.web.id/api/s/5188.m3u8
+
+#EXTINF:-1 tvg-id="5463" tvg-name="fubo SPORTS 5" tvg-logo="https://astatv.karaa.web.id/api/lg?t=bEL71Oz8nsES4-10jhyJXVJHJxWCy1nSjQwgsIyjXYHVFyjILBrXtHx5z3rJz5qMU_K8UAEe9balrIwq6tECveXhmYzrpGkwslHNpmaTeHUWcQLPs-kbnHhbAaGNnV1V6tPm6P6WuJ8ftbncq7RahS2g8KKypeuRP9Qd2Z53NafpaGYXaWt1r84eozDA3grWVHkuEWdAsItSIjj3BguRZvtCnLaFXj9QGg" group-title="Sports",fubo SPORTS 5
+https://astatv.karaa.web.id/api/s/5463.m3u8
+
+#EXTINF:-1 tvg-id="5391" tvg-name="HBO Boxing" tvg-logo="https://astatv.karaa.web.id/api/lg?t=ZiqqumPwamuZwgGPBDl_zZrgn_-3BbTAaDxyxIK2F-h2ayl80dssa_ztZOcSOMQFwkyvcUeaxEbX4q6AXb6RL-RYiLGE2qX7Kd0F5STZRlU9Mjk-ZzKFbYQ6FsWy9KhIfJwj7uvhJHrnfinDvBPuADu4ch8ZtzeIBV8gPCQTZUumHpV1jM4gmVRysS3hcDOIp_ye9Va0ZqvAQO30LagHXInTRLjmcaEZ9w" group-title="Sports",HBO Boxing
+https://astatv.karaa.web.id/api/s/5391.m3u8
+
+#EXTINF:-1 tvg-id="477" tvg-name="NBA TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=548w9hiuSAlvJ2D9rgvywSq_zq3KIrgiYNu63C9-OuXKH-Ky4F5Ux_2j2gKVJ5VcSwf29c_N9ixJoy29HfWKp-VuOY94k5s2BbU9-0SrOzAD6Fw6QK9B3uENKPlLyCtdLl6-2WhaG69_mNx9mQjVx2hRCQoSjojegc1fXwmkID1sohUlZj2fzAhE9DjucXfhufm694cdfGNnMvdHewsdRnahzbHf4vUSyw" group-title="Sports",NBA TV
+https://astatv.karaa.web.id/api/s/477.m3u8
+
+#EXTINF:-1 tvg-id="2859" tvg-name="nova SPORT1 HD" tvg-logo="https://astatv.karaa.web.id/api/lg?t=qwDuaKsqx5aQyEeresPTPuT45sNduTstLcLtnh514za_9Txzd74jJJDCbC4fhiFPPWx4ZB4Lc0x_IVas05ez4sHFqO5ppoNfqC5x7KWsDKtxTRkZneSMMrZXpEiP974kiF5WmyCyP0dW6ef73jYy3v7jseChmQu53UIMGfZ2Uda0yjCxo9izkrtlD2KugChNFvFGPbDglxb3soaZ0mTn2CnWPw7k1HzlUQ" group-title="Sports",nova SPORT1 HD
+https://astatv.karaa.web.id/api/s/2859.m3u8
+
+#EXTINF:-1 tvg-id="2860" tvg-name="nova SPORT2 HD" tvg-logo="https://astatv.karaa.web.id/api/lg?t=s59tdnEXo1rHY28zpmvy-_3pqtFoU4tS_jUP0LRSVZg70-oXMPHBu2DJofNjWu5BGk4uJDpy19-5GXE_4BUwdMdR5GH_q-Eq898CIFYj8G5sVS8r8LcRBCAshRGkukp6IdTdefyAZh9IhA3R0F9xHodKFyfdfo0_SuQWnkcWEHIaZ7aM99HpEtkhHrz2kFotf99s3WjSbL-2Um9SK-8uHDCWw-B5mGihKA" group-title="Sports",nova SPORT2 HD
+https://astatv.karaa.web.id/api/s/2860.m3u8
+
+#EXTINF:-1 tvg-id="5420" tvg-name="Pickleball TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=Uq7YrILNhJyrktl-u7ZAj5EPSpF4hwKDbpAp_1Ojbwp6Gc7gNsi7TCbvZ2Sa8fjIImViZNiY6aUcPHitcY7HIffvPbySJwSWRE7t6hyD96WXRCHwePzAkbhbp9tNvw1uQCb9QT7R2x7XsbCw95pnufkz-2TTtmGn3f6LhcJvqdNtaNTApAEsN0OF1lX3_b82qs1I3qyOacAuEm6Oc-XJJ7FS3PpWWWZThg" group-title="Sports",Pickleball TV
+https://astatv.karaa.web.id/api/s/5420.m3u8
+
+#EXTINF:-1 tvg-id="461" tvg-name="Premier Sports 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=o8rvGLdq_U27rQDizNvAAN_CgH3rCprabproCYJry3ZgmeWnpk86-ZL4sPmGdtWZXQ58iw6A6ZD3DaKr4RidIuvvz8mK2Rnix0XWB72ZOtGDFp4QkjFYFPAWB8MGKEX5Ls7SyG5JhJj1OeOuPTD4Dt2ybaL7QVTyh0iiqbaN51qw3scpncCMtD-6S8a-JE6GtQmQBXj3_rrgsYP5UDrB2Sur3yDYMlN2Uw" group-title="Sports",Premier Sports 1
+https://astatv.karaa.web.id/api/s/461.m3u8
+
+#EXTINF:-1 tvg-id="462" tvg-name="Premier Sports 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=AhCMj6Q3pyIIhVkIdxHn51Ch64F6O7MfD8iAnc0dS0x5rfxi1Xe8MWAHDLl8MOgFehbZNULjeUUCCk7qjLFx9X7sb7qukc7SWTTiL8Wi1ilm8Z23IUDYkbUfqAK7DbNqahjMaHX_glcJvecjCLYfetaqqaUmTkjaL1A16mf7BXaplh4LlFvN-Ti8fd6GYr03rUTP66ibsU7lHOcYD1B63tFoKWiGANZ46Q" group-title="Sports",Premier Sports 2
+https://astatv.karaa.web.id/api/s/462.m3u8
+
+#EXTINF:-1 tvg-id="5200" tvg-name="Premier Sports UK 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=yuUuAhfLj2TwcEqblu2yNjt-Nzi6MnIlGewIurY99Gjcgue_waWtHax8KdTEzMQYX1IVwc60BTmQjbBhaZ4QSkLyfPWKzLTBgEgtR7eV1mOsRfLrxtjh1WW9nbmDIfwy1to_rE2isluux8OQWDdhEMI9ZA2lJPkzx9EYiKx-hBlcHY1ZtJw4t9Lc18MfjUS5Bbx9e5aI2Tkgx2sFulxVH67WDRzJ3u1CRA" group-title="Sports",Premier Sports UK 1
+https://astatv.karaa.web.id/api/s/5200.m3u8
+
+#EXTINF:-1 tvg-id="5201" tvg-name="Premier Sports UK 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=59dlZgGTIWmgqNGX78khqG3w65ndwq48F6omxvNfnUvdBK0BPMXgxr8DZEusGrWSfpmBagac0NW9TvL2X5O2Sd_IhhL0vVtTvJ69WSd05BGA3yyvFSbNQ_upzHRPEbi02LjJ86yt6MVKtZJcdd4K-rL6fnWG0VbMT6MglSwsdOV7UXWqaDxmBH4aDw-41ixmx4hUVzu8L6gPCeraTaLMqVcCcvkOzo3lqA" group-title="Sports",Premier Sports UK 2
+https://astatv.karaa.web.id/api/s/5201.m3u8
+
+#EXTINF:-1 tvg-id="712" tvg-name="Sky Sports EPL" tvg-logo="https://astatv.karaa.web.id/api/lg?t=D7DEGW2mUPEN9di7PtSERsXFlQCFu049ocqh9AwCx5gG09Cq8UjY2KnQa3Os35WOybKSVnAqC0PUXQOZRlUS8JQKGCuD0oDz7KWXI7aVz7GK1fRhdZH_Rl05nr0nDRCOqViNAIF19ewDq858VX5wNnc8GPAnKg49uVPwYyoytBK2qn6tRFCirV42_tV-mFFhRSB_WVKszQ8ZtLHbsV7CeqoiipOkt9esQg" group-title="Sports",Sky Sports EPL
+https://astatv.karaa.web.id/api/s/712.m3u8
+
+#EXTINF:-1 tvg-id="247" tvg-name="Sky Sports Mix" tvg-logo="https://astatv.karaa.web.id/api/lg?t=3922VEtxlr60nvxsS5EphWmpBwpNpdReuZBFh6F2Zz2BdYVrlwAwFKMzCb0Opw0QlWNhErqW6067TQxH43gvpPcovfiXHxYHMb1lqOZEUoxmw9VdallZPcPKktPebuEaHeL42mZc58YHNkK1BLMMwXNoNspnkVtEyshsBbO-E7WkhWWrSR4VEVE07oQzd48Z_4Bf2F5ehDUk2YRWSWQh5jjTRNspraEFAA" group-title="Sports",Sky Sports Mix
+https://astatv.karaa.web.id/api/s/247.m3u8
+
+#EXTINF:-1 tvg-id="239" tvg-name="Sportdigital Fussball" tvg-logo="https://astatv.karaa.web.id/api/lg?t=K91V-zP4Ns2Vaof3LzJeZ0CIo8t5XTQkXgfDstqgqnqo9q-L5sjmd5TnC6u0gVC3kDHhN7wXb8zuQcH8VkJyQXpC4iXWSprQQKcuI_UAbzIpRjrkhFkodCBKxDVJ0XTOYuU08I9iReEYO5LkHXvsafihbAC-kCrNTVr72ucb6N1goh60u6MfUEeLYexjmERUW1WqDkrKdou2a9iN_DZ6IVZQSDHAv8tzcg" group-title="Sports",Sportdigital Fussball
+https://astatv.karaa.web.id/api/s/239.m3u8
+
 #EXTINF:-1 tvg-id="5388" tvg-name="Sportdigital Fussball 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=5LGIc0EmwHJJpr4y-CeazMKuzjXK7M-OO3kes2sOnwVnpzjO1S-kYIAExt8UCLcjL4Yv43JhNsLaJEpKvTPf8tKSiEfMrQZmXu3z4ONnTs9Itt2OBWEcoOqrBIdA0IbpvIMfRAr89o7LywqdDPNxPu9SD8P4d9towdzqWkdV3MLHn0jf6-wDEpLwtjY06JVRFkb91Jp1nN_js4yWK81oB-qfKOnRbTx7ug" group-title="Sports",Sportdigital Fussball 2
 https://astatv.karaa.web.id/api/s/5388.m3u8
+
+#EXTINF:-1 tvg-id="5193" tvg-name="SPORTS3 TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=TJJ_1gB9goENoJgG86mLh7kHltKaj_rM-wGVQtzN0BD0o5nVBVS3VuLdhPqT3OfxoUroqb3bmVZsPExtT1PWi7AplWybBqZih6WSACx4ecMdChJxC1vdKAkBMZ6xAcmniqAEG6weuNJSJIDe-h0afiiLtt_iH0PoYPO5Dz6jZmrg5kphAC92Vc8BlM8y4wK5sF_EO709j1Pn14GH-T01FxnTdEeHPvD-jg" group-title="Sports",SPORTS3 TV
+https://astatv.karaa.web.id/api/s/5193.m3u8
+
+#EXTINF:-1 tvg-id="2878" tvg-name="SporTV BR 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=iAh2F6yiawjC80dLl68_TAgZNxVxfZefSbCzyirFUPypR7AgN5wd_mR-nFh29R1OYCY6t2Vqsbt-SAQl-7qg955EmujV35C3Hyxf7a5zWITMEoHaTm1D4nOwctd3dhqv6kpTCRmEpvPQ9ezRUxG_L5zyl0Ws5nPoiqOYY0RA0VD75gOaIQ3PIcNFsTHMYh_VKqp9ddlcvwQ5BGsPYHKADdvWX8ZiNXfMUQ" group-title="Sports",SporTV BR 1
+https://astatv.karaa.web.id/api/s/2878.m3u8
+
+#EXTINF:-1 tvg-id="2879" tvg-name="SporTV BR 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=4rOVfbepSj8sQrwRC2A2bE72wF_xAVTcrw8jmpsNvQ-k6Zp-l9_cId93oEuMYsNhZRm1uF0WVCqKaRBLOZE40k53vXpiJCqn5bgXijKQEFx_EftgxtS4-wZg_ALo1PdzptCQZM7p2LXSjzQyoCjAA1ewJGKE_AqWR8pXjai_IrSa3u6AQmT_xKFniUmARAtNfwaswehMHT_1yvK94x149MxytWN4yDK6kQ" group-title="Sports",SporTV BR 2
+https://astatv.karaa.web.id/api/s/2879.m3u8
+
+#EXTINF:-1 tvg-id="2880" tvg-name="SporTV BR 3" tvg-logo="https://astatv.karaa.web.id/api/lg?t=8jZVwdRsdRtVH130dVKk_M4ymZn81YaUuYzje4oEfeMZo35cjlG1MyFBiyalpmifK3CB6UX1gaUaJjxOvZyAASO4CW5Lxr9B2_tIX36Z-CtJhfEXoGHCxy6ja3fkLxnD845UrFk9hXTQT-_qcBeHfG21hRTdhLdEUwcIHrJeXJZdmGr5SUNmntE1mvCE8K589nLtIb5eJEaIHOApC2ByLWA9VV1dRiu_Og" group-title="Sports",SporTV BR 3
+https://astatv.karaa.web.id/api/s/2880.m3u8
 
 #EXTINF:-1 tvg-id="5426" tvg-name="T-Sports" tvg-logo="https://astatv.karaa.web.id/api/lg?t=2AmsI8Owq-tZi6FyiH-1_-IDXCV-euLbIwKfMj3LV40J0ggeE06rKVxeI9xmNJq7bT13yD1geD_W_MLIJYqM7Q3tyyAxCfIa94pmQZttKxYNHBeecNyh1PdeUmBhkRTZxVbdIcFkAjv3CXncrbtcF1aJlF5uU6y1ZHs6EiibPW4pE9KDnq157XUAd8DVuofsJsIjcQadK2zAqxNQP9pVN_Gw31KjlScHWw" group-title="Sports",T-Sports
 https://astatv.karaa.web.id/api/s/5426.m3u8
@@ -389,11 +590,23 @@ https://astatv.karaa.web.id/api/s/5426.m3u8
 #EXTINF:-1 tvg-id="3288" tvg-name="Telemundo" tvg-logo="https://astatv.karaa.web.id/api/lg?t=HdyFGHfvRaEr2_5vqcJ9o3ye2lr5MbPxeGFY-_geWCpocTW5_fQc6TnfCA8UUcoLOjGG1kwRRn2kl9_ElF0KG_jZMehR0xRj5CSuOJsJLt3UmI0m5FvZX8JZ_4jJUoZwKN7dpe1rcrFdKOFoQX_eRZaxzKbrj596icm8luaLQWHQDuH3ZBRjA7ve6RBWuRGUbULrbYABNLseru0mJEEos4p81WqMjypUAQ" group-title="Sports",Telemundo
 https://astatv.karaa.web.id/api/s/3288.m3u8
 
+#EXTINF:-1 tvg-id="5392" tvg-name="Tennis Channel" tvg-logo="https://astatv.karaa.web.id/api/lg?t=Tb7GeJQmqbhu8ZFNw_AuzF55Umz0xWRu0ot4uop-DgLgXqsveDEuHAJ8LRgPH3esYWsJPS2Gba8VPk3dtnUguS-mN1tASBgG4p3vf7RJYpVH45GhjHJmDi7Vh977IhuLwwCqUmErHQ8ZUibUjzOD0Oac2nmF7INttgniHnmTWueVHuJYegll6cVK6hV84GR0lcxmrVu1Ysom1ezeEL6w-5jasea-01D1BA" group-title="Sports",Tennis Channel
+https://astatv.karaa.web.id/api/s/5392.m3u8
+
 #EXTINF:-1 tvg-id="3488" tvg-name="Tipik" tvg-logo="https://astatv.karaa.web.id/api/lg?t=SdwpHwrVWeLYasccBDrm0p6nd7PqB_uz8IqxATzE0bG2kBgxyZ7lu0JpjdiPwM2axjrFXs1xLivZopqVrBVl-fBFMJMRHxGGD_ybuFlF5g5ovDT3yr1JOEUoWtl0TJAMIKn8idmz4zQCHsaKihOGWJGahKJwJeH76LWwU0NaQT-Pp7fRZ-7s548r2tk8lwRpipK7AuAJfdINRSEGivMCWZu8CvEjsWyseQ" group-title="Sports",Tipik
 https://astatv.karaa.web.id/api/s/3488.m3u8
 
+#EXTINF:-1 tvg-id="5321" tvg-name="UFCTV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=J01aBzpJroKjNsH6zUXKcgnIcKqw86Yv4M3w7GWWrfxYPtaLMLAsBiHTxSC_TSUZ5Ryv-w3VIA8Od4tQ8lorx-PhpHfADIk0xCPCn5jStY7DwB_J_WX6mmjzrA4rnxnfgGpXCJBMzAAucYkX0xE5CwQ7_7jtXjaXGrgEDOXcHcafaUVVluAKdXAaX14IoWMLivsIqorWWrReONtdbQHcjYD2tGBJss6avA" group-title="Sports",UFCTV
+https://astatv.karaa.web.id/api/s/5321.m3u8
+
+#EXTINF:-1 tvg-id="5421" tvg-name="Unbeaten TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=eaRo27Ne8pj6feMb74pFm-C2cCT7V6XhMdHOYIbcgr2lsRSojVAMLngnZ0X4WccTsOx0_k3kfySepW_9qMATzdlaKP6OELnuSSphBARnBnGpvXfJWNmnPpsSZRfqDSqeAOIhZf9A89Vnqg9cBadieVaFF5FG5l3nmbb_acQQgXQkbFpKqz4AzAAOzUjlSxUfVLYDsYBRuNHkcGalCkOouZc8NYQThU79EA" group-title="Sports",Unbeaten TV
+https://astatv.karaa.web.id/api/s/5421.m3u8
+
 #EXTINF:-1 tvg-id="5427" tvg-name="UNITE8-Sports" tvg-logo="https://astatv.karaa.web.id/api/lg?t=Oas7o6WCb4Ck2w4w3sIyHRSLtTdB-r2gMy9K2dLTnDx4qnH2yxkWy6C7XJrQHSCweZN29X7LCsT7DP-6QbuNNRucEhcUCRezZOWoAJ5qiQp6036O63TVa0cZy5vqc39C5pyPWOLd5deCkBSvwo7ty_ceJVbroFBbWflCWv4_AE1Isete1noqJx48hK7SBCICyNcN7OQb9rmTJjdjc7xZMqo3YhBESBvM6Q" group-title="Sports",UNITE8-Sports
 https://astatv.karaa.web.id/api/s/5427.m3u8
+
+#EXTINF:-1 tvg-id="3589" tvg-name="Willow Sports HD" tvg-logo="https://astatv.karaa.web.id/api/lg?t=cyWEcnEfFcLTDSMwLKu8aQs5OSUVxwsj9KaRSEJPCIeA6aCujhN7spieaxeTp7vkL0MWyqWbtRU5TSQZt6WbhwJ3CzMXOPJuK9MRtLTJTB7i8RawaVUGGxWPFphlIWewFyckH65EPQ7tAZC14DtQbC4iR87DFfW7hz_VXUgudE3lIyESKNQ1_gz_u-AF9X-fTrgZ5rwUtZnTKzrjyzRfii_-lFJt-J8ArA" group-title="Sports",Willow Sports HD
+https://astatv.karaa.web.id/api/s/3589.m3u8
 
 #EXTINF:-1 tvg-id="1129" tvg-name="Bahrain Sports 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=rvd7G4iFoQwI6hKK9orVFO0G1r4f0HE4YjfEcn3p1WVCEcBBb73lZjcQuLJeHk1QRGPzjzqrErC8f8bSWzHeNoq3N2WweLF2IiqitIMez7AalKjF9jcfPF97Oej-3y1Q7gHz710GThPF5fYoTImeC27jpQLoeZrL7tV0lI-G-8P29cmQjlnVf20TS1YytDa-gj0WLvIU3Kxao87_ihTVrFyw1XHbZN61Jw" group-title="Sports",Bahrain Sports 1
 https://astatv.karaa.web.id/api/s/1129.m3u8
@@ -404,14 +617,59 @@ https://astatv.karaa.web.id/api/s/1130.m3u8
 #EXTINF:-1 tvg-id="5429" tvg-name="Barca TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=LnPokn6YMP1a5BkiD4YllwQ-H0_PP6AW7nTL4AVNaagCdzpA38chMnMwNtVs7N-tQLizLHcugAUawQLu4fjXtzFA4g5y7Z2FeFL1DwxfiZaK0QXo7BVYo3yRvxXKoExv-3n155DOP0b82ftMp8S-snbA2PPta6iBiaAoGDREsGPIZ9GJzm0Dwwm-qWYrxI-Upx25xfocgPp3gmNBeMWIAO_H1DAH2L6A-Q" group-title="Sports",Barca TV
 https://astatv.karaa.web.id/api/s/5429.m3u8
 
+#EXTINF:-1 tvg-id="910" tvg-name="FS1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=ZV4YS0iHnZwc1loeiQqGdt3wq92EpgAiVUe8RFkU6kcfd5WTpX1uKAVwg_UQxH9Vle0pq-zJeQyCg5gY1yuFtsO79XnJ33jBJ-jI4SCGdI997d2lsgPHt4MyhZlM5c1savvd6VPD8wnTA_QvWGKAPZxpRN4KURKdi_8ZNAEUDSWqZMug4FjcPP0CfRJayxF4-oTK3SQdPlVAji3PKAg9PeHBvAnAYJo46Q" group-title="Sports",FS1
+https://astatv.karaa.web.id/api/s/910.m3u8
+
 #EXTINF:-1 tvg-id="653" tvg-name="Oman Sports" tvg-logo="https://astatv.karaa.web.id/api/lg?t=KT9SUmO4GufXsr7BZaFlYd29hy1u2nYa983Z5RFwog-F2GflkUsJyuPugvAhidNhpC29dtYSP0cn2mv5JDWOgpw4RIYpxcRaiKY_mKhvo3MXfWysaUy5dGfN8CZqpgR4I8b-gfzKmDOw7hZZtUjExpEfSjZcMgpsjc0k9lC0trkJo7MQgD3YRJOEsG0eGThEmVIFTVJp8gl3D8vUGXQ3LSplpZJEsORXpQ" group-title="Sports",Oman Sports
 https://astatv.karaa.web.id/api/s/653.m3u8
+
+#EXTINF:-1 tvg-id="2870" tvg-name="Premiere Brazil 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=rrAP1WZyqEhPTs5sskisXh-WAfOCr7quBVgT-PdlQ4qdFOhQ5GfeAw0Cjkt52o8bAOlZC2bTjgQs8zRPUIrTwXdFX2WHCvbTq76ObGsuWsQ3X8Q8Oy4yAGZzwHHf36SrvWkOieaMqOBfGjAJ-P4lz21ZTercC-5pejIXbq6Kto_eyxrEq7naqOtzlLRORyZyLM_8fBGt-DEwCzyRfLkPYHEgSJ0XgH-syQ" group-title="Sports",Premiere Brazil 1
+https://astatv.karaa.web.id/api/s/2870.m3u8
+
+#EXTINF:-1 tvg-id="2871" tvg-name="Premiere Brazil 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=Kt0lbTXuLdav4VRvJXMR-bFqyuoio7nmX2W4-Gp3m7zQl6c-NImwgeYNq6yMaeMBL6w_RI14tVKk0U15v6xTwSDxo8oTXsOrRTylJqO-StSKyUfLL1YV3QNNnS-oQi8wkgFNqMjkGnXgnyaKonEwVRZDZghxJ_eScsyc0mvhLCbNWviqmdrl43E4f3t_wwCQjKe7Tuqk9Y72Lt2nslyGsHH3wrZfc8Ml4A" group-title="Sports",Premiere Brazil 2
+https://astatv.karaa.web.id/api/s/2871.m3u8
+
+#EXTINF:-1 tvg-id="2872" tvg-name="Premiere Brazil 3" tvg-logo="https://astatv.karaa.web.id/api/lg?t=LtTyDDkotYfK_3un2uPvwnkuci909BzxzfKFYq1WQfbOy3HeuH2htKLX9Uqru590dU1svZ6IpIDVVjm1CsYWW_zZwtBJThZSZ-bNwfVL9GLGIS9En10yIcvnwQy849RXrRHU98OCU0W9IRhSyulv3whPJUnadRu_qthiSc0Gjo5QU2l60jjbGbOkVOrZpgKWwO9GFRXVlygCeegYWeMI6py_4wZpKAQRLg" group-title="Sports",Premiere Brazil 3
+https://astatv.karaa.web.id/api/s/2872.m3u8
+
+#EXTINF:-1 tvg-id="2873" tvg-name="Premiere Brazil 4" tvg-logo="https://astatv.karaa.web.id/api/lg?t=ov-mAkcRqcqGhm0ZA7BjI_m72yfSsYfHq811DKNt6uIY5_aCAMctk5y5rIDDfVYbANy_vKHY42zh_cqJXP7ADNrXjXycaHJEYZqLQpCDBw_VP_WJuPpDw7usaxi3jW7XZNldbJdGupDchOWrm--MVp3CXn5LSZpgRaqrzoJlPf7s_1QzmZfGO-QTtna4f2pM_VifiwPDJ4HqB1bpmpUU0gSaT_LIEfHlDA" group-title="Sports",Premiere Brazil 4
+https://astatv.karaa.web.id/api/s/2873.m3u8
+
+#EXTINF:-1 tvg-id="2874" tvg-name="Premiere Brazil 5" tvg-logo="https://astatv.karaa.web.id/api/lg?t=qV2qgTMl7sLAKE_IM7bBE-sasoBEDhQTRTyB6FjFnmXDjcsgpxUfbqN6yT3gbGIiNG61j9WXy4qkJDkicNr6BvST4Q01lE0ZSAnhIXQ86EuTnFA2sMn6f-D9Mg-6OUID1hN8Wl0uzLDPIzg2QFU8p7o7aUuDpMsWT5B-vYvmy9i79sMYh1SEcnx3lOBtU3ibuY4WzMM38ygJk5qIIQ9aj25JLCfmx4Cu_Q" group-title="Sports",Premiere Brazil 5
+https://astatv.karaa.web.id/api/s/2874.m3u8
 
 #EXTINF:-1 tvg-id="39" tvg-name="RedBull" tvg-logo="https://astatv.karaa.web.id/api/lg?t=I393ohq0YZ1_Y0tDS-6KJnT6Tf0Ey6HFJfvoFUI4FuZJ4W3cR2Lh79ZT5CSxOEg7PWNYmSaAzJBuCQ13H7lc4ekiVDCcInJMqlL4hGUixqWPxyuX-EEdK2waL844wQK2Z04YiiQESc8sT9AQN2MAauYdIb3jS-I9Lwo7jyZXwL7jG990qBxPpVkZwvE10vCs9-cC5m_wf9YbFybIZ-PvjnthpSfO1_2x-w" group-title="Sports",RedBull
 https://astatv.karaa.web.id/api/s/39.m3u8
 
+#EXTINF:-1 tvg-id="584" tvg-name="TUDN Cambiale 5" tvg-logo="https://astatv.karaa.web.id/api/lg?t=IodlVPnMqQW0MftwQQTIm6DQXOtpjvvls-oVPhGNUqw25xGobilDy3H8yx7BbCaiidcjRbd0ujlghGfkCem41V9beF-zzhr7YViJAujsQIQZ8g06uDR1f87F-esM7ahC9upPH46-sGeXyTXtGIq97BW9JKg5C-1dN5tAMSgc_EJzqkuBi1HFvisZ_SJHWfVC_osCjMXGDhNer7mH_wf_zuf70nfdf5iiYQ" group-title="Sports",TUDN Cambiale 5
+https://astatv.karaa.web.id/api/s/584.m3u8
+
+#EXTINF:-1 tvg-id="775" tvg-name="TUDN Deportes" tvg-logo="https://astatv.karaa.web.id/api/lg?t=-43oCwpAHG5radrbFjSSKEigH9hr7KB7FcM_WG7l0L--9sNfR-bRa4mqDANOlRMniewA1OOE6P56w6Ts9wJEPb32eMHZpfjtlda_mdp_HUIZsQ2fcbDoptfClf9Dhp3ZVhPys4V6lRwBs1cqE9xZb-Qn4F6rPMFLQT0ZKJzOC2718wbCmVYA9BrozUC7u7DAD4GAuWEIziT-pGsqi13bcJI4iuPg_H5kbw" group-title="Sports",TUDN Deportes
+https://astatv.karaa.web.id/api/s/775.m3u8
+
 #EXTINF:-1 tvg-id="5400" tvg-name="TV Real Madrid EN" tvg-logo="https://astatv.karaa.web.id/api/lg?t=C_XSz_N54CE7D_m23LZz3ms8S5Vr1URcLePaJIPLQorHz4aukK1Y_iiNa77uCmytIUvenjWYSgCjGT2M9RfxyLtw3Lai5IkyqKM9oI95G29oBI-b_RPMFaBZdNXBoBtM1pW053DKgtrf2Bmb1IYHuQmbfskmPxXxcpr09vcWGOvlhQLim6vLZ8uQWUszFviPXgb5i4Q2nhHEEXHbpPZorjdhUI90xl7wLA" group-title="Sports",TV Real Madrid EN
 https://astatv.karaa.web.id/api/s/5400.m3u8
+
+#EXTINF:-1 tvg-id="5066" tvg-name="GMM-tv" tvg-logo="https://astatv.karaa.web.id/api/lg?t=h4dA7ms5GT7XlBAOYdmbie09XI8JyOyUyOy361o9Y4hH_OHDEumP_yfk7SFKOreCDIKavvv2CDEkkb8fWlFQAZBOO43zEsWZ-PqTAQBOYIIfDl4lktXVFteaVhiQLAgAmKkVROLoGWmvOMiZM7yboXdlSwsh6Sb3awemNHL2fB6axdUSSb8Kpm39Uax8EMK_JbW-anC5L8EqfE_xmhbBs6lrJS0Y912kAQ" group-title="Sports",GMM-tv
+https://astatv.karaa.web.id/api/s/5066.m3u8
+
+#EXTINF:-1 tvg-id="5112" tvg-name="GMM-tv 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=pcaaB60q1XT98XOOBRZln33hkOiF-GXLdyFcyt5bt72AnKxtPl4OilI6s7omU4ZH0eSE8WQd2NMdz5B4jytivmaa3-5DImHi91FV0ETPJGJsWYR29I-8SuNbIMN-HyUFTmsNVQliBAgWoY6KmF6cNuEycu4sx1IaRwQIwttQ_MEPXCsCfAPTJGTmyC7u37MWB8FvaNtn3IL9XJc2oCoWWaUdYV2MZ4tSKQ" group-title="Sports",GMM-tv 2
+https://astatv.karaa.web.id/api/s/5112.m3u8
+
+#EXTINF:-1 tvg-id="5197" tvg-name="Monomax Sports" tvg-logo="https://astatv.karaa.web.id/api/lg?t=1qXlP7T66zzxrL8PMRdzBc4A7hHUBYnIUZt1dya2McHO5yba33hXmrKRuIewQP2Fk_6DZQ8b5WjSmJqtq7iabplqZMKlYUjkEld3Glq6_IzqlSvA-8L90kyjnbdctBrgxBXZ4n296_fzmhswVgpaOUmFHAcrlMgdsM1UjwzJcEFTELoMfmrWHKAYhs5HzZeYSgWL2O8-S2kTVlCdpq0RdYLW37fWm_K37Q" group-title="Sports",Monomax Sports
+https://astatv.karaa.web.id/api/s/5197.m3u8
+
+#EXTINF:-1 tvg-id="5207" tvg-name="T-Sports 7" tvg-logo="https://astatv.karaa.web.id/api/lg?t=HabhdB0JDsUPdOQ9_lyZ_uzsnilUB8da8RHTcVFZCdedpsfZQLiXwTRoG_7_WYwM1rqrKYsceTGaRriiwcPaBqHSysAG9HDwEcn8chSxF1-_Fd86HJ-aRzwKBmMwS4_warFCpyJBlAtssM8tneBpsX8eufiuv75tcaMKy49R9e-s3NTcJLhoEdhk_6RcYY6Gex948GIgmYO_sbDP1LURlLsjrzQrJ5u8_w" group-title="Sports",T-Sports 7
+https://astatv.karaa.web.id/api/s/5207.m3u8
+
+#EXTINF:-1 tvg-id="652" tvg-name="Thairath Sports" tvg-logo="https://astatv.karaa.web.id/api/lg?t=4KJJ7lR4_613gqz5i_WmhxYzyjRWh5jnzq62uigtLINQIkBSdz-S0TWm9ZhbMT5LoHqL1hHaS7HWz0j_92JmljPLtZkOUXSp7WxB7SQp_ViJPkD8AnMil-mxIG2tCusC3rnyJUCFUp7UkKUJ9GTcOnrpZxsqJkargYHlTqBoYnv6ZyN90n3UeF6E2BVHwt9yC6cywtBA4bELC4QEFS0uVUTN1plvrh1DYA" group-title="Sports",Thairath Sports
+https://astatv.karaa.web.id/api/s/652.m3u8
+
+#EXTINF:-1 tvg-id="4394" tvg-name="VIVO D-Sports 1 UR" tvg-logo="https://astatv.karaa.web.id/api/lg?t=_3KH29NIHSRTpggeP6bmnEaMTFn5p5uspfPJmtXhITJXCiHjY_1PBqoLmcqezBjKLtUp9kJJegIutt-ExWEYBHNkNMWpkDJTPg1E6JmWdZvqUp3XLOyaLvC-RtXI9oCaI3-e3gGJUDCdOancMsTbefc4S0wKqbE-u9P8WJr7oouMAQ8e1NMGTp2Wm8zJDoJcoMevl5Km0eV7xwGDEEQjCIewOEQQGjlD_w" group-title="Sports",VIVO D-Sports 1 UR
+https://astatv.karaa.web.id/api/s/4394.m3u8
+
+#EXTINF:-1 tvg-id="4643" tvg-name="VIVO D-Sports 2 UR" tvg-logo="https://astatv.karaa.web.id/api/lg?t=UmhQR2bW9czt5zIILwO1zh8iyUfihPwxuf9WorQXcN0XtzB5b1LTLj_PuFULxW9x7YbIiJqsF8gg_bZSCv-gByfo1sGLWlkz3q6MO7lmDxrk8QjfPDKYnMaU7yuLOc6Kq0fFuVGrIn1deLlSuY_Tn5su5OcODKbMmwEFdKtdgFQ6wOKPceaPuzQwpOjnaF2BL9MlxJxoOExn7mAdy7N0r9aU8aRTAqB_xg" group-title="Sports",VIVO D-Sports 2 UR
+https://astatv.karaa.web.id/api/s/4643.m3u8
 
 #EXTINF:-1 tvg-id="afarin.baxcha" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Kids",Afarin Baxcha (1080p)
 https://5dcabf026b188.streamlock.net/afarinTV/livestream/playlist.m3u8
@@ -487,6 +745,9 @@ https://1nyaler.streamhostingcdn.top/stream/106/index.m3u8
 
 #EXTINF:-1 tvg-id="auto.tudn.sports" tvg-logo="https://png.pngtree.com/png-clipart/20250628/original/pngtree-golden-fifa-2026-trophy-isolated-on-clean-white-background-png-image_21215061.png" group-title="WorldCup 2026",Tudn Sports
 https://1nyaler.streamhostingcdn.top/stream/52/index.m3u8
+
+#EXTINF:-1 tvg-id="auto.fs2" tvg-logo="https://i.imgur.com/LHtxKI8.png" group-title="WorldCup 2026",FS2
+https://astatv.karaa.web.id/api/s/911.m3u8
 
 #EXTINF:-1 tvg-id="auto.dd.sports" tvg-logo="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/DD_Sports_Logo.svg/960px-DD_Sports_Logo.svg.png" group-title="WorldCup 2026",DD Sports
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/b17adfe543354fdd8d189b110617cddd/index.m3u8
@@ -1055,6 +1316,18 @@ https://dqi7ayt2o24fn.cloudfront.net/playlist.m3u8
 #EXTINF:-1 tvg-id="dens.food.channel" tvg-logo="https://i.imgur.com/o0DSsY1.png" group-title="Entertainment",Dens Food Channel (DensTV)
 https://astatv.karaa.web.id/api/s/i10017.m3u8
 
+#EXTINF:-1 tvg-id="401" tvg-logo="https://iili.io/Ju79f8g.png" group-title="HBO Group",HBO
+https://astatv.karaa.web.id/api/s/956.m3u8
+
+#EXTINF:-1 tvg-id="402" tvg-logo="https://iili.io/Ju79nwv.png" group-title="HBO Group",HBO Hits
+https://astatv.karaa.web.id/api/s/179.m3u8
+
+#EXTINF:-1 tvg-id="403" tvg-logo="https://iili.io/Ju79otR.png" group-title="HBO Group",HBO Family
+https://astatv.karaa.web.id/api/s/955.m3u8
+
+#EXTINF:-1 tvg-id="401" tvg-logo="https://iili.io/Ju79IMN.png" group-title="HBO Group",HBO Signature
+https://astatv.karaa.web.id/api/s/958.m3u8
+
 #EXTINF:-1 tvg-id="405" tvg-logo="https://iili.io/Ju79znp.png" group-title="HBO Group",Cinemax
 http://aflaxtv.xyz:8080/F33848/cbd9779b/197964
 
@@ -1304,19 +1577,29 @@ https://stream.radiojar.com/hnf2cbv80k8uv
 #EXTINF:-1 tvg-id="auto.ardan.radio.bandung" tvg-logo="https://ardanradio.com/storage/logo/Logo%20Ardan.png" group-title="Internet Radio",Ardan Radio Bandung
 https://n15.rcs.revma.com/ugpyzu9n5k3vv?rj-ttl=5&rj-tok=AAABmDGUs7cAw6dhoajf1Wk4kg
 
-#EXTINF:-1 tvg-id="CarubanTV.id@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/CarubanTV%28Low-res%29.png" http-referrer="https://stream.carubantv.id" group-title="Entertainment",Caruban TV (1080p)
+#EXTVLCOPT:http-referrer=https://stream.carubantv.id
+#EXTHTTP:{"Referer": "https://stream.carubantv.id", "referrer": "https://stream.carubantv.id"}
+#EXTINF:-1 tvg-id="CarubanTV.id@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/3/3a/CarubanTV%28Low-res%29.png" group-title="Entertainment",Caruban TV (1080p)
 https://stream.carubantv.id/hls/0/stream.m3u8
 
-#EXTINF:-1 tvg-id="StaraTV.id@SumedangMajalengka" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://stream.staratv.id/" group-title="Entertainment",Stara TV (720p)
+#EXTVLCOPT:http-referrer=https://stream.staratv.id/
+#EXTHTTP:{"Referer": "https://stream.staratv.id/", "referrer": "https://stream.staratv.id/"}
+#EXTINF:-1 tvg-id="StaraTV.id@SumedangMajalengka" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" group-title="Entertainment",Stara TV (720p)
 https://stream.staratv.id/hls/0/stream.m3u8
 
-#EXTINF:-1 tvg-id="pop/dangdut" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://malang.staratv.id/" group-title="Entertainment",Stara TV Malang (1080p)
+#EXTVLCOPT:http-referrer=https://malang.staratv.id/
+#EXTHTTP:{"Referer": "https://malang.staratv.id/", "referrer": "https://malang.staratv.id/"}
+#EXTINF:-1 tvg-id="pop/dangdut" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" group-title="Entertainment",Stara TV Malang (1080p)
 https://malang.staratv.id/hls/0/stream.m3u8
 
-#EXTINF:-1 tvg-id="StaraTV.id@Cianjur" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://cianjur.staratv.id/" group-title="Entertainment",Stara TV Cianjur (720p)
+#EXTVLCOPT:http-referrer=https://cianjur.staratv.id/
+#EXTHTTP:{"Referer": "https://cianjur.staratv.id/", "referrer": "https://cianjur.staratv.id/"}
+#EXTINF:-1 tvg-id="StaraTV.id@Cianjur" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" group-title="Entertainment",Stara TV Cianjur (720p)
 https://cianjur.staratv.id/hls/0/stream.m3u8
 
-#EXTINF:-1 tvg-id="StaraTV.id@Bandung" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" http-referrer="https://bandung.staratv.id/" group-title="Entertainment",Stara TV Bandung (1080p)
+#EXTVLCOPT:http-referrer=https://bandung.staratv.id/
+#EXTHTTP:{"Referer": "https://bandung.staratv.id/", "referrer": "https://bandung.staratv.id/"}
+#EXTINF:-1 tvg-id="StaraTV.id@Bandung" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/9/91/Stara_TV_Sumedang_fix.png" group-title="Entertainment",Stara TV Bandung (1080p)
 https://bandung.staratv.id/hls/0/stream.m3u8
 
 #EXTINF:-1 tvg-id="SMTV.id@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/id/6/6e/Logo_SMTV_Sumedang.png" group-title="Entertainment",SMTV (720p) [Not 24/7]
@@ -1526,7 +1809,9 @@ https://pixeldrain.com/api/file/gu6tTkv4?download
 #EXTINF:-1 tvg-id="CartoonNetwork.jp@HD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/960px-Cartoon_Network_2010_logo.svg.png" group-title="Japan",Cartoon Network (Japan) HD
 https://astatv.karaa.web.id/api/s/1092.m3u8
 
-#EXTINF:-1 tvg-id="CGNTVJapan.jp@SD" tvg-logo="https://i.imgur.com/5LNZeVq.png" http-referrer="http://japan.cgntv.net/HD_player_jp.html" group-title="Japan",CGNTV Japan (1080p)
+#EXTVLCOPT:http-referrer=http://japan.cgntv.net/HD_player_jp.html
+#EXTHTTP:{"Referer": "http://japan.cgntv.net/HD_player_jp.html", "referrer": "http://japan.cgntv.net/HD_player_jp.html"}
+#EXTINF:-1 tvg-id="CGNTVJapan.jp@SD" tvg-logo="https://i.imgur.com/5LNZeVq.png" group-title="Japan",CGNTV Japan (1080p)
 https://d2p4mrcwl6ly4.cloudfront.net/out/v1/8d50f69fdbbf411a8d302743e4263716/CGNWebLiveJP.m3u8
 
 #EXTINF:-1 tvg-id="DisneyChannel.jp@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/f/ff/2024_Disney_Channel_text_logo.svg" group-title="Japan",Disney Channel (Japan)
@@ -1538,7 +1823,9 @@ https://astatv.karaa.web.id/api/s/2707.m3u8
 #EXTINF:-1 tvg-id="MTV.jp@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/MTV_2021_%28brand_version%29.svg/960px-MTV_2021_%28brand_version%29.svg.png" group-title="Japan",MTV (Japan)
 http://103.255.250.188:5002/cs18.m3u8?channel=zhongying&gid=cs18&token=guoziyun
 
-#EXTINF:-1 tvg-id="NipponTV.jp@JOAXDTV" tvg-logo="https://i.imgur.com/IxD8V5X.png" http-referrer="https://mov3.co/" group-title="Japan",Nippon TV
+#EXTVLCOPT:http-referrer=https://mov3.co/
+#EXTHTTP:{"Referer": "https://mov3.co/", "referrer": "https://mov3.co/"}
+#EXTINF:-1 tvg-id="NipponTV.jp@JOAXDTV" tvg-logo="https://i.imgur.com/IxD8V5X.png" group-title="Japan",Nippon TV
 https://ntv5.mov3.co/hls/ntv.m3u8
 
 #EXTINF:-1 tvg-id="QVC.jp@SD" tvg-logo="https://i.imgur.com/6TWUVrh.png" group-title="Japan",QVC (Japan) (1080p)
@@ -1547,7 +1834,9 @@ https://d1flvb4iqlercm.cloudfront.net/live/live_1080p_2nd.m3u8
 #EXTINF:-1 tvg-id="SakuranboTV.jp@JOCYDTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/a/a8/SAY_logo_1997.svg" group-title="Japan",Sakuranbo TV (1080i)
 https://tv-stream-test.daydreamer-json.cc/stream/bd2dd29080c36c9b01338d329156febe/master.m3u8
 
-#EXTINF:-1 tvg-id="TVTokyo.jp@JOTXDTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/TV_Tokyo_%28Japanese%29_2023.svg/960px-TV_Tokyo_%28Japanese%29_2023.svg.png" http-referrer="https://mov3.co/" group-title="Japan",TV Tokyo
+#EXTVLCOPT:http-referrer=https://mov3.co/
+#EXTHTTP:{"Referer": "https://mov3.co/", "referrer": "https://mov3.co/"}
+#EXTINF:-1 tvg-id="TVTokyo.jp@JOTXDTV" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/TV_Tokyo_%28Japanese%29_2023.svg/960px-TV_Tokyo_%28Japanese%29_2023.svg.png" group-title="Japan",TV Tokyo
 https://tvtokyo.mov3.co/hls/tvtokyo.m3u8
 
 #EXTINF:-1 tvg-id="TVUYamagata.jp@JOWIDTV" tvg-logo="https://i.imgur.com/9yZe76d.png" group-title="Japan",TV-U Yamagata (1080i)
@@ -1796,7 +2085,9 @@ https://cdn-alanyatv.yayin.com.tr/alanyatv/alanyatv/playlist.m3u8
 #EXTINF:-1 tvg-id="BabyTV.uk@Turkiye" tvg-logo="https://i.imgur.com/4BDJ5FT.png" group-title="Turkey",BabyTV Turkiye [Geo-blocked]
 https://saran-live.ercdn.net/babytv/index.m3u8
 
-#EXTINF:-1 tvg-id="BBCFirst.uk@Turkiye" tvg-logo="https://i.imgur.com/UBoBYUI.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" group-title="Turkey",BBC First Turkiye
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+#EXTINF:-1 tvg-id="BBCFirst.uk@Turkiye" tvg-logo="https://i.imgur.com/UBoBYUI.png" group-title="Turkey",BBC First Turkiye
 http://88.212.7.14/live/bbc_first/index.m3u8
 
 #EXTINF:-1 tvg-id="BiKanal.tr@SD" tvg-logo="https://www.bikanal.com/frontend/img/logo.webp" group-title="Turkey",Bi Kanal (1080p)
@@ -1898,7 +2189,9 @@ https://shd-gcp-live.edgenextcdn.net/live/bitmovin-hadath/2ff87ec4c2f3ede35295a2
 #EXTINF:-1 tvg-id="ACNN.ng@SD" tvg-logo="https://i.imgur.com/91JLpxr.png" group-title="Nigeria",ACNN (480p)
 https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_014/Stream/playlist.m3u8
 
-#EXTINF:-1 tvg-id="ApprovalTV.ng@HD" tvg-logo="https://storage.approvaltv.com/2026/03/approvallogo.png" http-referrer="https://live.approvaltv.com/" group-title="Nigeria",Approval TV (720p)
+#EXTVLCOPT:http-referrer=https://live.approvaltv.com/
+#EXTHTTP:{"Referer": "https://live.approvaltv.com/", "referrer": "https://live.approvaltv.com/"}
+#EXTINF:-1 tvg-id="ApprovalTV.ng@HD" tvg-logo="https://storage.approvaltv.com/2026/03/approvallogo.png" group-title="Nigeria",Approval TV (720p)
 https://live.approvaltv.com/approvaltv/index.m3u8
 
 #EXTINF:-1 tvg-id="BCSStarCrossTV.ng@SD" tvg-logo="https://i.imgur.com/VKv1Y6p.png" group-title="Nigeria",BCS StarCross TV (576p)
@@ -2027,7 +2320,9 @@ https://stream02.welocal.stream/stream/fhd-augsburgtv_104951/ngrp:stream_all/pla
 #EXTINF:-1 tvg-id="6ter.fr@SD" tvg-logo="https://i.imgur.com/2nd5Cox.png" group-title="France",6ter (720p)
 https://r.eu.cdn-redge.media/livehls/oeu/mt/live/6ter_fr/live.livx/playlist.m3u8
 
-#EXTINF:-1 tvg-id="13emeRue.fr@SD" tvg-logo="https://i.imgur.com/k0DCMTL.png" http-user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36" group-title="France",13eme Rue
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36"}
+#EXTINF:-1 tvg-id="13emeRue.fr@SD" tvg-logo="https://i.imgur.com/k0DCMTL.png" group-title="France",13eme Rue
 http://192.99.186.30/stream/251/index.m3u8
 
 #EXTINF:-1 tvg-id="20MinutesTV.fr@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/20_Minutes_TV_IDF_logo_%282023%29.png/960px-20_Minutes_TV_IDF_logo_%282023%29.png" group-title="France",20 Minutes TV (1080p)
@@ -2048,10 +2343,14 @@ https://r.eu.cdn-redge.media/livehls/oeu/mt/live/animaux/live.livx/playlist.m3u8
 #EXTINF:-1 tvg-id="Automotolachaine.fr@SD" tvg-logo="https://i.imgur.com/ebf2uc7.png" group-title="France",Automoto la chaine (720p)
 https://r.eu.cdn-redge.media/livehls/oeu/mt/live/automoto/live.livx/playlist.m3u8
 
-#EXTINF:-1 tvg-id="BFMAlsace.fr@SD" tvg-logo="https://i.imgur.com/iRsbEpg.png" http-user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" group-title="France",BFM Alsace (1080p)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}
+#EXTINF:-1 tvg-id="BFMAlsace.fr@SD" tvg-logo="https://i.imgur.com/iRsbEpg.png" group-title="France",BFM Alsace (1080p)
 https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_ALSACE/index.m3u8?end=END&start=LIVE
 
-#EXTINF:-1 tvg-id="BFMBusiness.fr@SD" tvg-logo="https://i.imgur.com/psqIHn4.png" http-user-agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" group-title="France",BFM Business (1080p)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+#EXTHTTP:{"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"}
+#EXTINF:-1 tvg-id="BFMBusiness.fr@SD" tvg-logo="https://i.imgur.com/psqIHn4.png" group-title="France",BFM Business (1080p)
 https://ncdn-live-bfm.pfd.sfr.net/shls/LIVE$BFM_BUSINESS/index.m3u8?end=END&start=LIVE
 
 #EXTINF:-1 tvg-id="3CatCameresdeltemps.es@SD" tvg-logo="https://i.imgur.com/zXy2kbe.png" group-title="Spain",3Cat Cameres del temps (1080p)
@@ -2117,7 +2416,9 @@ https://janya-digimix.akamaized.net/vglive-sk-382409/portuese/ngrp:angelportugue
 #EXTINF:-1 tvg-id="ArarunaTV.br@SD" tvg-logo="https://i.imgur.com/jl39ula.png" group-title="Brazil",Araruna TV (614p)
 https://video05.logicahost.com.br/ararunatv/ararunatv/playlist.m3u8
 
-#EXTINF:-1 tvg-id="AWTV.br@HD" tvg-logo="https://i.imgur.com/2tdMyef.png" http-referrer="https://awtv.com.br" group-title="Brazil",AWTV (1080p) [Geo-blocked]
+#EXTVLCOPT:http-referrer=https://awtv.com.br
+#EXTHTTP:{"Referer": "https://awtv.com.br", "referrer": "https://awtv.com.br"}
+#EXTINF:-1 tvg-id="AWTV.br@HD" tvg-logo="https://i.imgur.com/2tdMyef.png" group-title="Brazil",AWTV (1080p) [Geo-blocked]
 https://awtv.nuvemplay.live/hls/stream.m3u8
 
 #EXTINF:-1 tvg-id="Band.br@SD" tvg-logo="https://i.imgur.com/1r5T6Pw.png" group-title="Brazil",Band (720p)
@@ -2153,7 +2454,9 @@ https://mdstrm.com/live-stream-playlist/6931a0eb06778645348008e0.m3u8
 #EXTINF:-1 tvg-id="AMCSeriesLatinAmerica.us@Panregional" tvg-logo="https://amc-series.s3.amazonaws.com/menu/hbfen1Gom0_k1cyqi7rw4-amc-series-train-w.png" group-title="Argentina",AMC Series Latin America (1080p)
 http://45.171.64.30:6060/play/a005/index.m3u8
 
-#EXTINF:-1 tvg-id="AmericaTV.ar@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Am%C3%A9rica_TV_%28Nuevo_logo_Junio_2020%29.png/500px-Am%C3%A9rica_TV_%28Nuevo_logo_Junio_2020%29.png" http-user-agent="Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/112.0.0.0 Mobile Safari/537.36" group-title="Argentina",America TV (720p)
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/112.0.0.0 Mobile Safari/537.36
+#EXTHTTP:{"User-Agent": "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/112.0.0.0 Mobile Safari/537.36"}
+#EXTINF:-1 tvg-id="AmericaTV.ar@SD" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Am%C3%A9rica_TV_%28Nuevo_logo_Junio_2020%29.png/500px-Am%C3%A9rica_TV_%28Nuevo_logo_Junio_2020%29.png" group-title="Argentina",America TV (720p)
 https://prepublish.f.qaotic.net/a07/americahls-100056/playlist_720p.m3u8
 
 #EXTINF:-1 tvg-id="ArgentinisimaSatelital.ar@SD" tvg-logo="https://i.imgur.com/xFgJawa.png" group-title="Argentina",Argentinisima Satelital (540p)
@@ -2459,8 +2762,23 @@ https://astatv.karaa.web.id/api/s/2718.m3u8
 #EXTINF:-1 tvg-id="2719" tvg-name="Atfal &amp; Mawaheb TV" tvg-logo="https://astatv.karaa.web.id/api/lg?t=xSUVYwfcBHv22s0Bozjg6SwtcxXRHrfUk9zH6j2LaGUe7ynA7CuOxZzmKZ_RTnJ3XV9shkMvTN2SFirIIQ5hUr16VT1fH8YfZZpJOMKSMB4u8owZX5vYNK0TCX1Rfc7mXvsvJhSuuI7oNlK6Ix36rgRu5Cd4f1cRm6cBgNuFTZhsBOW2LrCdWitjbznVda4Mxj6NI9IQO2686auu1lTFvMXKNgMT7nLQ2w" group-title="Saudi Arabia",Atfal &amp; Mawaheb TV
 https://astatv.karaa.web.id/api/s/2719.m3u8
 
+#EXTINF:-1 tvg-id="3670" tvg-name="M-Live 8" tvg-logo="https://astatv.karaa.web.id/api/lg?t=Ra76tBcKArErlXrSVz_sEzSL86dqRNQ5P3expRH4iBKW-hGL0QYzv2_sdL8RqfzC6-6wWq0Xi_PK_EvZMHaJdwltc0cLh5qZJMLiyZ9wQP-iy-Chm_9pjSLGlC9eXYnDNDHVWn0cSQG3kyNO9Qi_hRCILIr5y_5Y9NPt3XFWYt575918tXf3H0i8y1CrOPM3aogkYtPXB-V4P0zAZOk1-mZsvLrMSRXH4w" group-title="Singapore",M-Live 8
+https://astatv.karaa.web.id/api/s/3670.m3u8
+
+#EXTINF:-1 tvg-id="3446" tvg-name="M-Live 1" tvg-logo="https://astatv.karaa.web.id/api/lg?t=6X67EBWSZBenXri_SmFFZakbOY7cmxLYnZ17wZxt5Go29zSWPdLwIX57b83pPFRmn0UGYwLjmVQezIyqSUILdtKBFH2xEouhrN6Z8QDPMyRu8PMWfBiISxqvnmh8SNgeMSoTVDbCU5hRUOMCN56xHP00x-EJV41TZOhNMnWUqWsdIMqyZRd1W_gMNmD4y8eGRWxxOFJ5zQPmUoAnuvOfTPC6JkJjJZItgg" group-title="Singapore",M-Live 1
+https://astatv.karaa.web.id/api/s/3446.m3u8
+
+#EXTINF:-1 tvg-id="3447" tvg-name="M-Live 2" tvg-logo="https://astatv.karaa.web.id/api/lg?t=TB3_QQ_csPG38TFiuZSgW9Jn_muy7URSDBfaw-iGPBeob6HLzM7i6kq1qwWgrGNRx3rcKEqQblo7r5ciyACq03FKN9N-iC0bOcLkAcD3C2etoYvXRnFbAtL2_mZG5MTm71xwXuEAAIqfsy8lkZXHn55l6gB-6cKP3WpdIXyxxcI3ynP0E0pB0BdLKATW3WqegIOwEGCwZKM4nhnssjdFxitWAV0z1lw8Jg" group-title="Singapore",M-Live 2
+https://astatv.karaa.web.id/api/s/3447.m3u8
+
+#EXTINF:-1 tvg-id="1412" tvg-name="M-Live 6" tvg-logo="https://astatv.karaa.web.id/api/lg?t=tcguXYKoFH6VG6NjbM6U0E_1Jrji_oLZw_Fi45-NUefQaUBYnufbnu5ZD24Hu4LVG0o-PIF-2ecgi2btckSDkC-Iw7swiWdUajS9ZKVJphJzdirSb_pZPF2qXK3UVJ-lbREt3F88l2R1mN-aOYnMFrRvNa2sX5ykMTeN1XoU3cK1T0hQmWEGvuVdK0ubJ7E_T3yX7caMU8HcO3dE021DPl50n4RBKJiYEQ" group-title="Singapore",M-Live 6
+https://astatv.karaa.web.id/api/s/1412.m3u8
+
 #EXTINF:-1 tvg-id="5431" tvg-name="HOLLYWOOD MOVIES" tvg-logo="https://astatv.karaa.web.id/api/lg?t=BuK-l3ivvof-5m_txdtOIhLfcJJrmfXAa6M2oJP9zKme03nNSd3_izdMzCT0QT73Sf2efyrAPoBxJpxeARP1tFmfvN8uG7ngw_MQwhIzwaXO73HCivyPo38POK60t2fPvncS5ilh79RbFcakc12R4i8iT4sF4RgmwiYV44kSDMxX-JZSuBrLW_nrDNt7f-qKYJ-JL5zcyjB3gA_h47SHPdgCBYqQN34x5w" group-title="United States",HOLLYWOOD MOVIES
 https://astatv.karaa.web.id/api/s/5431.m3u8
+
+#EXTINF:-1 tvg-id="5369" tvg-name="NBC 4 New York" tvg-logo="https://astatv.karaa.web.id/api/lg?t=D41lexmrHAXdvxrzZ897t1A_YNM1C1eU2yAIu01sa58aybYTXl9FK1NMWuqdHS_uMVQ4XRPuSG7Ti1tB3z-l-io9VzpLiYdqrDwQWicWmZajZpZ3NX7F_E7T--0xyh6ekgWmWi_e8ikJuP2JPFfVbRsIZlitfy2C9eAfsCSF87uULTThCga8H9E-qdEQj-PIIgxOy4zDnNkQE-beTZdvTwkiEqqmRPTipw" group-title="United States",NBC 4 New York
+https://astatv.karaa.web.id/api/s/5369.m3u8
 
 #EXTINF:-1 tvg-id="BBCWorldNews.id" tvg-name="BBC World News" group-title="News",BBC World News
 http://103.165.207.108:8000/play/a01d/index.m3u8

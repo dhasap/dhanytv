@@ -171,6 +171,12 @@ jobs:
           python3 update-script/apply_protected.py dhanytv.m3u --report protected_report.json
           cat protected_report.json
 
+      - name: Normalize M3U tags (kompatibilitas player)
+        run: |
+          echo "=== Normalize M3U tags ==="
+          python3 update-script/fix_tags.py dhanytv.m3u /tmp/dh_tags.m3u --apply --add-inputstream
+          mv /tmp/dh_tags.m3u dhanytv.m3u
+
       - name: Clean Playlist & Generate OTT Variant
         env:
           SANITIZE_PATTERNS: ${{ secrets.SANITIZE_PATTERNS }}

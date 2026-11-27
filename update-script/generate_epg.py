@@ -68,7 +68,7 @@ MANUAL_ID_MAP: dict[str, str] = {
     # Indonesian channels from open-epg
     "Musik Indonesia": "MusikIndonesia.id",
     "CNBCIndonesia.id": "CNBCIndonesia.id",
-    "CNNIndonesia.id": "CNNIndonesia.id",
+    "CNNIndonesia.id": "cnn.indonesia",
     "DAAITV.id": "DAAITV.id",
     "GarudaTV.id": "GarudaTV.id",
     "NusantaraTV.id": "NusantaraTV.id",
@@ -386,7 +386,23 @@ def _is_bad_programme_title(title: str, cid: str, channel_title_keys: dict[str, 
 
 
 def xmltv_time(dt: datetime) -> str:
-    return dt.strftime("%Y%m%d%H%M%S +0700")
+    return dt.astimezone(JAKARTA).strftime("%Y%m%d%H%M%S +0700")
+
+
+def parse_xmltv_time(value: str | None) -> datetime | None:
+    """Parse an XMLTV timestamp with its offset. Returns None when malformed."""
+    m = re.match(r"^(\d{14})(?:\s*([+-]\d{4}))?$", (value or "").strip())
+    if not m:
+        return None
+    try:
+        base = datetime.strptime(m.group(1), "%Y%m%d%H%M%S")
+    except ValueError:
+        return None
+    off = m.group(2) or "+0000"
+    delta = timedelta(hours=int(off[1:3]), minutes=int(off[3:5]))
+    if off[0] == "-":
+        delta = -delta
+    return (base - delta).replace(tzinfo=timezone.utc)
 
 
 def parse_playlist(path: Path) -> OrderedDict[str, PlaylistChannel]:
@@ -512,7 +528,7 @@ def ensure_source_channel_metadata(channel: ET.Element, info: PlaylistChannel) -
     return channel
 
 
-def make_placeholder_programmes(tvg_id: str, days_back: int = 1, days_forward: int = 1) -> list[ET.Element]:
+def make_placeholder_programmes(tvg_id: str, days_back: int = 1, days_forward: int = 3) -> list[ET.Element]:
     today = datetime.now(JAKARTA).date()
     programmes: list[ET.Element] = []
     for offset in range(-days_back, days_forward + 1):
@@ -566,8 +582,12 @@ def _resolve_programmes(tvg_id: str,
             if remap_to:
                 prog_copy.set("channel", remap_to)
             start = prog_copy.get("start", "")
-            if start not in seen_starts:
-                seen_starts.add(start)
+            # Sources label the same instant with different offsets (+0000 vs
+            # +0700); dedupe on the resolved instant, not on the raw string.
+            parsed = parse_xmltv_time(start)
+            key = parsed.strftime("%Y%m%d%H%M%S") if parsed else start.strip()
+            if key not in seen_starts:
+                seen_starts.add(key)
                 merged.append(prog_copy)
 
     # Priority 1: manual mapping (curated, higher quality)
@@ -583,6 +603,30 @@ def _resolve_programmes(tvg_id: str,
         _add_programmes(exact_progs)
 
     return merged
+
+
+def normalise_programme_window(programmes: list[ET.Element]) -> list[ET.Element]:
+    """Sort by instant, drop zero/negative durations, trim overlaps, emit +0700."""
+    rows: list[tuple[datetime, datetime, ET.Element]] = []
+    for prog in programmes:
+        start = parse_xmltv_time(prog.get("start"))
+        stop = parse_xmltv_time(prog.get("stop"))
+        if start is None or stop is None or stop <= start:
+            continue
+        rows.append((start, stop, prog))
+    rows.sort(key=lambda row: (row[0], row[1]))
+    out: list[ET.Element] = []
+    last_stop: datetime | None = None
+    for start, stop, prog in rows:
+        if last_stop is not None and start < last_stop:
+            if stop <= last_stop:
+                continue  # fully covered by the previous programme
+            start = last_stop
+        prog.set("start", xmltv_time(start))
+        prog.set("stop", xmltv_time(stop))
+        out.append(prog)
+        last_stop = stop
+    return out
 
 
 def _first_display_name(channel: ET.Element) -> str:
@@ -698,6 +742,7 @@ def generate(m3u_path: Path, output_path: Path, source_paths: list[Path]) -> dic
                     continue
                 filtered_programmes.append(programme)
             programmes = filtered_programmes
+        programmes = normalise_programme_window(programmes)
         if programmes:
             for programme in programmes:
                 root.append(programme)
