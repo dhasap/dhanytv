@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -88,6 +89,8 @@ def main() -> int:
     ap.add_argument("--safe-only", action="store_true",
                     help="hanya buang status yang pasti mati (404/empty/4xx/5xx); "
                          "timeout & DNS dibiarkan (bisa transient)")
+    ap.add_argument("--max-drop-pct", type=int, default=60,
+                    help="batalkan (exit 2) kalau entri yang dibuang > N%% dari yang diuji; 0 = mati")
     args = ap.parse_args()
 
     text = open(args.playlist, encoding="utf-8", errors="replace").read()
@@ -146,10 +149,25 @@ def main() -> int:
     print(f"  dibuang: {len(dropped)}  {drop_stat.most_common()}")
     print(f"  total: {text.count('#EXTINF')} -> {out.count('#EXTINF')}")
 
+    # Guard: kalau hampir semua yang diuji mati, kemungkinan besar checker-nya
+    # yang gagal (DNS/network), bukan channel-nya. Jangan tulis apa pun.
+    tested = len(kept) + len(replaced) + len(dropped)
+    if args.max_drop_pct > 0 and tested:
+        pct = (len(dropped) * 100) // tested
+        if pct > args.max_drop_pct:
+            print(f"ABORT: {len(dropped)}/{tested} entri ({pct}%) akan dibuang "
+                  f"> batas {args.max_drop_pct}%. File TIDAK diubah.")
+            return 2
+    if not kept:
+        print("ABORT: hasil kosong (0 entri). File TIDAK diubah.")
+        return 2
+
     if args.write or args.out:
         target = args.out or args.playlist
-        with open(target, "w", encoding="utf-8") as fh:
+        tmp = target + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as fh:
             fh.write(out)
+        os.replace(tmp, target)
         print(f"ditulis ke {target}")
     else:
         print("(dry-run)")

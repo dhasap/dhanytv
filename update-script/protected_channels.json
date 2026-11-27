@@ -178,5 +178,77 @@
   "group": "News",
   "url": "http://103.165.207.108:8000/play/a01d/index.m3u8",
   "headers": {}
+ },
+ {
+  "name": "MGSTV",
+  "tvg_id": "MGSTV.id",
+  "group": "Religious",
+  "url": "https://mgstv.siar.us/live/mgstv.m3u8",
+  "headers": {
+   "Referer": "https://mgstv.co.id/live-streaming/"
+  }
+ },
+ {
+  "name": "Surau TV",
+  "tvg_id": "SurauTV.id",
+  "group": "Religious",
+  "url": "https://surau-tv-rtmp-surautv.ltjafv.easypanel.host/hls/surautv.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "TV Mu",
+  "tvg_id": "TVMu.id",
+  "group": "Religious",
+  "url": "https://e.siar.us/live/tvmu.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Rodja TV",
+  "tvg_id": "RodjaTV.id",
+  "group": "Religious",
+  "url": "https://rodjatv.com/rodjatv/live.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Ahsan TV",
+  "tvg_id": "AhsanTV.id",
+  "group": "Religious",
+  "url": "https://5bf7b725107e5.streamlock.net/ahsantv/ahsantv/playlist.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Kilisuci TV",
+  "tvg_id": "KilisuciTV.id",
+  "group": "Local Channels",
+  "url": "https://5bf7b725107e5.streamlock.net/kstv/kstv/playlist.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Bandung TV",
+  "tvg_id": "BandungTV.id",
+  "group": "Local Channels",
+  "url": "https://astatv.karaa.web.id/api/s/156.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Kawanua TV",
+  "tvg_id": "KawanuaTV.id",
+  "group": "Local Channels",
+  "url": "http://122.248.43.242:1935/KAWANUATV/_definst_/myStream/playlist.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Madani TV",
+  "tvg_id": "MadaniTV.id",
+  "group": "Local Channels",
+  "url": "https://stream.asianastream.com/madani/madanitv.smil/playlist.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "TV9 Nusantara",
+  "tvg_id": "TV9.id",
+  "group": "Local Channels",
+  "url": "https://5bf7b725107e5.streamlock.net/tv9/tv9/playlist.m3u8",
+  "headers": {}
  }
 ]

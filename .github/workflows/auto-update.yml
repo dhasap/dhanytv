@@ -6,6 +6,11 @@ on:
     # running daily keeps the programme guide from going stale between rebuilds.
     - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      allow_big_drop:
+        description: "Izinkan commit walau channel/EPG turun drastis (mis. bersih-bersih sengaja)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -37,17 +42,22 @@ jobs:
             exit 1
           fi
           echo "Mengunduh data terbaru..."
-          curl -sL "$SRC" -o source_latest.m3u
+          # -f: HTTP >=400 harus gagal, kalau tidak HTML error tersimpan sebagai playlist.
+          curl -sSfL "$SRC" -o source_latest.m3u
           # Secondary source (URL kept only in the PLAYLIST_SOURCE_2 secret).
           # Appended to the combined source so merge_source.py ingests both.
           if [ -n "$SRC2" ]; then
             echo "Mengunduh sumber sekunder..."
-            printf '\n' >> source_latest.m3u
-            if curl -sL "$SRC2" >> source_latest.m3u; then
-              echo "Sumber sekunder ditambahkan."
+            # Unduh ke file sementara dulu: curl exit 0 juga pada HTTP 404/500,
+            # jadi validasi isi sebelum ditempel ke source_latest.m3u.
+            if curl -sSfL "$SRC2" -o src2.tmp && grep -q '^#EXTM3U' src2.tmp; then
+              printf '\n' >> source_latest.m3u
+              cat src2.tmp >> source_latest.m3u
+              echo "Sumber sekunder ditambahkan ($(grep -c '#EXTINF' src2.tmp || true) entri)."
             else
-              echo "WARNING: sumber sekunder gagal diunduh (dilewati)."
+              echo "WARNING: sumber sekunder gagal/tidak valid (dilewati)."
             fi
+            rm -f src2.tmp
           fi
           echo "Download selesai. Ukuran file: $(wc -c < source_latest.m3u) bytes"
           # Validate: file must be non-empty and start with #EXTM3U (not HTML error page)
@@ -63,6 +73,7 @@ jobs:
           echo "Validasi sumber: OK"
 
       - name: Merge & Fix Playlist
+        timeout-minutes: 10
         env:
           SANITIZE_PATTERNS: ${{ secrets.SANITIZE_PATTERNS }}
         run: |
@@ -106,11 +117,14 @@ jobs:
           echo "Extra channels: $((AFTER - BEFORE)) injected (total: $AFTER)"
 
       - name: Merge International Channels (iptv-org)
+        timeout-minutes: 20
         run: |
           echo "=== Merging international channels from iptv-org ==="
-          BEFORE=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          # grep -c tetap mencetak "0" lalu exit 1 saat tidak ada match;
+          # "|| echo 0" menghasilkan "0\n0" dan bikin $(( )) error.
+          BEFORE=$(grep -c '#EXTINF' dhanytv.m3u || true); BEFORE=${BEFORE:-0}
           python3 update-script/merge_international.py --ci
-          AFTER=$(grep -c '#EXTINF' dhanytv.m3u || echo "0")
+          AFTER=$(grep -c '#EXTINF' dhanytv.m3u || true); AFTER=${AFTER:-0}
           ADDED=$((AFTER - BEFORE))
           echo "International channels: $ADDED added (total: $AFTER)"
 
@@ -129,23 +143,25 @@ jobs:
           echo "astatv: total channel sekarang $AFTER (sebelum $BEFORE)"
 
       - name: Prune dead astatv rows
+        timeout-minutes: 20
         run: |
           echo "=== Buang baris astatv yang manifest-nya kosong/mati ==="
           python3 update-script/check_playlist.py dhanytv.m3u --only astatv.karaa.web.id \
             --workers 12 --out /tmp/astatv_check.json || true
           if [ -f /tmp/astatv_check.json ]; then
-            python3 update-script/repair_playlist.py dhanytv.m3u /tmp/astatv_check.json --write \
+            python3 update-script/repair_playlist.py dhanytv.m3u /tmp/astatv_check.json --write --max-drop-pct 25 \
               --report /tmp/astatv_repair.json || echo "WARN: repair astatv dilewati"
           fi
 
       - name: Prune dead channels (full liveness pass)
+        timeout-minutes: 45
         run: |
           echo "=== Uji semua entri, buang yang benar-benar mati ==="
           python3 update-script/check_playlist.py dhanytv.m3u --workers 12 \
             --out /tmp/full_check.json || true
           if [ -f /tmp/full_check.json ]; then
             python3 update-script/repair_playlist.py dhanytv.m3u /tmp/full_check.json \
-              --write --safe-only --report /tmp/repair_report.json || echo "WARN: repair dilewati"
+              --write --safe-only --max-drop-pct 25 --report /tmp/repair_report.json || echo "WARN: repair dilewati"
           fi
 
       - name: Normalize channel groups
@@ -154,6 +170,7 @@ jobs:
           python3 update-script/normalize_groups.py dhanytv.m3u --write
 
       - name: Tag DASH entries served as .m3u8
+        timeout-minutes: 15
         run: |
           echo "=== Tandai entri DASH (astatv menyajikan MPD di path .m3u8) ==="
           python3 update-script/tag_dash.py dhanytv.m3u --write || echo "WARN: tag dash dilewati"
@@ -209,6 +226,7 @@ jobs:
           echo "ClearKey entries: $BEFORE -> $AFTER"
 
       - name: Verify critical ClearKey keys
+        timeout-minutes: 20
         run: |
           echo "=== Verifying critical ClearKey keys ==="
           python3 update-script/verify_keys.py dhanytv.m3u
@@ -221,6 +239,7 @@ jobs:
           python3 update-script/validate_clearkeys.py dhanytv.m3u --write || echo "WARN: clearkey validation skipped"
 
       - name: Download EPG Sources (Multi-Source)
+        timeout-minutes: 15
         run: |
           echo "=== Downloading EPG sources ==="
           FAIL_COUNT=0
@@ -260,6 +279,7 @@ jobs:
           fi
 
       - name: Generate Custom EPG
+        timeout-minutes: 20
         run: |
           echo "=== Generate Custom EPG ==="
           python3 update-script/generate_epg.py \
@@ -288,6 +308,7 @@ jobs:
           fi
 
       - name: Ensure EPG covers every channel
+        timeout-minutes: 10
         run: |
           echo "=== Melengkapi EPG untuk channel yang belum tercakup ==="
           python3 update-script/append_epg.py dhanytv.m3u epg.xml --assign-ids --prune --write
@@ -295,28 +316,73 @@ jobs:
           echo "EPG programmes: $(grep -c '<programme ' epg.xml)"
 
       - name: Safety Gate (cegah penghapusan channel/EPG tidak sengaja)
+        env:
+          ALLOW_BIG_DROP: ${{ inputs.allow_big_drop || 'false' }}
         run: |
           echo "=== Safety gate: memverifikasi tidak ada yang terhapus tidak sengaja ==="
           OLD_CH=$(git show HEAD:dhanytv.m3u 2>/dev/null | grep -c '#EXTINF' || true); OLD_CH=${OLD_CH:-0}
           NEW_CH=$(grep -c '#EXTINF' dhanytv.m3u || true); NEW_CH=${NEW_CH:-0}
           OLD_PROG=$(git show HEAD:epg.xml 2>/dev/null | grep -c '<programme ' || true); OLD_PROG=${OLD_PROG:-0}
           NEW_PROG=$(grep -c '<programme ' epg.xml || true); NEW_PROG=${NEW_PROG:-0}
-          WC=$(grep -c 'group-title="WorldCup 2026"' dhanytv.m3u || true); WC=${WC:-0}
-          echo "Channels: $OLD_CH -> $NEW_CH | EPG programmes: $OLD_PROG -> $NEW_PROG | WorldCup: $WC"
-          # Minimum absolute threshold: playlist must have at least 250 channels
-          if [ "$NEW_CH" -lt 250 ]; then
-            echo "ERROR: Channel terlalu sedikit ($NEW_CH < 250). Kemungkinan source gagal."
-            exit 1
+          OTT_CH=$(grep -c '#EXTINF' dhanytv-ott.m3u 2>/dev/null || true); OTT_CH=${OTT_CH:-0}
+          OLD_OTT=$(git show HEAD:dhanytv-ott.m3u 2>/dev/null | grep -c '#EXTINF' || true); OLD_OTT=${OLD_OTT:-0}
+          DUPES=$(grep -v '^#' dhanytv.m3u | sort | uniq -d | wc -l)
+          echo "Channels: $OLD_CH -> $NEW_CH | OTT: $OLD_OTT -> $OTT_CH | EPG programmes: $OLD_PROG -> $NEW_PROG | URL ganda: $DUPES"
+
+          fail=0
+
+          # 1. Lantai absolut.
+          if [ "$NEW_CH" -lt 600 ]; then
+            echo "ERROR: Channel terlalu sedikit ($NEW_CH < 600). Kemungkinan source gagal."
+            fail=1
           fi
-          if [ "$WC" -lt 1 ]; then
-            echo "WARNING: Channel WorldCup 2026 hilang! Melanjutkan tanpa commit..."
-            echo "  (Safety gate: WorldCup 2026 sudah berakhir, check ini hanya peringatan)"
+          if [ "$OTT_CH" -lt 400 ]; then
+            echo "ERROR: OTT terlalu sedikit ($OTT_CH < 400)."
+            fail=1
           fi
-          if [ "$OLD_CH" -gt 0 ] && [ "$NEW_CH" -lt $((OLD_CH * 70 / 100)) ]; then
-            echo "WARNING: Channel turun >30% ($OLD_CH -> $NEW_CH). Continuing..."
+
+          # 2. Penurunan relatif: batas keras, bukan peringatan.
+          if [ "$OLD_CH" -gt 0 ]; then
+            MIN_CH=$((OLD_CH * 80 / 100))
+            if [ "$NEW_CH" -lt "$MIN_CH" ]; then
+              echo "ERROR: Channel turun >20% ($OLD_CH -> $NEW_CH, batas $MIN_CH)."
+              fail=1
+            fi
           fi
-          if [ "$OLD_PROG" -gt 0 ] && [ "$NEW_PROG" -lt $((OLD_PROG * 50 / 100)) ]; then
-            echo "WARNING: EPG programme turun >50% ($OLD_PROG -> $NEW_PROG). Continuing..."
+          if [ "$OLD_OTT" -gt 0 ] && [ "$OTT_CH" -lt $((OLD_OTT * 80 / 100)) ]; then
+            echo "ERROR: OTT turun >20% ($OLD_OTT -> $OTT_CH)."
+            fail=1
+          fi
+
+          # EPG tidak memblokir playlist: kalau sumber EPG yang rusak, pakai epg.xml lama.
+          EPG_BAD=0
+          [ "$NEW_PROG" -lt 3000 ] && EPG_BAD=1
+          [ "$OLD_PROG" -gt 0 ] && [ "$NEW_PROG" -lt $((OLD_PROG * 70 / 100)) ] && EPG_BAD=1
+          if [ "$EPG_BAD" -eq 1 ]; then
+            if [ "$ALLOW_BIG_DROP" = "true" ]; then
+              echo "PERINGATAN: EPG programme turun >30% ($OLD_PROG -> $NEW_PROG), tetap dipakai."
+            else
+              echo "PERINGATAN: EPG programme turun >30% ($OLD_PROG -> $NEW_PROG)."
+              echo "  -> epg.xml dikembalikan ke versi HEAD; playlist tetap dikomit."
+              git checkout HEAD -- epg.xml
+              NEW_PROG=$OLD_PROG
+            fi
+          fi
+
+          # 3. Sanity struktural.
+          if [ "$DUPES" -gt 50 ]; then
+            echo "ERROR: $DUPES URL ganda di playlist."
+            fail=1
+          fi
+
+          if [ "$fail" -ne 0 ]; then
+            if [ "$ALLOW_BIG_DROP" = "true" ]; then
+              echo "PERINGATAN: gate gagal tapi allow_big_drop=true — commit dilanjutkan."
+            else
+              echo "SAFETY GATE GAGAL: tidak ada commit. Perbaiki sumbernya,"
+              echo "atau jalankan workflow_dispatch dengan allow_big_drop=true bila penurunan memang disengaja."
+              exit 1
+            fi
           fi
           echo "Safety gate passed."
 

@@ -1892,6 +1892,14 @@ def main() -> int:
         default="",
         help="Additional trace URL patterns to remove, pipe-separated",
     )
+    parser.add_argument(
+        "--min-keep-pct",
+        type=int,
+        default=70,
+        help="batalkan (exit 2) bila entri hasil < N%% dari input; 0 = mati (default 70)",
+    )
+    parser.add_argument("--force", action="store_true",
+                        help="tetap tulis walau melewati batas --min-keep-pct")
     args = parser.parse_args()
 
     path = Path(args.playlist)
@@ -1904,8 +1912,19 @@ def main() -> int:
     validation = validate_items(items)
 
     target = Path(args.output) if args.output else path
+    in_count = len(raw_items)
+    out_count = len(items)
+    if (args.write or args.output) and not args.force and args.min_keep_pct > 0 and in_count:
+        if out_count * 100 // in_count < args.min_keep_pct:
+            print(f"ABORT: hanya {out_count}/{in_count} entri tersisa "
+                  f"(< {args.min_keep_pct}%). File TIDAK diubah. "
+                  f"Pakai --force kalau ini memang disengaja.")
+            return 2
     if args.write or args.output:
-        target.write_text(cleaned, encoding="utf-8")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        tmp = target.with_name(target.name + ".tmp")
+        tmp.write_text(cleaned, encoding="utf-8")
+        tmp.replace(target)
     else:
         print(cleaned, end="")
 
