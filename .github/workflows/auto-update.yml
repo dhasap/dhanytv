@@ -165,6 +165,12 @@ jobs:
           echo "=== Fixing ClearKey keys ==="
           python3 update-script/fix_clearkeys.py dhanytv.m3u
 
+      - name: Apply protected sources (hasil harvest)
+        run: |
+          echo "=== Apply protected sources ==="
+          python3 update-script/apply_protected.py dhanytv.m3u --report protected_report.json
+          cat protected_report.json
+
       - name: Clean Playlist & Generate OTT Variant
         env:
           SANITIZE_PATTERNS: ${{ secrets.SANITIZE_PATTERNS }}
