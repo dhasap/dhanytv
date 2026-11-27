@@ -286,5 +286,32 @@
   "group": "Indonesia Channels",
   "url": "http://103.165.207.108:8000/play/a004/index.m3u8",
   "headers": {}
+ },
+ {
+  "name": "beIN Sports Xtra",
+  "tvg_id": "beINSportsXtra.us",
+  "group": "Sports",
+  "url": "https://d9ssxzmclhfo4.cloudfront.net/bein_sports.m3u8",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
+ },
+ {
+  "name": "beIN Sports Xtra Español",
+  "tvg_id": "beINSportsXtraEspanol.us",
+  "group": "Sports",
+  "url": "https://dc1644a9jazgj.cloudfront.net/beIN_Sports_Xtra_Espanol.m3u8",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
+ },
+ {
+  "name": "beIN Sports ENG 1",
+  "tvg_id": "beINSportsENG1.us",
+  "group": "Sports",
+  "url": "https://bein-xtra-bein.amagi.tv/playlistR720P.m3u8",
+  "headers": {
+   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  }
  }
 ]
