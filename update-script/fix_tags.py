@@ -92,6 +92,25 @@ def dedupe_tvg_ids(text):
     return "\n".join(out)
 
 
+def dedupe_block_tags(text):
+    """Buang tag #EXTVLCOPT identik yang berulang dalam satu blok entri."""
+    out, seen = [], set()
+    for line in text.split("\n"):
+        if line.startswith("#EXTINF"):
+            seen = set()
+            out.append(line)
+            continue
+        if line.startswith("#"):
+            key = line.strip()
+            if key in seen:
+                continue
+            seen.add(key)
+            out.append(line)
+            continue
+        seen = set()
+        out.append(line)
+    return "\n".join(out)
+
 def patch(path, drop_dead=False, add_inputstream=False):
     text = pathlib.Path(path).read_text(encoding="utf-8")
     lines = text.split("\n")
@@ -238,6 +257,7 @@ def main():
     new, stats, log = patch(a.src, a.drop_dead, a.add_inputstream)
     new = hoist_orphan_tags(new)
     new = dedupe_tvg_ids(new)
+    new = dedupe_block_tags(new)
     for l in log[:200]:
         print(l)
     if len(log) > 200:
