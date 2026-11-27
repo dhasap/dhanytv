@@ -52,7 +52,9 @@ def main() -> int:
             continue
         name = line.rsplit(',', 1)[-1].strip()
         tid = (attr(line, 'tvg-id') or '').lower()
-        p = by_id.get(tid) or by_name.get(norm(name))
+        # nama dulu, baru tvg-id: id generik (mis. Nickelodeon.id) sering
+        # dipakai varian lain (Nickelodeon Junior), jangan sampai ketuker
+        p = by_name.get(norm(name)) or by_id.get(tid)
         block = [line]
         j = i + 1
         while j < len(lines) and lines[j].startswith('#'):
