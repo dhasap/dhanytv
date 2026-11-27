@@ -243,6 +243,14 @@ jobs:
           python3 update-script/verify_keys.py dhanytv.m3u
           echo "Key verification complete"
 
+      - name: Normalisasi akhir M3U (tag order + dedupe id)
+        run: |
+          python3 update-script/fix_tags.py dhanytv.m3u /tmp/m3u_final.m3u --apply --add-inputstream
+          mv /tmp/m3u_final.m3u dhanytv.m3u
+          python3 update-script/fix_tags.py dhanytv-ott.m3u /tmp/ott_final.m3u --apply
+          mv /tmp/ott_final.m3u dhanytv-ott.m3u
+          echo "entri: $(grep -c '#EXTINF' dhanytv.m3u)"
+
       - name: Validate ClearKey entries (drop revoked keys)
         continue-on-error: true
         timeout-minutes: 15
