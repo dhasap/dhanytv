@@ -264,7 +264,7 @@ def classify_http(code: int) -> str:
     return f"http {code}"
 
 
-def probe(entry: Entry) -> dict:
+def _probe_once(entry: Entry) -> dict:
     t0 = time.time()
     status, detail = "error", ""
     try:
@@ -293,6 +293,26 @@ def probe(entry: Entry) -> dict:
         "status": status, "detail": detail, "ms": int((time.time() - t0) * 1000),
         "astatv": any(h in entry.url for h in ("astatv.karaa.web.id", "astatv-api.pages.dev", "astatv.pages.dev")),
     }
+
+
+# Status yang sering cuma "kebetulan" — tunnel/edge bisa balas 404/5xx sesaat.
+# Entri seperti ini diuji ulang sekali sebelum dinyatakan mati, supaya prune
+# tidak membuang channel yang sebenarnya hidup.
+TRANSIENT = {"404", "http 404", "timeout", "timeout/refused", "server 500",
+             "server 502", "server 503", "server 504", "rate 429", "error"}
+RETRY_DELAY = 1.2
+
+
+def probe(entry: Entry) -> dict:
+    res = _probe_once(entry)
+    if res["status"] in TRANSIENT:
+        time.sleep(RETRY_DELAY)
+        again = _probe_once(entry)
+        if again["status"] not in TRANSIENT:
+            again["detail"] = (again["detail"] + " (retry ok)").strip()
+            return again
+        res["detail"] = (res["detail"] + " (retry tetap gagal)").strip()
+    return res
 
 
 def main() -> int:

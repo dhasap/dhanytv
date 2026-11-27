@@ -132,7 +132,7 @@ jobs:
         run: |
           echo "=== Buang baris astatv yang manifest-nya kosong/mati ==="
           python3 update-script/check_playlist.py dhanytv.m3u --only astatv.karaa.web.id \
-            --workers 32 --out /tmp/astatv_check.json || true
+            --workers 12 --out /tmp/astatv_check.json || true
           if [ -f /tmp/astatv_check.json ]; then
             python3 update-script/repair_playlist.py dhanytv.m3u /tmp/astatv_check.json --write \
               --report /tmp/astatv_repair.json || echo "WARN: repair astatv dilewati"
@@ -141,7 +141,7 @@ jobs:
       - name: Prune dead channels (full liveness pass)
         run: |
           echo "=== Uji semua entri, buang yang benar-benar mati ==="
-          python3 update-script/check_playlist.py dhanytv.m3u --workers 40 \
+          python3 update-script/check_playlist.py dhanytv.m3u --workers 12 \
             --out /tmp/full_check.json || true
           if [ -f /tmp/full_check.json ]; then
             python3 update-script/repair_playlist.py dhanytv.m3u /tmp/full_check.json \

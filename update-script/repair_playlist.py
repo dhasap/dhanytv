@@ -33,7 +33,7 @@ SAFE_ONLY_DEAD = {
 }
 
 ATTR_RE = re.compile(r'([a-zA-Z0-9_-]+)="([^"]*)"')
-AST_RE = re.compile(r'astatv(?:-api)?\.pages\.dev', re.I)
+AST_RE = re.compile(r"astatv(?:-api)?\.pages\.dev|astatv\.karaa\.web\.id", re.I)
 
 
 def norm(name: str) -> str:
