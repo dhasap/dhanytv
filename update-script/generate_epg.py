@@ -26,6 +26,11 @@ RE_ATTR = re.compile(r'([A-Za-z0-9_-]+)=\"([^\"]*)\"')
 # Manual mapping: playlist tvg-id -> source_channel_id
 # Used when exact match fails OR when source has better data under different ID.
 MANUAL_ID_MAP: dict[str, str] = {
+    # id astatv / varian id yang tidak dikenali sumber EPG
+    "10": "GTV.id",
+    "9": "MNCTV.id",
+    "GTV.id@SD": "GTV.id",
+    "MNCTV.id@SD": "MNCTV.id",
     # Sportstars (Indonesian sports)
     "Sportstars": "Sportstars.id",
     "Sportstars 2": "Sportstars2.id",
