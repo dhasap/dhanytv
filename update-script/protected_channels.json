@@ -3,7 +3,7 @@
   "name": "MetroTV",
   "tvg_id": "MetroTV.id",
   "group": "Indonesia Channels",
-  "url": "https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8",
+  "url": "http://103.165.207.108:8000/play/a00a/index.m3u8",
   "headers": {}
  },
  {
@@ -135,6 +135,48 @@
   "tvg_id": "Nickelodeon.anixa",
   "group": "Kids",
   "url": "https://ma.anixa.tv/clips/stream/nickelodeon/playlist.php",
+  "headers": {}
+ },
+ {
+  "name": "RCTI",
+  "tvg_id": "RCTI.id",
+  "group": "Indonesia Channels",
+  "url": "http://103.165.207.108:8000/play/a00e/index.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "SCTV",
+  "tvg_id": "SCTV.id",
+  "group": "Indonesia Channels",
+  "url": "http://103.165.207.108:8000/play/a00b/index.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Bali TV",
+  "tvg_id": "BaliTV.id",
+  "group": "Local Channels",
+  "url": "http://103.165.207.108:8000/play/a00d/index.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "NET",
+  "tvg_id": "NET.id",
+  "group": "Indonesia Channels",
+  "url": "http://103.165.207.108:8000/play/a003/index.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "Nick Jr",
+  "tvg_id": "NickJr.id",
+  "group": "Kids",
+  "url": "http://103.165.207.108:8000/play/a00u/index.m3u8",
+  "headers": {}
+ },
+ {
+  "name": "BBC World News",
+  "tvg_id": "BBCWorldNews.id",
+  "group": "News",
+  "url": "http://103.165.207.108:8000/play/a01d/index.m3u8",
   "headers": {}
  }
 ]
